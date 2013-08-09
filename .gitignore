@@ -1,0 +1,10 @@
+CMakeCache.txt
+CMakeFiles/
+CPackConfig.cmake
+CPackSourceConfig.cmake
+Makefile
+cmake_install.cmake
+Core/thiefcatcher-errors.log
+Core/ThiefCatcher
+Core/CMakeFiles/
+*.o
