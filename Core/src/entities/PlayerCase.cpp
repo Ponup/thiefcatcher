@@ -51,8 +51,6 @@ PlayerCase::~PlayerCase() {
 	delete clues[1];
 	delete clues[0];
 
-	delete clues;
-
 	free(stolenObject);
 }
 
