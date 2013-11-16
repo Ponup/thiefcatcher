@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ -e wthim.dat ]; then
-	rm wthim.dat
-fi
+dbName=game.db
 
-sqlite3 wthim.dat < model.sql
+rm -f $dbName
+sqlite3 $dbName < struct.sql
+sqlite3 $dbName < data.sql
 

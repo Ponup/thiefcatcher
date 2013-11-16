@@ -17,7 +17,7 @@ class DossierScreen : public EventHandler {
 private:
 	Window *window;
 
-	vector<Criminal> criminals;
+	vector<Criminal> *criminals;
 
 	unsigned char index;
 	bool quit;

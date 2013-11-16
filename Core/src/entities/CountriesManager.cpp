@@ -1,23 +1,42 @@
 #include "CountriesManager.h"
 
-void CountriesManager::completeCountry(Country *country, const ResultSet &rs, int index) {
-	country->setID(rs.getInt(index, 0));
-	country->setName(rs.getString(index, 1));
-	country->setDescription(rs.getString(index, 2));
-	country->setTreasure(rs.getString(index, 3));
-	country->setCoord(Point(rs.getInt(index, 4), rs.getInt(index, 5)));
-	country->setCoin(rs.getString(index, 6));
-	country->setFlagDescription(rs.getString(index, 7));
-}
+#include <tinyxml2.h>
 
-vector<Country> CountriesManager::findAll() {
-	vector<Country> countries;
+using tinyxml2::XMLDocument;
+using tinyxml2::XMLElement;
 
-	ResultSet &rs = Database::getInstance().execute("SELECT id, name, description, treasure, coord_x, coord_y, currency, flag_desc FROM country");
-	for(unsigned int i = 0; i < rs.rowsCount(); i++) {
+vector<Country>* CountriesManager::findAll() {
+	static vector<Country> *countries = NULL;
+
+	if( NULL != countries ) {
+		return countries;
+	}
+
+	countries = new vector<Country>;
+
+	XMLDocument xmlDoc;
+	int errorCode = xmlDoc.LoadFile( "data/countries.xml" );
+	if( tinyxml2::XML_NO_ERROR != errorCode ) {
+		return countries;
+	}
+
+	unsigned int id = 0;
+	XMLElement *rootNode = xmlDoc.RootElement();
+	for( XMLElement *countryNode = rootNode->FirstChildElement( "country" ); NULL != countryNode; countryNode = countryNode->NextSiblingElement( "country" ) ) {
 		Country country;
-		completeCountry(&country, rs, i);
-		countries.push_back(country);
+		country.setID( ++id );
+		country.setCode( countryNode->Attribute( "code" ) );
+		country.setName( countryNode->FirstChildElement( "name" )->GetText() );
+		country.setCapital( countryNode->FirstChildElement( "capital" )->GetText() );
+		country.setLanguage( countryNode->FirstChildElement( "language" )->GetText() );
+		country.setCoin( countryNode->FirstChildElement( "currency" )->GetText() );
+		country.setTreasure( countryNode->FirstChildElement( "treasure" )->GetText() );
+//		country.setName( countryNode->FirstChildElement( "coord-lat" )->GetText() );
+		country.setCoord( Point( 1, 2 ) );
+		country.setDescription( countryNode->FirstChildElement( "description" )->GetText() );
+		country.setFlagDescription( countryNode->FirstChildElement( "flag-description" )->GetText() );
+		printf("%s\n",country.toString());
+		countries->push_back( country );
 	}
 
 	return countries;	
@@ -26,21 +45,16 @@ vector<Country> CountriesManager::findAll() {
 vector<int> CountriesManager::findAllPrimaryKeys() {
 	vector<int> primaryKeys;
 
-	ResultSet &rs = Database::getInstance().execute("SELECT id FROM country");
-	for(unsigned int i = 0; i < rs.rowsCount(); i++) {
-		primaryKeys.push_back(rs.getInt(i, 0));
+	vector<Country> *countries = findAll();
+	for( vector<Country>::iterator it = countries->begin(); it != countries->end(); it++ ) {
+		primaryKeys.push_back( (*it).getID() );
 	}
 
 	return primaryKeys;	
 }
 
-Country *CountriesManager::findByPrimaryKey(int id) {
-	Country *country = NULL;
-	ResultSet &rs = Database::getInstance().execute("SELECT id, name, description, treasure, coord_x, coord_y, currency, flag_desc FROM country WHERE id = %d", id);
-	if(rs.rowsCount() == 1) {
-		country = new Country;
-		completeCountry(country, rs, 0);
-	}
-	return country;
+Country *CountriesManager::findByPrimaryKey( unsigned int id ) {
+	vector<Country> *countries = findAll();
+	return ( id - 1 < countries->size() ? new Country( countries->at( id - 1 ) ) : NULL );
 }
 

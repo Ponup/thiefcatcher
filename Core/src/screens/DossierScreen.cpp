@@ -32,8 +32,6 @@ DossierScreen::DossierScreen(Window *window_) : window(window_) {
 }
 
 DossierScreen::~DossierScreen() {
-	criminals.clear();
-
 	delete backgroundSurf;
 }
 
@@ -50,11 +48,11 @@ void DossierScreen::show() {
 }
 
 void DossierScreen::updateScreen(bool update) {
-	Criminal &criminal = criminals.at(index);
+	Criminal &criminal = criminals->at(index);
 
 	char path[50];
 	memset(path, '\0', 50);
-	sprintf(path, "data/criminals/%d.jpeg", criminal.getID());
+	sprintf(path, "data/criminals/%d.jpg", criminal.getID());
 
 	window->drawSurface(backgroundSurf, Point(0, 0));
 
@@ -117,7 +115,7 @@ void DossierScreen::onMouseButtonUp(SDL_MouseButtonEvent e) {
 void DossierScreen::onKeyDown(SDL_KeyboardEvent e) {
 	switch (e.keysym.sym) {
 	case SDLK_RIGHT:
-		if (index + 1 < static_cast<int>(criminals.size())) {
+		if (index + 1 < static_cast<int>(criminals->size())) {
 			index++;
 		}
 		break;

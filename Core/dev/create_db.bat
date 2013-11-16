@@ -1,5 +1,5 @@
 @echo off
 
-sqlite3 wthim.dat < struct.sql
-sqlite3 wthim.dat < data.sql
+sqlite3 game.db < struct.sql
+sqlite3 game.db < data.sql
 

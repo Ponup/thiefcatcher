@@ -13,19 +13,16 @@ using std::string;
 
 class CriminalsManager {
 
-	private:
-		static void completeCriminal(ResultSet &rs, Criminal *criminal, int i);
-				
 	public:
-		static vector<Criminal> findAll();
+		static vector<Criminal>* findAll();
 		static vector<int> findAllPrimaryKeys();
 		
-		static vector<string> & findAllHairs();
-		static vector<string> & findAllHobbies();
-		static vector<string> & findAllFeatures();
+		static vector<string> &findAllHairs();
+		static vector<string> &findAllHobbies();
+		static vector<string> &findAllFeatures();
 		
-		static Criminal *findByPrimaryKey(int id);
-		static Criminal *findByFeatures(const char *genre, const char *hobby, const char *hair);
+		static Criminal* findByPrimaryKey( unsigned int id );
+		static Criminal* findByFeatures(const char *genre, const char *hobby, const char *hair);
 };
 
 #endif

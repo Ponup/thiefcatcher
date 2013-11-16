@@ -8,11 +8,14 @@ class Country {
 
 	private:
 		unsigned char id;
+		char *code;
 		char *name;
 		char *description;
 		char *treasure;
 		char *coin;
 		char *flagDesc;
+		char *capital;
+		char *language;
 		Point coord;
 		
 	public:
@@ -21,6 +24,8 @@ class Country {
 		Country &operator=(const Country &country);
 		~Country();
 
+		void setCode( const char *code );
+		const char* getCode() const;
 		void setID(unsigned char id);
 		unsigned char getID() const;
 		void setName(const char *name);
@@ -35,6 +40,10 @@ class Country {
 		const char *getFlagDescription() const;
 		void setCoord(const Point &point);
 		Point getCoord() const;
+		void setLanguage( const char *language );
+		const char* getLanguage() const;
+		void setCapital( const char *capital );
+		const char* getCapital() const;
 
 		Surface *getPhoto() const;
 		Surface *getFlag() const;

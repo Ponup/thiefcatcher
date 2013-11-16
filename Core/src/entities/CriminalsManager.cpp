@@ -1,22 +1,37 @@
 #include "CriminalsManager.h"
 
-void CriminalsManager::completeCriminal(ResultSet &rs, Criminal *criminal, int i) {
-	criminal->setID(rs.getInt(i, 0));
-	criminal->setName(rs.getString(i, 1));
-	criminal->setSex(rs.getString(i, 2));
-	criminal->setHobby(rs.getString(i, 3));
-	criminal->setHair(rs.getString(i, 4));
-	criminal->setFeature(rs.getString(i, 5));
-}
+#include <tinyxml2.h>
 
-vector<Criminal> CriminalsManager::findAll() {
-	vector<Criminal> criminals;
+using tinyxml2::XMLDocument;
+using tinyxml2::XMLElement;
 
-	ResultSet &rs = Database::getInstance().execute("SELECT id, name, genre, hobby, hair, feature FROM criminal");
-	for(unsigned int i = 0; i < rs.rowsCount(); i++) {
+vector<Criminal>* CriminalsManager::findAll() {
+	static vector<Criminal> *criminals = NULL;
+
+	if( NULL != criminals ) {
+		return criminals;
+	}
+
+	criminals = new vector<Criminal>;
+
+	XMLDocument doc;
+	int errorCode = doc.LoadFile( "data/criminals.xml" );
+	if( errorCode != tinyxml2::XML_NO_ERROR ) {
+		// @todo Log the error.
+		return criminals;
+	}
+
+	unsigned int criminalId = 0;
+	XMLElement *rootNode = doc.RootElement();
+	for( XMLElement *criminalNode = rootNode->FirstChildElement( "criminal" ); NULL != criminalNode; criminalNode = criminalNode->NextSiblingElement( "criminal" ) ) {
 		Criminal criminal;
-		completeCriminal(rs, &criminal, i);
-		criminals.push_back(criminal);
+		criminal.setID( ++criminalId );
+		criminal.setSex( criminalNode->Attribute( "genre" ) );
+		criminal.setName( criminalNode->FirstChildElement( "name" )->GetText() );
+		criminal.setHobby( criminalNode->FirstChildElement( "trait" )->GetText() );
+		criminal.setHair( criminalNode->FirstChildElement( "hair" )->GetText() );
+		criminal.setFeature( criminalNode->FirstChildElement( "body" )->GetText() );
+		criminals->push_back( criminal );
 	}
 
 	return criminals;	
@@ -25,9 +40,10 @@ vector<Criminal> CriminalsManager::findAll() {
 vector<string> &CriminalsManager::findAllHairs() {
 	vector<string> *list = new vector<string>;
 
-	ResultSet &rs = Database::getInstance().execute("SELECT DISTINCT hair FROM criminal ORDER BY hair ASC");
-	for(unsigned int i = 0; i < rs.rowsCount(); i++) {
-		list->push_back(rs.getString(i, 0));
+	vector<Criminal> *criminals = findAll();
+	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
+		Criminal criminal = *it;
+		list->push_back( criminal.getHair() );
 	}
 
 	return *list;		
@@ -36,9 +52,10 @@ vector<string> &CriminalsManager::findAllHairs() {
 vector<string> & CriminalsManager::findAllHobbies() {
 	vector<string> *list = new vector<string>;
 
-	ResultSet &rs = Database::getInstance().execute("SELECT DISTINCT hobby FROM criminal ORDER BY hobby ASC");
-	for(unsigned int i = 0; i < rs.rowsCount(); i++) {
-		list->push_back(rs.getString(i, 0));
+	vector<Criminal> *criminals = findAll();
+	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
+		Criminal criminal = *it;
+		list->push_back( criminal.getHobby() );
 	}
 
 	return *list;			
@@ -47,48 +64,41 @@ vector<string> & CriminalsManager::findAllHobbies() {
 vector<string> &CriminalsManager::findAllFeatures() {	
 	vector<string> *list = new vector<string>;
 
-	ResultSet &rs = Database::getInstance().execute("SELECT DISTINCT feature FROM criminal ORDER BY feature ASC");
-	for(unsigned int i = 0; i < rs.rowsCount(); i++) {
-		list->push_back(rs.getString(i, 0));
+	vector<Criminal> *criminals = findAll();
+	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
+		Criminal criminal = *it;
+		list->push_back( criminal.getFeature() );
 	}
 
 	return *list;
 }
 
 Criminal *CriminalsManager::findByFeatures(const char *genre, const char *hobby, const char *hair) {
-	Criminal *criminal = NULL;
-	
-	ResultSet & rs = Database::getInstance().execute("SELECT * FROM criminal WHERE genre = '%s' AND hobby = '%s' AND hair = '%s'",
-			genre, hobby, hair
-	);
-	if(rs.rowsCount() == 1) {
-		criminal = new Criminal;
-		completeCriminal(rs, criminal, 0);
+	vector<Criminal> *criminals = findAll();
+	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
+		Criminal criminal = *it;
+		if( strcasecmp( criminal.getSex(), genre ) == 0 && strcasecmp( criminal.getHobby(), hobby ) == 0 && strcasecmp( criminal.getHair(), hair ) == 0 ) {
+			return new Criminal( criminal );
+		}
 	}
-	
-	return criminal;
+
+	return NULL;
 }
 
 vector<int> CriminalsManager::findAllPrimaryKeys() {
 	vector<int> primaryKeys;
 
-	ResultSet &rs = Database::getInstance().execute("SELECT id FROM criminal");
-	for(unsigned int i = 0; i < rs.rowsCount(); i++) {
-		primaryKeys.push_back(rs.getInt(i, 0));
+	vector<Criminal> *criminals = findAll();
+	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
+		Criminal criminal = *it;
+		primaryKeys.push_back( criminal.getID() );
 	}
 
 	return primaryKeys;	
 }
 
-Criminal *CriminalsManager::findByPrimaryKey(int id) {
-	Criminal *criminal = NULL;
-
-	ResultSet &rs = Database::getInstance().execute("SELECT id, name, genre, hobby, hair, feature FROM criminal WHERE id = %d", id);
-	if(rs.rowsCount() == 1) {
-		criminal = new Criminal;
-		completeCriminal(rs, criminal, 0);
-	}
-
-	return criminal;
+Criminal *CriminalsManager::findByPrimaryKey( unsigned int id ) {
+	vector<Criminal> *criminals = findAll();
+	return ( id - 1 < criminals->size() ? new Criminal( criminals->at( id - 1 ) ) : NULL );
 }
 

@@ -9,3 +9,4 @@ Core/ThiefCatcher
 Core/CMakeFiles/
 *.o
 thiefcatcher-errors.log
+Core/data/game.db

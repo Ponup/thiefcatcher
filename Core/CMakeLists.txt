@@ -5,6 +5,7 @@ FIND_PACKAGE(SDL_gfx REQUIRED)
 FIND_PACKAGE(SDL_mixer REQUIRED)
 FIND_PACKAGE(SDL_ttf REQUIRED)
 FIND_PACKAGE(CURL REQUIRED)
+# FIND_PACKAGE(TINYXML2 REQUIRED)
 # FIND_PACKAGE(sqlite3)
 
 INCLUDE_DIRECTORIES(
@@ -27,7 +28,7 @@ ENDIF()
 LINK_LIBRARIES(${SDL_LIBRARY} ${SDL_image_LIBRARY})
 
 IF(UNIX)
-	ADD_DEFINITIONS(-pedantic -pedantic-errors -Wall -Werror `sdl-config --cflags`)
+	ADD_DEFINITIONS(-pedantic -pedantic-errors -Wall -Werror `sdl-config --cflags` -g)
 ELSE(UNIX)
 	ADD_DEFINITIONS(-Wall)
 ENDIF(UNIX)
@@ -44,7 +45,7 @@ ENDIF()
 
 IF(UNIX)
 	EXEC_PROGRAM("sdl-config" ARGS "--libs" OUTPUT_VARIABLE SDLCONFIG_LIBS)
-	LINK_LIBRARIES(${KANGAROO_LIB} ${SDLCONFIG_LIBS} sqlite3 curl SDL_image SDL_gfx SDL_mixer SDL_ttf)
+	LINK_LIBRARIES(${KANGAROO_LIB} ${SDLCONFIG_LIBS} sqlite3 curl SDL_image SDL_gfx SDL_mixer SDL_ttf tinyxml2)
 ENDIF()
 
 ADD_EXECUTABLE(

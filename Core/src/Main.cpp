@@ -136,7 +136,7 @@ int main(int argc, char * argv[]) {
 					new Window(_("Thief Catcher"), GAME_WINDOW_W, GAME_WINDOW_H, "resources/icons/icon.png", configurator.isFullScreen());
 
 	try {
-		Database::init("data/wthim.dat");
+		Database::init( "data/game.db" );
 		Vars::init();
 	} catch (std::runtime_error &error) {
 		fprintf(stderr, "ERROR: %s\n", error.what());

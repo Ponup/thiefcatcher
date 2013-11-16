@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<countries>
+	<country code="ar">
+		<name>Argentina</name>
+		<capital>Buenos Aires</capital>
+		<language>Spanish</language>
+		<currency>Peso</currency>
+		<treasure>Yerba Mate</treasure>
+		<coord-lat>204</coord-lat>
+		<coord-long>238</coord-long>
+		<description>Argentina is a country in southern South America. It ranks second in land area in South America, and eighth in the world.</description>
+		<flag-description>celeste y blanca</flag-description>
+	</country>
+	<country code="br">
+		<name>Brazil</name>
+		<capital>Bras�lia</capital>
+		<language>Portuguese</language>
+		<currency>Real</currency>
+		<treasure>Xuxa</treasure>
+		<coord-lat>217</coord-lat>
+		<coord-long>183</coord-long>
+		<description>Brazil is the largest and most populous country in South America, and fifth largest in the world in both area and population.</description>
+		<flag-description>verde y amarillo</flag-description>
+	</country>
+	<country code="ca">
+		<name>Canada</name>
+		<capital>Ottawa</capital>
+		<language>English, French</language>
+		<currency>Dollar</currency>
+		<treasure>Killy minoge</treasure>
+		<coord-lat>154</coord-lat>
+		<coord-long>49</coord-long>
+		<description>Canada is the worlds second-largest country by total area, occupying most of northern North America.</description>
+		<flag-description>bandera canada</flag-description>
+	</country>
+	<country code="cl">
+		<name>Chile</name>
+		<capital>Santiago</capital>
+		<language>Spanish</language>
+		<currency>Peso</currency>
+		<treasure>La ley</treasure>
+		<coord-lat>185</coord-lat>
+		<coord-long>231</coord-long>
+		<description>Chile, officially the Republic of Chile, is a country in South America occupying a long and narrow coastal strip wedged between the Andes mountains and the Pacific Ocean.</description>
+		<flag-description>bandera chile</flag-description>
+	</country>
+	<country code="co">
+		<name>Colombia</name>
+		<capital>Bogot�</capital>
+		<language>Spanish</language>
+		<currency>Peso</currency>
+		<treasure>Shakira</treasure>
+		<coord-lat>176</coord-lat>
+		<coord-long>157</coord-long>
+		<description>Colombia, or formally, the Republic of Colombia, is the northwesternmost country of South America.</description>
+		<flag-description>bandera colombia</flag-description>
+	</country>
+	<country code="en">
+		<name>England</name>
+		<capital>London</capital>
+		<language>English</language>
+		<currency>Pound sterling</currency>
+		<treasure>Victoria Beckman</treasure>
+		<coord-lat>331</coord-lat>
+		<coord-long>40</coord-long>
+		<description>England is a nation in northwest Europe, and the largest and most populous constituent country of the United Kingdom of Great Britain and Northern Ireland.</description>
+		<flag-description>bandera england</flag-description>
+	</country>
+	<country code="us">
+		<name>EEUU</name>
+		<capital>Washington, D.C.</capital>
+		<language>English</language>
+		<currency>Dollar</currency>
+		<treasure>Madonna</treasure>
+		<coord-lat>133</coord-lat>
+		<coord-long>86</coord-long>
+		<description>United States of America, also known as the United States, the U.S., the US , the U.S.A., the USA , the U.S. of A., The States, and America, is a country in North America that extends from the Atlantic Ocean to the Pacific Ocean and shares land borders with Canada and Mexico.</description>
+		<flag-description>eeuuuu bandeara</flag-description>
+	</country>
+	<country code="fr">
+		<name>France</name>
+		<capital>Paris</capital>
+		<language>French</language>
+		<currency>Euro</currency>
+		<treasure>Zidane</treasure>
+		<coord-lat>313</coord-lat>
+		<coord-long>70</coord-long>
+		<description>France, is a country whose metropolitan territory is located in Western Europe and which also comprises various overseas islands and territories located in other continents.</description>
+		<flag-description>le bandera</flag-description>
+	</country>
+	<country code="de">
+		<name>Germany</name>
+		<capital>Berlin</capital>
+		<language>German</language>
+		<currency>Euro</currency>
+		<treasure>Hittler</treasure>
+		<coord-lat>337</coord-lat>
+		<coord-long>58</coord-long>
+		<description>Germany is a democratic parliamentary federal republic, made up of 16 states (Bundesl�nder), which in certain spheres act independently of the federation.</description>
+		<flag-description>her flag</flag-description>
+	</country>
+	<country code="it">
+		<name>Italy</name>
+		<capital>Rome</capital>
+		<language>Italian</language>
+		<currency>Euro</currency>
+		<treasure>Pissa</treasure>
+		<coord-lat>328</coord-lat>
+		<coord-long>78</coord-long>
+		<description>The Italian Republic is a country located in Southern Europe, that comprises the Po River valley, the Italian Peninsula and the two largest islands in the Mediterranean Sea, Sicily and Sardinia.</description>
+		<flag-description>italia bandera</flag-description>
+	</country>
+	<country code="ja">
+		<name>Jamaica</name>
+		<capital>Kingston</capital>
+		<language>English</language>
+		<currency>Dollar</currency>
+		<treasure>Bob marley</treasure>
+		<coord-lat>169</coord-lat>
+		<coord-long>128</coord-long>
+		<description>Jamaica is an island nation of the Greater Antilles, 240 kilometres (150 mi) in length and as much as 85 kilometres (50 mi) in width situated in the Caribbean Sea.</description>
+		<flag-description>jamaica bandera</flag-description>
+	</country>
+	<country code="nl">
+		<name>Netherlands</name>
+		<capital>Amsterdam</capital>
+		<language>Dutch</language>
+		<currency>Euro</currency>
+		<treasure>Naranja mecanica</treasure>
+		<coord-lat>316</coord-lat>
+		<coord-long>58</coord-long>
+		<description>The Netherlands is the European part of the Kingdom of the Netherlands, which consists of the Netherlands, the Netherlands Antilles, and Aruba.</description>
+		<flag-description>netherlendasssss</flag-description>
+	</country>
+	<country code="pe">
+		<name>Peru</name>
+		<capital>Lima</capital>
+		<language>Spanish, Quechua, Aymara</language>
+		<currency>Nuevo Sol</currency>
+		<treasure>Nose</treasure>
+		<coord-lat>170</coord-lat>
+		<coord-long>181</coord-long>
+		<description>Peru, officially the Republic of Peru, is a country in western South America, bordering Ecuador and Colombia to the north, Brazil to the east, Bolivia to the south-east, Chile to the south, and the Pacific Ocean to the west.</description>
+		<flag-description>bandera lima</flag-description>
+	</country>
+	<country code="py">
+		<name>Paraguay</name>
+		<capital>Asunci�n</capital>
+		<language>Spanish, Guaran�</language>
+		<currency>Guaran�</currency>
+		<treasure>Killy minoge</treasure>
+		<coord-lat>205</coord-lat>
+		<coord-long>213</coord-long>
+		<description>Paraguay, officially the Republic of Paraguay, is a landlocked country in South America. It lies on both banks of the Paraguay River, bordering Argentina to the south and southwest, Brazil to the east and northeast, and Bolivia to the northwest, and is located in the very heart of South America.</description>
+		<flag-description>bandera paraguay</flag-description>
+	</country>
+	<country code="uy">
+		<name>Uruguay</name>
+		<capital>Montevideo</capital>
+		<language>Spanish</language>
+		<currency>Peso</currency>
+		<treasure>Killy minoge</treasure>
+		<coord-lat>211</coord-lat>
+		<coord-long>232</coord-long>
+		<description>Uruguay, officially the Eastern Republic of Uruguay or the Republic East of the Uruguay (River), is a nation located in southern part of South America.</description>
+		<flag-description>bandera uruguay</flag-description>
+	</country>
+	<country code="ve">
+		<name>Venezuela</name>
+		<capital>Caracas</capital>
+		<language>Spanish</language>
+		<currency>Bol�var</currency>
+		<treasure>Killy minoge</treasure>
+		<coord-lat>187</coord-lat>
+		<coord-long>149</coord-long>
+		<description>Venezuela, officially the Bolivarian Republic of Venezuela, is a country on the northern coast of South America.</description>
+		<flag-description>bandera venezuela</flag-description>
+	</country>
+	<country code="es">
+		<name>Spain</name>
+		<capital>Madrid</capital>
+		<language>Spanish</language>
+		<currency>Euro</currency>
+		<treasure>Fito</treasure>
+		<coord-lat>303</coord-lat>
+		<coord-long>83</coord-long>
+		<description>Spain, officially the Kingdom of Spain, is a country located in Southern Europe, with two small exclaves in North Africa (both bordering Morocco). Spain is a democracy which is organized as a parliamentary monarchy.</description>
+		<flag-description>amarilla y rojo</flag-description>
+	</country>
+</countries>
