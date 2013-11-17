@@ -1,22 +1,30 @@
 #ifndef COUNTRY_H
 #define COUNTRY_H
 
+#include <vector>
+#include <string>
+
 #include <Surface.h>
 #include <Point.h>
+
+using std::vector;
+using std::string;
 
 class Country {
 
 	private:
 		unsigned char id;
+		char *isoCode;
 		char *code;
 		char *name;
 		char *description;
 		char *treasure;
-		char *coin;
 		char *flagDesc;
 		char *capital;
-		char *language;
 		Point coord;
+
+		vector<string> languages;
+		vector<string> currencies;
 		
 	public:
 		Country();
@@ -24,6 +32,8 @@ class Country {
 		Country &operator=(const Country &country);
 		~Country();
 
+		void setIsoCode( const char *isoCode );
+		const char* getIsoCode() const;
 		void setCode( const char *code );
 		const char* getCode() const;
 		void setID(unsigned char id);
@@ -34,14 +44,14 @@ class Country {
 		const char *getDescription() const;
 		void setTreasure(const char *treasure);
 		const char *getTreasure() const;
-		void setCoin(const char *coin);
-		const char *getCoin() const;
 		void setFlagDescription(const char *flagDesc);
 		const char *getFlagDescription() const;
 		void setCoord(const Point &point);
 		Point getCoord() const;
-		void setLanguage( const char *language );
-		const char* getLanguage() const;
+		void setLanguages( const vector<string> &languages );
+		const vector<string> getLanguages() const;
+		void setCurrencies( const vector<string> &currencies );
+		const vector<string> getCurrencies() const;
 		void setCapital( const char *capital );
 		const char* getCapital() const;
 

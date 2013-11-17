@@ -133,7 +133,7 @@ int main(int argc, char * argv[]) {
 
 	Window
 			*window=
-					new Window(_("Thief Catcher"), GAME_WINDOW_W, GAME_WINDOW_H, "resources/icons/icon.png", configurator.isFullScreen());
+					new Window(_("Thief Catcher"), GAME_WINDOW_W, GAME_WINDOW_H, "resources/logo/thief_256.png", configurator.isFullScreen());
 
 	try {
 		Database::init( "data/game.db" );

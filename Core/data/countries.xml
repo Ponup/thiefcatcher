@@ -1,190 +1,3985 @@
 <?xml version="1.0" encoding="utf-8"?>
 <countries>
-	<country code="ar">
-		<name>Argentina</name>
-		<capital>Buenos Aires</capital>
-		<language>Spanish</language>
-		<currency>Peso</currency>
-		<treasure>Yerba Mate</treasure>
-		<coord-lat>204</coord-lat>
-		<coord-long>238</coord-long>
-		<description>Argentina is a country in southern South America. It ranks second in land area in South America, and eighth in the world.</description>
-		<flag-description>celeste y blanca</flag-description>
+	<country isocode="ws" code="samoa" continent="oc">
+		<name>Samoa</name>
+		<capital>Apia</capital>
+		<area-km2>2944.00</area-km2>
+		<population>192001</population>
+		<description>Samoa is a country with a population of 192001 inhabitants. The capital is Apia.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+		</currencies>
 	</country>
-	<country code="br">
-		<name>Brazil</name>
-		<capital>Bras�lia</capital>
-		<language>Portuguese</language>
-		<currency>Real</currency>
-		<treasure>Xuxa</treasure>
-		<coord-lat>217</coord-lat>
-		<coord-long>183</coord-long>
-		<description>Brazil is the largest and most populous country in South America, and fifth largest in the world in both area and population.</description>
-		<flag-description>verde y amarillo</flag-description>
-	</country>
-	<country code="ca">
-		<name>Canada</name>
-		<capital>Ottawa</capital>
-		<language>English, French</language>
-		<currency>Dollar</currency>
-		<treasure>Killy minoge</treasure>
-		<coord-lat>154</coord-lat>
-		<coord-long>49</coord-long>
-		<description>Canada is the worlds second-largest country by total area, occupying most of northern North America.</description>
-		<flag-description>bandera canada</flag-description>
-	</country>
-	<country code="cl">
+	<country isocode="cl" code="chile" continent="sa">
 		<name>Chile</name>
 		<capital>Santiago</capital>
-		<language>Spanish</language>
-		<currency>Peso</currency>
-		<treasure>La ley</treasure>
-		<coord-lat>185</coord-lat>
-		<coord-long>231</coord-long>
-		<description>Chile, officially the Republic of Chile, is a country in South America occupying a long and narrow coastal strip wedged between the Andes mountains and the Pacific Ocean.</description>
-		<flag-description>bandera chile</flag-description>
+		<area-km2>756950.00</area-km2>
+		<population>16746491</population>
+		<description>Chile is a country with a population of 16746491 inhabitants. The capital is Santiago. People speak the languages Spanish. The official currencies are Peso.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Peso</currency>
+		</currencies>
 	</country>
-	<country code="co">
-		<name>Colombia</name>
-		<capital>Bogot�</capital>
-		<language>Spanish</language>
-		<currency>Peso</currency>
-		<treasure>Shakira</treasure>
-		<coord-lat>176</coord-lat>
-		<coord-long>157</coord-long>
-		<description>Colombia, or formally, the Republic of Colombia, is the northwesternmost country of South America.</description>
-		<flag-description>bandera colombia</flag-description>
+	<country isocode="xk" code="kosovo" continent="eu">
+		<name>Kosovo</name>
+		<capital>Pristina</capital>
+		<population>1800000</population>
+		<description>Kosovo is a country with a population of 1800000 inhabitants. The capital is Pristina. People speak the languages Albanian, Serbian. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Albanian</language>
+			<language>Serbian</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
 	</country>
-	<country code="en">
-		<name>England</name>
-		<capital>London</capital>
-		<language>English</language>
-		<currency>Pound sterling</currency>
-		<treasure>Victoria Beckman</treasure>
-		<coord-lat>331</coord-lat>
-		<coord-long>40</coord-long>
-		<description>England is a nation in northwest Europe, and the largest and most populous constituent country of the United Kingdom of Great Britain and Northern Ireland.</description>
-		<flag-description>bandera england</flag-description>
+	<country isocode="gh" code="ghana" continent="af">
+		<name>Ghana</name>
+		<capital>Accra</capital>
+		<area-km2>239460.00</area-km2>
+		<population>24339838</population>
+		<description>Ghana is a country with a population of 24339838 inhabitants. The capital is Accra. People speak the languages English. The official currencies are Ghana cedi.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Ghana cedi</currency>
+		</currencies>
 	</country>
-	<country code="us">
-		<name>EEUU</name>
+	<country isocode="us" code="united_states" continent="na">
+		<name>United States</name>
 		<capital>Washington, D.C.</capital>
-		<language>English</language>
-		<currency>Dollar</currency>
-		<treasure>Madonna</treasure>
-		<coord-lat>133</coord-lat>
-		<coord-long>86</coord-long>
-		<description>United States of America, also known as the United States, the U.S., the US , the U.S.A., the USA , the U.S. of A., The States, and America, is a country in North America that extends from the Atlantic Ocean to the Pacific Ocean and shares land borders with Canada and Mexico.</description>
-		<flag-description>eeuuuu bandeara</flag-description>
+		<area-km2>9629091.00</area-km2>
+		<population>310232863</population>
+		<description>United States is a country with a population of 310232863 inhabitants. The capital is Washington, D.C.. People speak the languages none. The official currencies are United States Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>none</language>
+		</languages>
+		<currencies>
+			<currency>United States Dollar</currency>
+		</currencies>
 	</country>
-	<country code="fr">
-		<name>France</name>
-		<capital>Paris</capital>
-		<language>French</language>
-		<currency>Euro</currency>
-		<treasure>Zidane</treasure>
-		<coord-lat>313</coord-lat>
-		<coord-long>70</coord-long>
-		<description>France, is a country whose metropolitan territory is located in Western Europe and which also comprises various overseas islands and territories located in other continents.</description>
-		<flag-description>le bandera</flag-description>
+	<country isocode="ba" code="bosnia_and_herzegovina" continent="eu">
+		<name>Bosnia and Herzegovina</name>
+		<capital>Sarajevo</capital>
+		<area-km2>51129.00</area-km2>
+		<population>4590000</population>
+		<description>Bosnia and Herzegovina is a country with a population of 4590000 inhabitants. The capital is Sarajevo. People speak the languages Bosnian, Croatian, Serbian. The official currencies are Convertible mark.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Bosnian</language>
+			<language>Croatian</language>
+			<language>Serbian</language>
+		</languages>
+		<currencies>
+			<currency>Convertible mark</currency>
+		</currencies>
 	</country>
-	<country code="de">
-		<name>Germany</name>
-		<capital>Berlin</capital>
-		<language>German</language>
-		<currency>Euro</currency>
-		<treasure>Hittler</treasure>
-		<coord-lat>337</coord-lat>
-		<coord-long>58</coord-long>
-		<description>Germany is a democratic parliamentary federal republic, made up of 16 states (Bundesl�nder), which in certain spheres act independently of the federation.</description>
-		<flag-description>her flag</flag-description>
+	<country isocode="sx" code="sint_maarten" continent="na">
+		<name>Sint Maarten</name>
+		<capital>Philipsburg</capital>
+		<population>37429</population>
+		<description>Sint Maarten is a country with a population of 37429 inhabitants. The capital is Philipsburg. The official currencies are Netherlands Antillean guilder.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+			<currency>Netherlands Antillean guilder</currency>
+		</currencies>
 	</country>
-	<country code="it">
-		<name>Italy</name>
-		<capital>Rome</capital>
-		<language>Italian</language>
-		<currency>Euro</currency>
-		<treasure>Pissa</treasure>
-		<coord-lat>328</coord-lat>
-		<coord-long>78</coord-long>
-		<description>The Italian Republic is a country located in Southern Europe, that comprises the Po River valley, the Italian Peninsula and the two largest islands in the Mediterranean Sea, Sicily and Sardinia.</description>
-		<flag-description>italia bandera</flag-description>
+	<country isocode="uz" code="uzbekistan" continent="as">
+		<name>Uzbekistan</name>
+		<capital>Tashkent</capital>
+		<area-km2>447400.00</area-km2>
+		<population>27865738</population>
+		<description>Uzbekistan is a country with a population of 27865738 inhabitants. The capital is Tashkent. People speak the languages Uzbek. The official currencies are Uzbekistan som (O'zbekiston so'mi).</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Uzbek</language>
+		</languages>
+		<currencies>
+			<currency>Uzbekistan som (O'zbekiston so'mi)</currency>
+		</currencies>
 	</country>
-	<country code="ja">
-		<name>Jamaica</name>
-		<capital>Kingston</capital>
-		<language>English</language>
-		<currency>Dollar</currency>
-		<treasure>Bob marley</treasure>
-		<coord-lat>169</coord-lat>
-		<coord-long>128</coord-long>
-		<description>Jamaica is an island nation of the Greater Antilles, 240 kilometres (150 mi) in length and as much as 85 kilometres (50 mi) in width situated in the Caribbean Sea.</description>
-		<flag-description>jamaica bandera</flag-description>
+	<country isocode="kp" code="north_korea" continent="as">
+		<name>North Korea</name>
+		<capital>Pyongyang</capital>
+		<area-km2>120540.00</area-km2>
+		<population>22912177</population>
+		<description>North Korea is a country with a population of 22912177 inhabitants. The capital is Pyongyang. People speak the languages Korean. The official currencies are North Korean won.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Korean</language>
+		</languages>
+		<currencies>
+			<currency>North Korean won</currency>
+		</currencies>
 	</country>
-	<country code="nl">
+	<country isocode="dj" code="djibouti" continent="af">
+		<name>Djibouti</name>
+		<capital>Djibouti</capital>
+		<area-km2>23000.00</area-km2>
+		<population>740528</population>
+		<description>Djibouti is a country with a population of 740528 inhabitants. The capital is Djibouti. People speak the languages French, Arabic. The official currencies are Djiboutian franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Djiboutian franc</currency>
+		</currencies>
+	</country>
+	<country isocode="gq" code="equatorial_guinea" continent="af">
+		<name>Equatorial Guinea</name>
+		<capital>Malabo</capital>
+		<area-km2>28051.00</area-km2>
+		<population>1014999</population>
+		<description>Equatorial Guinea is a country with a population of 1014999 inhabitants. The capital is Malabo. People speak the languages Spanish, French, Portuguese. The official currencies are Equatorial Guinean peseta.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+			<language>French</language>
+			<language>Portuguese</language>
+		</languages>
+		<currencies>
+			<currency>Equatorial Guinean peseta</currency>
+		</currencies>
+	</country>
+	<country isocode="mt" code="malta" continent="eu">
+		<name>Malta</name>
+		<capital>Valletta</capital>
+		<area-km2>316.00</area-km2>
+		<population>403000</population>
+		<description>Malta is a country with a population of 403000 inhabitants. The capital is Valletta. People speak the languages Maltese, English. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Maltese</language>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="gw" code="guinea-bissau" continent="af">
+		<name>Guinea-Bissau</name>
+		<capital>Bissau</capital>
+		<area-km2>36120.00</area-km2>
+		<population>1565126</population>
+		<description>Guinea-Bissau is a country with a population of 1565126 inhabitants. The capital is Bissau. People speak the languages Portuguese. The official currencies are CFA franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Portuguese</language>
+		</languages>
+		<currencies>
+			<currency>CFA franc</currency>
+		</currencies>
+	</country>
+	<country isocode="jp" code="japan" continent="as">
+		<name>Japan</name>
+		<capital>Tokyo</capital>
+		<area-km2>377835.00</area-km2>
+		<population>127288000</population>
+		<description>Japan is a country with a population of 127288000 inhabitants. The capital is Tokyo. People speak the languages Japanese. The official currencies are Yen.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Japanese</language>
+		</languages>
+		<currencies>
+			<currency>Yen</currency>
+		</currencies>
+	</country>
+	<country isocode="tw" code="taiwan" continent="as">
+		<name>Taiwan</name>
+		<capital>Taipei</capital>
+		<area-km2>35980.00</area-km2>
+		<population>22894384</population>
+		<description>Taiwan is a country with a population of 22894384 inhabitants. The capital is Taipei. People speak the languages Standard Chinese. The official currencies are New Taiwan dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Standard Chinese</language>
+		</languages>
+		<currencies>
+			<currency>New Taiwan dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="tj" code="tajikistan" continent="as">
+		<name>Tajikistan</name>
+		<capital>Dushanbe</capital>
+		<area-km2>143100.00</area-km2>
+		<population>7487489</population>
+		<description>Tajikistan is a country with a population of 7487489 inhabitants. The capital is Dushanbe. People speak the languages Tajik. The official currencies are Somoni.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Tajik</language>
+		</languages>
+		<currencies>
+			<currency>Somoni</currency>
+		</currencies>
+	</country>
+	<country isocode="bb" code="barbados" continent="na">
+		<name>Barbados</name>
+		<capital>Bridgetown</capital>
+		<area-km2>431.00</area-km2>
+		<population>285653</population>
+		<description>Barbados is a country with a population of 285653 inhabitants. The capital is Bridgetown. People speak the languages English. The official currencies are Barbadian Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Barbadian Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="bt" code="bhutan" continent="as">
+		<name>Bhutan</name>
+		<capital>Thimphu</capital>
+		<area-km2>47000.00</area-km2>
+		<population>699847</population>
+		<description>Bhutan is a country with a population of 699847 inhabitants. The capital is Thimphu. People speak the languages Dzongkha. The official currencies are Bhutanese ngultrum.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Dzongkha</language>
+		</languages>
+		<currencies>
+			<currency>Bhutanese ngultrum</currency>
+		</currencies>
+	</country>
+	<country isocode="pm" code="saint_pierre_and_miquelon" continent="na">
+		<name>Saint Pierre and Miquelon</name>
+		<capital>Saint-Pierre</capital>
+		<area-km2>242.00</area-km2>
+		<population>7012</population>
+		<description>Saint Pierre and Miquelon is a country with a population of 7012 inhabitants. The capital is Saint-Pierre. People speak the languages French. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="lt" code="lithuania" continent="eu">
+		<name>Lithuania</name>
+		<capital>Vilnius</capital>
+		<area-km2>65200.00</area-km2>
+		<population>3565000</population>
+		<description>Lithuania is a country with a population of 3565000 inhabitants. The capital is Vilnius. People speak the languages Lithuanian. The official currencies are Lithuanian litas.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Lithuanian</language>
+		</languages>
+		<currencies>
+			<currency>Lithuanian litas</currency>
+		</currencies>
+	</country>
+	<country isocode="mn" code="mongolia" continent="as">
+		<name>Mongolia</name>
+		<capital>Ulaanbaatar</capital>
+		<area-km2>1565000.00</area-km2>
+		<population>3086918</population>
+		<description>Mongolia is a country with a population of 3086918 inhabitants. The capital is Ulaanbaatar. People speak the languages Mongolian. The official currencies are Tögrög.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Mongolian</language>
+		</languages>
+		<currencies>
+			<currency>Tögrög</currency>
+		</currencies>
+	</country>
+	<country isocode="ad" code="andorra" continent="eu">
+		<name>Andorra</name>
+		<capital>Andorra la Vella</capital>
+		<area-km2>468.00</area-km2>
+		<population>84000</population>
+		<description>Andorra is a country with a population of 84000 inhabitants. The capital is Andorra la Vella. People speak the languages Catalan. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Catalan</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="tn" code="tunisia" continent="af">
+		<name>Tunisia</name>
+		<capital>Tunis</capital>
+		<area-km2>163610.00</area-km2>
+		<population>10589025</population>
+		<description>Tunisia is a country with a population of 10589025 inhabitants. The capital is Tunis. People speak the languages Arabic. The official currencies are Tunisian dinar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Tunisian dinar</currency>
+		</currencies>
+	</country>
+	<country isocode="rw" code="rwanda" continent="af">
+		<name>Rwanda</name>
+		<capital>Kigali</capital>
+		<area-km2>26338.00</area-km2>
+		<population>11055976</population>
+		<description>Rwanda is a country with a population of 11055976 inhabitants. The capital is Kigali. People speak the languages Kinyarwanda, English, French. The official currencies are Rwandan franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Kinyarwanda</language>
+			<language>English</language>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Rwandan franc</currency>
+		</currencies>
+	</country>
+	<country isocode="aw" code="aruba" continent="na">
+		<name>Aruba</name>
+		<capital>Oranjestad</capital>
+		<area-km2>193.00</area-km2>
+		<population>71566</population>
+		<description>Aruba is a country with a population of 71566 inhabitants. The capital is Oranjestad. People speak the languages Papiamento, Dutch. The official currencies are Aruban florin.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Papiamento</language>
+			<language>Dutch</language>
+		</languages>
+		<currencies>
+			<currency>Aruban florin</currency>
+		</currencies>
+	</country>
+	<country isocode="pf" code="french_polynesia" continent="oc">
+		<name>French Polynesia</name>
+		<capital>Papeete</capital>
+		<area-km2>4167.00</area-km2>
+		<population>270485</population>
+		<description>French Polynesia is a country with a population of 270485 inhabitants. The capital is Papeete. People speak the languages French. The official currencies are CFP Franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>CFP Franc</currency>
+		</currencies>
+	</country>
+	<country isocode="ar" code="argentina" continent="sa">
+		<name>Argentina</name>
+		<capital>Buenos Aires</capital>
+		<area-km2>2766890.00</area-km2>
+		<population>41343201</population>
+		<description>Argentina is a country with a population of 41343201 inhabitants. The capital is Buenos Aires. People speak the languages Spanish. The official currencies are Peso.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Peso</currency>
+		</currencies>
+	</country>
+	<country isocode="sv" code="el_salvador" continent="na">
+		<name>El Salvador</name>
+		<capital>San Salvador</capital>
+		<area-km2>21040.00</area-km2>
+		<population>6052064</population>
+		<description>El Salvador is a country with a population of 6052064 inhabitants. The capital is San Salvador. People speak the languages Spanish. The official currencies are United States Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>United States Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="bh" code="bahrain" continent="as">
+		<name>Bahrain</name>
+		<capital>Manama</capital>
+		<area-km2>665.00</area-km2>
+		<population>738004</population>
+		<description>Bahrain is a country with a population of 738004 inhabitants. The capital is Manama. People speak the languages Arabic. The official currencies are Bahraini dinar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Bahraini dinar</currency>
+		</currencies>
+	</country>
+	<country isocode="by" code="belarus" continent="eu">
+		<name>Belarus</name>
+		<capital>Minsk</capital>
+		<area-km2>207600.00</area-km2>
+		<population>9685000</population>
+		<description>Belarus is a country with a population of 9685000 inhabitants. The capital is Minsk. People speak the languages Belarusian, Russian. The official currencies are Belarusian ruble.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Belarusian</language>
+			<language>Russian</language>
+		</languages>
+		<currencies>
+			<currency>Belarusian ruble</currency>
+		</currencies>
+	</country>
+	<country isocode="lr" code="liberia" continent="af">
+		<name>Liberia</name>
+		<capital>Monrovia</capital>
+		<area-km2>111370.00</area-km2>
+		<population>3685076</population>
+		<description>Liberia is a country with a population of 3685076 inhabitants. The capital is Monrovia. People speak the languages English. The official currencies are Liberian dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Liberian dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="vc" code="saint_vincent_and_the_grenadines" continent="na">
+		<name>Saint Vincent and the Grenadines</name>
+		<capital>Kingstown</capital>
+		<area-km2>389.00</area-km2>
+		<population>104217</population>
+		<description>Saint Vincent and the Grenadines is a country with a population of 104217 inhabitants. The capital is Kingstown. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>East Caribbean Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="zm" code="zambia" continent="af">
+		<name>Zambia</name>
+		<capital>Lusaka</capital>
+		<area-km2>752614.00</area-km2>
+		<population>13460305</population>
+		<description>Zambia is a country with a population of 13460305 inhabitants. The capital is Lusaka. People speak the languages English. The official currencies are Zambian kwacha.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Zambian kwacha</currency>
+		</currencies>
+	</country>
+	<country isocode="gt" code="guatemala" continent="na">
+		<name>Guatemala</name>
+		<capital>Guatemala City</capital>
+		<area-km2>108890.00</area-km2>
+		<population>13550440</population>
+		<description>Guatemala is a country with a population of 13550440 inhabitants. The capital is Guatemala City. People speak the languages Spanish. The official currencies are Guatemalan quetzal.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Guatemalan quetzal</currency>
+		</currencies>
+	</country>
+	<country isocode="zw" code="zimbabwe" continent="af">
+		<name>Zimbabwe</name>
+		<capital>Harare</capital>
+		<area-km2>390580.00</area-km2>
+		<population>11651858</population>
+		<description>Zimbabwe is a country with a population of 11651858 inhabitants. The capital is Harare. People speak the languages English, Shona, Sindebele. The official currencies are various.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Shona</language>
+			<language>Sindebele</language>
+		</languages>
+		<currencies>
+			<currency>various</currency>
+		</currencies>
+	</country>
+	<country isocode="be" code="belgium" continent="eu">
+		<name>Belgium</name>
+		<capital>Brussels</capital>
+		<area-km2>30510.00</area-km2>
+		<population>10403000</population>
+		<description>Belgium is a country with a population of 10403000 inhabitants. The capital is Brussels. People speak the languages Dutch, French, German. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Dutch</language>
+			<language>French</language>
+			<language>German</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="cv" code="cape_verde" continent="af">
+		<name>Cape Verde</name>
+		<capital>Praia</capital>
+		<area-km2>4033.00</area-km2>
+		<population>508659</population>
+		<description>Cape Verde is a country with a population of 508659 inhabitants. The capital is Praia. People speak the languages Portuguese. The official currencies are Cape Verdean escudo.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Portuguese</language>
+		</languages>
+		<currencies>
+			<currency>Cape Verdean escudo</currency>
+		</currencies>
+	</country>
+	<country isocode="ht" code="haiti" continent="na">
+		<name>Haiti</name>
+		<capital>Port-au-Prince</capital>
+		<area-km2>27750.00</area-km2>
+		<population>9648924</population>
+		<description>Haiti is a country with a population of 9648924 inhabitants. The capital is Port-au-Prince. People speak the languages French. The official currencies are Haitian gourde.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Haitian gourde</currency>
+		</currencies>
+	</country>
+	<country isocode="kz" code="kazakhstan" continent="as">
+		<name>Kazakhstan</name>
+		<capital>Astana</capital>
+		<area-km2>2717300.00</area-km2>
+		<population>15340000</population>
+		<description>Kazakhstan is a country with a population of 15340000 inhabitants. The capital is Astana. People speak the languages Kazakh, Russian. The official currencies are Tenge.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Kazakh</language>
+			<language>Russian</language>
+		</languages>
+		<currencies>
+			<currency>Tenge</currency>
+		</currencies>
+	</country>
+	<country isocode="mr" code="mauritania" continent="af">
+		<name>Mauritania</name>
+		<capital>Nouakchott</capital>
+		<area-km2>1030700.00</area-km2>
+		<population>3205060</population>
+		<description>Mauritania is a country with a population of 3205060 inhabitants. The capital is Nouakchott. People speak the languages Arabic. The official currencies are Ouguiya.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Ouguiya</currency>
+		</currencies>
+	</country>
+	<country isocode="kg" code="kyrgyzstan" continent="as">
+		<name>Kyrgyzstan</name>
+		<capital>Bishkek</capital>
+		<area-km2>198500.00</area-km2>
+		<population>5508626</population>
+		<description>Kyrgyzstan is a country with a population of 5508626 inhabitants. The capital is Bishkek. People speak the languages Kyrgyz, Russian. The official currencies are Som.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Kyrgyz</language>
+			<language>Russian</language>
+		</languages>
+		<currencies>
+			<currency>Som</currency>
+		</currencies>
+	</country>
+	<country isocode="nl" code="netherlands" continent="eu">
 		<name>Netherlands</name>
 		<capital>Amsterdam</capital>
-		<language>Dutch</language>
-		<currency>Euro</currency>
-		<treasure>Naranja mecanica</treasure>
-		<coord-lat>316</coord-lat>
-		<coord-long>58</coord-long>
-		<description>The Netherlands is the European part of the Kingdom of the Netherlands, which consists of the Netherlands, the Netherlands Antilles, and Aruba.</description>
-		<flag-description>netherlendasssss</flag-description>
+		<area-km2>41526.00</area-km2>
+		<population>16645000</population>
+		<description>Netherlands is a country with a population of 16645000 inhabitants. The capital is Amsterdam. People speak the languages Dutch. The official currencies are Euro, US dollar, NA guilder, Aruban florin.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Dutch</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+			<currency>US dollar</currency>
+			<currency>NA guilder</currency>
+			<currency>Aruban florin</currency>
+		</currencies>
 	</country>
-	<country code="pe">
+	<country isocode="sl" code="sierra_leone" continent="af">
+		<name>Sierra Leone</name>
+		<capital>Freetown</capital>
+		<area-km2>71740.00</area-km2>
+		<population>5245695</population>
+		<description>Sierra Leone is a country with a population of 5245695 inhabitants. The capital is Freetown. People speak the languages English. The official currencies are Leone.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Leone</currency>
+		</currencies>
+	</country>
+	<country isocode="pt" code="portugal" continent="eu">
+		<name>Portugal</name>
+		<capital>Lisbon</capital>
+		<area-km2>92391.00</area-km2>
+		<population>10676000</population>
+		<description>Portugal is a country with a population of 10676000 inhabitants. The capital is Lisbon. People speak the languages Portuguese. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Portuguese</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="dk" code="denmark" continent="eu">
+		<name>Denmark</name>
+		<capital>Copenhagen</capital>
+		<area-km2>43094.00</area-km2>
+		<population>5484000</population>
+		<description>Denmark is a country with a population of 5484000 inhabitants. The capital is Copenhagen. People speak the languages Danish. The official currencies are Danish krone[a].</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Danish</language>
+		</languages>
+		<currencies>
+			<currency>Danish krone[a]</currency>
+		</currencies>
+	</country>
+	<country isocode="ph" code="philippines" continent="as">
+		<name>Philippines</name>
+		<capital>Manila</capital>
+		<area-km2>300000.00</area-km2>
+		<population>99900177</population>
+		<description>Philippines is a country with a population of 99900177 inhabitants. The capital is Manila. People speak the languages Filipino, English. The official currencies are Peso.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Filipino</language>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Peso</currency>
+		</currencies>
+	</country>
+	<country isocode="ms" code="montserrat" continent="na">
+		<name>Montserrat</name>
+		<capital>Plymouth (official)</capital>
+		<area-km2>102.00</area-km2>
+		<population>9341</population>
+		<description>Montserrat is a country with a population of 9341 inhabitants. The capital is Plymouth (official). People speak the languages English. The official currencies are East Caribbean Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>East Caribbean Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="sn" code="senegal" continent="af">
+		<name>Senegal</name>
+		<capital>Dakar</capital>
+		<area-km2>196190.00</area-km2>
+		<population>12323252</population>
+		<description>Senegal is a country with a population of 12323252 inhabitants. The capital is Dakar. People speak the languages French. The official currencies are CFA franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>CFA franc</currency>
+		</currencies>
+	</country>
+	<country isocode="md" code="moldova" continent="eu">
+		<name>Moldova</name>
+		<capital>Chişinău</capital>
+		<area-km2>33843.00</area-km2>
+		<population>4324000</population>
+		<description>Moldova is a country with a population of 4324000 inhabitants. The capital is Chişinău. People speak the languages Moldovan. The official currencies are Moldovan leu.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Moldovan</language>
+		</languages>
+		<currencies>
+			<currency>Moldovan leu</currency>
+		</currencies>
+	</country>
+	<country isocode="lv" code="latvia" continent="eu">
+		<name>Latvia</name>
+		<capital>Riga</capital>
+		<area-km2>64589.00</area-km2>
+		<population>2217969</population>
+		<description>Latvia is a country with a population of 2217969 inhabitants. The capital is Riga. People speak the languages Latvian. The official currencies are Lats.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Latvian</language>
+		</languages>
+		<currencies>
+			<currency>Lats</currency>
+		</currencies>
+	</country>
+	<country isocode="na" code="namibia" continent="af">
+		<name>Namibia</name>
+		<capital>Windhoek</capital>
+		<area-km2>825418.00</area-km2>
+		<population>2128471</population>
+		<description>Namibia is a country with a population of 2128471 inhabitants. The capital is Windhoek. People speak the languages English. The official currencies are Namibian dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Namibian dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="pg" code="papua_new_guinea" continent="oc">
+		<name>Papua New Guinea</name>
+		<capital>Port Moresby</capital>
+		<area-km2>462840.00</area-km2>
+		<population>6064515</population>
+		<description>Papua New Guinea is a country with a population of 6064515 inhabitants. The capital is Port Moresby.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+		</currencies>
+	</country>
+	<country isocode="ch" code="switzerland" continent="eu">
+		<name>Switzerland</name>
+		<capital>Bern</capital>
+		<area-km2>41290.00</area-km2>
+		<population>7581000</population>
+		<description>Switzerland is a country with a population of 7581000 inhabitants. The capital is Bern. People speak the languages German, French, Italian, Romansh. The official currencies are Swiss franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>German</language>
+			<language>French</language>
+			<language>Italian</language>
+			<language>Romansh</language>
+		</languages>
+		<currencies>
+			<currency>Swiss franc</currency>
+		</currencies>
+	</country>
+	<country isocode="bg" code="bulgaria" continent="eu">
+		<name>Bulgaria</name>
+		<capital>Sofia</capital>
+		<area-km2>110910.00</area-km2>
+		<population>7148785</population>
+		<description>Bulgaria is a country with a population of 7148785 inhabitants. The capital is Sofia. People speak the languages Bulgarian. The official currencies are Lev.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Bulgarian</language>
+		</languages>
+		<currencies>
+			<currency>Lev</currency>
+		</currencies>
+	</country>
+	<country isocode="jm" code="jamaica" continent="na">
+		<name>Jamaica</name>
+		<capital>Kingston</capital>
+		<area-km2>10991.00</area-km2>
+		<population>2847232</population>
+		<description>Jamaica is a country with a population of 2847232 inhabitants. The capital is Kingston. People speak the languages English. The official currencies are Jamaican Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Jamaican Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="ae" code="united_arab_emirates" continent="as">
+		<name>United Arab Emirates</name>
+		<capital>Abu Dhabi</capital>
+		<area-km2>82880.00</area-km2>
+		<population>4975593</population>
+		<description>United Arab Emirates is a country with a population of 4975593 inhabitants. The capital is Abu Dhabi. People speak the languages Arabic. The official currencies are UAE dirham.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>UAE dirham</currency>
+		</currencies>
+	</country>
+	<country isocode="ao" code="angola" continent="af">
+		<name>Angola</name>
+		<capital>Luanda</capital>
+		<area-km2>1246700.00</area-km2>
+		<population>13068161</population>
+		<description>Angola is a country with a population of 13068161 inhabitants. The capital is Luanda. People speak the languages Portuguese. The official currencies are Angolar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Portuguese</language>
+		</languages>
+		<currencies>
+			<currency>Angolar</currency>
+		</currencies>
+	</country>
+	<country isocode="cf" code="central_african_republic" continent="af">
+		<name>Central African Republic</name>
+		<capital>Bangui</capital>
+		<area-km2>622984.00</area-km2>
+		<population>4844927</population>
+		<description>Central African Republic is a country with a population of 4844927 inhabitants. The capital is Bangui. People speak the languages French, Sango. The official currencies are CFA franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+			<language>Sango</language>
+		</languages>
+		<currencies>
+			<currency>CFA franc</currency>
+		</currencies>
+	</country>
+	<country isocode="lb" code="lebanon" continent="as">
+		<name>Lebanon</name>
+		<capital>Beirut</capital>
+		<area-km2>10400.00</area-km2>
+		<population>4125247</population>
+		<description>Lebanon is a country with a population of 4125247 inhabitants. The capital is Beirut. People speak the languages Arabic. The official currencies are Lebanese pound.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Lebanese pound</currency>
+		</currencies>
+	</country>
+	<country isocode="my" code="malaysia" continent="as">
+		<name>Malaysia</name>
+		<capital>Kuala Lumpur (official)</capital>
+		<area-km2>329750.00</area-km2>
+		<population>28274729</population>
+		<description>Malaysia is a country with a population of 28274729 inhabitants. The capital is Kuala Lumpur (official). People speak the languages Malaysian. The official currencies are Ringgit.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Malaysian</language>
+		</languages>
+		<currencies>
+			<currency>Ringgit</currency>
+		</currencies>
+	</country>
+	<country isocode="au" code="australia" continent="oc">
+		<name>Australia</name>
+		<capital>Canberra</capital>
+		<area-km2>7686850.00</area-km2>
+		<population>21515754</population>
+		<description>Australia is a country with a population of 21515754 inhabitants. The capital is Canberra. People speak the languages None[c]. The official currencies are Australian dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>None[c]</language>
+		</languages>
+		<currencies>
+			<currency>Australian dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="nf" code="norfolk_island" continent="oc">
+		<name>Norfolk Island</name>
+		<capital>Kingston</capital>
+		<area-km2>34.60</area-km2>
+		<population>1828</population>
+		<description>Norfolk Island is a country with a population of 1828 inhabitants. The capital is Kingston. The official currencies are Self-governing territory of Australia.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+			<currency>Self-governing territory of Australia</currency>
+		</currencies>
+	</country>
+	<country isocode="mz" code="mozambique" continent="af">
+		<name>Mozambique</name>
+		<capital>Maputo</capital>
+		<area-km2>801590.00</area-km2>
+		<population>22061451</population>
+		<description>Mozambique is a country with a population of 22061451 inhabitants. The capital is Maputo. People speak the languages Portuguese. The official currencies are Mozambican metical.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Portuguese</language>
+		</languages>
+		<currencies>
+			<currency>Mozambican metical</currency>
+		</currencies>
+	</country>
+	<country isocode="gr" code="greece" continent="eu">
+		<name>Greece</name>
+		<capital>Athens</capital>
+		<area-km2>131940.00</area-km2>
+		<population>11000000</population>
+		<description>Greece is a country with a population of 11000000 inhabitants. The capital is Athens. People speak the languages Greek. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Greek</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="ni" code="nicaragua" continent="na">
+		<name>Nicaragua</name>
+		<capital>Managua</capital>
+		<area-km2>129494.00</area-km2>
+		<population>5995928</population>
+		<description>Nicaragua is a country with a population of 5995928 inhabitants. The capital is Managua. People speak the languages Spanish. The official currencies are Nicaraguan cordoba.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Nicaraguan cordoba</currency>
+		</currencies>
+	</country>
+	<country isocode="ca" code="canada" continent="na">
+		<name>Canada</name>
+		<capital>Ottawa</capital>
+		<area-km2>9984670.00</area-km2>
+		<population>33679000</population>
+		<description>Canada is a country with a population of 33679000 inhabitants. The capital is Ottawa. People speak the languages French, English. The official currencies are Canadian Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Canadian Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="af" code="afghanistan" continent="as">
+		<name>Afghanistan</name>
+		<capital>Kabul</capital>
+		<area-km2>647500.00</area-km2>
+		<population>29121286</population>
+		<description>Afghanistan is a country with a population of 29121286 inhabitants. The capital is Kabul. People speak the languages Pashto, Dari (Persian). The official currencies are Afghani.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Pashto</language>
+			<language>Dari (Persian)</language>
+		</languages>
+		<currencies>
+			<currency>Afghani</currency>
+		</currencies>
+	</country>
+	<country isocode="qa" code="qatar" continent="as">
+		<name>Qatar</name>
+		<capital>Doha</capital>
+		<area-km2>11437.00</area-km2>
+		<population>840926</population>
+		<description>Qatar is a country with a population of 840926 inhabitants. The capital is Doha. People speak the languages Arabic. The official currencies are Riyal.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Riyal</currency>
+		</currencies>
+	</country>
+	<country isocode="pe" code="peru" continent="sa">
 		<name>Peru</name>
 		<capital>Lima</capital>
-		<language>Spanish, Quechua, Aymara</language>
-		<currency>Nuevo Sol</currency>
-		<treasure>Nose</treasure>
-		<coord-lat>170</coord-lat>
-		<coord-long>181</coord-long>
-		<description>Peru, officially the Republic of Peru, is a country in western South America, bordering Ecuador and Colombia to the north, Brazil to the east, Bolivia to the south-east, Chile to the south, and the Pacific Ocean to the west.</description>
-		<flag-description>bandera lima</flag-description>
+		<area-km2>1285220.00</area-km2>
+		<population>29907003</population>
+		<description>Peru is a country with a population of 29907003 inhabitants. The capital is Lima. People speak the languages Spanish. The official currencies are Nuevo sol.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Nuevo sol</currency>
+		</currencies>
 	</country>
-	<country code="py">
-		<name>Paraguay</name>
-		<capital>Asunci�n</capital>
-		<language>Spanish, Guaran�</language>
-		<currency>Guaran�</currency>
-		<treasure>Killy minoge</treasure>
-		<coord-lat>205</coord-lat>
-		<coord-long>213</coord-long>
-		<description>Paraguay, officially the Republic of Paraguay, is a landlocked country in South America. It lies on both banks of the Paraguay River, bordering Argentina to the south and southwest, Brazil to the east and northeast, and Bolivia to the northwest, and is located in the very heart of South America.</description>
-		<flag-description>bandera paraguay</flag-description>
+	<country isocode="tm" code="turkmenistan" continent="as">
+		<name>Turkmenistan</name>
+		<capital>Ashgabat</capital>
+		<area-km2>488100.00</area-km2>
+		<population>4940916</population>
+		<description>Turkmenistan is a country with a population of 4940916 inhabitants. The capital is Ashgabat. People speak the languages Turkmen. The official currencies are Turkmen new manat.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Turkmen</language>
+		</languages>
+		<currencies>
+			<currency>Turkmen new manat</currency>
+		</currencies>
 	</country>
-	<country code="uy">
-		<name>Uruguay</name>
-		<capital>Montevideo</capital>
-		<language>Spanish</language>
-		<currency>Peso</currency>
-		<treasure>Killy minoge</treasure>
-		<coord-lat>211</coord-lat>
-		<coord-long>232</coord-long>
-		<description>Uruguay, officially the Eastern Republic of Uruguay or the Republic East of the Uruguay (River), is a nation located in southern part of South America.</description>
-		<flag-description>bandera uruguay</flag-description>
+	<country isocode="mf" code="saint_martin" continent="na">
+		<name>Saint Martin</name>
+		<capital>Marigot</capital>
+		<area-km2>53.00</area-km2>
+		<population>35925</population>
+		<description>Saint Martin is a country with a population of 35925 inhabitants. The capital is Marigot. People speak the languages French. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
 	</country>
-	<country code="ve">
+	<country isocode="ma" code="morocco" continent="af">
+		<name>Morocco</name>
+		<capital>Rabat</capital>
+		<area-km2>446550.00</area-km2>
+		<population>31627428</population>
+		<description>Morocco is a country with a population of 31627428 inhabitants. The capital is Rabat. People speak the languages Arabic, Berber. The official currencies are Moroccan dirham.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+			<language>Berber</language>
+		</languages>
+		<currencies>
+			<currency>Moroccan dirham</currency>
+		</currencies>
+	</country>
+	<country isocode="sd" code="sudan" continent="af">
+		<name>Sudan</name>
+		<capital>Khartoum</capital>
+		<area-km2>1861484.00</area-km2>
+		<population>35000000</population>
+		<description>Sudan is a country with a population of 35000000 inhabitants. The capital is Khartoum. People speak the languages Arabic, English. The official currencies are Sudanese pound.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Sudanese pound</currency>
+		</currencies>
+	</country>
+	<country isocode="gn" code="guinea" continent="af">
+		<name>Guinea</name>
+		<capital>Conakry</capital>
+		<area-km2>245857.00</area-km2>
+		<population>10324025</population>
+		<description>Guinea is a country with a population of 10324025 inhabitants. The capital is Conakry. People speak the languages French. The official currencies are Guinean franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Guinean franc</currency>
+		</currencies>
+	</country>
+	<country isocode="pa" code="panama" continent="na">
+		<name>Panama</name>
+		<capital>Panama City</capital>
+		<area-km2>78200.00</area-km2>
+		<population>3410676</population>
+		<description>Panama is a country with a population of 3410676 inhabitants. The capital is Panama City. People speak the languages Spanish. The official currencies are United States Dollar, Panamanian balboa.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>United States Dollar</currency>
+			<currency>Panamanian balboa</currency>
+		</currencies>
+	</country>
+	<country isocode="np" code="nepal" continent="as">
+		<name>Nepal</name>
+		<capital>Kathmandu</capital>
+		<area-km2>140800.00</area-km2>
+		<population>28951852</population>
+		<description>Nepal is a country with a population of 28951852 inhabitants. The capital is Kathmandu. People speak the languages Nepali. The official currencies are Nepalese rupee.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Nepali</language>
+		</languages>
+		<currencies>
+			<currency>Nepalese rupee</currency>
+		</currencies>
+	</country>
+	<country isocode="lu" code="luxembourg" continent="eu">
+		<name>Luxembourg</name>
+		<capital>Luxembourg</capital>
+		<area-km2>2586.00</area-km2>
+		<population>497538</population>
+		<description>Luxembourg is a country with a population of 497538 inhabitants. The capital is Luxembourg. People speak the languages Luxembourgish, French, German. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Luxembourgish</language>
+			<language>French</language>
+			<language>German</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="so" code="somalia" continent="af">
+		<name>Somalia</name>
+		<capital>Mogadishu</capital>
+		<area-km2>637657.00</area-km2>
+		<population>10112453</population>
+		<description>Somalia is a country with a population of 10112453 inhabitants. The capital is Mogadishu. People speak the languages Somali, Arabic. The official currencies are Somali shilling.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Somali</language>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Somali shilling</currency>
+		</currencies>
+	</country>
+	<country isocode="tk" code="tokelau" continent="oc">
+		<name>Tokelau</name>
+		<capital>Nukunonu (main settlement, although each atoll has its own administrative centre)</capital>
+		<area-km2>10.00</area-km2>
+		<population>1466</population>
+		<description>Tokelau is a country with a population of 1466 inhabitants. The capital is Nukunonu (main settlement, although each atoll has its own administrative centre). The official currencies are Dependent territory of New Zealand.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+			<currency>Dependent territory of New Zealand</currency>
+		</currencies>
+	</country>
+	<country isocode="tv" code="tuvalu" continent="oc">
+		<name>Tuvalu</name>
+		<capital>Funafuti</capital>
+		<area-km2>26.00</area-km2>
+		<population>10472</population>
+		<description>Tuvalu is a country with a population of 10472 inhabitants. The capital is Funafuti.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+		</currencies>
+	</country>
+	<country isocode="hr" code="croatia" continent="eu">
+		<name>Croatia</name>
+		<capital>Zagreb</capital>
+		<area-km2>56542.00</area-km2>
+		<population>4491000</population>
+		<description>Croatia is a country with a population of 4491000 inhabitants. The capital is Zagreb. People speak the languages Croatian. The official currencies are Kuna.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Croatian</language>
+		</languages>
+		<currencies>
+			<currency>Kuna</currency>
+		</currencies>
+	</country>
+	<country isocode="nr" code="nauru" continent="oc">
+		<name>Nauru</name>
+		<capital>Yaren (seat of government)</capital>
+		<area-km2>21.00</area-km2>
+		<population>10065</population>
+		<description>Nauru is a country with a population of 10065 inhabitants. The capital is Yaren (seat of government).</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+		</currencies>
+	</country>
+	<country isocode="ve" code="venezuela" continent="sa">
 		<name>Venezuela</name>
 		<capital>Caracas</capital>
-		<language>Spanish</language>
-		<currency>Bol�var</currency>
-		<treasure>Killy minoge</treasure>
-		<coord-lat>187</coord-lat>
-		<coord-long>149</coord-long>
-		<description>Venezuela, officially the Bolivarian Republic of Venezuela, is a country on the northern coast of South America.</description>
-		<flag-description>bandera venezuela</flag-description>
+		<area-km2>912050.00</area-km2>
+		<population>27223228</population>
+		<description>Venezuela is a country with a population of 27223228 inhabitants. The capital is Caracas. People speak the languages Spanish. The official currencies are Bolívar fuerte.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Bolívar fuerte</currency>
+		</currencies>
 	</country>
-	<country code="es">
+	<country isocode="bn" code="brunei" continent="as">
+		<name>Brunei</name>
+		<capital>Bandar Seri Begawan</capital>
+		<area-km2>5770.00</area-km2>
+		<population>395027</population>
+		<description>Brunei is a country with a population of 395027 inhabitants. The capital is Bandar Seri Begawan. People speak the languages Bahasa Melayu. The official currencies are Brunei dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Bahasa Melayu</language>
+		</languages>
+		<currencies>
+			<currency>Brunei dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="nz" code="new_zealand" continent="oc">
+		<name>New Zealand</name>
+		<capital>Wellington</capital>
+		<area-km2>268680.00</area-km2>
+		<population>4252277</population>
+		<description>New Zealand is a country with a population of 4252277 inhabitants. The capital is Wellington. People speak the languages Maori, New Zealand Sign, English. The official currencies are New Zealand Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Maori</language>
+			<language>New Zealand Sign</language>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>New Zealand Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="ir" code="iran" continent="as">
+		<name>Iran</name>
+		<capital>Tehran</capital>
+		<area-km2>1648000.00</area-km2>
+		<population>76923300</population>
+		<description>Iran is a country with a population of 76923300 inhabitants. The capital is Tehran. People speak the languages Persian. The official currencies are Rial.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Persian</language>
+		</languages>
+		<currencies>
+			<currency>Rial</currency>
+		</currencies>
+	</country>
+	<country isocode="do" code="dominican_republic" continent="na">
+		<name>Dominican Republic</name>
+		<capital>Santo Domingo</capital>
+		<area-km2>48730.00</area-km2>
+		<population>9823821</population>
+		<description>Dominican Republic is a country with a population of 9823821 inhabitants. The capital is Santo Domingo. People speak the languages Spanish. The official currencies are Dominican peso.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Dominican peso</currency>
+		</currencies>
+	</country>
+	<country isocode="gy" code="guyana" continent="sa">
+		<name>Guyana</name>
+		<capital>Georgetown</capital>
+		<area-km2>214970.00</area-km2>
+		<population>748486</population>
+		<description>Guyana is a country with a population of 748486 inhabitants. The capital is Georgetown. People speak the languages English. The official currencies are Guyanese dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Guyanese dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="gs" code="south_georgia_and_the_south_sandwich_islands" continent="an">
+		<name>South Georgia and the South Sandwich Islands</name>
+		<capital>King Edward Point</capital>
+		<area-km2>3903.00</area-km2>
+		<population>30</population>
+		<description>South Georgia and the South Sandwich Islands is a country with a population of 30 inhabitants. The capital is King Edward Point. People speak the languages English. The official currencies are Pound sterling.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Pound sterling</currency>
+		</currencies>
+	</country>
+	<country isocode="py" code="paraguay" continent="sa">
+		<name>Paraguay</name>
+		<capital>Asunción</capital>
+		<area-km2>406750.00</area-km2>
+		<population>6375830</population>
+		<description>Paraguay is a country with a population of 6375830 inhabitants. The capital is Asunción. People speak the languages Spanish, Guaraní. The official currencies are Guaraní.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+			<language>Guaraní</language>
+		</languages>
+		<currencies>
+			<currency>Guaraní</currency>
+		</currencies>
+	</country>
+	<country isocode="cn" code="china" continent="as">
+		<name>China</name>
+		<capital>Beijing</capital>
+		<area-km2>9596960.00</area-km2>
+		<population>1330044000</population>
+		<description>China is a country with a population of 1330044000 inhabitants. The capital is Beijing. People speak the languages Standard Chinese. The official currencies are Renminbi (yuan).</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Standard Chinese</language>
+		</languages>
+		<currencies>
+			<currency>Renminbi (yuan)</currency>
+		</currencies>
+	</country>
+	<country isocode="am" code="armenia" continent="as">
+		<name>Armenia</name>
+		<capital>Yerevan</capital>
+		<area-km2>29800.00</area-km2>
+		<population>2968000</population>
+		<description>Armenia is a country with a population of 2968000 inhabitants. The capital is Yerevan. People speak the languages Armenian. The official currencies are Dram.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Armenian</language>
+		</languages>
+		<currencies>
+			<currency>Dram</currency>
+		</currencies>
+	</country>
+	<country isocode="th" code="thailand" continent="as">
+		<name>Thailand</name>
+		<capital>Bangkok</capital>
+		<area-km2>514000.00</area-km2>
+		<population>67089500</population>
+		<description>Thailand is a country with a population of 67089500 inhabitants. The capital is Bangkok. People speak the languages Thai. The official currencies are Baht.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Thai</language>
+		</languages>
+		<currencies>
+			<currency>Baht</currency>
+		</currencies>
+	</country>
+	<country isocode="iq" code="iraq" continent="as">
+		<name>Iraq</name>
+		<capital>Baghdad</capital>
+		<area-km2>437072.00</area-km2>
+		<population>29671605</population>
+		<description>Iraq is a country with a population of 29671605 inhabitants. The capital is Baghdad. People speak the languages Kurdish, Arabic. The official currencies are Iraqi dinar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Kurdish</language>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Iraqi dinar</currency>
+		</currencies>
+	</country>
+	<country isocode="kr" code="south_korea" continent="as">
+		<name>South Korea</name>
+		<capital>Seoul</capital>
+		<area-km2>98480.00</area-km2>
+		<population>48422644</population>
+		<description>South Korea is a country with a population of 48422644 inhabitants. The capital is Seoul. People speak the languages Korean. The official currencies are South Korean won.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Korean</language>
+		</languages>
+		<currencies>
+			<currency>South Korean won</currency>
+		</currencies>
+	</country>
+	<country isocode="ua" code="ukraine" continent="eu">
+		<name>Ukraine</name>
+		<capital>Kiev</capital>
+		<area-km2>603700.00</area-km2>
+		<population>45415596</population>
+		<description>Ukraine is a country with a population of 45415596 inhabitants. The capital is Kiev. People speak the languages Ukrainian. The official currencies are Ukrainian hryvnia.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Ukrainian</language>
+		</languages>
+		<currencies>
+			<currency>Ukrainian hryvnia</currency>
+		</currencies>
+	</country>
+	<country isocode="gp" code="guadeloupe" continent="na">
+		<name>Guadeloupe</name>
+		<capital>Basse-Terre</capital>
+		<area-km2>1780.00</area-km2>
+		<population>443000</population>
+		<description>Guadeloupe is a country with a population of 443000 inhabitants. The capital is Basse-Terre. People speak the languages French. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="ly" code="libya" continent="af">
+		<name>Libya</name>
+		<capital>Tripoli</capital>
+		<area-km2>1759540.00</area-km2>
+		<population>6461454</population>
+		<description>Libya is a country with a population of 6461454 inhabitants. The capital is Tripoli. People speak the languages Arabic. The official currencies are Dinar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Dinar</currency>
+		</currencies>
+	</country>
+	<country isocode="za" code="south_africa" continent="af">
+		<name>South Africa</name>
+		<capital>Pretoria (administrative/executive)</capital>
+		<area-km2>1219912.00</area-km2>
+		<population>49000000</population>
+		<description>South Africa is a country with a population of 49000000 inhabitants. The capital is Pretoria (administrative/executive). People speak the languages Afrikaans, English, Southern Ndebele, Northern Sotho, Southern Sotho, Swazi, Tsonga, Tswana, Venda, Xhosa, Zulu. The official currencies are South African rand.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Afrikaans</language>
+			<language>English</language>
+			<language>Southern Ndebele</language>
+			<language>Northern Sotho</language>
+			<language>Southern Sotho</language>
+			<language>Swazi</language>
+			<language>Tsonga</language>
+			<language>Tswana</language>
+			<language>Venda</language>
+			<language>Xhosa</language>
+			<language>Zulu</language>
+		</languages>
+		<currencies>
+			<currency>South African rand</currency>
+		</currencies>
+	</country>
+	<country isocode="gm" code="gambia" continent="af">
+		<name>Gambia</name>
+		<capital>Banjul</capital>
+		<area-km2>11300.00</area-km2>
+		<population>1593256</population>
+		<description>Gambia is a country with a population of 1593256 inhabitants. The capital is Banjul. People speak the languages English. The official currencies are Gambian dalasi.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Gambian dalasi</currency>
+		</currencies>
+	</country>
+	<country isocode="fi" code="finland" continent="eu">
+		<name>Finland</name>
+		<capital>Helsinki</capital>
+		<area-km2>337030.00</area-km2>
+		<population>5244000</population>
+		<description>Finland is a country with a population of 5244000 inhabitants. The capital is Helsinki. People speak the languages Finnish, Swedish. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Finnish</language>
+			<language>Swedish</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="mk" code="macedonia" continent="eu">
+		<name>Macedonia</name>
+		<capital>Skopje</capital>
+		<area-km2>25333.00</area-km2>
+		<population>2061000</population>
+		<description>Macedonia is a country with a population of 2061000 inhabitants. The capital is Skopje. People speak the languages Macedonian. The official currencies are Macedonian denar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Macedonian</language>
+		</languages>
+		<currencies>
+			<currency>Macedonian denar</currency>
+		</currencies>
+	</country>
+	<country isocode="ru" code="russia" continent="eu">
+		<name>Russia</name>
+		<capital>Moscow</capital>
+		<area-km2>17100000.00</area-km2>
+		<population>140702000</population>
+		<description>Russia is a country with a population of 140702000 inhabitants. The capital is Moscow. People speak the languages Russian, 27 others co-official. The official currencies are Russian ruble.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Russian</language>
+			<language>27 others co-official</language>
+		</languages>
+		<currencies>
+			<currency>Russian ruble</currency>
+		</currencies>
+	</country>
+	<country isocode="mu" code="mauritius" continent="af">
+		<name>Mauritius</name>
+		<capital>Port Louis</capital>
+		<area-km2>2040.00</area-km2>
+		<population>1294104</population>
+		<description>Mauritius is a country with a population of 1294104 inhabitants. The capital is Port Louis. People speak the languages Mauritian Creole, French, English. The official currencies are Mauritian rupee.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Mauritian Creole</language>
+			<language>French</language>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Mauritian rupee</currency>
+		</currencies>
+	</country>
+	<country isocode="vg" code="british_virgin_islands" continent="na">
+		<name>British Virgin Islands</name>
+		<capital>Road Town</capital>
+		<area-km2>153.00</area-km2>
+		<population>21730</population>
+		<description>British Virgin Islands is a country with a population of 21730 inhabitants. The capital is Road Town. People speak the languages English. The official currencies are United States Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>United States Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="nu" code="niue" continent="oc">
+		<name>Niue</name>
+		<capital>Alofi</capital>
+		<area-km2>260.00</area-km2>
+		<population>2166</population>
+		<description>Niue is a country with a population of 2166 inhabitants. The capital is Alofi. The official currencies are Self-governing parliamentary democracy in free association with New Zealand.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+			<currency>Self-governing parliamentary democracy in free association with New Zealand</currency>
+		</currencies>
+	</country>
+	<country isocode="ee" code="estonia" continent="eu">
+		<name>Estonia</name>
+		<capital>Tallinn</capital>
+		<area-km2>45226.00</area-km2>
+		<population>1291170</population>
+		<description>Estonia is a country with a population of 1291170 inhabitants. The capital is Tallinn. People speak the languages Estonian. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Estonian</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="sy" code="syria" continent="as">
+		<name>Syria</name>
+		<capital>Damascus</capital>
+		<area-km2>185180.00</area-km2>
+		<population>22198110</population>
+		<description>Syria is a country with a population of 22198110 inhabitants. The capital is Damascus. People speak the languages Arabic. The official currencies are Syrian pound.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Syrian pound</currency>
+		</currencies>
+	</country>
+	<country isocode="je" code="jersey" continent="eu">
+		<name>Jersey</name>
+		<capital>Saint Helier</capital>
+		<area-km2>116.00</area-km2>
+		<population>90812</population>
+		<description>Jersey is a country with a population of 90812 inhabitants. The capital is Saint Helier. People speak the languages English, French. The official currencies are Pound sterling.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Pound sterling</currency>
+		</currencies>
+	</country>
+	<country isocode="pk" code="pakistan" continent="as">
+		<name>Pakistan</name>
+		<capital>Islamabad</capital>
+		<area-km2>803940.00</area-km2>
+		<population>184404791</population>
+		<description>Pakistan is a country with a population of 184404791 inhabitants. The capital is Islamabad. People speak the languages English, Urdu, Punjabi, Sindhi, Punjab, Pashto language| KPK]], Balochistan. The official currencies are Pakistani Rupee.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Urdu</language>
+			<language>Punjabi</language>
+			<language>Sindhi</language>
+			<language>Punjab</language>
+			<language>Pashto language| KPK]]</language>
+			<language>Balochistan</language>
+		</languages>
+		<currencies>
+			<currency>Pakistani Rupee</currency>
+		</currencies>
+	</country>
+	<country isocode="ro" code="romania" continent="eu">
+		<name>Romania</name>
+		<capital>Bucharest</capital>
+		<area-km2>237500.00</area-km2>
+		<population>21959278</population>
+		<description>Romania is a country with a population of 21959278 inhabitants. The capital is Bucharest. People speak the languages Romanian. The official currencies are Romanian leu.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Romanian</language>
+		</languages>
+		<currencies>
+			<currency>Romanian leu</currency>
+		</currencies>
+	</country>
+	<country isocode="sc" code="seychelles" continent="af">
+		<name>Seychelles</name>
+		<capital>Victoria</capital>
+		<area-km2>455.00</area-km2>
+		<population>88340</population>
+		<description>Seychelles is a country with a population of 88340 inhabitants. The capital is Victoria. People speak the languages Seychellois Creole, French, English. The official currencies are Seychellois rupee.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Seychellois Creole</language>
+			<language>French</language>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Seychellois rupee</currency>
+		</currencies>
+	</country>
+	<country isocode="eg" code="egypt" continent="af">
+		<name>Egypt</name>
+		<capital>Cairo</capital>
+		<area-km2>1001450.00</area-km2>
+		<population>80471869</population>
+		<description>Egypt is a country with a population of 80471869 inhabitants. The capital is Cairo. People speak the languages Arabic. The official currencies are Egyptian gineih.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Egyptian gineih</currency>
+		</currencies>
+	</country>
+	<country isocode="gu" code="guam" continent="oc">
+		<name>Guam</name>
+		<capital>Hagåtña</capital>
+		<area-km2>549.00</area-km2>
+		<population>159358</population>
+		<description>Guam is a country with a population of 159358 inhabitants. The capital is Hagåtña. The official currencies are Insular area of the United States of America.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+			<currency>Insular area of the United States of America</currency>
+		</currencies>
+	</country>
+	<country isocode="at" code="austria" continent="eu">
+		<name>Austria</name>
+		<capital>Vienna</capital>
+		<area-km2>83858.00</area-km2>
+		<population>8205000</population>
+		<description>Austria is a country with a population of 8205000 inhabitants. The capital is Vienna. People speak the languages German. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>German</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="al" code="albania" continent="eu">
+		<name>Albania</name>
+		<capital>Tirana</capital>
+		<area-km2>28748.00</area-km2>
+		<population>2986952</population>
+		<description>Albania is a country with a population of 2986952 inhabitants. The capital is Tirana. People speak the languages Albanian. The official currencies are Lek.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Albanian</language>
+		</languages>
+		<currencies>
+			<currency>Lek</currency>
+		</currencies>
+	</country>
+	<country isocode="hu" code="hungary" continent="eu">
+		<name>Hungary</name>
+		<capital>Budapest</capital>
+		<area-km2>93030.00</area-km2>
+		<population>9982000</population>
+		<description>Hungary is a country with a population of 9982000 inhabitants. The capital is Budapest. People speak the languages Hungarian. The official currencies are Forint.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Hungarian</language>
+		</languages>
+		<currencies>
+			<currency>Forint</currency>
+		</currencies>
+	</country>
+	<country isocode="fm" code="micronesia" continent="oc">
+		<name>Micronesia</name>
+		<capital>Palikir</capital>
+		<area-km2>702.00</area-km2>
+		<population>107708</population>
+		<description>Micronesia is a country with a population of 107708 inhabitants. The capital is Palikir.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+		</currencies>
+	</country>
+	<country isocode="co" code="colombia" continent="sa">
+		<name>Colombia</name>
+		<capital>Bogotá</capital>
+		<area-km2>1138910.00</area-km2>
+		<population>44205293</population>
+		<description>Colombia is a country with a population of 44205293 inhabitants. The capital is Bogotá. People speak the languages Spanish. The official currencies are Peso.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Peso</currency>
+		</currencies>
+	</country>
+	<country isocode="ki" code="kiribati" continent="oc">
+		<name>Kiribati</name>
+		<capital>South Tarawa</capital>
+		<area-km2>811.00</area-km2>
+		<population>92533</population>
+		<description>Kiribati is a country with a population of 92533 inhabitants. The capital is South Tarawa.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+		</currencies>
+	</country>
+	<country isocode="gb" code="united_kingdom" continent="eu">
+		<name>United Kingdom</name>
+		<capital>London</capital>
+		<area-km2>244820.00</area-km2>
+		<population>62348447</population>
+		<description>United Kingdom is a country with a population of 62348447 inhabitants. The capital is London. People speak the languages English. The official currencies are Pound sterling.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Pound sterling</currency>
+		</currencies>
+	</country>
+	<country isocode="ne" code="niger" continent="af">
+		<name>Niger</name>
+		<capital>Niamey</capital>
+		<area-km2>1267000.00</area-km2>
+		<population>15878271</population>
+		<description>Niger is a country with a population of 15878271 inhabitants. The capital is Niamey. People speak the languages French. The official currencies are CFA franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>CFA franc</currency>
+		</currencies>
+	</country>
+	<country isocode="mh" code="marshall_islands" continent="oc">
+		<name>Marshall Islands</name>
+		<capital>Majuro</capital>
+		<area-km2>181.30</area-km2>
+		<population>65859</population>
+		<description>Marshall Islands is a country with a population of 65859 inhabitants. The capital is Majuro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+		</currencies>
+	</country>
+	<country isocode="fj" code="fiji" continent="oc">
+		<name>Fiji</name>
+		<capital>Suva</capital>
+		<area-km2>18270.00</area-km2>
+		<population>875983</population>
+		<description>Fiji is a country with a population of 875983 inhabitants. The capital is Suva.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+		</currencies>
+	</country>
+	<country isocode="km" code="comoros" continent="af">
+		<name>Comoros</name>
+		<capital>Moroni</capital>
+		<area-km2>2170.00</area-km2>
+		<population>773407</population>
+		<description>Comoros is a country with a population of 773407 inhabitants. The capital is Moroni. People speak the languages Comorian, Arabic, French. The official currencies are Comorian franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Comorian</language>
+			<language>Arabic</language>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Comorian franc</currency>
+		</currencies>
+	</country>
+	<country isocode="mg" code="madagascar" continent="af">
+		<name>Madagascar</name>
+		<capital>Antananarivo</capital>
+		<area-km2>587040.00</area-km2>
+		<population>21281844</population>
+		<description>Madagascar is a country with a population of 21281844 inhabitants. The capital is Antananarivo. People speak the languages Malagasy, French. The official currencies are Malagasy ariary.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Malagasy</language>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Malagasy ariary</currency>
+		</currencies>
+	</country>
+	<country isocode="bz" code="belize" continent="na">
+		<name>Belize</name>
+		<capital>Belmopan</capital>
+		<area-km2>22966.00</area-km2>
+		<population>314522</population>
+		<description>Belize is a country with a population of 314522 inhabitants. The capital is Belmopan. People speak the languages English. The official currencies are Belize Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Belize Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="bd" code="bangladesh" continent="as">
+		<name>Bangladesh</name>
+		<capital>Dhaka</capital>
+		<area-km2>144000.00</area-km2>
+		<population>156118464</population>
+		<description>Bangladesh is a country with a population of 156118464 inhabitants. The capital is Dhaka. People speak the languages Bengali. The official currencies are Taka.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Bengali</language>
+		</languages>
+		<currencies>
+			<currency>Taka</currency>
+		</currencies>
+	</country>
+	<country isocode="sb" code="solomon_islands" continent="oc">
+		<name>Solomon Islands</name>
+		<capital>Honiara</capital>
+		<area-km2>28450.00</area-km2>
+		<population>559198</population>
+		<description>Solomon Islands is a country with a population of 559198 inhabitants. The capital is Honiara.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+		</currencies>
+	</country>
+	<country isocode="bo" code="bolivia" continent="sa">
+		<name>Bolivia</name>
+		<capital>Sucre (official)</capital>
+		<area-km2>1098580.00</area-km2>
+		<population>9947418</population>
+		<description>Bolivia is a country with a population of 9947418 inhabitants. The capital is Sucre (official). People speak the languages Spanish, Quechua, Aymara. The official currencies are Boliviano.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+			<language>Quechua</language>
+			<language>Aymara</language>
+		</languages>
+		<currencies>
+			<currency>Boliviano</currency>
+		</currencies>
+	</country>
+	<country isocode="wf" code="wallis_and_futuna" continent="oc">
+		<name>Wallis and Futuna</name>
+		<capital>Mata-Utu</capital>
+		<area-km2>274.00</area-km2>
+		<population>16025</population>
+		<description>Wallis and Futuna is a country with a population of 16025 inhabitants. The capital is Mata-Utu. People speak the languages French. The official currencies are CFP Franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>CFP Franc</currency>
+		</currencies>
+	</country>
+	<country isocode="uy" code="uruguay" continent="sa">
+		<name>Uruguay</name>
+		<capital>Montevideo</capital>
+		<area-km2>176220.00</area-km2>
+		<population>3477000</population>
+		<description>Uruguay is a country with a population of 3477000 inhabitants. The capital is Montevideo. People speak the languages Spanish. The official currencies are Uruguayan peso.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Uruguayan peso</currency>
+		</currencies>
+	</country>
+	<country isocode="fr" code="france" continent="eu">
+		<name>France</name>
+		<capital>Paris</capital>
+		<area-km2>547030.00</area-km2>
+		<population>64768389</population>
+		<description>France is a country with a population of 64768389 inhabitants. The capital is Paris. People speak the languages French. The official currencies are Euro, CFP franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+			<currency>CFP franc</currency>
+		</currencies>
+	</country>
+	<country isocode="bs" code="bahamas" continent="na">
+		<name>Bahamas</name>
+		<capital>Nassau</capital>
+		<area-km2>13940.00</area-km2>
+		<population>301790</population>
+		<description>Bahamas is a country with a population of 301790 inhabitants. The capital is Nassau. People speak the languages English. The official currencies are Bahamian Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Bahamian Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="sk" code="slovakia" continent="eu">
+		<name>Slovakia</name>
+		<capital>Bratislava</capital>
+		<area-km2>48845.00</area-km2>
+		<population>5455000</population>
+		<description>Slovakia is a country with a population of 5455000 inhabitants. The capital is Bratislava. People speak the languages Slovak. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Slovak</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="gi" code="gibraltar" continent="eu">
+		<name>Gibraltar</name>
+		<capital>Gibraltar</capital>
+		<area-km2>6.50</area-km2>
+		<population>27884</population>
+		<description>Gibraltar is a country with a population of 27884 inhabitants. The capital is Gibraltar. People speak the languages English. The official currencies are Gibraltar pound.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Gibraltar pound</currency>
+		</currencies>
+	</country>
+	<country isocode="sz" code="swaziland" continent="af">
+		<name>Swaziland</name>
+		<capital>Mbabane (administrative)</capital>
+		<area-km2>17363.00</area-km2>
+		<population>1354051</population>
+		<description>Swaziland is a country with a population of 1354051 inhabitants. The capital is Mbabane (administrative). People speak the languages English, Swati. The official currencies are Lilangeni.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Swati</language>
+		</languages>
+		<currencies>
+			<currency>Lilangeni</currency>
+		</currencies>
+	</country>
+	<country isocode="la" code="laos" continent="as">
+		<name>Laos</name>
+		<capital>Vientiane</capital>
+		<area-km2>236800.00</area-km2>
+		<population>6368162</population>
+		<description>Laos is a country with a population of 6368162 inhabitants. The capital is Vientiane. People speak the languages Lao. The official currencies are Kip.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Lao</language>
+		</languages>
+		<currencies>
+			<currency>Kip</currency>
+		</currencies>
+	</country>
+	<country isocode="ps" code="palestine" continent="as">
+		<name>Palestine</name>
+		<capital>East Jerusalem (claimed capital)</capital>
+		<area-km2>5970.00</area-km2>
+		<population>3800000</population>
+		<description>Palestine is a country with a population of 3800000 inhabitants. The capital is East Jerusalem (claimed capital). People speak the languages Arabic. The official currencies are Israeli shekel.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Israeli shekel</currency>
+		</currencies>
+	</country>
+	<country isocode="ng" code="nigeria" continent="af">
+		<name>Nigeria</name>
+		<capital>Abuja</capital>
+		<area-km2>923768.00</area-km2>
+		<population>154000000</population>
+		<description>Nigeria is a country with a population of 154000000 inhabitants. The capital is Abuja. People speak the languages English. The official currencies are Naira.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Naira</currency>
+		</currencies>
+	</country>
+	<country isocode="ai" code="anguilla" continent="na">
+		<name>Anguilla</name>
+		<capital>The Valley</capital>
+		<area-km2>102.00</area-km2>
+		<population>13254</population>
+		<description>Anguilla is a country with a population of 13254 inhabitants. The capital is The Valley. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>East Caribbean Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="mw" code="malawi" continent="af">
+		<name>Malawi</name>
+		<capital>Lilongwe</capital>
+		<area-km2>118480.00</area-km2>
+		<population>15447500</population>
+		<description>Malawi is a country with a population of 15447500 inhabitants. The capital is Lilongwe. People speak the languages English, Chichewa. The official currencies are Kwacha.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Chichewa</language>
+		</languages>
+		<currencies>
+			<currency>Kwacha</currency>
+		</currencies>
+	</country>
+	<country isocode="ec" code="ecuador" continent="sa">
+		<name>Ecuador</name>
+		<capital>Quito</capital>
+		<area-km2>283560.00</area-km2>
+		<population>14790608</population>
+		<description>Ecuador is a country with a population of 14790608 inhabitants. The capital is Quito. People speak the languages Spanish. The official currencies are United States dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>United States dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="il" code="israel" continent="as">
+		<name>Israel</name>
+		<capital>Jerusalem</capital>
+		<area-km2>20770.00</area-km2>
+		<population>7353985</population>
+		<description>Israel is a country with a population of 7353985 inhabitants. The capital is Jerusalem. People speak the languages Hebrew, Arabic. The official currencies are New shekel.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Hebrew</language>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>New shekel</currency>
+		</currencies>
+	</country>
+	<country isocode="ie" code="ireland" continent="eu">
+		<name>Ireland</name>
+		<capital>Dublin</capital>
+		<area-km2>70280.00</area-km2>
+		<population>4622917</population>
+		<description>Ireland is a country with a population of 4622917 inhabitants. The capital is Dublin. People speak the languages English, Irish. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Irish</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="dz" code="algeria" continent="af">
+		<name>Algeria</name>
+		<capital>Algiers</capital>
+		<area-km2>2381740.00</area-km2>
+		<population>34586184</population>
+		<description>Algeria is a country with a population of 34586184 inhabitants. The capital is Algiers. People speak the languages Arabic. The official currencies are Dinar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Dinar</currency>
+		</currencies>
+	</country>
+	<country isocode="rs" code="serbia" continent="eu">
+		<name>Serbia</name>
+		<capital>Belgrade</capital>
+		<area-km2>88361.00</area-km2>
+		<population>7344847</population>
+		<description>Serbia is a country with a population of 7344847 inhabitants. The capital is Belgrade. People speak the languages Serbian. The official currencies are Serbian dinar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Serbian</language>
+		</languages>
+		<currencies>
+			<currency>Serbian dinar</currency>
+		</currencies>
+	</country>
+	<country isocode="io" code="british_indian_ocean_territory" continent="as">
+		<name>British Indian Ocean Territory</name>
+		<capital>Diego Garcia</capital>
+		<area-km2>60.00</area-km2>
+		<population>4000</population>
+		<description>British Indian Ocean Territory is a country with a population of 4000 inhabitants. The capital is Diego Garcia. People speak the languages English. The official currencies are US dollar, UK pound.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>US dollar</currency>
+			<currency>UK pound</currency>
+		</currencies>
+	</country>
+	<country isocode="me" code="montenegro" continent="eu">
+		<name>Montenegro</name>
+		<capital>Podgorica</capital>
+		<area-km2>14026.00</area-km2>
+		<population>666730</population>
+		<description>Montenegro is a country with a population of 666730 inhabitants. The capital is Podgorica. People speak the languages Montenegrin. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Montenegrin</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="tt" code="trinidad_and_tobago" continent="na">
+		<name>Trinidad and Tobago</name>
+		<capital>Port of Spain</capital>
+		<area-km2>5128.00</area-km2>
+		<population>1228691</population>
+		<description>Trinidad and Tobago is a country with a population of 1228691 inhabitants. The capital is Port of Spain. People speak the languages English. The official currencies are Trinidad and Tobago Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Trinidad and Tobago Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="tg" code="togo" continent="af">
+		<name>Togo</name>
+		<capital>Lomé</capital>
+		<area-km2>56785.00</area-km2>
+		<population>6587239</population>
+		<description>Togo is a country with a population of 6587239 inhabitants. The capital is Lomé. People speak the languages French. The official currencies are CFA franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>CFA franc</currency>
+		</currencies>
+	</country>
+	<country isocode="lc" code="saint_lucia" continent="na">
+		<name>Saint Lucia</name>
+		<capital>Castries</capital>
+		<area-km2>616.00</area-km2>
+		<population>160922</population>
+		<description>Saint Lucia is a country with a population of 160922 inhabitants. The capital is Castries. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>East Caribbean Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="jo" code="jordan" continent="as">
+		<name>Jordan</name>
+		<capital>Amman</capital>
+		<area-km2>92300.00</area-km2>
+		<population>6407085</population>
+		<description>Jordan is a country with a population of 6407085 inhabitants. The capital is Amman. People speak the languages Arabic. The official currencies are Jordanian dinar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Jordanian dinar</currency>
+		</currencies>
+	</country>
+	<country isocode="mq" code="martinique" continent="na">
+		<name>Martinique</name>
+		<capital>Fort-de-France</capital>
+		<area-km2>1100.00</area-km2>
+		<population>432900</population>
+		<description>Martinique is a country with a population of 432900 inhabitants. The capital is Fort-de-France. People speak the languages French. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="bv" code="bouvet_island" continent="an">
+		<name>Bouvet Island</name>
+		<capital>—</capital>
+		<population>0</population>
+		<description>Bouvet Island is a country with a population of 0 inhabitants. The capital is —. People speak the languages —. The official currencies are —.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>—</language>
+		</languages>
+		<currencies>
+			<currency>—</currency>
+		</currencies>
+	</country>
+	<country isocode="om" code="oman" continent="as">
+		<name>Oman</name>
+		<capital>Muscat</capital>
+		<area-km2>212460.00</area-km2>
+		<population>2967717</population>
+		<description>Oman is a country with a population of 2967717 inhabitants. The capital is Muscat. People speak the languages Arabic. The official currencies are Rial.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Rial</currency>
+		</currencies>
+	</country>
+	<country isocode="cr" code="costa_rica" continent="na">
+		<name>Costa Rica</name>
+		<capital>San José</capital>
+		<area-km2>51100.00</area-km2>
+		<population>4516220</population>
+		<description>Costa Rica is a country with a population of 4516220 inhabitants. The capital is San José. People speak the languages Spanish. The official currencies are Costa Rican colon.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Costa Rican colon</currency>
+		</currencies>
+	</country>
+	<country isocode="es" code="spain" continent="eu">
 		<name>Spain</name>
 		<capital>Madrid</capital>
-		<language>Spanish</language>
-		<currency>Euro</currency>
-		<treasure>Fito</treasure>
-		<coord-lat>303</coord-lat>
-		<coord-long>83</coord-long>
-		<description>Spain, officially the Kingdom of Spain, is a country located in Southern Europe, with two small exclaves in North Africa (both bordering Morocco). Spain is a democracy which is organized as a parliamentary monarchy.</description>
-		<flag-description>amarilla y rojo</flag-description>
+		<area-km2>504782.00</area-km2>
+		<population>46505963</population>
+		<description>Spain is a country with a population of 46505963 inhabitants. The capital is Madrid. People speak the languages Spanish, Catalan, Galician, Basque. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+			<language>Catalan</language>
+			<language>Galician</language>
+			<language>Basque</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="bq" code="bonaire" continent="na">
+		<name>Bonaire</name>
+		<capital>Kralendijk</capital>
+		<population>18012</population>
+		<description>Bonaire is a country with a population of 18012 inhabitants. The capital is Kralendijk. People speak the languages Dutch. The official currencies are United States Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Dutch</language>
+		</languages>
+		<currencies>
+			<currency>United States Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="hk" code="hong_kong" continent="as">
+		<name>Hong Kong</name>
+		<capital>Special administrative region of China</capital>
+		<area-km2>1092.00</area-km2>
+		<population>6898686</population>
+		<description>Hong Kong is a country with a population of 6898686 inhabitants. The capital is Special administrative region of China. People speak the languages English, Cantonese. The official currencies are Hong Kong dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Cantonese</language>
+		</languages>
+		<currencies>
+			<currency>Hong Kong dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="no" code="norway" continent="eu">
+		<name>Norway</name>
+		<capital>Oslo</capital>
+		<area-km2>324220.00</area-km2>
+		<population>5009150</population>
+		<description>Norway is a country with a population of 5009150 inhabitants. The capital is Oslo. People speak the languages Norwegian, Bokmål, Nynorsk. The official currencies are Norwegian krone.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Norwegian</language>
+			<language>Bokmål</language>
+			<language>Nynorsk</language>
+		</languages>
+		<currencies>
+			<currency>Norwegian krone</currency>
+		</currencies>
+	</country>
+	<country isocode="bf" code="burkina_faso" continent="af">
+		<name>Burkina Faso</name>
+		<capital>Ouagadougou</capital>
+		<area-km2>274200.00</area-km2>
+		<population>16241811</population>
+		<description>Burkina Faso is a country with a population of 16241811 inhabitants. The capital is Ouagadougou. People speak the languages French. The official currencies are CFA franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>CFA franc</currency>
+		</currencies>
+	</country>
+	<country isocode="yt" code="mayotte" continent="af">
+		<name>Mayotte</name>
+		<capital>Mamoudzou</capital>
+		<area-km2>374.00</area-km2>
+		<population>159042</population>
+		<description>Mayotte is a country with a population of 159042 inhabitants. The capital is Mamoudzou. People speak the languages French. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="se" code="sweden" continent="eu">
+		<name>Sweden</name>
+		<capital>Stockholm</capital>
+		<area-km2>449964.00</area-km2>
+		<population>9555893</population>
+		<description>Sweden is a country with a population of 9555893 inhabitants. The capital is Stockholm. People speak the languages Swedish. The official currencies are Swedish krona.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Swedish</language>
+		</languages>
+		<currencies>
+			<currency>Swedish krona</currency>
+		</currencies>
+	</country>
+	<country isocode="hm" code="heard_island_and_mcdonald_islands" continent="an">
+		<name>Heard Island and McDonald Islands</name>
+		<capital>—</capital>
+		<area-km2>412.00</area-km2>
+		<population>0</population>
+		<description>Heard Island and McDonald Islands is a country with a population of 0 inhabitants. The capital is —. People speak the languages —. The official currencies are —.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>—</language>
+		</languages>
+		<currencies>
+			<currency>—</currency>
+		</currencies>
+	</country>
+	<country isocode="ga" code="gabon" continent="af">
+		<name>Gabon</name>
+		<capital>Libreville</capital>
+		<area-km2>267667.00</area-km2>
+		<population>1545255</population>
+		<description>Gabon is a country with a population of 1545255 inhabitants. The capital is Libreville. People speak the languages French. The official currencies are CFA franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>CFA franc</currency>
+		</currencies>
+	</country>
+	<country isocode="sa" code="saudi_arabia" continent="as">
+		<name>Saudi Arabia</name>
+		<capital>Riyadh</capital>
+		<area-km2>1960582.00</area-km2>
+		<population>25731776</population>
+		<description>Saudi Arabia is a country with a population of 25731776 inhabitants. The capital is Riyadh. People speak the languages Arabic. The official currencies are Saudi riyal.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Saudi riyal</currency>
+		</currencies>
+	</country>
+	<country isocode="ml" code="mali" continent="af">
+		<name>Mali</name>
+		<capital>Bamako</capital>
+		<area-km2>1240000.00</area-km2>
+		<population>13796354</population>
+		<description>Mali is a country with a population of 13796354 inhabitants. The capital is Bamako. People speak the languages French. The official currencies are CFA franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>CFA franc</currency>
+		</currencies>
+	</country>
+	<country isocode="gd" code="grenada" continent="na">
+		<name>Grenada</name>
+		<capital>St. George's</capital>
+		<area-km2>344.00</area-km2>
+		<population>107818</population>
+		<description>Grenada is a country with a population of 107818 inhabitants. The capital is St. George's. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>East Caribbean Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="ye" code="yemen" continent="as">
+		<name>Yemen</name>
+		<capital>Sana'a</capital>
+		<area-km2>527970.00</area-km2>
+		<population>23495361</population>
+		<description>Yemen is a country with a population of 23495361 inhabitants. The capital is Sana'a. People speak the languages Arabic. The official currencies are Yemeni rial.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Yemeni rial</currency>
+		</currencies>
+	</country>
+	<country isocode="pl" code="poland" continent="eu">
+		<name>Poland</name>
+		<capital>Warsaw</capital>
+		<area-km2>312685.00</area-km2>
+		<population>38500000</population>
+		<description>Poland is a country with a population of 38500000 inhabitants. The capital is Warsaw. People speak the languages Polish. The official currencies are Złoty.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Polish</language>
+		</languages>
+		<currencies>
+			<currency>Złoty</currency>
+		</currencies>
+	</country>
+	<country isocode="gf" code="french_guiana" continent="sa">
+		<name>French Guiana</name>
+		<capital>Cayenne</capital>
+		<area-km2>91000.00</area-km2>
+		<population>195506</population>
+		<description>French Guiana is a country with a population of 195506 inhabitants. The capital is Cayenne. People speak the languages French. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="as" code="american_samoa" continent="oc">
+		<name>American Samoa</name>
+		<capital>Pago Pago</capital>
+		<area-km2>199.00</area-km2>
+		<population>57881</population>
+		<description>American Samoa is a country with a population of 57881 inhabitants. The capital is Pago Pago. People speak the languages English, Samoan. The official currencies are United States dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Samoan</language>
+		</languages>
+		<currencies>
+			<currency>United States dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="td" code="chad" continent="af">
+		<name>Chad</name>
+		<capital>N'Djamena</capital>
+		<area-km2>1284000.00</area-km2>
+		<population>10543464</population>
+		<description>Chad is a country with a population of 10543464 inhabitants. The capital is N'Djamena. People speak the languages French, Arabic. The official currencies are CFA franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>CFA franc</currency>
+		</currencies>
+	</country>
+	<country isocode="mx" code="mexico" continent="na">
+		<name>Mexico</name>
+		<capital>Mexico City</capital>
+		<area-km2>1972550.00</area-km2>
+		<population>112468855</population>
+		<description>Mexico is a country with a population of 112468855 inhabitants. The capital is Mexico City. People speak the languages Spanish. The official currencies are Mexican peso.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Mexican peso</currency>
+		</currencies>
+	</country>
+	<country isocode="fk" code="falkland_islands" continent="sa">
+		<name>Falkland Islands</name>
+		<capital>Stanley</capital>
+		<area-km2>12173.00</area-km2>
+		<population>2638</population>
+		<description>Falkland Islands is a country with a population of 2638 inhabitants. The capital is Stanley. People speak the languages English. The official currencies are Falkland Islands pound.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Falkland Islands pound</currency>
+		</currencies>
+	</country>
+	<country isocode="ag" code="antigua_and_barbuda" continent="na">
+		<name>Antigua and Barbuda</name>
+		<capital>St. John's</capital>
+		<area-km2>443.00</area-km2>
+		<population>86754</population>
+		<description>Antigua and Barbuda is a country with a population of 86754 inhabitants. The capital is St. John's. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>East Caribbean Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="in" code="india" continent="as">
+		<name>India</name>
+		<capital>New Delhi</capital>
+		<area-km2>3287590.00</area-km2>
+		<population>1173108018</population>
+		<description>India is a country with a population of 1173108018 inhabitants. The capital is New Delhi. People speak the languages Hindi, English, Urdu, Gujarati, Tamil, Kannada, Telugu, Malayalam, Odia, Bengali, Assamese, Manipuri, Sikkimese, Kashmri, Mizo, Garo, Khasi, Jaintia, Marathi, Punjabi, Bodo, Kokborok, Nagamese, Nefamese > MARWARI. The official currencies are Indian Rupee.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Hindi</language>
+			<language>English</language>
+			<language>Urdu</language>
+			<language>Gujarati</language>
+			<language>Tamil</language>
+			<language>Kannada</language>
+			<language>Telugu</language>
+			<language>Malayalam</language>
+			<language>Odia</language>
+			<language>Bengali</language>
+			<language>Assamese</language>
+			<language>Manipuri</language>
+			<language>Sikkimese</language>
+			<language>Kashmri</language>
+			<language>Mizo</language>
+			<language>Garo</language>
+			<language>Khasi</language>
+			<language>Jaintia</language>
+			<language>Marathi</language>
+			<language>Punjabi</language>
+			<language>Bodo</language>
+			<language>Kokborok</language>
+			<language>Nagamese</language>
+			<language>Nefamese > MARWARI</language>
+		</languages>
+		<currencies>
+			<currency>Indian Rupee</currency>
+		</currencies>
+	</country>
+	<country isocode="va" code="vatican_city" continent="eu">
+		<name>Vatican City</name>
+		<capital>Vatican City</capital>
+		<area-km2>0.40</area-km2>
+		<population>921</population>
+		<description>Vatican City is a country with a population of 921 inhabitants. The capital is Vatican City. People speak the languages Italian. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Italian</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="ls" code="lesotho" continent="af">
+		<name>Lesotho</name>
+		<capital>Maseru</capital>
+		<area-km2>30355.00</area-km2>
+		<population>1919552</population>
+		<description>Lesotho is a country with a population of 1919552 inhabitants. The capital is Maseru. People speak the languages English, Sesotho. The official currencies are Lesotho loti.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Sesotho</language>
+		</languages>
+		<currencies>
+			<currency>Lesotho loti</currency>
+		</currencies>
+	</country>
+	<country isocode="sm" code="san_marino" continent="eu">
+		<name>San Marino</name>
+		<capital>San Marino</capital>
+		<area-km2>61.20</area-km2>
+		<population>31477</population>
+		<description>San Marino is a country with a population of 31477 inhabitants. The capital is San Marino. People speak the languages Italian. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Italian</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="gl" code="greenland" continent="na">
+		<name>Greenland</name>
+		<capital>Nuuk</capital>
+		<area-km2>2166086.00</area-km2>
+		<population>56375</population>
+		<description>Greenland is a country with a population of 56375 inhabitants. The capital is Nuuk. People speak the languages Greenlandic. The official currencies are Danish Krone.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Greenlandic</language>
+		</languages>
+		<currencies>
+			<currency>Danish Krone</currency>
+		</currencies>
+	</country>
+	<country isocode="ug" code="uganda" continent="af">
+		<name>Uganda</name>
+		<capital>Kampala</capital>
+		<area-km2>236040.00</area-km2>
+		<population>33398682</population>
+		<description>Uganda is a country with a population of 33398682 inhabitants. The capital is Kampala. People speak the languages Swahili, English, Luganda. The official currencies are Ugandan shilling.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Swahili</language>
+			<language>English</language>
+			<language>Luganda</language>
+		</languages>
+		<currencies>
+			<currency>Ugandan shilling</currency>
+		</currencies>
+	</country>
+	<country isocode="bi" code="burundi" continent="af">
+		<name>Burundi</name>
+		<capital>Bujumbura</capital>
+		<area-km2>27830.00</area-km2>
+		<population>9863117</population>
+		<description>Burundi is a country with a population of 9863117 inhabitants. The capital is Bujumbura. People speak the languages Kirundi, French. The official currencies are Rupie.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Kirundi</language>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Rupie</currency>
+		</currencies>
+	</country>
+	<country isocode="ke" code="kenya" continent="af">
+		<name>Kenya</name>
+		<capital>Nairobi</capital>
+		<area-km2>582650.00</area-km2>
+		<population>40046566</population>
+		<description>Kenya is a country with a population of 40046566 inhabitants. The capital is Nairobi. People speak the languages Swahili, English. The official currencies are Kenyan shilling.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Swahili</language>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Kenyan shilling</currency>
+		</currencies>
+	</country>
+	<country isocode="bw" code="botswana" continent="af">
+		<name>Botswana</name>
+		<capital>Gaborone</capital>
+		<area-km2>600370.00</area-km2>
+		<population>2029307</population>
+		<description>Botswana is a country with a population of 2029307 inhabitants. The capital is Gaborone. People speak the languages English, Setswana. The official currencies are Pula.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Setswana</language>
+		</languages>
+		<currencies>
+			<currency>Pula</currency>
+		</currencies>
+	</country>
+	<country isocode="pr" code="puerto_rico" continent="na">
+		<name>Puerto Rico</name>
+		<capital>San Juan</capital>
+		<area-km2>9104.00</area-km2>
+		<population>3916632</population>
+		<description>Puerto Rico is a country with a population of 3916632 inhabitants. The capital is San Juan. People speak the languages English, Spanish. The official currencies are United States Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>United States Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="it" code="italy" continent="eu">
+		<name>Italy</name>
+		<capital>Rome</capital>
+		<area-km2>301230.00</area-km2>
+		<population>60340328</population>
+		<description>Italy is a country with a population of 60340328 inhabitants. The capital is Rome. People speak the languages Italian. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Italian</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="im" code="isle_of_man" continent="eu">
+		<name>Isle of Man</name>
+		<capital>Douglas</capital>
+		<area-km2>572.00</area-km2>
+		<population>75049</population>
+		<description>Isle of Man is a country with a population of 75049 inhabitants. The capital is Douglas. People speak the languages English, Manx. The official currencies are Pound sterling.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Manx</language>
+		</languages>
+		<currencies>
+			<currency>Pound sterling</currency>
+		</currencies>
+	</country>
+	<country isocode="tc" code="turks_and_caicos_islands" continent="na">
+		<name>Turks and Caicos Islands</name>
+		<capital>Cockburn Town</capital>
+		<area-km2>430.00</area-km2>
+		<population>20556</population>
+		<description>Turks and Caicos Islands is a country with a population of 20556 inhabitants. The capital is Cockburn Town. People speak the languages English. The official currencies are United States Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>United States Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="cu" code="cuba" continent="na">
+		<name>Cuba</name>
+		<capital>Havana</capital>
+		<area-km2>110860.00</area-km2>
+		<population>11423000</population>
+		<description>Cuba is a country with a population of 11423000 inhabitants. The capital is Havana. People speak the languages Spanish. The official currencies are Cuban peso.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Cuban peso</currency>
+		</currencies>
+	</country>
+	<country isocode="kh" code="cambodia" continent="as">
+		<name>Cambodia</name>
+		<capital>Phnom Penh</capital>
+		<area-km2>181040.00</area-km2>
+		<population>14453680</population>
+		<description>Cambodia is a country with a population of 14453680 inhabitants. The capital is Phnom Penh. People speak the languages Khmer. The official currencies are Riel.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Khmer</language>
+		</languages>
+		<currencies>
+			<currency>Riel</currency>
+		</currencies>
+	</country>
+	<country isocode="et" code="ethiopia" continent="af">
+		<name>Ethiopia</name>
+		<capital>Addis Ababa</capital>
+		<area-km2>1127127.00</area-km2>
+		<population>88013491</population>
+		<description>Ethiopia is a country with a population of 88013491 inhabitants. The capital is Addis Ababa. People speak the languages Amharic. The official currencies are Birr.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Amharic</language>
+		</languages>
+		<currencies>
+			<currency>Birr</currency>
+		</currencies>
+	</country>
+	<country isocode="bm" code="bermuda" continent="na">
+		<name>Bermuda</name>
+		<capital>Hamilton</capital>
+		<area-km2>53.00</area-km2>
+		<population>65365</population>
+		<description>Bermuda is a country with a population of 65365 inhabitants. The capital is Hamilton. People speak the languages English. The official currencies are Bermudian Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Bermudian Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="ss" code="south_sudan" continent="af">
+		<name>South Sudan</name>
+		<capital>Juba</capital>
+		<area-km2>644329.00</area-km2>
+		<population>8260490</population>
+		<description>South Sudan is a country with a population of 8260490 inhabitants. The capital is Juba. People speak the languages English. The official currencies are South Sudanese pound.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>South Sudanese pound</currency>
+		</currencies>
+	</country>
+	<country isocode="vu" code="vanuatu" continent="oc">
+		<name>Vanuatu</name>
+		<capital>Port Vila</capital>
+		<area-km2>12200.00</area-km2>
+		<population>221552</population>
+		<description>Vanuatu is a country with a population of 221552 inhabitants. The capital is Port Vila. The official currencies are Vanuatu vatu.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+			<currency>Vanuatu vatu</currency>
+		</currencies>
+	</country>
+	<country isocode="cm" code="cameroon" continent="af">
+		<name>Cameroon</name>
+		<capital>Yaoundé</capital>
+		<area-km2>475440.00</area-km2>
+		<population>19294149</population>
+		<description>Cameroon is a country with a population of 19294149 inhabitants. The capital is Yaoundé. People speak the languages French, English. The official currencies are CFA franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>CFA franc</currency>
+		</currencies>
+	</country>
+	<country isocode="ky" code="cayman_islands" continent="na">
+		<name>Cayman Islands</name>
+		<capital>George Town</capital>
+		<area-km2>262.00</area-km2>
+		<population>44270</population>
+		<description>Cayman Islands is a country with a population of 44270 inhabitants. The capital is George Town. People speak the languages English. The official currencies are Cayman Islands Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Cayman Islands Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="bj" code="benin" continent="af">
+		<name>Benin</name>
+		<capital>Porto-Novo (official)</capital>
+		<area-km2>112620.00</area-km2>
+		<population>9056010</population>
+		<description>Benin is a country with a population of 9056010 inhabitants. The capital is Porto-Novo (official). People speak the languages French. The official currencies are CFA franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>CFA franc</currency>
+		</currencies>
+	</country>
+	<country isocode="br" code="brazil" continent="sa">
+		<name>Brazil</name>
+		<capital>Brasília</capital>
+		<area-km2>8511965.00</area-km2>
+		<population>201103330</population>
+		<description>Brazil is a country with a population of 201103330 inhabitants. The capital is Brasília. People speak the languages Portuguese. The official currencies are Real.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Portuguese</language>
+		</languages>
+		<currencies>
+			<currency>Real</currency>
+		</currencies>
+	</country>
+	<country isocode="re" code="réunion" continent="af">
+		<name>Réunion</name>
+		<capital>Saint-Denis</capital>
+		<area-km2>2517.00</area-km2>
+		<population>776948</population>
+		<description>Réunion is a country with a population of 776948 inhabitants. The capital is Saint-Denis. People speak the languages French. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="kn" code="saint_kitts_and_nevis" continent="na">
+		<name>Saint Kitts and Nevis</name>
+		<capital>Basseterre</capital>
+		<area-km2>261.00</area-km2>
+		<population>49898</population>
+		<description>Saint Kitts and Nevis is a country with a population of 49898 inhabitants. The capital is Basseterre. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>East Caribbean Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="sg" code="singapore" continent="as">
+		<name>Singapore</name>
+		<capital>Singapore</capital>
+		<area-km2>692.70</area-km2>
+		<population>4701069</population>
+		<description>Singapore is a country with a population of 4701069 inhabitants. The capital is Singapore. People speak the languages English, Chinese, Malay, Tamil. The official currencies are Singapore dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Chinese</language>
+			<language>Malay</language>
+			<language>Tamil</language>
+		</languages>
+		<currencies>
+			<currency>Singapore dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="is" code="iceland" continent="eu">
+		<name>Iceland</name>
+		<capital>Reykjavík</capital>
+		<area-km2>103000.00</area-km2>
+		<population>308910</population>
+		<description>Iceland is a country with a population of 308910 inhabitants. The capital is Reykjavík. People speak the languages Icelandic. The official currencies are Icelandic króna.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Icelandic</language>
+		</languages>
+		<currencies>
+			<currency>Icelandic króna</currency>
+		</currencies>
+	</country>
+	<country isocode="mc" code="monaco" continent="eu">
+		<name>Monaco</name>
+		<capital>Monaco</capital>
+		<area-km2>2.00</area-km2>
+		<population>32965</population>
+		<description>Monaco is a country with a population of 32965 inhabitants. The capital is Monaco. People speak the languages French. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="si" code="slovenia" continent="eu">
+		<name>Slovenia</name>
+		<capital>Ljubljana</capital>
+		<area-km2>20273.00</area-km2>
+		<population>2007000</population>
+		<description>Slovenia is a country with a population of 2007000 inhabitants. The capital is Ljubljana. People speak the languages Slovene. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Slovene</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="hn" code="honduras" continent="na">
+		<name>Honduras</name>
+		<capital>Tegucigalpa</capital>
+		<area-km2>112090.00</area-km2>
+		<population>7989415</population>
+		<description>Honduras is a country with a population of 7989415 inhabitants. The capital is Tegucigalpa. People speak the languages Spanish. The official currencies are Honduran lempira.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency>Honduran lempira</currency>
+		</currencies>
+	</country>
+	<country isocode="tf" code="french_southern_territories" continent="an">
+		<name>French Southern Territories</name>
+		<capital>Alfred Faure (Crozet Islands)</capital>
+		<area-km2>7829.00</area-km2>
+		<population>140</population>
+		<description>French Southern Territories is a country with a population of 140 inhabitants. The capital is Alfred Faure (Crozet Islands). People speak the languages French. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="de" code="germany" continent="eu">
+		<name>Germany</name>
+		<capital>Berlin</capital>
+		<area-km2>357021.00</area-km2>
+		<population>81802257</population>
+		<description>Germany is a country with a population of 81802257 inhabitants. The capital is Berlin. People speak the languages German. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>German</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="pn" code="pitcairn_islands" continent="oc">
+		<name>Pitcairn Islands</name>
+		<capital>Adamstown</capital>
+		<area-km2>47.00</area-km2>
+		<population>46</population>
+		<description>Pitcairn Islands is a country with a population of 46 inhabitants. The capital is Adamstown. The official currencies are Overseas territory of the United Kingdom.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+			<currency>Overseas territory of the United Kingdom</currency>
+		</currencies>
+	</country>
+	<country isocode="nc" code="new_caledonia" continent="oc">
+		<name>New Caledonia</name>
+		<capital>Nouméa</capital>
+		<area-km2>19060.00</area-km2>
+		<population>216494</population>
+		<description>New Caledonia is a country with a population of 216494 inhabitants. The capital is Nouméa. People speak the languages French. The official currencies are CFP Franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>CFP Franc</currency>
+		</currencies>
+	</country>
+	<country isocode="pw" code="palau" continent="oc">
+		<name>Palau</name>
+		<capital>Melekeok</capital>
+		<area-km2>458.00</area-km2>
+		<population>19907</population>
+		<description>Palau is a country with a population of 19907 inhabitants. The capital is Melekeok.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+		</currencies>
+	</country>
+	<country isocode="dm" code="dominica" continent="na">
+		<name>Dominica</name>
+		<capital>Roseau</capital>
+		<area-km2>754.00</area-km2>
+		<population>72813</population>
+		<description>Dominica is a country with a population of 72813 inhabitants. The capital is Roseau. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>East Caribbean Dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="sr" code="suriname" continent="sa">
+		<name>Suriname</name>
+		<capital>Paramaribo</capital>
+		<area-km2>163270.00</area-km2>
+		<population>492829</population>
+		<description>Suriname is a country with a population of 492829 inhabitants. The capital is Paramaribo. People speak the languages Dutch. The official currencies are Surinamese dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Dutch</language>
+		</languages>
+		<currencies>
+			<currency>Surinamese dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="er" code="eritrea" continent="af">
+		<name>Eritrea</name>
+		<capital>Asmara</capital>
+		<area-km2>121320.00</area-km2>
+		<population>5792984</population>
+		<description>Eritrea is a country with a population of 5792984 inhabitants. The capital is Asmara. People speak the languages Tigrinya, Arabic, English. The official currencies are Tallero.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Tigrinya</language>
+			<language>Arabic</language>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Tallero</currency>
+		</currencies>
+	</country>
+	<country isocode="to" code="tonga" continent="oc">
+		<name>Tonga</name>
+		<capital>Nukuʻalofa</capital>
+		<area-km2>748.00</area-km2>
+		<population>122580</population>
+		<description>Tonga is a country with a population of 122580 inhabitants. The capital is Nukuʻalofa.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+		</currencies>
+	</country>
+	<country isocode="mv" code="maldives" continent="as">
+		<name>Maldives</name>
+		<capital>Malé</capital>
+		<area-km2>300.00</area-km2>
+		<population>395650</population>
+		<description>Maldives is a country with a population of 395650 inhabitants. The capital is Malé. People speak the languages Maldivian. The official currencies are Maldivian rufiyaa.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Maldivian</language>
+		</languages>
+		<currencies>
+			<currency>Maldivian rufiyaa</currency>
+		</currencies>
+	</country>
+	<country isocode="bl" code="saint_barthélemy" continent="na">
+		<name>Saint Barthélemy</name>
+		<capital>Gustavia</capital>
+		<area-km2>21.00</area-km2>
+		<population>8450</population>
+		<description>Saint Barthélemy is a country with a population of 8450 inhabitants. The capital is Gustavia. People speak the languages French. The official currencies are Euro.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Euro</currency>
+		</currencies>
+	</country>
+	<country isocode="tz" code="tanzania" continent="af">
+		<name>Tanzania</name>
+		<capital>Dodoma (official)</capital>
+		<area-km2>945087.00</area-km2>
+		<population>41892895</population>
+		<description>Tanzania is a country with a population of 41892895 inhabitants. The capital is Dodoma (official). People speak the languages Swahili, English. The official currencies are Tanzanian shilling.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Swahili</language>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Tanzanian shilling</currency>
+		</currencies>
+	</country>
+	<country isocode="id" code="indonesia" continent="as">
+		<name>Indonesia</name>
+		<capital>Jakarta</capital>
+		<area-km2>1919440.00</area-km2>
+		<population>242968342</population>
+		<description>Indonesia is a country with a population of 242968342 inhabitants. The capital is Jakarta. People speak the languages Indonesian. The official currencies are Rupiah.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Indonesian</language>
+		</languages>
+		<currencies>
+			<currency>Rupiah</currency>
+		</currencies>
+	</country>
+	<country isocode="ck" code="cook_islands" continent="oc">
+		<name>Cook Islands</name>
+		<capital>Avarua</capital>
+		<area-km2>240.00</area-km2>
+		<population>21388</population>
+		<description>Cook Islands is a country with a population of 21388 inhabitants. The capital is Avarua. People speak the languages English, Cook Islands Māori. The official currencies are New Zealand dollar, Cook Islands dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>Cook Islands Māori</language>
+		</languages>
+		<currencies>
+			<currency>New Zealand dollar</currency>
+			<currency>Cook Islands dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="cx" code="christmas_island" continent="as">
+		<name>Christmas Island</name>
+		<capital>Flying Fish Cove</capital>
+		<area-km2>135.00</area-km2>
+		<population>1500</population>
+		<description>Christmas Island is a country with a population of 1500 inhabitants. The capital is Flying Fish Cove. People speak the languages English. The official currencies are Australian dollar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+		</languages>
+		<currencies>
+			<currency>Australian dollar</currency>
+		</currencies>
+	</country>
+	<country isocode="li" code="liechtenstein" continent="eu">
+		<name>Liechtenstein</name>
+		<capital>Vaduz</capital>
+		<area-km2>160.00</area-km2>
+		<population>35000</population>
+		<description>Liechtenstein is a country with a population of 35000 inhabitants. The capital is Vaduz. People speak the languages German. The official currencies are Swiss franc.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>German</language>
+		</languages>
+		<currencies>
+			<currency>Swiss franc</currency>
+		</currencies>
+	</country>
+	<country isocode="vn" code="vietnam" continent="as">
+		<name>Vietnam</name>
+		<capital>Hanoi</capital>
+		<area-km2>329560.00</area-km2>
+		<population>89571130</population>
+		<description>Vietnam is a country with a population of 89571130 inhabitants. The capital is Hanoi. People speak the languages Vietnamese. The official currencies are đồng.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Vietnamese</language>
+		</languages>
+		<currencies>
+			<currency>đồng</currency>
+		</currencies>
+	</country>
+	<country isocode="gg" code="guernsey" continent="eu">
+		<name>Guernsey</name>
+		<capital>Saint Peter Port</capital>
+		<area-km2>78.00</area-km2>
+		<population>65228</population>
+		<description>Guernsey is a country with a population of 65228 inhabitants. The capital is Saint Peter Port. People speak the languages English, French. The official currencies are Pound sterling.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>English</language>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency>Pound sterling</currency>
+		</currencies>
+	</country>
+	<country isocode="kw" code="kuwait" continent="as">
+		<name>Kuwait</name>
+		<capital>Kuwait City</capital>
+		<area-km2>17820.00</area-km2>
+		<population>2789132</population>
+		<description>Kuwait is a country with a population of 2789132 inhabitants. The capital is Kuwait City. People speak the languages Arabic. The official currencies are Kuwaiti dinar.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Arabic</language>
+		</languages>
+		<currencies>
+			<currency>Kuwaiti dinar</currency>
+		</currencies>
+	</country>
+	<country isocode="lk" code="sri_lanka" continent="as">
+		<name>Sri Lanka</name>
+		<capital>Sri Jayawardenapura Kotte</capital>
+		<area-km2>65610.00</area-km2>
+		<population>21513990</population>
+		<description>Sri Lanka is a country with a population of 21513990 inhabitants. The capital is Sri Jayawardenapura Kotte. People speak the languages Sinhala, Tamil. The official currencies are Sri Lankan rupee.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Sinhala</language>
+			<language>Tamil</language>
+		</languages>
+		<currencies>
+			<currency>Sri Lankan rupee</currency>
+		</currencies>
+	</country>
+	<country isocode="mp" code="northern_mariana_islands" continent="oc">
+		<name>Northern Mariana Islands</name>
+		<capital>Saipan</capital>
+		<area-km2>477.00</area-km2>
+		<population>53883</population>
+		<description>Northern Mariana Islands is a country with a population of 53883 inhabitants. The capital is Saipan. The official currencies are Insular area of the United States of America.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+		</languages>
+		<currencies>
+			<currency>Insular area of the United States of America</currency>
+		</currencies>
+	</country>
+	<country isocode="fo" code="faroe_islands" continent="eu">
+		<name>Faroe Islands</name>
+		<capital>Tórshavn</capital>
+		<area-km2>1399.00</area-km2>
+		<population>48228</population>
+		<description>Faroe Islands is a country with a population of 48228 inhabitants. The capital is Tórshavn. People speak the languages Faroese, Danish. The official currencies are Faroese króna.</description>
+		<flag-description>None</flag-description>
+		<treasure>None</treasure>
+		<coord-lat>0.000000</coord-lat>
+		<coord-long>0.000000</coord-long>
+		<languages>
+			<language>Faroese</language>
+			<language>Danish</language>
+		</languages>
+		<currencies>
+			<currency>Faroese króna</currency>
+		</currencies>
 	</country>
 </countries>
+

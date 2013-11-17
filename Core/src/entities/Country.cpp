@@ -2,34 +2,46 @@
 
 #include <Dimension.h>
 
+#include <boost/filesystem.hpp>
+
 Country::Country() {
 }
 
 Country::Country(const Country &country) {
-	this->code = strdup( country.getCode() );
 	this->id = country.getID();
+	this->isoCode = strdup( country.getIsoCode() );
+	this->code = strdup( country.getCode() );
 	this->name = strdup(country.getName());
 	this->description = strdup(country.getDescription());
 	this->treasure = strdup(country.getTreasure());
 	this->coord = country.getCoord();
-	this->coin = strdup(country.getCoin());
 	this->flagDesc = strdup(country.getFlagDescription());
 	this->capital = strdup(country.getCapital());
-	this->language = strdup(country.getLanguage());
+	this->languages = country.getLanguages();
+	this->currencies = country.getCurrencies();
 }
 
-Country & Country::operator=(const Country &country) {
-	this->code = strdup( country.getCode() );
+Country& Country::operator=(const Country &country) {
 	this->id = country.getID();
+	this->code = strdup( country.getCode() );
+	this->isoCode = strdup( country.getIsoCode() );
 	this->name = strdup(country.getName());
 	this->description = strdup(country.getDescription());
 	this->treasure = strdup(country.getTreasure());
 	this->coord = country.getCoord();
-	this->coin = strdup(country.getCoin());
 	this->flagDesc = strdup(country.getFlagDescription());
 	this->capital = strdup(country.getCapital());
-	this->language = strdup(country.getLanguage());
+	this->languages = country.getLanguages();
+	this->currencies = country.getCurrencies();
 	return *this;
+}
+
+void Country::setIsoCode( const char *isoCode ) {
+	this->isoCode = strdup( isoCode );
+}
+
+const char* Country::getIsoCode() const {
+	return strdup( isoCode );
 }
 
 void Country::setCode( const char *code ) {
@@ -67,14 +79,6 @@ const char *Country::getDescription() const {
 	return strdup(description);
 }
 
-void Country::setCoin(const char *coin) {
-	this->coin = strdup(coin);
-}
-
-const char *Country::getCoin() const {
-	return strdup(coin);
-}
-
 void Country::setFlagDescription(const char *flagDesc) {
 	this->flagDesc = strdup(flagDesc);
 }
@@ -91,12 +95,20 @@ const char *Country::getTreasure() const {
 	return strdup(treasure);
 }
 
-void Country::setLanguage( const char *language ) {
-	this->language = strdup( language );
+void Country::setLanguages( const vector<string> &languages ) {
+	this->languages = languages;
 }
 
-const char* Country::getLanguage() const {
-	return strdup( this->language );
+const vector<string> Country::getLanguages() const {
+	return languages;
+}
+
+void Country::setCurrencies( const vector<string> &currencies ) {
+	this->currencies = currencies;
+}
+
+const vector<string> Country::getCurrencies() const {
+	return currencies;
 }
 
 void Country::setCapital( const char *capital ) {
@@ -117,14 +129,14 @@ Point Country::getCoord() const {
 
 Surface *Country::getPhoto() const {
 	char path[100];
-	sprintf(path, "data/countries/%s/photo.jpg", code );
-	
-	return new Surface(path);
+	sprintf(path, "data/countries/%s/postal.png", isoCode );
+
+	return boost::filesystem::exists( path ) ? new Surface( path ) : NULL;
 }
 
 Surface *Country::getFlag() const {
 	char path[100];
-	sprintf(path, "data/countries/%s/miniflag.png", code );
+	sprintf(path, "data/countries/%s/flag.png", isoCode );
 
 	return new Surface(path);
 }

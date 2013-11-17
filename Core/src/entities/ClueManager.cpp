@@ -27,7 +27,7 @@ Clue *ClueManager::create(const Criminal &criminal, const Country &country) {
 		sprintf(message, _("My sources tell me %s changed %s money to %s."),
 			CriminalFormatter::formatGenreArticle(criminal, false),
 			CriminalFormatter::formatGenrePossessive(criminal),
-			country.getCoin());
+			country.getCurrencies().at( 0 ).c_str() );
 		break;
 	case 3:
 		sprintf(message, _("%s had %s hair"),

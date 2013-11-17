@@ -26,6 +26,7 @@ PlayerCase *PlayerCaseManager::createRandomCase(Player &player) {
 	playerCase->setCriminal(*criminal);
 	
 	int *countriesPKrandom = Random::nextArray(Vars::listCountriesPK(), 7);
+
 	vector<Country> itinerary;
 	for(unsigned int i = 0; i < 7; i++) {
 		Country *country = CountriesManager::findByPrimaryKey(countriesPKrandom[i]);

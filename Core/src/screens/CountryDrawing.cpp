@@ -16,13 +16,16 @@ void showCountry(Surface *window, const Country &country) {
 	name.draw(Point(358, 105), window);
 	
 	/* Photo area */
-	Surface *temp = country.getPhoto()->getArea(Point(0, 0), Dimension(278, 298));
-	Surface photo(rotozoomSurface(temp->toSDL(), 5, .75, 1));
-	window->drawSurface(&photo, Point(30, 108));
-	delete temp;
-	
-	Surface polaroidSurf("resources/images/game/polaroid.png", false);
-	window->drawSurface(&polaroidSurf, Point(30, 108));
+	Surface *countryPhoto = country.getPhoto();
+	if( NULL != countryPhoto ) {
+		Surface *temp = countryPhoto->getArea(Point(0, 0), Dimension(278, 298));
+		Surface photo(rotozoomSurface(temp->toSDL(), 5, .75, 1));
+		window->drawSurface(&photo, Point(30, 108));
+		delete temp;
+		
+		Surface polaroidSurf("resources/images/game/polaroid.png", false);
+		window->drawSurface(&polaroidSurf, Point(30, 108));
+	}
 	
 	Surface *flag = country.getFlag();
 	Surface rotatedFlag(rotozoomSurface(flag->toSDL(), 0, 0.5, 1));

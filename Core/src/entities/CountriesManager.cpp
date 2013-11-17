@@ -2,8 +2,14 @@
 
 #include <tinyxml2.h>
 
+#include <vector>
+#include <string>
+
 using tinyxml2::XMLDocument;
 using tinyxml2::XMLElement;
+
+using std::vector;
+using std::string;
 
 vector<Country>* CountriesManager::findAll() {
 	static vector<Country> *countries = NULL;
@@ -26,16 +32,29 @@ vector<Country>* CountriesManager::findAll() {
 		Country country;
 		country.setID( ++id );
 		country.setCode( countryNode->Attribute( "code" ) );
+		country.setIsoCode( countryNode->Attribute( "isocode" ) );
 		country.setName( countryNode->FirstChildElement( "name" )->GetText() );
 		country.setCapital( countryNode->FirstChildElement( "capital" )->GetText() );
-		country.setLanguage( countryNode->FirstChildElement( "language" )->GetText() );
-		country.setCoin( countryNode->FirstChildElement( "currency" )->GetText() );
 		country.setTreasure( countryNode->FirstChildElement( "treasure" )->GetText() );
 //		country.setName( countryNode->FirstChildElement( "coord-lat" )->GetText() );
 		country.setCoord( Point( 1, 2 ) );
 		country.setDescription( countryNode->FirstChildElement( "description" )->GetText() );
 		country.setFlagDescription( countryNode->FirstChildElement( "flag-description" )->GetText() );
-		printf("%s\n",country.toString());
+
+		vector<string> languages;
+		XMLElement *languagesNode = countryNode->FirstChildElement( "languages" );
+		for( XMLElement *languageNode = languagesNode->FirstChildElement( "language" ); languageNode != NULL; languageNode = languageNode->NextSiblingElement( "language" ) ) {
+			languages.push_back( languageNode->GetText() );
+		}
+		country.setLanguages( languages );
+		
+		vector<string> currencies;
+		XMLElement *currenciesNode = countryNode->FirstChildElement( "currencies" );
+		for( XMLElement *currencyNode = currenciesNode->FirstChildElement( "currency" ); currencyNode != NULL; currencyNode = currencyNode->NextSiblingElement( "currency" ) ) {
+			currencies.push_back( currencyNode->GetText() );
+		}
+		country.setCurrencies( currencies );
+
 		countries->push_back( country );
 	}
 
