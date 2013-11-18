@@ -4,12 +4,12 @@
 #include "entities/Criminal.h"
 
 class CriminalFormatter {
-public:
-	CriminalFormatter();
-	virtual ~CriminalFormatter();
 
-	static const char *formatGenreArticle(const Criminal &criminal, bool start);
-	static const char *formatGenrePossessive(const Criminal &criminal);
+	public:
+		static const char *formatGenre( const Criminal &criminal );
+		static const char *formatGenre( Genre genre );
+		static const char *formatGenreArticle( const Criminal &criminal, bool capitalizeFirst );
+		static const char *formatGenrePossessive( const Criminal &criminal );
 };
 
 #endif

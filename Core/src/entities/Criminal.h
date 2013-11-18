@@ -1,16 +1,17 @@
 #ifndef CRIMINAL_H
 #define CRIMINAL_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+enum class Genre {
+	Female = 0,
+	Male
+};
 
 class Criminal {
 
 	private:
 		int id;
 		char *name;
-		char *sex;
+		Genre genre;
 		char *hobby;
 		char *hair;
 		char *feature;
@@ -25,8 +26,8 @@ class Criminal {
 		void setName(const char *name);
 		const char *getName() const;
 		
-		void setSex(const char *sex);
-		const char *getSex() const;
+		void setGenre( Genre genre );
+		Genre getGenre() const;
 		
 		void setHobby(const char *hobby);
 		const char *getHobby() const;

@@ -10,6 +10,7 @@ using std::string;
 #include "utilities/Translator.h"
 #include "ui/Transitions.h"
 #include "entities/CriminalsManager.h"
+#include "entities/format/CriminalFormatter.h"
 
 DossierScreen::DossierScreen(Window *window_) : window(window_) {
 	criminals = CriminalsManager::findAll();
@@ -65,7 +66,7 @@ void DossierScreen::updateScreen(bool update) {
 	Text text1(_("Genre"), &font);
 	text1.draw(Point(300 - text1.getDimension().getWidth(), 250), window);
 
-	Text text2(criminal.getSex(), &font);
+	Text text2( CriminalFormatter::formatGenre( criminal ), &font);
 	text2.draw(Point(320, 250), window);
 
 	Text text3(_("Hobby"), &font);

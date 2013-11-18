@@ -19,10 +19,9 @@
 #include "utilities/Translator.h"
 
 #include "entities/CriminalsManager.h"
+#include "entities/format/CriminalFormatter.h"
 
 #include "ui/Transitions.h"
-
-const char GENRES[2][10] = { "Male", "Female" };
 
 ProfileScreen::ProfileScreen(Surface *screen_, PlayerCase *playerCase_) :
 	screen(screen_), playerCase(playerCase_) {
@@ -95,10 +94,10 @@ void ProfileScreen::drawElements() {
 		// 0: sex, 1: hair, 2: hobby, 3: features, 4: capture, 5: cancel
 	
 		text.setFont(&fontOptions);
-		text.setText("Genre");
+		text.setText(_("Genre"));
 		text.draw(Point(marginLeft, marginTop), screen);
 	
-		text.setText(GENRES[genreIndex]);
+		text.setText( CriminalFormatter::formatGenre( static_cast<Genre>( genreIndex ) ) );
 		text.draw(Point(230, marginTop), screen);
 		sensAreas.addArea(Point(230, marginTop), text.getDimension()); // Genre: 0
 	
@@ -202,8 +201,9 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
 			}
 			
 			Criminal *criminal = CriminalsManager::findByFeatures(
-					GENRES[genreIndex], hobbiesList[hobbyIndex].c_str(),
-					hairsList[hairIndex].c_str());
+					static_cast<Genre>( genreIndex ),
+					hobbiesList[hobbyIndex].c_str(),
+					hairsList[hairIndex].c_str() );
 			if (!criminal) {
 				InformationDialog dlg(screen, _("The combination does not match with an existent thief profile."));
 				dlg.show();

@@ -22,7 +22,7 @@ class CriminalsManager {
 		static vector<string> &findAllFeatures();
 		
 		static Criminal* findByPrimaryKey( unsigned int id );
-		static Criminal* findByFeatures(const char *genre, const char *hobby, const char *hair);
+		static Criminal* findByFeatures( Genre genre, const char *hobby, const char *hair );
 };
 
 #endif

@@ -1,5 +1,11 @@
 #include "Criminal.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "entities/format/CriminalFormatter.h"
+
 Criminal::Criminal() {
 	id = -1;
 }
@@ -23,12 +29,12 @@ const char *Criminal::getName() const {
 	return strdup(name);
 }
 
-void Criminal::setSex(const char *sex) {
-	this->sex = strdup(sex);
+void Criminal::setGenre( Genre genre ) {
+	this->genre = genre;
 }
 
-const char *Criminal::getSex() const {
-	return sex;
+Genre Criminal::getGenre() const {
+	return genre;
 }
 
 void Criminal::setHobby(const char *hobby) {
@@ -60,7 +66,7 @@ const char *Criminal::toString() const {
 	if(!text) return NULL;
 
 	sprintf(text, "name: %s, sex: %s, hobby: %s, hair: %s, feature: %s",
-		name, sex, hobby, hair, feature
+		name, CriminalFormatter::formatGenre( genre ), hobby, hair, feature
 	);
 
 	return text;

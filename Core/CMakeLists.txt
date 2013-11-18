@@ -28,7 +28,7 @@ ENDIF()
 LINK_LIBRARIES(${SDL_LIBRARY} ${SDL_image_LIBRARY})
 
 IF(UNIX)
-	ADD_DEFINITIONS(-pedantic -pedantic-errors -Wall -Werror `sdl-config --cflags` -g)
+	ADD_DEFINITIONS(-std=c++11 -pedantic -pedantic-errors -Wall -Werror `sdl-config --cflags` -g)
 ELSE(UNIX)
 	ADD_DEFINITIONS(-Wall)
 ENDIF(UNIX)

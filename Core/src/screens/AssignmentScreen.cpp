@@ -15,6 +15,7 @@ using std::vector;
 #include "entities/Player.h"
 #include "entities/PlayersManager.h"
 #include "entities/PlayerCaseManager.h"
+#include "entities/format/CriminalFormatter.h"
 
 #include "utilities/Translator.h"
 
@@ -109,7 +110,7 @@ PlayerCase *AssignmentScreen::show() {
 
 	memset(line, '\0', 500);
 	sprintf(line, _("A %s suspect was seen at the crime scene."),
-			playerCase->getCriminal().getSex());
+		CriminalFormatter::formatGenre( playerCase->getCriminal() ) );
 	addLine(line);
 
 	memset(line, '\0', 500);

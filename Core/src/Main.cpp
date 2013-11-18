@@ -9,7 +9,6 @@
 #include <FontService.h>
 #include <MediaMusic.h>
 #include <Database.h>
-#include <Logger.h>
 
 #include "Constants.h"
 #include "Vars.h"
@@ -120,12 +119,10 @@ int main(int argc, char * argv[]) {
 
 	Configurator configurator = Configurator::getInstance();
 
-	Logger logger("thiefcatcher-errors.log");
-
 	try {
 		configurator.init();
 	} catch (std::runtime_error &error) {
-		logger.log("ERROR", error.what());
+		fprintf( stderr, "%s\n", error.what() );
 		exit(1);
 	}
 

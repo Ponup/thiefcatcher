@@ -26,7 +26,7 @@ vector<Criminal>* CriminalsManager::findAll() {
 	for( XMLElement *criminalNode = rootNode->FirstChildElement( "criminal" ); NULL != criminalNode; criminalNode = criminalNode->NextSiblingElement( "criminal" ) ) {
 		Criminal criminal;
 		criminal.setID( ++criminalId );
-		criminal.setSex( criminalNode->Attribute( "genre" ) );
+		criminal.setGenre( strncasecmp( "male", criminalNode->Attribute( "genre" ), 4 ) == 0 ? Genre::Male : Genre::Female );
 		criminal.setName( criminalNode->FirstChildElement( "name" )->GetText() );
 		criminal.setHobby( criminalNode->FirstChildElement( "trait" )->GetText() );
 		criminal.setHair( criminalNode->FirstChildElement( "hair" )->GetText() );
@@ -73,11 +73,11 @@ vector<string> &CriminalsManager::findAllFeatures() {
 	return *list;
 }
 
-Criminal *CriminalsManager::findByFeatures(const char *genre, const char *hobby, const char *hair) {
+Criminal *CriminalsManager::findByFeatures( Genre genre, const char *hobby, const char *hair) {
 	vector<Criminal> *criminals = findAll();
 	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
 		Criminal criminal = *it;
-		if( strcasecmp( criminal.getSex(), genre ) == 0 && strcasecmp( criminal.getHobby(), hobby ) == 0 && strcasecmp( criminal.getHair(), hair ) == 0 ) {
+		if( genre == criminal.getGenre() && strcasecmp( criminal.getHobby(), hobby ) == 0 && strcasecmp( criminal.getHair(), hair ) == 0 ) {
 			return new Criminal( criminal );
 		}
 	}

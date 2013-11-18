@@ -1,28 +1,26 @@
 #include "CriminalFormatter.h"
 
+#include <ctype.h>
+#include <string.h>
+
 #include "utilities/Translator.h"
 
-CriminalFormatter::CriminalFormatter()
-{
+const char *CriminalFormatter::formatGenre( const Criminal &criminal ) {
+	return formatGenre( criminal.getGenre() );
 }
 
-CriminalFormatter::~CriminalFormatter()
-{
+const char *CriminalFormatter::formatGenre( Genre genre ) {
+	return ( Genre::Female == genre ? _("female") : _("male") );
 }
 
-const char *CriminalFormatter::formatGenreArticle(const Criminal & criminal, bool start) {
-	if(strncmp(criminal.getSex(), "Male", 4) == 0) {
-		return start ? _("He") : _("he");
-	} else {
-		return start ? _("She") : _("she");
-	}
+/**
+ * @todo Actually do something with the second parameter.
+ */
+const char *CriminalFormatter::formatGenreArticle( const Criminal & criminal, bool capitalizeFirst ) {
+	return ( Genre::Female == criminal.getGenre() ? _("she") : _("he") );
 }
 
 const char *CriminalFormatter::formatGenrePossessive(const Criminal & criminal) {
-	if(strncmp(criminal.getSex(), "Male", 4) == 0) {
-		return false ? _("His") : _("his");
-	} else {
-		return false ? _("Her") : _("her");
-	}	
+	return ( Genre::Female == criminal.getGenre() ? _("her") : _("his") );
 }
 
