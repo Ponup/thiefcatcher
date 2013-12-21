@@ -30,7 +30,7 @@ void Menu::setSelectedItem(short selectedItem) {
 	this->selectedItem = selectedItem;
 }
 
-short Menu::addItem(const char *item) {
+short Menu::addItem(string item) {
 	Text *text = new Text(item, &font);
 	Dimension dim = text->getDimension();
 	Point position((window->getDimension().getWidth() >> 1) - (dim.getWidth() >> 1), lastY);

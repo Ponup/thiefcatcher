@@ -23,7 +23,7 @@ void HallOfFameScreen::show() {
 	playerFont.setColor(Color(255, 255, 0));	
 
 	int columnPos[4] = { 60, 80, 180, 300 };
-	const char *headerNames[] = {
+	string headerNames[] = {
 		_("#"), _("Player"), _("Rank"), _("Experience")
 	};
 	
@@ -49,7 +49,7 @@ void HallOfFameScreen::show() {
 		const char *playerValues[] = {
 			top,
 			player.getName(),
-			PlayersManager::getRank(player),
+			PlayersManager::getRank(player).c_str(),
 			experience
 		};
 

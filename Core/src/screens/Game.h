@@ -40,7 +40,7 @@ class Game {
 		Surface *options_over[4];		
 		Point points[4];
 		
-		const char *labels[4];
+		string labels[4];
 		
 		PlayerCase *playerCase;
 		

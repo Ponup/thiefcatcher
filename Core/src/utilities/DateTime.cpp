@@ -59,7 +59,7 @@ DateTime::DayOfWeek DateTime::getDayOfWeek() const {
 	return (DateTime::DayOfWeek)(currentDate->tm_wday);
 }
 
-const char *DateTime::getDayOfWeekName() const {
+string DateTime::getDayOfWeekName() const {
 	switch (getDayOfWeek()) {
 	case DateTime::Sunday:
 		return _("Sunday");

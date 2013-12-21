@@ -40,7 +40,7 @@ class Menu : public EventHandler {
 		virtual ~Menu();
 
 		void setSelectedItem(short selectedItem);
-		short addItem(const char *item);
+		short addItem(string item);
 		short getSelectedItem();
 		
 		void reset();

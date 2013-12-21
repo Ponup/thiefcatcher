@@ -1,6 +1,9 @@
 #ifndef DATETIME_H_
 #define DATETIME_H_
 
+#include <string>
+using std::string;
+
 #include <time.h>
 
 class DateTime {
@@ -42,7 +45,7 @@ public:
 	int getSeconds() const;
 	
 	DayOfWeek getDayOfWeek() const;
-	const char *getDayOfWeekName() const;
+	string getDayOfWeekName() const;
 	
 	void increase(int quantity, DateTimeComponent component);
 		

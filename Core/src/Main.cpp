@@ -1,4 +1,8 @@
 
+#include <iostream>
+using std::cout;
+using std::endl;
+
 #include <signal.h>
 
 #include <SDL.h>
@@ -114,7 +118,7 @@ int main(int argc, char * argv[]) {
 
 	{
 	if (Updater::existsNewVersion(GAME_VERSION)) {
-		printf("%s\n", _("A new version of 'Thief Catcher' is available for download!"));
+		cout << _("A new version of 'Thief Catcher' is available for download!") << endl;
 	}
 
 	Configurator configurator = Configurator::getInstance();

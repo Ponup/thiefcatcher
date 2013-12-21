@@ -56,7 +56,7 @@ void Map::updateScreen(bool update) {
 
 	char temp[200];
 	memset(temp, '\0', 200);
-	sprintf(temp, _("You are in %s."), from->getName());
+	sprintf(temp, _("You are in %s.").c_str(), from->getName());
 
 	Text text1(temp, &font);
 	text1.draw(Point(40, 510), window);

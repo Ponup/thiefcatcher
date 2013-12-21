@@ -1,18 +1,21 @@
 #ifndef CLUE_H
 #define CLUE_H
 
+#include <string>
+using std::string;
+
 class Clue {
 
 private:
-	char *message;
+	string message;
 
 public:
 	Clue();
-	Clue(const char *message);
+	Clue(string message);
 	~Clue();
 
-	void setMessage(const char *message);
-	const char *getMessage() const;
+	void setMessage(string message);
+	string getMessage() const;
 };
 
 #endif

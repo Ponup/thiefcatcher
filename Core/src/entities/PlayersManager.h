@@ -1,6 +1,9 @@
 #ifndef PLAYERSMANAGER_H
 #define PLAYERSMANAGER_H
 
+#include <string>
+using std::string;
+
 #include <vector>
 using std::vector;
 
@@ -18,7 +21,7 @@ public:
 	static Player *create(const char *name);
 		
 	static void updatePlayer(Player &player);
-	static const char *getRank(const Player &player);
+	static string getRank(const Player &player);
 };
 
 #endif

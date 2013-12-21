@@ -4,26 +4,20 @@
 #include <string.h>
 
 Clue::Clue() {
-	message = NULL;
 }
 
-Clue::Clue(const char *message) {
+Clue::Clue( string message ) {
 	setMessage(message);
 }
 
-void Clue::setMessage(const char *message) {
-	this->message = strdup( message );
+void Clue::setMessage( string message ) {
+	this->message = message;
 }
 
-const char *Clue::getMessage() const {
-	return strdup(message);
+string Clue::getMessage() const {
+	return message;
 }
 
 Clue::~Clue() {
-	if(message)
-	{
-		free(message);
-	}
-	message = NULL;
 }
 

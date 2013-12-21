@@ -66,7 +66,7 @@ const char *Criminal::toString() const {
 	if(!text) return NULL;
 
 	sprintf(text, "name: %s, sex: %s, hobby: %s, hair: %s, feature: %s",
-		name, CriminalFormatter::formatGenre( genre ), hobby, hair, feature
+		name, CriminalFormatter::formatGenre( genre ).c_str(), hobby, hair, feature
 	);
 
 	return text;

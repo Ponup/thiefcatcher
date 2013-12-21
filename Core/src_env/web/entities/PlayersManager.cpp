@@ -77,7 +77,7 @@ void PlayersManager::updatePlayer(Player &player) {
 	db.update("UPDATE player SET num_resolved_cases = num_resolved_cases + 1 WHERE id = %d", player.getID());
 }
 
-const char *PlayersManager::getRank(const Player &player) {	
+string PlayersManager::getRank(const Player &player) {	
 	Database db = Database::getInstance();
 	ResultSet &rs = db.execute("SELECT description FROM player_rank WHERE %d >= resolved ORDER BY resolved DESC LIMIT 1", player.getResolved());
 	if(rs.rowsCount() == 1) {

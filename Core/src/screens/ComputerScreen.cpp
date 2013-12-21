@@ -44,7 +44,7 @@ vector<string> &split( const string &s, char delim, vector<string> &elems ) {
 	return elems;
 }
 
-void ComputerScreen::addLine(const char *line) {
+void ComputerScreen::addLine(string line) {
 	vector<string> tokens;
 	split( line, ' ', tokens );
 	reverse( tokens.begin(), tokens.end() );

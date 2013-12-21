@@ -45,7 +45,7 @@ ENDIF()
 
 IF(UNIX)
 	EXEC_PROGRAM("sdl-config" ARGS "--libs" OUTPUT_VARIABLE SDLCONFIG_LIBS)
-	LINK_LIBRARIES(${KANGAROO_LIB} ${SDLCONFIG_LIBS} sqlite3 curl SDL_image SDL_gfx SDL_mixer SDL_ttf tinyxml2 boost_system boost_filesystem)
+	LINK_LIBRARIES(${KANGAROO_LIB} ${SDLCONFIG_LIBS} sqlite3 curl SDL_image SDL_gfx SDL_mixer SDL_ttf tinyxml2 boost_system boost_filesystem boost_locale)
 ENDIF()
 
 ADD_EXECUTABLE(

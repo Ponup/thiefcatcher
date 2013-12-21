@@ -34,7 +34,7 @@ public:
 	virtual ~ComputerScreen();
 	
 	void clear();	
-	void addLine(const char *line);
+	void addLine(string line);
 	void showLines();
 	
 	void waitKey();

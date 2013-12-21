@@ -84,11 +84,11 @@ PlayerCase *AssignmentScreen::show() {
 	char l[100];
 
 	memset(l, '\0', 100);
-	sprintf(l, _("You has been identified, %s."), player->getName());
+	sprintf(l, _("You has been identified, %s.").c_str(), player->getName());
 	addLine(l);
 
 	memset(l, '\0', 100);
-	sprintf(l, _("Your current rank is: %s."), PlayersManager::getRank(*player));
+	sprintf(l, _("Your current rank is: %s.").c_str(), PlayersManager::getRank(*player).c_str());
 
 	addLine(l);
 
@@ -101,36 +101,36 @@ PlayerCase *AssignmentScreen::show() {
 	char line[500];
 
 	memset(line, '\0', 500);
-	sprintf(line, _("National treasure stolen in %s."),
+	sprintf(line, _("National treasure stolen in %s.").c_str(),
 			playerCase->currentCountry.getName());
 	addLine(line);
 
 	memset(line, '\0', 500);
-	sprintf(line, _("The loot has been identified as %s."),
+	sprintf(line, _("The loot has been identified as %s.").c_str(),
 			playerCase->getStolenObject());
 	addLine(line);
 
 	memset(line, '\0', 500);
-	sprintf(line, _("A %s suspect was seen at the crime scene."),
-		CriminalFormatter::formatGenre( playerCase->getCriminal() ) );
+	sprintf(line, _("A %s suspect was seen at the crime scene.").c_str(),
+		CriminalFormatter::formatGenre( playerCase->getCriminal() ).c_str() );
 	addLine(line);
 
 	memset(line, '\0', 500);
 	sprintf(
 			line,
-			_("Your mission: To pursue the thief from %s to its hideout and arrest him!"),
+			_("Your mission: To pursue the thief from %s to its hideout and arrest him!").c_str(),
 			playerCase->currentCountry.getName());
 	addLine(line);
 
 	memset(line, '\0', 500);
-	sprintf(line, _("You have to arrest the thief before %s."),
+	sprintf(line, _("You have to arrest the thief before %s.").c_str(),
 			playerCase->endDate->toString("%A %d, %H:%M"));
 	addLine(line);
 
 	addLine(" ");
 
 	memset(line, '\0', 500);
-	sprintf(line, _("Good luck, %s %s."), PlayersManager::getRank(*player), player->getName());
+	sprintf(line, _("Good luck, %s %s.").c_str(), PlayersManager::getRank(*player).c_str(), player->getName());
 	addLine(line);
 
 	showLines();

@@ -132,13 +132,13 @@ void OptionsScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
 				const char *language = NULL;
 				switch (languageIndex) {
 				case LANG_ENGLISH:
-					language = "en";
+					language = "en.utf8";
 					break;
 				case LANG_SPANISH:
-					language = "es";
+					language = "es.utf8";
 					break;
 				case LANG_CATALAN:
-					language = "ca";
+					language = "ca.utf8";
 					break;
 				}
 				configurator.setLanguage(language);
