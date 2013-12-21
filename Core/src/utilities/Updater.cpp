@@ -48,6 +48,7 @@ bool Updater::existsNewVersion(const char *currentVersion) {
 	string content;
 	curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, writeData);
 	curl_easy_setopt(handle, CURLOPT_WRITEDATA, &content);
+	curl_easy_setopt(handle, CURLOPT_CONNECTTIMEOUT, 2);
 
 	CURLcode returnCode = curl_easy_perform(handle);
 	if (returnCode != CURLE_OK) {

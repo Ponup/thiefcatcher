@@ -113,8 +113,8 @@ int main(int argc, char * argv[]) {
 	services.init();
 
 	{
-	if (false) { // Updater::existsNewVersion(GAME_VERSION)) {
-		printf("%s\n", _("A new version of 'Where the hell' is ready to download!"));
+	if (Updater::existsNewVersion(GAME_VERSION)) {
+		printf("%s\n", _("A new version of 'Thief Catcher' is available for download!"));
 	}
 
 	Configurator configurator = Configurator::getInstance();

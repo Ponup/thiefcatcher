@@ -30,10 +30,12 @@ AssignmentScreen::~AssignmentScreen() {
 	delete input;
 }
 
-bool isValidName(const char *name) {
-	if(!name) return false;
+bool isValidName( const char *name ) {
+	if( !name )
+		return false;
 
-	if(strlen(name) < 2) return false;
+	if( strlen( name ) < 2 )
+		return false;
 
 	return true;
 }
@@ -45,7 +47,7 @@ PlayerCase *AssignmentScreen::show() {
 	const char *name = input->get();
 	addLine(name);
 
-	while(!isValidName(name)) {
+	while( !isValidName( name ) ) {
 		addLine(_("Your name is not valid. Please type a name with at least two characters:"));
 		showLines();
 

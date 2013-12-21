@@ -1,5 +1,11 @@
 #include "ComputerScreen.h"
 
+#include <sstream>
+using std::stringstream;
+
+#include <algorithm>
+using std::reverse;
+
 #include <Text.h>
 #include <Dimension.h>
 
@@ -29,32 +35,36 @@ void ComputerScreen::clear() {
 	currentLine = 0;
 }
 
+vector<string> &split( const string &s, char delim, vector<string> &elems ) {
+	stringstream ss( s );
+	string item;
+	while( getline( ss, item, delim ) ) {
+		elems.push_back( item );
+	}
+	return elems;
+}
+
 void ComputerScreen::addLine(const char *line) {
-	char *backup = strdup(line);
-	string validLine;
-	char *token = strtok(backup, " ");
-	while (token != NULL) {
-		string temp = validLine;
-		if (temp.empty() == false) {
-			temp += " ";
-		}
-		temp += token;
+	vector<string> tokens;
+	split( line, ' ', tokens );
+	reverse( tokens.begin(), tokens.end() );
 
-		Text text(temp.c_str(), font);
-		Dimension dim = text.getDimension();
-		if (dim.getWidth() < 550) {
-			validLine = temp;
-		} else {
-			lines.push_back(validLine);
-			validLine = token;
+	string nextLine;
+	while( !tokens.empty() )
+	{
+		string nextWord = ( nextLine.empty() ? tokens.back() : string(" ") + tokens.back() );
+		if( Text( ( nextLine + nextWord ).c_str(), font ).getDimension().getWidth() < 550 ) {
+			nextLine.append( nextWord );
 		}
-
-		token = strtok(NULL, " ");
+		else
+		{
+			lines.push_back( nextLine );
+			nextLine = tokens.back();
+		}
+		tokens.pop_back();
 	}
 
-	lines.push_back(validLine);
-	
-	free(backup);
+	lines.push_back( nextLine );
 }
 
 void ComputerScreen::showLines() {
