@@ -1,19 +1,20 @@
 #include "Translator.h"
 
-#include <boost/locale.hpp>
-using namespace boost::locale;
+#include <fstream>
+
+#include "tinygettext/po_parser.hpp"
+
+tinygettext::Dictionary Translator::dict;
 
 void Translator::init ( const char *localeCode ) {
-	generator gen;
-	gen.add_messages_path( "./resources/languages" );
-	gen.add_messages_domain( "messages" );
-
-	std::locale::global( gen( localeCode ) );
-	std::cout.imbue(std::locale());
+	std::string path = std::string("resources/languages/") + localeCode + "/LC_MESSAGES/messages.po";
+	std::ifstream in( path );
+	tinygettext::POParser::parse( path, in, dict );
+	in.close();
 }
 
 string Translator::translate( const char *id )
 {
-	return boost::locale::gettext( id );
+	return dict.translate( id );
 }
 
