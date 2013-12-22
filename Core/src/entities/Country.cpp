@@ -2,7 +2,7 @@
 
 #include <Dimension.h>
 
-#include <boost/filesystem.hpp>
+#include <fstream>
 
 Country::Country() {
 }
@@ -127,11 +127,17 @@ Point Country::getCoord() const {
 	return coord;
 }
 
+bool fileExists( const std::string& name )
+{
+	std::ifstream f( name.c_str() );
+	return f.is_open();
+}
+
 Surface *Country::getPhoto() const {
 	char path[100];
 	sprintf(path, "data/countries/%s/postal.png", isoCode );
 
-	return boost::filesystem::exists( path ) ? new Surface( path ) : NULL;
+	return fileExists( path ) ? new Surface( path ) : NULL;
 }
 
 Surface *Country::getFlag() const {
