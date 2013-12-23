@@ -22,7 +22,7 @@ void Rocket::setColor(const Color &color) {
 }
 
 bool Rocket::isDead() {
-	return (position.getY() - 600 < 100);
+	return ( t > 0 && position.getY() > 700 );
 }
 
 void Rocket::update() {

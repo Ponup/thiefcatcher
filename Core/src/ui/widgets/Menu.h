@@ -23,6 +23,7 @@ class Menu : public EventHandler {
 		SensitiveAreas sensAreas;
 		short currentItem;
 		
+		Font headerFont;
 		Font font;
 
 		Surface *window;

@@ -26,6 +26,23 @@ DossierScreen::DossierScreen(Window *window_) : window(window_) {
 	font.load("resources/fonts/FreeSansBold.ttf", 18);
 
 	backgroundSurf = new Surface("resources/images/dossiers/background.png");
+
+	Font headerFont("resources/fonts/gtw.ttf", 45);
+	headerFont.setColor(Color(255, 220, 220));
+	Text headerText(_("Thief Catcher"), &headerFont);
+	headerText.draw(Point(30, 10), backgroundSurf);
+
+	Text text1(_("Genre"), &font);
+	text1.draw(Point(300 - text1.getDimension().getWidth(), 250), backgroundSurf);
+
+	Text text3(_("Hobby"), &font);
+	text3.draw(Point(300 - text3.getDimension().getWidth(), 300), backgroundSurf);
+
+	Text text5(_("Hair"), &font);
+	text5.draw(Point(300 - text5.getDimension().getWidth(), 345), backgroundSurf);
+
+	Text text7(_("Feature"), &font);
+	text7.draw(Point(300 - text7.getDimension().getWidth(), 390), backgroundSurf);
 	
 	updateScreen(false);
 	
@@ -45,7 +62,6 @@ void DossierScreen::show() {
 		updateScreen(true);
 		fr.regulate();
 	}
-
 }
 
 void DossierScreen::updateScreen(bool update) {
@@ -63,26 +79,14 @@ void DossierScreen::updateScreen(bool update) {
 	Text text0(criminal.getName(), &fontName);
 	text0.draw(Point(140, 140), window);
 
-	Text text1(_("Genre"), &font);
-	text1.draw(Point(300 - text1.getDimension().getWidth(), 250), window);
-
 	Text text2( CriminalFormatter::formatGenre( criminal ), &font);
 	text2.draw(Point(320, 250), window);
-
-	Text text3(_("Hobby"), &font);
-	text3.draw(Point(300 - text3.getDimension().getWidth(), 300), window);
 
 	Text text4(criminal.getHobby(), &font);
 	text4.draw(Point(320, 300), window);
 
-	Text text5(_("Hair"), &font);
-	text5.draw(Point(300 - text5.getDimension().getWidth(), 345), window);
-
 	Text text6(criminal.getHair(), &font);
 	text6.draw(Point(320, 345), window);
-
-	Text text7(_("Feature"), &font);
-	text7.draw(Point(300 - text7.getDimension().getWidth(), 390), window);
 
 	Text text8(criminal.getFeature(), &font);
 	text8.draw(Point(320, 390), window);

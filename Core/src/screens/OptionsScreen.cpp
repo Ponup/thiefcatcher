@@ -17,7 +17,7 @@ OptionsScreen::OptionsScreen(Window *window_) : window(window_) {
 
 	languageIndex = 0;
 
-	font = FontManager::getFont("FreeSansBold", 25);
+	Font *font = FontManager::getFont("FreeSansBold", 25);
 	font->setColor(Color(63, 36, 18));
 
 	fontValue = FontManager::getFont("FreeSans", 25);
@@ -25,12 +25,25 @@ OptionsScreen::OptionsScreen(Window *window_) : window(window_) {
 	
 	backgroundSurf = new Surface("resources/images/menu/background.png");
 
-	screenTitle = new Text(_("OPTIONS"), font);
+	Font headerFont("resources/fonts/gtw.ttf", 45);
+	headerFont.setColor(Color(255, 220, 220));
+	Text headerText(_("Thief Catcher"), &headerFont);
+	headerText.draw(Point(30, 10), backgroundSurf);
+
+	headerFont.setColor(Color(63, 36, 18));
+	Text screenTitle(_("Options"), &headerFont);
+	int x = window->getDimension().getWidth() - screenTitle.getDimension().getWidth() - 30;
+	screenTitle.draw(Point(x, 10), backgroundSurf);
 		
-	languageLabel = new Text(_("Language"), font);
-	musicLabel = new Text(_("Music"), font);
-	soundsLabel = new Text(_("Sounds"), font);
-	fullscreenLabel = new Text(_("Full screen"), font);
+	Text languageLabel(_("Language"), font);
+	Text musicLabel(_("Music"), font);
+	Text soundsLabel(_("Sounds"), font);
+	Text fullscreenLabel(_("Full screen"), font);
+
+	languageLabel.draw(Point(200, 130), backgroundSurf);
+	musicLabel.draw(Point(200, 160), backgroundSurf);
+	soundsLabel.draw(Point(200, 190), backgroundSurf);
+	fullscreenLabel.draw(Point(200, 220), backgroundSurf);
 
 	languageValue = new Text();
 	languageValue->setFont(fontValue);
@@ -49,22 +62,16 @@ OptionsScreen::OptionsScreen(Window *window_) : window(window_) {
 	sensAreas.addArea(Point(480, 220), fullscreenValue->getDimension());
 
 	updateScreen(false);
+
+	delete font;
 	
 	//Transitions::slideRL(window, window->getArea(Point(0, 0), Dimension(640, 480)));
 }
 
 OptionsScreen::~OptionsScreen() {
-	//delete font;
-	//delete fontValue;
-	
-	delete screenTitle;
-	delete languageLabel;
 	delete languageValue;
-	delete musicLabel;
 	delete musicValue;
-	delete soundsLabel;
 	delete soundsValue;
-	delete fullscreenLabel;
 	delete fullscreenValue;
 	
 	delete backgroundSurf;
@@ -90,17 +97,10 @@ void OptionsScreen::updateValues() {
 
 void OptionsScreen::updateScreen(bool update) {
 	window->drawSurface(backgroundSurf, Point(0, 0));
-
-	int x = (window->getDimension().getWidth() >> 1) - (screenTitle->getDimension().getWidth() >> 1);
-	screenTitle->draw(Point(x, 20), window);
 	
-	languageLabel->draw(Point(200, 130), window);
 	languageValue->draw(Point(480, 130), window);
-	musicLabel->draw(Point(200, 160), window);
 	musicValue->draw(Point(480, 160), window);
-	soundsLabel->draw(Point(200, 190), window);
 	soundsValue->draw(Point(480, 190), window);
-	fullscreenLabel->draw(Point(200, 220), window);
 	fullscreenValue->draw(Point(480, 220), window);
 	
 	if(update) {

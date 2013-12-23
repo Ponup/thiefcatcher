@@ -13,6 +13,10 @@ void ParticleSystem::addParticle(Particle *particle) {
 	particles.push_back(particle);
 }
 
+unsigned int ParticleSystem::getNumber() const {
+	return particles.size();
+}
+
 void ParticleSystem::update() {
 	for (unsigned int i = 0; i < particles.size(); i++) {
 		Particle *particle = particles[i];

@@ -1,10 +1,14 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <string>
+using std::string;
+
 class Player {
 	private:
 		int id;
-		const char *name;
+		string name;
+		string rank;
 		unsigned int resolved;
 		
 	public:
@@ -15,8 +19,10 @@ class Player {
 		
 		void setID(int id);
 		int getID() const;
-		void setName(const char *name);
-		const char *getName() const;
+		void setName(string name);
+		string getName() const;
+		void setRank(string rank);
+		string getRank() const;
 		void setResolved(unsigned int resolved);
 		unsigned int getResolved() const;
 

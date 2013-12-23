@@ -40,8 +40,8 @@ class InputBox {
 		void setMaxChars(unsigned short maxChars);
 		unsigned short getMaxChars() const;
 		
-		char *getText();
-		char *get();
+		string getText();
+		string get();
 		
 		void clear();
 };

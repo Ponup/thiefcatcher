@@ -22,10 +22,13 @@ FireworksPS::~FireworksPS() {
 }
 
 void FireworksPS::onParticleDie() {
-	Rocket *particle= NULL;
+	if (RandomGen::nextInt(0, 12) == 7)
+		return;
+
+	Rocket *particle = NULL;
 
 	if (RandomGen::nextInt(0, 1) == 0) {
-		particle = new Rocket(-50, RandomGen::nextInt(20, 120), RandomGen::nextInt(10, 80));
+		particle = new Rocket(RandomGen::nextInt(-50, -200), RandomGen::nextInt(20, 120), RandomGen::nextInt(10, 80));
 		particle->initialPos = Point(RandomGen::nextInt(790, 800),
 				RandomGen::nextInt(400, 600));
 	} else {
@@ -34,7 +37,7 @@ void FireworksPS::onParticleDie() {
 				RandomGen::nextInt(400, 600));
 	}
 
-	particle->setColor(colors[RandomGen::nextInt(0, 2)]);
+	particle->setColor(Color(RandomGen::nextInt(0, 255), RandomGen::nextInt(0, 255), RandomGen::nextInt(0, 255)));
 
 	addParticle(particle);
 }

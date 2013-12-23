@@ -8,6 +8,8 @@
 
 #include <math.h>
 
+#include "utilities/Translator.h"
+
 IntroScreen::IntroScreen(Surface *screen_) : screen(screen_) {
 }
 
@@ -15,11 +17,11 @@ IntroScreen::~IntroScreen() {
 }
 
 void IntroScreen::run() {
-	Font font("resources/fonts/FreeSansBold.ttf", 60);
+	Font font("resources/fonts/gtw.ttf", 75);
 	font.setColor(Color(255, 220, 220));
 	font.setStyle(BLENDED);
 
-	Text textLine("Thief Catcher");
+	Text textLine(_("Thief Catcher"));
 	textLine.setFont(&font);
 
 	MediaSound sound("resources/sounds/gunshot.wav");
@@ -64,7 +66,7 @@ void IntroScreen::run() {
 		angle += 0.05;
 
 		while(SDL_PollEvent(&e))
-			quit = e.type == SDL_QUIT || e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_KEYDOWN;
+			quit = ( e.type == SDL_QUIT || e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_KEYDOWN );
 	}
 }
 

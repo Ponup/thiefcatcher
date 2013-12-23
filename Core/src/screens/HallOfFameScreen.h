@@ -8,7 +8,7 @@
 
 class HallOfFameScreen : public EventHandler {
 private:
-	Surface * screen;
+	Surface *screen;
 	bool quit;
 	
 public:

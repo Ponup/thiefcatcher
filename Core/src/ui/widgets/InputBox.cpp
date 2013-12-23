@@ -39,8 +39,8 @@ void InputBox::setFont(Font * font) {
 	line.setFont(font);
 }
 
-char *InputBox::getText() {
-	return strdup(text.c_str());
+string InputBox::getText() {
+	return text;
 }
 
 void InputBox::handleEvent(SDL_Event & e) {
@@ -70,7 +70,7 @@ unsigned short InputBox::getMaxChars() const {
 	return maxChars;
 }
 
-char *InputBox::get() {
+string InputBox::get() {
 	SDL_Event event;
 	bool quit = false;
 	while (!quit) {

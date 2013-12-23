@@ -18,6 +18,7 @@ class ParticleSystem {
 		
 		void addParticle(Particle *particle);
 		virtual void onParticleDie() = 0;
+		unsigned int getNumber() const;
 		
 		void update();
 		void draw(Surface *surface);

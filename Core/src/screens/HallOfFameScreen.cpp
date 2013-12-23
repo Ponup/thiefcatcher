@@ -11,26 +11,29 @@
 #include "entities/PlayersManager.h"
 #include "ui/Transitions.h"
 
-HallOfFameScreen::HallOfFameScreen(Surface *screen_) : screen(screen_) {
-	quit = false;
+HallOfFameScreen::HallOfFameScreen(Surface *screen_) : screen(screen_), quit(false) {
 }
 
 void HallOfFameScreen::show() {
-	Surface background("resources/images/hall_of_fame_background.png");
-	screen->drawSurface(&background, Point(0, 0));	
-	
-	Font playerFont("resources/fonts/FreeSansBold.ttf", 14);
-	playerFont.setColor(Color(255, 255, 0));	
+	Surface background("resources/images/menu/background.png");
 
-	int columnPos[4] = { 60, 80, 180, 300 };
+	Font headerFont("resources/fonts/gtw.ttf", 45);
+	headerFont.setColor(Color(255, 220, 220));
+	Text headerText(_("Thief Catcher"), &headerFont);
+	headerText.draw(Point(30, 10), &background);
+
+	Font playerFont("resources/fonts/FreeSansBold.ttf", 14);
+	playerFont.setColor(Color(0x00, 0x00, 0x00));	
+
+	int columnPos[4] = { 240, 260, 360, 480 };
 	string headerNames[] = {
 		_("#"), _("Player"), _("Rank"), _("Experience")
 	};
 	
-	int headerY = 70;
+	int headerY = 140;
 
 	for(int i = 0; i < 4; i++)
-		Text::drawString(headerNames[i], Point(columnPos[i], headerY), &playerFont, screen);
+		Text::drawString(headerNames[i], Point(columnPos[i], headerY), &playerFont, &background);
 
 	playerFont.setColor(Color(255, 255, 255));	
 	
@@ -48,27 +51,26 @@ void HallOfFameScreen::show() {
 
 		const char *playerValues[] = {
 			top,
-			player.getName(),
-			PlayersManager::getRank(player).c_str(),
+			player.getName().c_str(),
+			player.getRank().c_str(),
 			experience
 		};
 
 		Surface icon("resources/icons/award_star_gold_1.png", true);
-		screen->drawSurface(&icon, Point(40, playerY));
+		background.drawSurface(&icon, Point(210, playerY));
 
 		for(int i = 0; i < 4; i++)
-			Text::drawString(playerValues[i], Point(columnPos[i], playerY), &playerFont, screen); 
+			Text::drawString(playerValues[i], Point(columnPos[i], playerY), &playerFont, &background); 
 
 		playerY += playerFont.getLineSkip();
 	}
 
 	players.clear();
-	
+
+	screen->drawSurface(&background, Point(0, 0));	
 	// Transitions::slideRL(screen, screen->getArea());
 	screen->flip();
 	
-	Surface *backup = screen->getArea(Point(0, 0), screen->getDimension());
-
 	FireworksPS fireworks;
 	
 	MediaMusic sound("resources/sounds/fireworks.aif");
@@ -79,17 +81,19 @@ void HallOfFameScreen::show() {
 	
 	while (!quit) {
 		captureEvents();
-		screen->drawSurface(backup, Point(0, 0));
+
+		if( sound.isPlaying() && fireworks.getNumber() == 0 ) sound.fadeOut();
+
+		screen->drawSurface(&background, Point(0, 0));
 		fireworks.update();
 		fireworks.draw(screen);
 		screen->flip();
 		
 		fr.regulate();
 	}
-	
-	sound.stop();
-	
-	delete backup;
+
+	if( sound.isPlaying() )	
+		sound.stop();
 }
 
 void HallOfFameScreen::onKeyDown(SDL_KeyboardEvent e) {

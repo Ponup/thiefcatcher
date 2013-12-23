@@ -9,12 +9,15 @@
 vector<Player> PlayersManager::findTop10() {
 	vector<Player> players;
 	
-	ResultSet & rs = Database::getInstance().execute("SELECT id, name, num_resolved_cases FROM player ORDER BY num_resolved_cases DESC LIMIT 10");
+	const char *sql = "select player.id, player.name, player.num_resolved_cases, player_rank.description from player inner join player_rank on ( player_rank.resolved = player.num_resolved_cases ) ORDER BY num_resolved_cases DESC LIMIT 10";
+
+	ResultSet &rs = Database::getInstance().execute( sql );
 	for(unsigned int i = 0; i < rs.rowsCount(); i++) {
 		Player player;
 		player.setID(rs.getInt(i, 0));
 		player.setName(rs.getString(i, 1));
 		player.setResolved(rs.getInt(i, 2));
+		player.setRank(rs.getString(i, 3));
 		players.push_back(player);
 	}
 
@@ -40,30 +43,31 @@ Player *PlayersManager::findByPrimaryKey(int id) {
 		player = new Player;
 		player->setID(rs.getInt(0, 0));
 		player->setName(rs.getString(0, 1));
-		player->setResolved(rs.getInt(0, 2));						
-	}
-
-	return player;
-}
-
-Player *PlayersManager::findByName(const char *name) {
-	Player *player = NULL;
-
-	Database db = Database::getInstance();
-	ResultSet &rs = db.execute("SELECT id, name, num_resolved_cases FROM player WHERE name = '%s'", name);
-	if(rs.rowsCount() == 1) {
-		player = new Player;
-		player->setID(rs.getInt(0, 0));
-		player->setName(rs.getString(0, 1));
 		player->setResolved(rs.getInt(0, 2));
 	}
 
 	return player;
 }
 
-Player *PlayersManager::create(const char *name) {
+Player *PlayersManager::findByName( string name ) {
+	Player *player = NULL;
+
 	Database db = Database::getInstance();
-	db.update("INSERT INTO player (id, name, num_resolved_cases) VALUES (NULL, '%s', 0)", name);
+	ResultSet &rs = db.execute("SELECT player.id, player.name, player.num_resolved_cases, player_rank.description FROM player INNER JOIN player_rank ON ( player_rank.resolved = player.num_resolved_cases ) WHERE player.name = '%s'", name.c_str() );
+	if(rs.rowsCount() == 1) {
+		player = new Player;
+		player->setID(rs.getInt(0, 0));
+		player->setName(rs.getString(0, 1));
+		player->setResolved(rs.getInt(0, 2));
+		player->setRank(rs.getString(0, 3));
+	}
+
+	return player;
+}
+
+Player *PlayersManager::create( string name ) {
+	Database db = Database::getInstance();
+	db.update("INSERT INTO player (id, name, num_resolved_cases) VALUES (NULL, '%s', 0)", name.c_str() );
 
 	return findByName(name);
 }
@@ -75,15 +79,5 @@ void PlayersManager::updatePlayer(Player &player) {
 	
 	Database db = Database::getInstance();
 	db.update("UPDATE player SET num_resolved_cases = num_resolved_cases + 1 WHERE id = %d", player.getID());
-}
-
-string PlayersManager::getRank(const Player &player) {	
-	Database db = Database::getInstance();
-	ResultSet &rs = db.execute("SELECT description FROM player_rank WHERE %d >= resolved ORDER BY resolved DESC LIMIT 1", player.getResolved());
-	if(rs.rowsCount() == 1) {
-		return rs.getString(0, 0);
-	} else {
-		return _("Unknown");
-	}
 }
 

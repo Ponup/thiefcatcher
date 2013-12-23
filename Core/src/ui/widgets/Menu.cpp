@@ -5,6 +5,8 @@
 #include <utilities/fx/Sprite.h>
 #include <MediaSound.h>
 
+#include "utilities/Translator.h"
+
 Menu::Menu(Surface * window_) :
 	selectedItem(0), window(window_) {
 	lastY = 150;
@@ -12,6 +14,9 @@ Menu::Menu(Surface * window_) :
 	
 	sound.load("resources/sounds/menu.wav");
 
+	// Fonts
+	headerFont.load("resources/fonts/gtw.ttf", 45);
+	headerFont.setColor(Color(255, 220, 220));
 	font.load("resources/fonts/FreeSansBold.ttf", 30);
 	
 	backgroundSurf.load("resources/images/menu/background.png");
@@ -67,6 +72,10 @@ void Menu::update() {
 	Color colorNotSelected(63, 36, 18); // #3f2412
 		
 	window->drawSurface(&backgroundSurf, Point(0, 0));
+
+	Text textLine(_("Thief Catcher"));
+	textLine.setFont(&headerFont);
+	textLine.draw( Point(30, 10), window );
 	
 	for (unsigned int i = 0; i < items.size(); i++) {
 		MenuItem item = items.at(i);

@@ -17,7 +17,7 @@ ComputerScreen::ComputerScreen(Window *window_) : window(window_) {
 	
 	bgSurf = new Surface("resources/images/notebook_background.png");
 
-	font = FontManager::getFont("FreeSansBold", 14);
+	font = FontManager::getFont("NotCourierSans-Bold", 14);
 	font->setColor(Color(0, 255, 50));
 	
 	window->drawSurface(bgSurf, Point(0, 0));

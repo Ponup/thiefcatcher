@@ -15,13 +15,12 @@ public:
 	static vector<Player> findTop10();
 	static vector<int> findAllPrimaryKeys();
 
-	static Player *findByPrimaryKey(int id);
-	static Player *findByName(const char *name);
+	static Player* findByPrimaryKey(int id);
+	static Player* findByName( string name );
 		
-	static Player *create(const char *name);
+	static Player* create( string name );
 		
 	static void updatePlayer(Player &player);
-	static string getRank(const Player &player);
 };
 
 #endif

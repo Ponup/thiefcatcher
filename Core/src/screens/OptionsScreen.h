@@ -23,17 +23,14 @@ private:
 
 	int languageIndex;
 
-	Font *font;
 	Font *fontValue;
 	
 	Surface *backgroundSurf;
 	
-	Text *screenTitle;
-	
-	Text *musicLabel, *musicValue;
-	Text *soundsLabel, *soundsValue;
-	Text *languageLabel, *languageValue;
-	Text *fullscreenLabel, *fullscreenValue;
+	Text *musicValue;
+	Text *soundsValue;
+	Text *languageValue;
+	Text *fullscreenValue;
 
 public:
 	OptionsScreen(Window *window);

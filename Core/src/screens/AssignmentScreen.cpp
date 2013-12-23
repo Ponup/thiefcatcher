@@ -20,8 +20,9 @@ using std::vector;
 #include "utilities/Translator.h"
 
 AssignmentScreen::AssignmentScreen(Window *window) : ComputerScreen(window) {	
-	fontInput.load("resources/fonts/FreeSansBold.ttf", 14);
+	fontInput.load("resources/fonts/NotCourierSans-Bold.ttf", 14);
 	fontInput.setColor(Color(255, 255, 255));
+	//font->setColor(Color(0, 255, 50));
 
 	input = new InputBox(window, &fontInput, Point(120, 440), Dimension(400, 22));
 }
@@ -30,21 +31,15 @@ AssignmentScreen::~AssignmentScreen() {
 	delete input;
 }
 
-bool isValidName( const char *name ) {
-	if( !name )
-		return false;
-
-	if( strlen( name ) < 2 )
-		return false;
-
-	return true;
+bool isValidName( string name ) {
+	return ( name.length() > 2 );
 }
 
 PlayerCase *AssignmentScreen::show() {
 	addLine(_("Police at the keyboard, please identify yourself:"));
 	showLines();
 
-	const char *name = input->get();
+	string name = input->get();
 	addLine(name);
 
 	while( !isValidName( name ) ) {
@@ -84,11 +79,11 @@ PlayerCase *AssignmentScreen::show() {
 	char l[100];
 
 	memset(l, '\0', 100);
-	sprintf(l, _("You has been identified, %s.").c_str(), player->getName());
+	sprintf(l, _("You has been identified, %s.").c_str(), player->getName().c_str());
 	addLine(l);
 
 	memset(l, '\0', 100);
-	sprintf(l, _("Your current rank is: %s.").c_str(), PlayersManager::getRank(*player).c_str());
+	sprintf(l, _("Your current rank is: %s.").c_str(), player->getRank().c_str());
 
 	addLine(l);
 
@@ -130,7 +125,7 @@ PlayerCase *AssignmentScreen::show() {
 	addLine(" ");
 
 	memset(line, '\0', 500);
-	sprintf(line, _("Good luck, %s %s.").c_str(), PlayersManager::getRank(*player).c_str(), player->getName());
+	sprintf(line, _("Good luck, %s %s.").c_str(), player->getRank().c_str(), player->getName().c_str());
 	addLine(line);
 
 	showLines();
