@@ -1,3 +1,3 @@
 [submodule "Kangaroo"]
 	path = Kangaroo
-	url = git://git.code.sf.net/p/kangaroo/repository
+	url = git@github.com:Ponup/kangaroo.git
