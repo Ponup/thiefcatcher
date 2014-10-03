@@ -21,7 +21,7 @@ Clue *ClueManager::create(const Criminal &criminal, const Country &country) {
 	case 1:
 		sprintf(message, _("I heard %s left in a rowboat, flying a %s flag.").c_str(),
 			CriminalFormatter::formatGenreArticle(criminal, false).c_str(),
-			country.getFlagDescription());
+			country.getFlagDescription().c_str());
 		break;
 	case 2:
 		sprintf(message, _("My sources tell me %s changed %s money to %s.").c_str(),
@@ -48,7 +48,7 @@ Clue *ClueManager::create(const Criminal &criminal, const Country &country) {
 	case 6:
 		sprintf(message, _("All I know is that %s was planning to trek across %s.").c_str(),
 			CriminalFormatter::formatGenreArticle(criminal, true).c_str(),
-			country.getFlagDescription());
+			country.getFlagDescription().c_str());
 		break;
 	case 7:
 		strcat(message, _("Sorry, I can't remember!").c_str());

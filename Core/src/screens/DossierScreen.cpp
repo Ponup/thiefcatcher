@@ -33,16 +33,16 @@ DossierScreen::DossierScreen(Window *window_) : window(window_) {
 	headerText.draw(Point(30, 10), backgroundSurf);
 
 	Text text1(_("Genre"), &font);
-	text1.draw(Point(300 - text1.getDimension().getWidth(), 250), backgroundSurf);
+	text1.draw(Point(300 - text1.getDimension().w, 250), backgroundSurf);
 
 	Text text3(_("Hobby"), &font);
-	text3.draw(Point(300 - text3.getDimension().getWidth(), 300), backgroundSurf);
+	text3.draw(Point(300 - text3.getDimension().w, 300), backgroundSurf);
 
 	Text text5(_("Hair"), &font);
-	text5.draw(Point(300 - text5.getDimension().getWidth(), 345), backgroundSurf);
+	text5.draw(Point(300 - text5.getDimension().w, 345), backgroundSurf);
 
 	Text text7(_("Feature"), &font);
-	text7.draw(Point(300 - text7.getDimension().getWidth(), 390), backgroundSurf);
+	text7.draw(Point(300 - text7.getDimension().w, 390), backgroundSurf);
 	
 	updateScreen(false);
 	

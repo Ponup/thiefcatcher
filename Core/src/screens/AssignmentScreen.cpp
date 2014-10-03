@@ -97,7 +97,7 @@ PlayerCase *AssignmentScreen::show() {
 
 	memset(line, '\0', 500);
 	sprintf(line, _("National treasure stolen in %s.").c_str(),
-			playerCase->currentCountry.getName());
+			playerCase->currentCountry.getName().c_str());
 	addLine(line);
 
 	memset(line, '\0', 500);
@@ -114,7 +114,7 @@ PlayerCase *AssignmentScreen::show() {
 	sprintf(
 			line,
 			_("Your mission: To pursue the thief from %s to its hideout and arrest him!").c_str(),
-			playerCase->currentCountry.getName());
+			playerCase->currentCountry.getName().c_str());
 	addLine(line);
 
 	memset(line, '\0', 500);

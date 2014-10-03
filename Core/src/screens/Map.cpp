@@ -1,79 +1,104 @@
 #include "Map.h"
 
-#include <FrameRegulator.h>
-#include <SurfaceUtil.h>
-#include <System.h>
-#include <FontManager.h>
+#include <SDL_rotozoom.h>
 
-#include <Text.h>
-
-#include "Primitives.h"
 #include "MathUtil.h"
-#include "MediaManager.h"
-#include "MediaMusic.h"
 #include "MediaSound.h"
-
-#include "ui/Transitions.h"
-
+#include "Text.h"
+#include "FrameRegulator.h"
 #include "utilities/Translator.h"
 
-Map::Map(Surface *window_, Country *from_, Country *to_) : selected(0), quit(false) {
+Point latlong2point( pair<double, double> latlong )
+{
+        // y = ((-1 * lat) + 90) * (MAP_HEIGHT / 180);
+        // x = ( lon + 180) * (MAP_WIDTH / 360);
+	Point point;
+	point.y = (int)( ( ( -1 * latlong.first ) + 90 ) * 2.6 );
+	point.x = (int)( ( latlong.second + 180 ) * ( 720 / 360 ) );
+	printf("%f, %f => %s\n", latlong.first, latlong.second, point.toString() );
+	return point;
+}
+
+Map::Map(Surface *window_, Country *sourceCountry_, Country *targetCountry_) : selected(0), quit(false), updatePending( true ) {
 	window = window_;
 	
-	from = from_;
-	to = to_;
+	sourceCountry = sourceCountry_;
+	targetCountry = targetCountry_;
 
-	map.load("resources/images/map/bg.png");
+	bgSurface = NULL;
 
-	airplane.load("resources/images/map/airplane.png", true);
-	airplaneDim = airplane.getDimension();
-	airplaneDim.setWidth(airplaneDim.getWidth()+5);
-	airplaneDim.setHeight(airplaneDim.getHeight()+5);
+	mapOffset = Point( 50, 80 );
+	// This point fixes the position of the bullets on the map.
+	offsetFix = Point( 160, 60 );
+	offsetFix = Point(0, 0);
+	
+	bulletRadius = Point( 10, 10 );
 
-	font.load("resources/fonts/FreeSansBold.ttf", 15);
-	font.setColor(Color(0x8e, 0x60, 0x3e));
+	airplane.load("resources/images/map/airplane-30.png", true);
 
-	target.load("resources/images/map/flight_target.gif");
-	target_over.load("resources/images/map/flight_target_over.gif");
+	font.load( "resources/fonts/FreeSansBold.ttf", 15 );
+	font.setColor( Color( 0x8e, 0x60, 0x3e ) );
 
-	updateScreen(false);
-	//Transitions::slideTB(window, window->getArea());
+	addSensibleAreas();
+	createStaticBackground();
+	drawAllCountries();
 
-	while (!quit) {
+	updateScreen( true );
+
+	while( !quit ) {
 		captureEvents();
-		updateScreen(true);
-		System::delay(30);
+
+		if( updatePending ) updateScreen( true );
+
+		SDL_Delay( 30 );
 	}
+
+	if( -1 != selected )
+		gotoTarget();
 }
 
 Map::~Map() {
 }
 
-void Map::updateScreen(bool update) {
-	window->drawSurface(&map, Point(0, 0));
+#include "entities/CountriesManager.h"
 
-	font.setColor(Color(0x8e, 0x60, 0x3e));
-
-	char temp[200];
-	memset(temp, '\0', 200);
-	sprintf(temp, _("You are in %s.").c_str(), from->getName());
-
-	Text text1(temp, &font);
-	text1.draw(Point(40, 510), window);
-
-	Text text(_("Choose your destiny:"), &font);
-	text.draw(Point(40, 530), window);
-
-	for (int i = 0; i < 3; i++) {
-		Point too = to[i].getCoord() - Point(10, 10);
-		window->drawSurface(&target, too);
-		//Primitives::drawLine(window, from->getCoord() - Point(10, 10), to[i].getCoord(), Color( 0xff, 0xff, 0xff));
-		Point position = too;
-		sensAreas.addArea(Area(position, Dimension(20, 20)));
-		points[i] = position;
+void Map::drawAllCountries()
+{
+	vector<Country> countries = CountriesManager::findAll();
+	for( unsigned int i = 0; i < countries.size(); i++ ) 
+	{
+		Text text( countries[ i ].getIsoCode(), &font );
+		text.draw( latlong2point( countries[ i ].getLatitudeLongitude() ) + mapOffset - bulletRadius, bgSurface );
 	}
+}
 
-	window->drawSurface(&airplane, from->getCoord() - Point(10, 10));
+void Map::addSensibleAreas()
+{
+	Dimension bulletDimension( 20, 20 );
+
+	for( int i = 0; i < 3; i++ )
+	{
+		Point p = latlong2point( targetCountry[ i ].getLatitudeLongitude() );
+		points[ i ] = p + mapOffset - bulletRadius + offsetFix;
+		sensAreas.addArea( Area( points[ i ], bulletDimension ) );
+	}
+}
+
+void Map::updateScreen( bool update ) {
+	window->drawSurface( bgSurface, Point( 0, 0 ) );
+
+	drawOptions();
+	drawDirectedAirplane();
+
+	if( update )
+		window->flip();
+
+	updatePending = false;
+}
+
+void Map::drawOptions()
+{
+	font.setColor(Color(0x8e, 0x60, 0x3e));
 
 	Color colorNormal(0, 0, 0);
 	Color colorHighlight(0x8e, 0x60, 0x3e);
@@ -81,9 +106,9 @@ void Map::updateScreen(bool update) {
 	unsigned int lineHeight = font.getLineSkip();
 
 	unsigned char posx = 230;
-	unsigned int posy = 500;
+	unsigned int posy = 505;
 
-	Surface tickSurf("resources/images/game/tick.png");
+	Surface tickSurf( "resources/images/game/tick.png" );
 
 	for (int i = 0; i < 3; i++) {
 		Point countryNamePosition(posx, posy);
@@ -91,51 +116,85 @@ void Map::updateScreen(bool update) {
 		if (i == selected) {
 			window->drawSurface(&tickSurf, Point(210, posy));
 			font.setColor(colorNormal);
-			window->drawSurface(&target_over, points[i]);
+			window->drawSurface(&bulletOverSurface, points[i]);
 		} else {
 			font.setColor(colorHighlight);
-			window->drawSurface(&target, points[i]);
+			window->drawSurface( &bulletSurface, points[i]);
 		}
 
-		Text text(to[i].getName(), &font);
-		text.draw(countryNamePosition, window);
+		Text text( targetCountry[i].getName(), &font );
+		text.draw( countryNamePosition, window );
 
 		posy += lineHeight;
 	}
+}
 
-	if (update)
-		window->flip();
+void Map::createStaticBackground()
+{
+	if( NULL != bgSurface )
+		return;
+
+	bgSurface = new Surface( "resources/images/empty_background.jpg" );
+
+	Surface mapSurface( "resources/images/map/mercator-map-small.png" );
+	bgSurface->drawSurface( &mapSurface, mapOffset );
+
+	bulletSurface.load("resources/images/map/flight_target.gif");
+	bulletOverSurface.load("resources/images/map/flight_target_over.gif");
+
+	Font currentLocationFont( "resources/fonts/FreeSansBold.ttf", 30 );
+	currentLocationFont.setColor( Color(255, 220, 220) );
+
+	char temp[200];
+	memset(temp, '\0', 200);
+	sprintf( temp, _("You are in %s.").c_str(), sourceCountry->getName().c_str() );
+	Text currentLocationText( temp, &currentLocationFont );
+	currentLocationText.draw( Point( 50, 20 ), bgSurface );
+
+	Text text( _("Choose your destination:"), &font );
+	text.draw( Point( 50, 505 ), bgSurface );
+}
+
+void Map::drawDirectedAirplane()
+{
+	double deltay = latlong2point( sourceCountry->getLatitudeLongitude() ).y - latlong2point( targetCountry[ selected ].getLatitudeLongitude() ).y;
+	double deltax = latlong2point( sourceCountry->getLatitudeLongitude() ).x - latlong2point( targetCountry[ selected ].getLatitudeLongitude() ).x;
+	double angle = MathUtil::radian2degree( atan2( deltax, deltay ) );
+	angle += 45; // because the airplane is rotated already.
+
+	airplane.load("resources/images/map/airplane-30.png", true);
+	directedAirplane = rotozoomSurface( airplane.toSDL(), angle, 1, 1 );
+
+	airplanePosition = latlong2point( sourceCountry->getLatitudeLongitude() ) - Point( 15, 15 ) + mapOffset - bulletRadius + offsetFix;
+	window->drawSurface( directedAirplane, airplanePosition );
 }
 
 void Map::gotoTarget() {
 	quit = true;
 
-	//MediaSound sound("resources/sounds/airplane.wav");
+	MediaSound sound("resources/sounds/airplane.wav");
 
-	Surface *areaAirplane = window->getArea(from->getCoord() - Point(10, 10), airplaneDim);
-	window->drawSurface(areaAirplane, from->getCoord() - Point(10, 10));
-	delete areaAirplane;
+	Point sourcePoint = airplanePosition;
+	Point targetPoint = points[ selected ] - bulletRadius;
+	vector<Point> path = MathUtil::calculatePath( sourcePoint, targetPoint );
 
-	Point pa = from->getCoord() - Point(10, 10);
-	Country country = to[selected];
-	Point pb = country.getCoord() - Point(10, 10);
-	vector<Point> path = MathUtil::calculatePath(pa, pb);
-	//	sound.play();
-
-	FrameRegulator fr(25);
+	FrameRegulator fr( 50 );
 	fr.setUp();
 
-	for (unsigned int i = 0; i < path.size(); i++) {
-		Point point = from->getCoord() + path.at(i) - Point(10, 10);
-		Surface *oldArea = window->getArea(point, airplaneDim);
+	sound.play();
+	vector<Point>::iterator it;
+	for( it = path.begin(); it != path.end(); it++ )
+	{
+		Point point = airplanePosition + (*it);
 
-		window->drawSurface(&airplane, point);
-		window->updateArea(point, airplaneDim);
-		window->drawSurface(oldArea, point);
-
-		delete oldArea;
+		window->drawSurface( bgSurface, Point( 0, 0 ) );
+		drawOptions();
+		window->drawSurface( directedAirplane, point );
+		window->flip();
 		fr.regulate();
 	}
+
+	SDL_Delay( 800 );
 }
 
 char Map::getSelection() {
@@ -143,12 +202,13 @@ char Map::getSelection() {
 }
 
 void Map::onKeyDown(SDL_KeyboardEvent key) {
+	updatePending = true;
 	switch (key.keysym.sym) {
 	case SDLK_ESCAPE:
 		cancelScene();
 		break;
 	case SDLK_RETURN:
-		gotoTarget();
+		quit = true;
 		break;
 	case SDLK_UP:
 		selected--;
@@ -166,8 +226,8 @@ void Map::onKeyDown(SDL_KeyboardEvent key) {
 }
 
 void Map::onKeyUp(SDL_KeyboardEvent e) {
-
 }
+
 void Map::onMouseButtonDown(SDL_MouseButtonEvent e) {
 	switch (e.button) {
 	case SDL_BUTTON_RIGHT:
@@ -184,12 +244,12 @@ void Map::onMouseButtonDown(SDL_MouseButtonEvent e) {
 }
 
 void Map::onMouseButtonUp(SDL_MouseButtonEvent e) {
-
 }
 
 void Map::onMouseMotion(SDL_MouseMotionEvent motion) {
-	int resolved = sensAreas.resolve(motion.x, motion.y);
-	if (resolved != -1) {
+	int resolved = sensAreas.resolve( motion.x, motion.y );
+	if( resolved != -1 ) {
+		updatePending = true;
 		selected = resolved;
 	}
 }
@@ -198,3 +258,4 @@ void Map::cancelScene() {
 	selected = -1;
 	quit = true;
 }
+

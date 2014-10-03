@@ -9,9 +9,9 @@ using std::vector;
 class CountriesManager {
 
 	public:
-		static vector<Country>* findAll();
+		static vector<Country> findAll();
 		static vector<int> findAllPrimaryKeys();
-		static Country* findByPrimaryKey( unsigned int id );
+		static Country findByPrimaryKey( unsigned int id );
 };
 
 #endif

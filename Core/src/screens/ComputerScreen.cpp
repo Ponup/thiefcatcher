@@ -53,7 +53,7 @@ void ComputerScreen::addLine(string line) {
 	while( !tokens.empty() )
 	{
 		string nextWord = ( nextLine.empty() ? tokens.back() : string(" ") + tokens.back() );
-		if( Text( ( nextLine + nextWord ).c_str(), font ).getDimension().getWidth() < 550 ) {
+		if( Text( ( nextLine + nextWord ).c_str(), font ).getDimension().w < 550 ) {
 			nextLine.append( nextWord );
 		}
 		else

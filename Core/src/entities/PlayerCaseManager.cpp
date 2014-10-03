@@ -29,14 +29,14 @@ PlayerCase *PlayerCaseManager::createRandomCase(Player &player) {
 
 	vector<Country> itinerary;
 	for(unsigned int i = 0; i < 7; i++) {
-		Country *country = CountriesManager::findByPrimaryKey(countriesPKrandom[i]);
-		itinerary.push_back(*country);
+		Country country = CountriesManager::findByPrimaryKey( countriesPKrandom[i] );
+		itinerary.push_back(country);
 	}
-	const char *sto = itinerary[0].getTreasure();
+	const char *sto = itinerary[0].getTreasure().c_str();
 	playerCase->setStolenObject(sto);
 	
 	playerCase->itinerary = itinerary;
-	playerCase->setCurrentCountry(*CountriesManager::findByPrimaryKey(countriesPKrandom[0]));
+	playerCase->setCurrentCountry(CountriesManager::findByPrimaryKey(countriesPKrandom[0]));
 	delete countriesPKrandom;
 
 	playerCase->startDate = new DateTime;
@@ -90,8 +90,8 @@ PlayerCase &PlayerCaseManager::load(int idPlayer) {
 	vector<Country> countries;
 	for(unsigned int i = 0; i < rs1.rowsCount(); i++) {
 		int id_country = rs1.getInt(i, 0);
-		Country *country = CountriesManager::findByPrimaryKey(id_country);
-		countries.push_back(*country);
+		Country country = CountriesManager::findByPrimaryKey(id_country);
+		countries.push_back(country);
 	}
 	playerCase->itinerary = countries;
 		

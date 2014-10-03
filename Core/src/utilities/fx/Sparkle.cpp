@@ -13,8 +13,8 @@ Sparkle::~Sparkle() {
 }
 
 void Sparkle::update() {
-	int x = position.getX()+RandomGen::nextInt(-1, 1);
-	int y = position.getY()+1;
+	int x = position.x+RandomGen::nextInt(-1, 1);
+	int y = position.y+1;
 	position = (Point(x, y));
 	life--;
 }
@@ -22,10 +22,10 @@ void Sparkle::update() {
 void Sparkle::draw(Surface * surface) {
 	if(life > 0) {
 		filledCircleRGBA(surface->toSDL(), 
-			position.getX(), 
-			position.getY(), 
+			position.x, 
+			position.y, 
 			size, 
-			color.getRed(), color.getGreen(), color.getBlue(), life);
+			color.r, color.g, color.b, life);
 	}
 }
 

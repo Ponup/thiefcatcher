@@ -111,7 +111,7 @@ bool PlayerCase::rightCountry() {
 
 Country & PlayerCase::previousCountry() {
 	Country & country = itinerary.at(currentPosition);
-	printf("Previous country: %s\n", country.getName());
+	printf("Previous country: %s\n", country.getName().c_str());
 	return country;
 }
 
@@ -158,8 +158,8 @@ void PlayerCase::updateCountries() {
 	}
 	
 	int *countriesPKazar = Random::nextArray(keys, numCountries - 1, 2);
-	nextCountries[1] = *CountriesManager::findByPrimaryKey(countriesPKazar[0]);
-	nextCountries[2] = *CountriesManager::findByPrimaryKey(countriesPKazar[1]);
+	nextCountries[1] = CountriesManager::findByPrimaryKey(countriesPKazar[0]);
+	nextCountries[2] = CountriesManager::findByPrimaryKey(countriesPKazar[1]);
 	
 	delete countriesPKazar;
 	delete keys;	
@@ -193,10 +193,10 @@ const char *PlayerCase::toString() const {
 	sprintf(text, "%sStart date: %s\n", text, startDate->toString("%A %d, %H:%M"));
 	sprintf(text, "%sEnd date: %s\n", text, endDate->toString("%A %d, %H:%M"));
 	if(itinerary.size() > 0) {
-		sprintf(text, "%sStolenObject: %s\n", text, itinerary[0].getTreasure());
+		sprintf(text, "%sStolenObject: %s\n", text, itinerary[0].getTreasure().c_str());
 	}
 	for(unsigned int i = 0; i < itinerary.size(); i++) {
-		sprintf(text, "%sFlight #%d: %s\n", text, i, itinerary[i].toString());
+		sprintf(text, "%sFlight #%d: %s\n", text, i, itinerary[i].toString().c_str());
 	}
 	
 	return text;

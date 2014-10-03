@@ -32,7 +32,7 @@ OptionsScreen::OptionsScreen(Window *window_) : window(window_) {
 
 	headerFont.setColor(Color(63, 36, 18));
 	Text screenTitle(_("Options"), &headerFont);
-	int x = window->getDimension().getWidth() - screenTitle.getDimension().getWidth() - 30;
+	int x = window->getDimension().w - screenTitle.getDimension().w - 30;
 	screenTitle.draw(Point(x, 10), backgroundSurf);
 		
 	Text languageLabel(_("Language"), font);

@@ -22,10 +22,10 @@ PlaceSelector::PlaceSelector(Surface *screen, int *placesPrimaryKeys) {
 	images[1] = places[1].getSurface();
 	images[2] = places[2].getSurface();
 
-	areas[0].y = areas[1].y = areas[2].y = dialogPosition.getY() + 30;
+	areas[0].y = areas[1].y = areas[2].y = dialogPosition.y + 30;
 	areas[0].h = areas[1].h = areas[2].h = areas[0].y + 80;
 
-	areas[0].x = dialogPosition.getX() + 40;
+	areas[0].x = dialogPosition.x + 40;
 	areas[0].w = areas[0].x + 80;
 	areas[1].x = areas[0].w + 20;
 	areas[1].w = areas[1].x + 80;
@@ -58,14 +58,14 @@ void PlaceSelector::update() {
 		Point point(areas[i].x, areas[i].y);
 		screen->drawSurface(images[i], point);
 		if (selectedIndex == i) {
-			aacircleRGBA(screen->toSDL(), point.getX() + 40, point.getY() + 40, 40, 0xff, 0xfc, 0x7b, 255);
-			aacircleRGBA(screen->toSDL(), point.getX() + 40, point.getY() + 40, 39, 0xff, 0xfc, 0x7b, 255);
+			aacircleRGBA(screen->toSDL(), point.x + 40, point.y + 40, 40, 0xff, 0xfc, 0x7b, 255);
+			aacircleRGBA(screen->toSDL(), point.x + 40, point.y + 40, 39, 0xff, 0xfc, 0x7b, 255);
 		}
 	}
 
 	Font *font = FontManager::getFont("FreeSansBold", 14);
 	Text text(places[selectedIndex].getName(), font);
-	text.draw(Point((dialogDimension.getWidth() >> 1) - (text.getDimension().getWidth() >> 1), 110), screen);
+	text.draw(Point((dialogDimension.w >> 1) - (text.getDimension().w >> 1), 110), screen);
 
 	screen->updateArea(dialogPosition, dialogDimension);
 }

@@ -32,8 +32,8 @@ void IntroScreen::run() {
 
 	Surface bulletSurf("resources/images/bullet.png", true);
 
-	Point textPos(400 - (textLine.getDimension().getWidth() >> 1), 200);
-	Point glassPos(textPos.getX() + textLine.getDimension().getWidth() - 40, 200);
+	Point textPos( 400 - ( textLine.getDimension().w >> 1 ), 200 ); 
+	Point glassPos( textPos.x + textLine.getDimension().w - 40, 200 );
 
 	int bulletX = 0;
 	float alpha = SDL_ALPHA_TRANSPARENT;
@@ -51,7 +51,7 @@ void IntroScreen::run() {
 		textLine.setAlpha(alpha);
 
 		screen->drawSurface(&bgSurf, Point(0, 0));		
-		textLine.draw(textPos, screen);
+		textLine.draw( textPos, screen );
 		screen->drawSurface(&bulletSurf, Point(bulletX, 230));
 		screen->drawSurface(&glassSurf, glassPos + position);
 

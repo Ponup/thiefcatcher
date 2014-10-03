@@ -23,7 +23,7 @@ void HelpScreen::show() {
 
 	headerFont.setColor(Color(63, 36, 18));
 	Text sectionText(_("Help"), &headerFont);
-	int x = window->getDimension().getWidth() - sectionText.getDimension().getWidth() - 30;
+	int x = window->getDimension().w - sectionText.getDimension().w - 30;
 	sectionText.draw(Point(x, 10), window);
 
 	Font font("resources/fonts/FreeSansBold.ttf", 25);

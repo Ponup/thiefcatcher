@@ -1,24 +1,23 @@
 #include "CountriesManager.h"
 
 #include <tinyxml2.h>
-
-#include <vector>
-#include <string>
-
 using tinyxml2::XMLDocument;
 using tinyxml2::XMLElement;
 
+#include <vector>
 using std::vector;
+
+#include <string>
 using std::string;
 
-vector<Country>* CountriesManager::findAll() {
-	static vector<Country> *countries = NULL;
+#include <stdlib.h>
 
-	if( NULL != countries ) {
+vector<Country> CountriesManager::findAll() {
+	static vector<Country> countries;
+
+	if( countries.size() > 0 ) {
 		return countries;
 	}
-
-	countries = new vector<Country>;
 
 	XMLDocument xmlDoc;
 	int errorCode = xmlDoc.LoadFile( "data/countries.xml" );
@@ -36,10 +35,13 @@ vector<Country>* CountriesManager::findAll() {
 		country.setName( countryNode->FirstChildElement( "name" )->GetText() );
 		country.setCapital( countryNode->FirstChildElement( "capital" )->GetText() );
 		country.setTreasure( countryNode->FirstChildElement( "treasure" )->GetText() );
-//		country.setName( countryNode->FirstChildElement( "coord-lat" )->GetText() );
-		country.setCoord( Point( 1, 2 ) );
 		country.setDescription( countryNode->FirstChildElement( "description" )->GetText() );
 		country.setFlagDescription( countryNode->FirstChildElement( "flag-description" )->GetText() );
+
+		double latitude = atof( countryNode->FirstChildElement( "coord-lat" )->GetText() );
+		country.setLatitude( latitude );
+		double longitude = atof( countryNode->FirstChildElement( "coord-long" )->GetText() );
+		country.setLongitude( longitude );
 
 		vector<string> languages;
 		XMLElement *languagesNode = countryNode->FirstChildElement( "languages" );
@@ -55,7 +57,7 @@ vector<Country>* CountriesManager::findAll() {
 		}
 		country.setCurrencies( currencies );
 
-		countries->push_back( country );
+		countries.push_back( country );
 	}
 
 	return countries;	
@@ -64,16 +66,16 @@ vector<Country>* CountriesManager::findAll() {
 vector<int> CountriesManager::findAllPrimaryKeys() {
 	vector<int> primaryKeys;
 
-	vector<Country> *countries = findAll();
-	for( vector<Country>::iterator it = countries->begin(); it != countries->end(); it++ ) {
+	vector<Country> countries = findAll();
+	for( vector<Country>::iterator it = countries.begin(); it != countries.end(); it++ ) {
 		primaryKeys.push_back( (*it).getID() );
 	}
 
 	return primaryKeys;	
 }
 
-Country *CountriesManager::findByPrimaryKey( unsigned int id ) {
-	vector<Country> *countries = findAll();
-	return ( id - 1 < countries->size() ? new Country( countries->at( id - 1 ) ) : NULL );
+Country CountriesManager::findByPrimaryKey( unsigned int id ) {
+	vector<Country> countries = findAll();
+	return countries.at( id - 1 );
 }
 

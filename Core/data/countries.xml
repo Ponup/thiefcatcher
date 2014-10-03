@@ -8,8 +8,8 @@
 		<description>Samoa is a country with a population of 192001 inhabitants. The capital is Apia.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-13.5833</coord-lat>
+		<coord-long>-172.3333</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -23,8 +23,8 @@
 		<description>Chile is a country with a population of 16746491 inhabitants. The capital is Santiago. People speak the languages Spanish. The official currencies are Peso.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-30.0000</coord-lat>
+		<coord-long>-71.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -57,8 +57,8 @@
 		<description>Ghana is a country with a population of 24339838 inhabitants. The capital is Accra. People speak the languages English. The official currencies are Ghana cedi.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>8.0000</coord-lat>
+		<coord-long>-2.0000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -74,8 +74,8 @@
 		<description>United States is a country with a population of 310232863 inhabitants. The capital is Washington, D.C.. People speak the languages none. The official currencies are United States Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>38.0000</coord-lat>
+		<coord-long>-97.0000</coord-long>
 		<languages>
 			<language>none</language>
 		</languages>
@@ -91,8 +91,8 @@
 		<description>Bosnia and Herzegovina is a country with a population of 4590000 inhabitants. The capital is Sarajevo. People speak the languages Bosnian, Croatian, Serbian. The official currencies are Convertible mark.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>44.0000</coord-lat>
+		<coord-long>18.0000</coord-long>
 		<languages>
 			<language>Bosnian</language>
 			<language>Croatian</language>
@@ -125,8 +125,8 @@
 		<description>Uzbekistan is a country with a population of 27865738 inhabitants. The capital is Tashkent. People speak the languages Uzbek. The official currencies are Uzbekistan som (O'zbekiston so'mi).</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>41.0000</coord-lat>
+		<coord-long>64.0000</coord-long>
 		<languages>
 			<language>Uzbek</language>
 		</languages>
@@ -142,8 +142,8 @@
 		<description>North Korea is a country with a population of 22912177 inhabitants. The capital is Pyongyang. People speak the languages Korean. The official currencies are North Korean won.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>40.0000</coord-lat>
+		<coord-long>127.0000</coord-long>
 		<languages>
 			<language>Korean</language>
 		</languages>
@@ -159,8 +159,8 @@
 		<description>Djibouti is a country with a population of 740528 inhabitants. The capital is Djibouti. People speak the languages French, Arabic. The official currencies are Djiboutian franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>11.5000</coord-lat>
+		<coord-long>43.0000</coord-long>
 		<languages>
 			<language>French</language>
 			<language>Arabic</language>
@@ -177,8 +177,8 @@
 		<description>Equatorial Guinea is a country with a population of 1014999 inhabitants. The capital is Malabo. People speak the languages Spanish, French, Portuguese. The official currencies are Equatorial Guinean peseta.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>2.0000</coord-lat>
+		<coord-long>10.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 			<language>French</language>
@@ -196,8 +196,8 @@
 		<description>Malta is a country with a population of 403000 inhabitants. The capital is Valletta. People speak the languages Maltese, English. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>35.8333</coord-lat>
+		<coord-long>14.5833</coord-long>
 		<languages>
 			<language>Maltese</language>
 			<language>English</language>
@@ -214,8 +214,8 @@
 		<description>Guinea-Bissau is a country with a population of 1565126 inhabitants. The capital is Bissau. People speak the languages Portuguese. The official currencies are CFA franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>12.0000</coord-lat>
+		<coord-long>-15.0000</coord-long>
 		<languages>
 			<language>Portuguese</language>
 		</languages>
@@ -231,8 +231,8 @@
 		<description>Japan is a country with a population of 127288000 inhabitants. The capital is Tokyo. People speak the languages Japanese. The official currencies are Yen.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>36.0000</coord-lat>
+		<coord-long>138.0000</coord-long>
 		<languages>
 			<language>Japanese</language>
 		</languages>
@@ -248,8 +248,8 @@
 		<description>Taiwan is a country with a population of 22894384 inhabitants. The capital is Taipei. People speak the languages Standard Chinese. The official currencies are New Taiwan dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>23.5000</coord-lat>
+		<coord-long>121.0000</coord-long>
 		<languages>
 			<language>Standard Chinese</language>
 		</languages>
@@ -265,8 +265,8 @@
 		<description>Tajikistan is a country with a population of 7487489 inhabitants. The capital is Dushanbe. People speak the languages Tajik. The official currencies are Somoni.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>39.0000</coord-lat>
+		<coord-long>71.0000</coord-long>
 		<languages>
 			<language>Tajik</language>
 		</languages>
@@ -282,8 +282,8 @@
 		<description>Barbados is a country with a population of 285653 inhabitants. The capital is Bridgetown. People speak the languages English. The official currencies are Barbadian Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>13.1667</coord-lat>
+		<coord-long>-59.5333</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -299,8 +299,8 @@
 		<description>Bhutan is a country with a population of 699847 inhabitants. The capital is Thimphu. People speak the languages Dzongkha. The official currencies are Bhutanese ngultrum.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>27.5000</coord-lat>
+		<coord-long>90.5000</coord-long>
 		<languages>
 			<language>Dzongkha</language>
 		</languages>
@@ -316,8 +316,8 @@
 		<description>Saint Pierre and Miquelon is a country with a population of 7012 inhabitants. The capital is Saint-Pierre. People speak the languages French. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>46.8333</coord-lat>
+		<coord-long>-56.3333</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -333,8 +333,8 @@
 		<description>Lithuania is a country with a population of 3565000 inhabitants. The capital is Vilnius. People speak the languages Lithuanian. The official currencies are Lithuanian litas.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>56.0000</coord-lat>
+		<coord-long>24.0000</coord-long>
 		<languages>
 			<language>Lithuanian</language>
 		</languages>
@@ -350,8 +350,8 @@
 		<description>Mongolia is a country with a population of 3086918 inhabitants. The capital is Ulaanbaatar. People speak the languages Mongolian. The official currencies are Tögrög.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>46.0000</coord-lat>
+		<coord-long>105.0000</coord-long>
 		<languages>
 			<language>Mongolian</language>
 		</languages>
@@ -367,8 +367,8 @@
 		<description>Andorra is a country with a population of 84000 inhabitants. The capital is Andorra la Vella. People speak the languages Catalan. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>42.5000</coord-lat>
+		<coord-long>1.5000</coord-long>
 		<languages>
 			<language>Catalan</language>
 		</languages>
@@ -384,8 +384,8 @@
 		<description>Tunisia is a country with a population of 10589025 inhabitants. The capital is Tunis. People speak the languages Arabic. The official currencies are Tunisian dinar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>34.0000</coord-lat>
+		<coord-long>9.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -401,8 +401,8 @@
 		<description>Rwanda is a country with a population of 11055976 inhabitants. The capital is Kigali. People speak the languages Kinyarwanda, English, French. The official currencies are Rwandan franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-2.0000</coord-lat>
+		<coord-long>30.0000</coord-long>
 		<languages>
 			<language>Kinyarwanda</language>
 			<language>English</language>
@@ -420,8 +420,8 @@
 		<description>Aruba is a country with a population of 71566 inhabitants. The capital is Oranjestad. People speak the languages Papiamento, Dutch. The official currencies are Aruban florin.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>12.5000</coord-lat>
+		<coord-long>-69.9667</coord-long>
 		<languages>
 			<language>Papiamento</language>
 			<language>Dutch</language>
@@ -438,8 +438,8 @@
 		<description>French Polynesia is a country with a population of 270485 inhabitants. The capital is Papeete. People speak the languages French. The official currencies are CFP Franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-15.0000</coord-lat>
+		<coord-long>-140.0000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -455,8 +455,8 @@
 		<description>Argentina is a country with a population of 41343201 inhabitants. The capital is Buenos Aires. People speak the languages Spanish. The official currencies are Peso.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-34.0000</coord-lat>
+		<coord-long>-64.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -472,8 +472,8 @@
 		<description>El Salvador is a country with a population of 6052064 inhabitants. The capital is San Salvador. People speak the languages Spanish. The official currencies are United States Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>13.8333</coord-lat>
+		<coord-long>-88.9167</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -489,8 +489,8 @@
 		<description>Bahrain is a country with a population of 738004 inhabitants. The capital is Manama. People speak the languages Arabic. The official currencies are Bahraini dinar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>26.0000</coord-lat>
+		<coord-long>50.5500</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -506,8 +506,8 @@
 		<description>Belarus is a country with a population of 9685000 inhabitants. The capital is Minsk. People speak the languages Belarusian, Russian. The official currencies are Belarusian ruble.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>53.0000</coord-lat>
+		<coord-long>28.0000</coord-long>
 		<languages>
 			<language>Belarusian</language>
 			<language>Russian</language>
@@ -524,8 +524,8 @@
 		<description>Liberia is a country with a population of 3685076 inhabitants. The capital is Monrovia. People speak the languages English. The official currencies are Liberian dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>6.5000</coord-lat>
+		<coord-long>-9.5000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -541,8 +541,8 @@
 		<description>Saint Vincent and the Grenadines is a country with a population of 104217 inhabitants. The capital is Kingstown. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>13.2500</coord-lat>
+		<coord-long>-61.2000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -558,8 +558,8 @@
 		<description>Zambia is a country with a population of 13460305 inhabitants. The capital is Lusaka. People speak the languages English. The official currencies are Zambian kwacha.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-15.0000</coord-lat>
+		<coord-long>30.0000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -575,8 +575,8 @@
 		<description>Guatemala is a country with a population of 13550440 inhabitants. The capital is Guatemala City. People speak the languages Spanish. The official currencies are Guatemalan quetzal.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>15.5000</coord-lat>
+		<coord-long>-90.2500</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -592,8 +592,8 @@
 		<description>Zimbabwe is a country with a population of 11651858 inhabitants. The capital is Harare. People speak the languages English, Shona, Sindebele. The official currencies are various.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-20.0000</coord-lat>
+		<coord-long>30.0000</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Shona</language>
@@ -611,8 +611,8 @@
 		<description>Belgium is a country with a population of 10403000 inhabitants. The capital is Brussels. People speak the languages Dutch, French, German. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>50.8333</coord-lat>
+		<coord-long>4.0000</coord-long>
 		<languages>
 			<language>Dutch</language>
 			<language>French</language>
@@ -630,8 +630,8 @@
 		<description>Cape Verde is a country with a population of 508659 inhabitants. The capital is Praia. People speak the languages Portuguese. The official currencies are Cape Verdean escudo.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>16.0000</coord-lat>
+		<coord-long>-24.0000</coord-long>
 		<languages>
 			<language>Portuguese</language>
 		</languages>
@@ -647,8 +647,8 @@
 		<description>Haiti is a country with a population of 9648924 inhabitants. The capital is Port-au-Prince. People speak the languages French. The official currencies are Haitian gourde.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>19.0000</coord-lat>
+		<coord-long>-72.4167</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -664,8 +664,8 @@
 		<description>Kazakhstan is a country with a population of 15340000 inhabitants. The capital is Astana. People speak the languages Kazakh, Russian. The official currencies are Tenge.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>48.0000</coord-lat>
+		<coord-long>68.0000</coord-long>
 		<languages>
 			<language>Kazakh</language>
 			<language>Russian</language>
@@ -682,8 +682,8 @@
 		<description>Mauritania is a country with a population of 3205060 inhabitants. The capital is Nouakchott. People speak the languages Arabic. The official currencies are Ouguiya.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>20.0000</coord-lat>
+		<coord-long>-12.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -699,8 +699,8 @@
 		<description>Kyrgyzstan is a country with a population of 5508626 inhabitants. The capital is Bishkek. People speak the languages Kyrgyz, Russian. The official currencies are Som.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>41.0000</coord-lat>
+		<coord-long>75.0000</coord-long>
 		<languages>
 			<language>Kyrgyz</language>
 			<language>Russian</language>
@@ -717,8 +717,8 @@
 		<description>Netherlands is a country with a population of 16645000 inhabitants. The capital is Amsterdam. People speak the languages Dutch. The official currencies are Euro, US dollar, NA guilder, Aruban florin.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>52.5000</coord-lat>
+		<coord-long>5.7500</coord-long>
 		<languages>
 			<language>Dutch</language>
 		</languages>
@@ -737,8 +737,8 @@
 		<description>Sierra Leone is a country with a population of 5245695 inhabitants. The capital is Freetown. People speak the languages English. The official currencies are Leone.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>8.5000</coord-lat>
+		<coord-long>-11.5000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -754,8 +754,8 @@
 		<description>Portugal is a country with a population of 10676000 inhabitants. The capital is Lisbon. People speak the languages Portuguese. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>39.5000</coord-lat>
+		<coord-long>-8.0000</coord-long>
 		<languages>
 			<language>Portuguese</language>
 		</languages>
@@ -771,8 +771,8 @@
 		<description>Denmark is a country with a population of 5484000 inhabitants. The capital is Copenhagen. People speak the languages Danish. The official currencies are Danish krone[a].</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>56.0000</coord-lat>
+		<coord-long>10.0000</coord-long>
 		<languages>
 			<language>Danish</language>
 		</languages>
@@ -788,8 +788,8 @@
 		<description>Philippines is a country with a population of 99900177 inhabitants. The capital is Manila. People speak the languages Filipino, English. The official currencies are Peso.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>13.0000</coord-lat>
+		<coord-long>122.0000</coord-long>
 		<languages>
 			<language>Filipino</language>
 			<language>English</language>
@@ -806,8 +806,8 @@
 		<description>Montserrat is a country with a population of 9341 inhabitants. The capital is Plymouth (official). People speak the languages English. The official currencies are East Caribbean Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>16.7500</coord-lat>
+		<coord-long>-62.2000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -823,8 +823,8 @@
 		<description>Senegal is a country with a population of 12323252 inhabitants. The capital is Dakar. People speak the languages French. The official currencies are CFA franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>14.0000</coord-lat>
+		<coord-long>-14.0000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -840,8 +840,8 @@
 		<description>Moldova is a country with a population of 4324000 inhabitants. The capital is Chişinău. People speak the languages Moldovan. The official currencies are Moldovan leu.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>47.0000</coord-lat>
+		<coord-long>29.0000</coord-long>
 		<languages>
 			<language>Moldovan</language>
 		</languages>
@@ -857,8 +857,8 @@
 		<description>Latvia is a country with a population of 2217969 inhabitants. The capital is Riga. People speak the languages Latvian. The official currencies are Lats.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>57.0000</coord-lat>
+		<coord-long>25.0000</coord-long>
 		<languages>
 			<language>Latvian</language>
 		</languages>
@@ -874,8 +874,8 @@
 		<description>Namibia is a country with a population of 2128471 inhabitants. The capital is Windhoek. People speak the languages English. The official currencies are Namibian dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-22.0000</coord-lat>
+		<coord-long>17.0000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -891,8 +891,8 @@
 		<description>Papua New Guinea is a country with a population of 6064515 inhabitants. The capital is Port Moresby.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-6.0000</coord-lat>
+		<coord-long>147.0000</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -906,8 +906,8 @@
 		<description>Switzerland is a country with a population of 7581000 inhabitants. The capital is Bern. People speak the languages German, French, Italian, Romansh. The official currencies are Swiss franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>47.0000</coord-lat>
+		<coord-long>8.0000</coord-long>
 		<languages>
 			<language>German</language>
 			<language>French</language>
@@ -926,8 +926,8 @@
 		<description>Bulgaria is a country with a population of 7148785 inhabitants. The capital is Sofia. People speak the languages Bulgarian. The official currencies are Lev.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>43.0000</coord-lat>
+		<coord-long>25.0000</coord-long>
 		<languages>
 			<language>Bulgarian</language>
 		</languages>
@@ -943,8 +943,8 @@
 		<description>Jamaica is a country with a population of 2847232 inhabitants. The capital is Kingston. People speak the languages English. The official currencies are Jamaican Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>18.2500</coord-lat>
+		<coord-long>-77.5000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -960,8 +960,8 @@
 		<description>United Arab Emirates is a country with a population of 4975593 inhabitants. The capital is Abu Dhabi. People speak the languages Arabic. The official currencies are UAE dirham.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>24.0000</coord-lat>
+		<coord-long>54.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -977,8 +977,8 @@
 		<description>Angola is a country with a population of 13068161 inhabitants. The capital is Luanda. People speak the languages Portuguese. The official currencies are Angolar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-12.5000</coord-lat>
+		<coord-long>18.5000</coord-long>
 		<languages>
 			<language>Portuguese</language>
 		</languages>
@@ -994,8 +994,8 @@
 		<description>Central African Republic is a country with a population of 4844927 inhabitants. The capital is Bangui. People speak the languages French, Sango. The official currencies are CFA franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>7.0000</coord-lat>
+		<coord-long>21.0000</coord-long>
 		<languages>
 			<language>French</language>
 			<language>Sango</language>
@@ -1012,8 +1012,8 @@
 		<description>Lebanon is a country with a population of 4125247 inhabitants. The capital is Beirut. People speak the languages Arabic. The official currencies are Lebanese pound.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>33.8333</coord-lat>
+		<coord-long>35.8333</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -1029,8 +1029,8 @@
 		<description>Malaysia is a country with a population of 28274729 inhabitants. The capital is Kuala Lumpur (official). People speak the languages Malaysian. The official currencies are Ringgit.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>2.5000</coord-lat>
+		<coord-long>112.5000</coord-long>
 		<languages>
 			<language>Malaysian</language>
 		</languages>
@@ -1046,8 +1046,8 @@
 		<description>Australia is a country with a population of 21515754 inhabitants. The capital is Canberra. People speak the languages None[c]. The official currencies are Australian dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-27.0000</coord-lat>
+		<coord-long>133.0000</coord-long>
 		<languages>
 			<language>None[c]</language>
 		</languages>
@@ -1063,8 +1063,8 @@
 		<description>Norfolk Island is a country with a population of 1828 inhabitants. The capital is Kingston. The official currencies are Self-governing territory of Australia.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-29.0333</coord-lat>
+		<coord-long>167.9500</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -1079,8 +1079,8 @@
 		<description>Mozambique is a country with a population of 22061451 inhabitants. The capital is Maputo. People speak the languages Portuguese. The official currencies are Mozambican metical.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-18.2500</coord-lat>
+		<coord-long>35.0000</coord-long>
 		<languages>
 			<language>Portuguese</language>
 		</languages>
@@ -1096,8 +1096,8 @@
 		<description>Greece is a country with a population of 11000000 inhabitants. The capital is Athens. People speak the languages Greek. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>39.0000</coord-lat>
+		<coord-long>22.0000</coord-long>
 		<languages>
 			<language>Greek</language>
 		</languages>
@@ -1113,8 +1113,8 @@
 		<description>Nicaragua is a country with a population of 5995928 inhabitants. The capital is Managua. People speak the languages Spanish. The official currencies are Nicaraguan cordoba.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>13.0000</coord-lat>
+		<coord-long>-85.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -1130,8 +1130,8 @@
 		<description>Canada is a country with a population of 33679000 inhabitants. The capital is Ottawa. People speak the languages French, English. The official currencies are Canadian Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>60.0000</coord-lat>
+		<coord-long>-95.0000</coord-long>
 		<languages>
 			<language>French</language>
 			<language>English</language>
@@ -1148,8 +1148,8 @@
 		<description>Afghanistan is a country with a population of 29121286 inhabitants. The capital is Kabul. People speak the languages Pashto, Dari (Persian). The official currencies are Afghani.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>33.0000</coord-lat>
+		<coord-long>65.0000</coord-long>
 		<languages>
 			<language>Pashto</language>
 			<language>Dari (Persian)</language>
@@ -1166,8 +1166,8 @@
 		<description>Qatar is a country with a population of 840926 inhabitants. The capital is Doha. People speak the languages Arabic. The official currencies are Riyal.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>25.5000</coord-lat>
+		<coord-long>51.2500</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -1183,8 +1183,8 @@
 		<description>Peru is a country with a population of 29907003 inhabitants. The capital is Lima. People speak the languages Spanish. The official currencies are Nuevo sol.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-10.0000</coord-lat>
+		<coord-long>-76.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -1200,8 +1200,8 @@
 		<description>Turkmenistan is a country with a population of 4940916 inhabitants. The capital is Ashgabat. People speak the languages Turkmen. The official currencies are Turkmen new manat.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>40.0000</coord-lat>
+		<coord-long>60.0000</coord-long>
 		<languages>
 			<language>Turkmen</language>
 		</languages>
@@ -1234,8 +1234,8 @@
 		<description>Morocco is a country with a population of 31627428 inhabitants. The capital is Rabat. People speak the languages Arabic, Berber. The official currencies are Moroccan dirham.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>32.0000</coord-lat>
+		<coord-long>-5.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 			<language>Berber</language>
@@ -1252,8 +1252,8 @@
 		<description>Sudan is a country with a population of 35000000 inhabitants. The capital is Khartoum. People speak the languages Arabic, English. The official currencies are Sudanese pound.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>15.0000</coord-lat>
+		<coord-long>30.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 			<language>English</language>
@@ -1270,8 +1270,8 @@
 		<description>Guinea is a country with a population of 10324025 inhabitants. The capital is Conakry. People speak the languages French. The official currencies are Guinean franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>11.0000</coord-lat>
+		<coord-long>-10.0000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -1287,8 +1287,8 @@
 		<description>Panama is a country with a population of 3410676 inhabitants. The capital is Panama City. People speak the languages Spanish. The official currencies are United States Dollar, Panamanian balboa.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>9.0000</coord-lat>
+		<coord-long>-80.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -1305,8 +1305,8 @@
 		<description>Nepal is a country with a population of 28951852 inhabitants. The capital is Kathmandu. People speak the languages Nepali. The official currencies are Nepalese rupee.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>28.0000</coord-lat>
+		<coord-long>84.0000</coord-long>
 		<languages>
 			<language>Nepali</language>
 		</languages>
@@ -1322,8 +1322,8 @@
 		<description>Luxembourg is a country with a population of 497538 inhabitants. The capital is Luxembourg. People speak the languages Luxembourgish, French, German. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>49.7500</coord-lat>
+		<coord-long>6.1667</coord-long>
 		<languages>
 			<language>Luxembourgish</language>
 			<language>French</language>
@@ -1341,8 +1341,8 @@
 		<description>Somalia is a country with a population of 10112453 inhabitants. The capital is Mogadishu. People speak the languages Somali, Arabic. The official currencies are Somali shilling.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>10.0000</coord-lat>
+		<coord-long>49.0000</coord-long>
 		<languages>
 			<language>Somali</language>
 			<language>Arabic</language>
@@ -1359,8 +1359,8 @@
 		<description>Tokelau is a country with a population of 1466 inhabitants. The capital is Nukunonu (main settlement, although each atoll has its own administrative centre). The official currencies are Dependent territory of New Zealand.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-9.0000</coord-lat>
+		<coord-long>-172.0000</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -1375,8 +1375,8 @@
 		<description>Tuvalu is a country with a population of 10472 inhabitants. The capital is Funafuti.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-8.0000</coord-lat>
+		<coord-long>178.0000</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -1390,8 +1390,8 @@
 		<description>Croatia is a country with a population of 4491000 inhabitants. The capital is Zagreb. People speak the languages Croatian. The official currencies are Kuna.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>45.1667</coord-lat>
+		<coord-long>15.5000</coord-long>
 		<languages>
 			<language>Croatian</language>
 		</languages>
@@ -1407,8 +1407,8 @@
 		<description>Nauru is a country with a population of 10065 inhabitants. The capital is Yaren (seat of government).</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-0.5333</coord-lat>
+		<coord-long>166.9167</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -1422,8 +1422,8 @@
 		<description>Venezuela is a country with a population of 27223228 inhabitants. The capital is Caracas. People speak the languages Spanish. The official currencies are Bolívar fuerte.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>8.0000</coord-lat>
+		<coord-long>-66.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -1439,8 +1439,8 @@
 		<description>Brunei is a country with a population of 395027 inhabitants. The capital is Bandar Seri Begawan. People speak the languages Bahasa Melayu. The official currencies are Brunei dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>4.5000</coord-lat>
+		<coord-long>114.6667</coord-long>
 		<languages>
 			<language>Bahasa Melayu</language>
 		</languages>
@@ -1456,8 +1456,8 @@
 		<description>New Zealand is a country with a population of 4252277 inhabitants. The capital is Wellington. People speak the languages Maori, New Zealand Sign, English. The official currencies are New Zealand Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-41.0000</coord-lat>
+		<coord-long>174.0000</coord-long>
 		<languages>
 			<language>Maori</language>
 			<language>New Zealand Sign</language>
@@ -1475,8 +1475,8 @@
 		<description>Iran is a country with a population of 76923300 inhabitants. The capital is Tehran. People speak the languages Persian. The official currencies are Rial.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>32.0000</coord-lat>
+		<coord-long>53.0000</coord-long>
 		<languages>
 			<language>Persian</language>
 		</languages>
@@ -1492,8 +1492,8 @@
 		<description>Dominican Republic is a country with a population of 9823821 inhabitants. The capital is Santo Domingo. People speak the languages Spanish. The official currencies are Dominican peso.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>19.0000</coord-lat>
+		<coord-long>-70.6667</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -1509,8 +1509,8 @@
 		<description>Guyana is a country with a population of 748486 inhabitants. The capital is Georgetown. People speak the languages English. The official currencies are Guyanese dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>5.0000</coord-lat>
+		<coord-long>-59.0000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -1526,8 +1526,8 @@
 		<description>South Georgia and the South Sandwich Islands is a country with a population of 30 inhabitants. The capital is King Edward Point. People speak the languages English. The official currencies are Pound sterling.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-54.5000</coord-lat>
+		<coord-long>-37.0000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -1543,8 +1543,8 @@
 		<description>Paraguay is a country with a population of 6375830 inhabitants. The capital is Asunción. People speak the languages Spanish, Guaraní. The official currencies are Guaraní.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-23.0000</coord-lat>
+		<coord-long>-58.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 			<language>Guaraní</language>
@@ -1561,8 +1561,8 @@
 		<description>China is a country with a population of 1330044000 inhabitants. The capital is Beijing. People speak the languages Standard Chinese. The official currencies are Renminbi (yuan).</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>35.0000</coord-lat>
+		<coord-long>105.0000</coord-long>
 		<languages>
 			<language>Standard Chinese</language>
 		</languages>
@@ -1578,8 +1578,8 @@
 		<description>Armenia is a country with a population of 2968000 inhabitants. The capital is Yerevan. People speak the languages Armenian. The official currencies are Dram.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>40.0000</coord-lat>
+		<coord-long>45.0000</coord-long>
 		<languages>
 			<language>Armenian</language>
 		</languages>
@@ -1595,8 +1595,8 @@
 		<description>Thailand is a country with a population of 67089500 inhabitants. The capital is Bangkok. People speak the languages Thai. The official currencies are Baht.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>15.0000</coord-lat>
+		<coord-long>100.0000</coord-long>
 		<languages>
 			<language>Thai</language>
 		</languages>
@@ -1612,8 +1612,8 @@
 		<description>Iraq is a country with a population of 29671605 inhabitants. The capital is Baghdad. People speak the languages Kurdish, Arabic. The official currencies are Iraqi dinar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>33.0000</coord-lat>
+		<coord-long>44.0000</coord-long>
 		<languages>
 			<language>Kurdish</language>
 			<language>Arabic</language>
@@ -1630,8 +1630,8 @@
 		<description>South Korea is a country with a population of 48422644 inhabitants. The capital is Seoul. People speak the languages Korean. The official currencies are South Korean won.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>37.0000</coord-lat>
+		<coord-long>127.5000</coord-long>
 		<languages>
 			<language>Korean</language>
 		</languages>
@@ -1647,8 +1647,8 @@
 		<description>Ukraine is a country with a population of 45415596 inhabitants. The capital is Kiev. People speak the languages Ukrainian. The official currencies are Ukrainian hryvnia.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>49.0000</coord-lat>
+		<coord-long>32.0000</coord-long>
 		<languages>
 			<language>Ukrainian</language>
 		</languages>
@@ -1664,8 +1664,8 @@
 		<description>Guadeloupe is a country with a population of 443000 inhabitants. The capital is Basse-Terre. People speak the languages French. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>16.2500</coord-lat>
+		<coord-long>-61.5833</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -1681,8 +1681,8 @@
 		<description>Libya is a country with a population of 6461454 inhabitants. The capital is Tripoli. People speak the languages Arabic. The official currencies are Dinar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>25.0000</coord-lat>
+		<coord-long>17.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -1698,8 +1698,8 @@
 		<description>South Africa is a country with a population of 49000000 inhabitants. The capital is Pretoria (administrative/executive). People speak the languages Afrikaans, English, Southern Ndebele, Northern Sotho, Southern Sotho, Swazi, Tsonga, Tswana, Venda, Xhosa, Zulu. The official currencies are South African rand.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-29.0000</coord-lat>
+		<coord-long>24.0000</coord-long>
 		<languages>
 			<language>Afrikaans</language>
 			<language>English</language>
@@ -1725,8 +1725,8 @@
 		<description>Gambia is a country with a population of 1593256 inhabitants. The capital is Banjul. People speak the languages English. The official currencies are Gambian dalasi.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>13.4667</coord-lat>
+		<coord-long>-16.5667</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -1742,8 +1742,8 @@
 		<description>Finland is a country with a population of 5244000 inhabitants. The capital is Helsinki. People speak the languages Finnish, Swedish. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>64.0000</coord-lat>
+		<coord-long>26.0000</coord-long>
 		<languages>
 			<language>Finnish</language>
 			<language>Swedish</language>
@@ -1760,8 +1760,8 @@
 		<description>Macedonia is a country with a population of 2061000 inhabitants. The capital is Skopje. People speak the languages Macedonian. The official currencies are Macedonian denar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>41.8333</coord-lat>
+		<coord-long>22.0000</coord-long>
 		<languages>
 			<language>Macedonian</language>
 		</languages>
@@ -1777,8 +1777,8 @@
 		<description>Russia is a country with a population of 140702000 inhabitants. The capital is Moscow. People speak the languages Russian, 27 others co-official. The official currencies are Russian ruble.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>60.0000</coord-lat>
+		<coord-long>100.0000</coord-long>
 		<languages>
 			<language>Russian</language>
 			<language>27 others co-official</language>
@@ -1795,8 +1795,8 @@
 		<description>Mauritius is a country with a population of 1294104 inhabitants. The capital is Port Louis. People speak the languages Mauritian Creole, French, English. The official currencies are Mauritian rupee.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-20.2833</coord-lat>
+		<coord-long>57.5500</coord-long>
 		<languages>
 			<language>Mauritian Creole</language>
 			<language>French</language>
@@ -1814,8 +1814,8 @@
 		<description>British Virgin Islands is a country with a population of 21730 inhabitants. The capital is Road Town. People speak the languages English. The official currencies are United States Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>18.5000</coord-lat>
+		<coord-long>-64.5000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -1831,8 +1831,8 @@
 		<description>Niue is a country with a population of 2166 inhabitants. The capital is Alofi. The official currencies are Self-governing parliamentary democracy in free association with New Zealand.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-19.0333</coord-lat>
+		<coord-long>-169.8667</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -1847,8 +1847,8 @@
 		<description>Estonia is a country with a population of 1291170 inhabitants. The capital is Tallinn. People speak the languages Estonian. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>59.0000</coord-lat>
+		<coord-long>26.0000</coord-long>
 		<languages>
 			<language>Estonian</language>
 		</languages>
@@ -1864,8 +1864,8 @@
 		<description>Syria is a country with a population of 22198110 inhabitants. The capital is Damascus. People speak the languages Arabic. The official currencies are Syrian pound.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>35.0000</coord-lat>
+		<coord-long>38.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -1899,8 +1899,8 @@
 		<description>Pakistan is a country with a population of 184404791 inhabitants. The capital is Islamabad. People speak the languages English, Urdu, Punjabi, Sindhi, Punjab, Pashto language| KPK]], Balochistan. The official currencies are Pakistani Rupee.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>30.0000</coord-lat>
+		<coord-long>70.0000</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Urdu</language>
@@ -1922,8 +1922,8 @@
 		<description>Romania is a country with a population of 21959278 inhabitants. The capital is Bucharest. People speak the languages Romanian. The official currencies are Romanian leu.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>46.0000</coord-lat>
+		<coord-long>25.0000</coord-long>
 		<languages>
 			<language>Romanian</language>
 		</languages>
@@ -1939,8 +1939,8 @@
 		<description>Seychelles is a country with a population of 88340 inhabitants. The capital is Victoria. People speak the languages Seychellois Creole, French, English. The official currencies are Seychellois rupee.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-4.5833</coord-lat>
+		<coord-long>55.6667</coord-long>
 		<languages>
 			<language>Seychellois Creole</language>
 			<language>French</language>
@@ -1958,8 +1958,8 @@
 		<description>Egypt is a country with a population of 80471869 inhabitants. The capital is Cairo. People speak the languages Arabic. The official currencies are Egyptian gineih.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>27.0000</coord-lat>
+		<coord-long>30.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -1975,8 +1975,8 @@
 		<description>Guam is a country with a population of 159358 inhabitants. The capital is Hagåtña. The official currencies are Insular area of the United States of America.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>13.4667</coord-lat>
+		<coord-long>144.7833</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -1991,8 +1991,8 @@
 		<description>Austria is a country with a population of 8205000 inhabitants. The capital is Vienna. People speak the languages German. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>47.3333</coord-lat>
+		<coord-long>13.3333</coord-long>
 		<languages>
 			<language>German</language>
 		</languages>
@@ -2008,8 +2008,8 @@
 		<description>Albania is a country with a population of 2986952 inhabitants. The capital is Tirana. People speak the languages Albanian. The official currencies are Lek.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>41.0000</coord-lat>
+		<coord-long>20.0000</coord-long>
 		<languages>
 			<language>Albanian</language>
 		</languages>
@@ -2025,8 +2025,8 @@
 		<description>Hungary is a country with a population of 9982000 inhabitants. The capital is Budapest. People speak the languages Hungarian. The official currencies are Forint.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>47.0000</coord-lat>
+		<coord-long>20.0000</coord-long>
 		<languages>
 			<language>Hungarian</language>
 		</languages>
@@ -2042,8 +2042,8 @@
 		<description>Micronesia is a country with a population of 107708 inhabitants. The capital is Palikir.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>6.9167</coord-lat>
+		<coord-long>158.2500</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -2057,8 +2057,8 @@
 		<description>Colombia is a country with a population of 44205293 inhabitants. The capital is Bogotá. People speak the languages Spanish. The official currencies are Peso.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>4.0000</coord-lat>
+		<coord-long>-72.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -2074,8 +2074,8 @@
 		<description>Kiribati is a country with a population of 92533 inhabitants. The capital is South Tarawa.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>1.4167</coord-lat>
+		<coord-long>173.0000</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -2089,8 +2089,8 @@
 		<description>United Kingdom is a country with a population of 62348447 inhabitants. The capital is London. People speak the languages English. The official currencies are Pound sterling.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>54.0000</coord-lat>
+		<coord-long>-2.0000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -2106,8 +2106,8 @@
 		<description>Niger is a country with a population of 15878271 inhabitants. The capital is Niamey. People speak the languages French. The official currencies are CFA franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>16.0000</coord-lat>
+		<coord-long>8.0000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -2123,8 +2123,8 @@
 		<description>Marshall Islands is a country with a population of 65859 inhabitants. The capital is Majuro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>9.0000</coord-lat>
+		<coord-long>168.0000</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -2138,8 +2138,8 @@
 		<description>Fiji is a country with a population of 875983 inhabitants. The capital is Suva.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-18.0000</coord-lat>
+		<coord-long>175.0000</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -2153,8 +2153,8 @@
 		<description>Comoros is a country with a population of 773407 inhabitants. The capital is Moroni. People speak the languages Comorian, Arabic, French. The official currencies are Comorian franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-12.1667</coord-lat>
+		<coord-long>44.2500</coord-long>
 		<languages>
 			<language>Comorian</language>
 			<language>Arabic</language>
@@ -2172,8 +2172,8 @@
 		<description>Madagascar is a country with a population of 21281844 inhabitants. The capital is Antananarivo. People speak the languages Malagasy, French. The official currencies are Malagasy ariary.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-20.0000</coord-lat>
+		<coord-long>47.0000</coord-long>
 		<languages>
 			<language>Malagasy</language>
 			<language>French</language>
@@ -2190,8 +2190,8 @@
 		<description>Belize is a country with a population of 314522 inhabitants. The capital is Belmopan. People speak the languages English. The official currencies are Belize Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>17.2500</coord-lat>
+		<coord-long>-88.7500</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -2207,8 +2207,8 @@
 		<description>Bangladesh is a country with a population of 156118464 inhabitants. The capital is Dhaka. People speak the languages Bengali. The official currencies are Taka.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>24.0000</coord-lat>
+		<coord-long>90.0000</coord-long>
 		<languages>
 			<language>Bengali</language>
 		</languages>
@@ -2224,8 +2224,8 @@
 		<description>Solomon Islands is a country with a population of 559198 inhabitants. The capital is Honiara.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-8.0000</coord-lat>
+		<coord-long>159.0000</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -2239,8 +2239,8 @@
 		<description>Bolivia is a country with a population of 9947418 inhabitants. The capital is Sucre (official). People speak the languages Spanish, Quechua, Aymara. The official currencies are Boliviano.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-17.0000</coord-lat>
+		<coord-long>-65.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 			<language>Quechua</language>
@@ -2258,8 +2258,8 @@
 		<description>Wallis and Futuna is a country with a population of 16025 inhabitants. The capital is Mata-Utu. People speak the languages French. The official currencies are CFP Franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-13.3000</coord-lat>
+		<coord-long>-176.2000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -2275,8 +2275,8 @@
 		<description>Uruguay is a country with a population of 3477000 inhabitants. The capital is Montevideo. People speak the languages Spanish. The official currencies are Uruguayan peso.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-33.0000</coord-lat>
+		<coord-long>-56.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -2292,8 +2292,8 @@
 		<description>France is a country with a population of 64768389 inhabitants. The capital is Paris. People speak the languages French. The official currencies are Euro, CFP franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>46.0000</coord-lat>
+		<coord-long>2.0000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -2310,8 +2310,8 @@
 		<description>Bahamas is a country with a population of 301790 inhabitants. The capital is Nassau. People speak the languages English. The official currencies are Bahamian Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>24.2500</coord-lat>
+		<coord-long>-76.0000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -2327,8 +2327,8 @@
 		<description>Slovakia is a country with a population of 5455000 inhabitants. The capital is Bratislava. People speak the languages Slovak. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>48.6667</coord-lat>
+		<coord-long>19.5000</coord-long>
 		<languages>
 			<language>Slovak</language>
 		</languages>
@@ -2344,8 +2344,8 @@
 		<description>Gibraltar is a country with a population of 27884 inhabitants. The capital is Gibraltar. People speak the languages English. The official currencies are Gibraltar pound.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>36.1833</coord-lat>
+		<coord-long>-5.3667</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -2361,8 +2361,8 @@
 		<description>Swaziland is a country with a population of 1354051 inhabitants. The capital is Mbabane (administrative). People speak the languages English, Swati. The official currencies are Lilangeni.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-26.5000</coord-lat>
+		<coord-long>31.5000</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Swati</language>
@@ -2379,8 +2379,8 @@
 		<description>Laos is a country with a population of 6368162 inhabitants. The capital is Vientiane. People speak the languages Lao. The official currencies are Kip.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>18.0000</coord-lat>
+		<coord-long>105.0000</coord-long>
 		<languages>
 			<language>Lao</language>
 		</languages>
@@ -2396,8 +2396,8 @@
 		<description>Palestine is a country with a population of 3800000 inhabitants. The capital is East Jerusalem (claimed capital). People speak the languages Arabic. The official currencies are Israeli shekel.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>32.0000</coord-lat>
+		<coord-long>35.2500</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -2413,8 +2413,8 @@
 		<description>Nigeria is a country with a population of 154000000 inhabitants. The capital is Abuja. People speak the languages English. The official currencies are Naira.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>10.0000</coord-lat>
+		<coord-long>8.0000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -2430,8 +2430,8 @@
 		<description>Anguilla is a country with a population of 13254 inhabitants. The capital is The Valley. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>18.2500</coord-lat>
+		<coord-long>-63.1667</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -2447,8 +2447,8 @@
 		<description>Malawi is a country with a population of 15447500 inhabitants. The capital is Lilongwe. People speak the languages English, Chichewa. The official currencies are Kwacha.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-13.5000</coord-lat>
+		<coord-long>34.0000</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Chichewa</language>
@@ -2465,8 +2465,8 @@
 		<description>Ecuador is a country with a population of 14790608 inhabitants. The capital is Quito. People speak the languages Spanish. The official currencies are United States dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-2.0000</coord-lat>
+		<coord-long>-77.5000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -2482,8 +2482,8 @@
 		<description>Israel is a country with a population of 7353985 inhabitants. The capital is Jerusalem. People speak the languages Hebrew, Arabic. The official currencies are New shekel.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>31.5000</coord-lat>
+		<coord-long>34.7500</coord-long>
 		<languages>
 			<language>Hebrew</language>
 			<language>Arabic</language>
@@ -2500,8 +2500,8 @@
 		<description>Ireland is a country with a population of 4622917 inhabitants. The capital is Dublin. People speak the languages English, Irish. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>53.0000</coord-lat>
+		<coord-long>-8.0000</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Irish</language>
@@ -2518,8 +2518,8 @@
 		<description>Algeria is a country with a population of 34586184 inhabitants. The capital is Algiers. People speak the languages Arabic. The official currencies are Dinar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>28.0000</coord-lat>
+		<coord-long>3.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -2535,8 +2535,8 @@
 		<description>Serbia is a country with a population of 7344847 inhabitants. The capital is Belgrade. People speak the languages Serbian. The official currencies are Serbian dinar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>44.0000</coord-lat>
+		<coord-long>21.0000</coord-long>
 		<languages>
 			<language>Serbian</language>
 		</languages>
@@ -2552,8 +2552,8 @@
 		<description>British Indian Ocean Territory is a country with a population of 4000 inhabitants. The capital is Diego Garcia. People speak the languages English. The official currencies are US dollar, UK pound.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-6.0000</coord-lat>
+		<coord-long>71.5000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -2570,8 +2570,8 @@
 		<description>Montenegro is a country with a population of 666730 inhabitants. The capital is Podgorica. People speak the languages Montenegrin. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>42.0000</coord-lat>
+		<coord-long>19.0000</coord-long>
 		<languages>
 			<language>Montenegrin</language>
 		</languages>
@@ -2587,8 +2587,8 @@
 		<description>Trinidad and Tobago is a country with a population of 1228691 inhabitants. The capital is Port of Spain. People speak the languages English. The official currencies are Trinidad and Tobago Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>11.0000</coord-lat>
+		<coord-long>-61.0000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -2604,8 +2604,8 @@
 		<description>Togo is a country with a population of 6587239 inhabitants. The capital is Lomé. People speak the languages French. The official currencies are CFA franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>8.0000</coord-lat>
+		<coord-long>1.1667</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -2621,8 +2621,8 @@
 		<description>Saint Lucia is a country with a population of 160922 inhabitants. The capital is Castries. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>13.8833</coord-lat>
+		<coord-long>-61.1333</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -2638,8 +2638,8 @@
 		<description>Jordan is a country with a population of 6407085 inhabitants. The capital is Amman. People speak the languages Arabic. The official currencies are Jordanian dinar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>31.0000</coord-lat>
+		<coord-long>36.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -2655,8 +2655,8 @@
 		<description>Martinique is a country with a population of 432900 inhabitants. The capital is Fort-de-France. People speak the languages French. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>14.6667</coord-lat>
+		<coord-long>-61.0000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -2671,8 +2671,8 @@
 		<description>Bouvet Island is a country with a population of 0 inhabitants. The capital is —. People speak the languages —. The official currencies are —.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-54.4333</coord-lat>
+		<coord-long>3.4000</coord-long>
 		<languages>
 			<language>—</language>
 		</languages>
@@ -2688,8 +2688,8 @@
 		<description>Oman is a country with a population of 2967717 inhabitants. The capital is Muscat. People speak the languages Arabic. The official currencies are Rial.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>21.0000</coord-lat>
+		<coord-long>57.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -2705,8 +2705,8 @@
 		<description>Costa Rica is a country with a population of 4516220 inhabitants. The capital is San José. People speak the languages Spanish. The official currencies are Costa Rican colon.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>10.0000</coord-lat>
+		<coord-long>-84.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -2722,8 +2722,8 @@
 		<description>Spain is a country with a population of 46505963 inhabitants. The capital is Madrid. People speak the languages Spanish, Catalan, Galician, Basque. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>40.0000</coord-lat>
+		<coord-long>-4.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 			<language>Catalan</language>
@@ -2758,8 +2758,8 @@
 		<description>Hong Kong is a country with a population of 6898686 inhabitants. The capital is Special administrative region of China. People speak the languages English, Cantonese. The official currencies are Hong Kong dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>22.2500</coord-lat>
+		<coord-long>114.1667</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Cantonese</language>
@@ -2776,8 +2776,8 @@
 		<description>Norway is a country with a population of 5009150 inhabitants. The capital is Oslo. People speak the languages Norwegian, Bokmål, Nynorsk. The official currencies are Norwegian krone.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>62.0000</coord-lat>
+		<coord-long>10.0000</coord-long>
 		<languages>
 			<language>Norwegian</language>
 			<language>Bokmål</language>
@@ -2795,8 +2795,8 @@
 		<description>Burkina Faso is a country with a population of 16241811 inhabitants. The capital is Ouagadougou. People speak the languages French. The official currencies are CFA franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>13.0000</coord-lat>
+		<coord-long>-2.0000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -2812,8 +2812,8 @@
 		<description>Mayotte is a country with a population of 159042 inhabitants. The capital is Mamoudzou. People speak the languages French. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-12.8333</coord-lat>
+		<coord-long>45.1667</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -2829,8 +2829,8 @@
 		<description>Sweden is a country with a population of 9555893 inhabitants. The capital is Stockholm. People speak the languages Swedish. The official currencies are Swedish krona.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>62.0000</coord-lat>
+		<coord-long>15.0000</coord-long>
 		<languages>
 			<language>Swedish</language>
 		</languages>
@@ -2846,8 +2846,8 @@
 		<description>Heard Island and McDonald Islands is a country with a population of 0 inhabitants. The capital is —. People speak the languages —. The official currencies are —.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-53.1000</coord-lat>
+		<coord-long>72.5167</coord-long>
 		<languages>
 			<language>—</language>
 		</languages>
@@ -2863,8 +2863,8 @@
 		<description>Gabon is a country with a population of 1545255 inhabitants. The capital is Libreville. People speak the languages French. The official currencies are CFA franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-1.0000</coord-lat>
+		<coord-long>11.7500</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -2880,8 +2880,8 @@
 		<description>Saudi Arabia is a country with a population of 25731776 inhabitants. The capital is Riyadh. People speak the languages Arabic. The official currencies are Saudi riyal.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>25.0000</coord-lat>
+		<coord-long>45.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -2897,8 +2897,8 @@
 		<description>Mali is a country with a population of 13796354 inhabitants. The capital is Bamako. People speak the languages French. The official currencies are CFA franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>17.0000</coord-lat>
+		<coord-long>-4.0000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -2914,8 +2914,8 @@
 		<description>Grenada is a country with a population of 107818 inhabitants. The capital is St. George's. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>12.1167</coord-lat>
+		<coord-long>-61.6667</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -2931,8 +2931,8 @@
 		<description>Yemen is a country with a population of 23495361 inhabitants. The capital is Sana'a. People speak the languages Arabic. The official currencies are Yemeni rial.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>15.0000</coord-lat>
+		<coord-long>48.0000</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -2948,8 +2948,8 @@
 		<description>Poland is a country with a population of 38500000 inhabitants. The capital is Warsaw. People speak the languages Polish. The official currencies are Złoty.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>52.0000</coord-lat>
+		<coord-long>20.0000</coord-long>
 		<languages>
 			<language>Polish</language>
 		</languages>
@@ -2965,8 +2965,8 @@
 		<description>French Guiana is a country with a population of 195506 inhabitants. The capital is Cayenne. People speak the languages French. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>4.0000</coord-lat>
+		<coord-long>-53.0000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -2982,8 +2982,8 @@
 		<description>American Samoa is a country with a population of 57881 inhabitants. The capital is Pago Pago. People speak the languages English, Samoan. The official currencies are United States dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-14.3333</coord-lat>
+		<coord-long>-170.0000</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Samoan</language>
@@ -3000,8 +3000,8 @@
 		<description>Chad is a country with a population of 10543464 inhabitants. The capital is N'Djamena. People speak the languages French, Arabic. The official currencies are CFA franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>15.0000</coord-lat>
+		<coord-long>19.0000</coord-long>
 		<languages>
 			<language>French</language>
 			<language>Arabic</language>
@@ -3018,8 +3018,8 @@
 		<description>Mexico is a country with a population of 112468855 inhabitants. The capital is Mexico City. People speak the languages Spanish. The official currencies are Mexican peso.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>23.0000</coord-lat>
+		<coord-long>-102.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -3035,8 +3035,8 @@
 		<description>Falkland Islands is a country with a population of 2638 inhabitants. The capital is Stanley. People speak the languages English. The official currencies are Falkland Islands pound.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-51.7500</coord-lat>
+		<coord-long>-59.0000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -3052,8 +3052,8 @@
 		<description>Antigua and Barbuda is a country with a population of 86754 inhabitants. The capital is St. John's. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>17.0500</coord-lat>
+		<coord-long>-61.8000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -3066,11 +3066,11 @@
 		<capital>New Delhi</capital>
 		<area-km2>3287590.00</area-km2>
 		<population>1173108018</population>
-		<description>India is a country with a population of 1173108018 inhabitants. The capital is New Delhi. People speak the languages Hindi, English, Urdu, Gujarati, Tamil, Kannada, Telugu, Malayalam, Odia, Bengali, Assamese, Manipuri, Sikkimese, Kashmri, Mizo, Garo, Khasi, Jaintia, Marathi, Punjabi, Bodo, Kokborok, Nagamese, Nefamese > MARWARI. The official currencies are Indian Rupee.</description>
+		<description>India is a country with a population of 1173108018 inhabitants. The capital is New Delhi. People speak the languages Hindi, English, Urdu, Gujarati, Tamil, Kannada, Telugu, Malayalam, Odia, Bengali, Assamese, Manipuri, Sikkimese, Kashmri, Mizo, Garo, Khasi, Jaintia, Marathi, Punjabi, Bodo, Kokborok, Nagamese, Nefamese &gt; MARWARI. The official currencies are Indian Rupee.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>20.0000</coord-lat>
+		<coord-long>77.0000</coord-long>
 		<languages>
 			<language>Hindi</language>
 			<language>English</language>
@@ -3095,7 +3095,7 @@
 			<language>Bodo</language>
 			<language>Kokborok</language>
 			<language>Nagamese</language>
-			<language>Nefamese > MARWARI</language>
+			<language>Nefamese &gt; MARWARI</language>
 		</languages>
 		<currencies>
 			<currency>Indian Rupee</currency>
@@ -3109,8 +3109,8 @@
 		<description>Vatican City is a country with a population of 921 inhabitants. The capital is Vatican City. People speak the languages Italian. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>41.9000</coord-lat>
+		<coord-long>12.4500</coord-long>
 		<languages>
 			<language>Italian</language>
 		</languages>
@@ -3126,8 +3126,8 @@
 		<description>Lesotho is a country with a population of 1919552 inhabitants. The capital is Maseru. People speak the languages English, Sesotho. The official currencies are Lesotho loti.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-29.5000</coord-lat>
+		<coord-long>28.5000</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Sesotho</language>
@@ -3144,8 +3144,8 @@
 		<description>San Marino is a country with a population of 31477 inhabitants. The capital is San Marino. People speak the languages Italian. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>43.7667</coord-lat>
+		<coord-long>12.4167</coord-long>
 		<languages>
 			<language>Italian</language>
 		</languages>
@@ -3161,8 +3161,8 @@
 		<description>Greenland is a country with a population of 56375 inhabitants. The capital is Nuuk. People speak the languages Greenlandic. The official currencies are Danish Krone.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>72.0000</coord-lat>
+		<coord-long>-40.0000</coord-long>
 		<languages>
 			<language>Greenlandic</language>
 		</languages>
@@ -3178,8 +3178,8 @@
 		<description>Uganda is a country with a population of 33398682 inhabitants. The capital is Kampala. People speak the languages Swahili, English, Luganda. The official currencies are Ugandan shilling.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>1.0000</coord-lat>
+		<coord-long>32.0000</coord-long>
 		<languages>
 			<language>Swahili</language>
 			<language>English</language>
@@ -3197,8 +3197,8 @@
 		<description>Burundi is a country with a population of 9863117 inhabitants. The capital is Bujumbura. People speak the languages Kirundi, French. The official currencies are Rupie.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-3.5000</coord-lat>
+		<coord-long>30.0000</coord-long>
 		<languages>
 			<language>Kirundi</language>
 			<language>French</language>
@@ -3215,8 +3215,8 @@
 		<description>Kenya is a country with a population of 40046566 inhabitants. The capital is Nairobi. People speak the languages Swahili, English. The official currencies are Kenyan shilling.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>1.0000</coord-lat>
+		<coord-long>38.0000</coord-long>
 		<languages>
 			<language>Swahili</language>
 			<language>English</language>
@@ -3233,8 +3233,8 @@
 		<description>Botswana is a country with a population of 2029307 inhabitants. The capital is Gaborone. People speak the languages English, Setswana. The official currencies are Pula.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-22.0000</coord-lat>
+		<coord-long>24.0000</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Setswana</language>
@@ -3251,8 +3251,8 @@
 		<description>Puerto Rico is a country with a population of 3916632 inhabitants. The capital is San Juan. People speak the languages English, Spanish. The official currencies are United States Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>18.2500</coord-lat>
+		<coord-long>-66.5000</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Spanish</language>
@@ -3269,8 +3269,8 @@
 		<description>Italy is a country with a population of 60340328 inhabitants. The capital is Rome. People speak the languages Italian. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>42.8333</coord-lat>
+		<coord-long>12.8333</coord-long>
 		<languages>
 			<language>Italian</language>
 		</languages>
@@ -3304,8 +3304,8 @@
 		<description>Turks and Caicos Islands is a country with a population of 20556 inhabitants. The capital is Cockburn Town. People speak the languages English. The official currencies are United States Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>21.7500</coord-lat>
+		<coord-long>-71.5833</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -3321,8 +3321,8 @@
 		<description>Cuba is a country with a population of 11423000 inhabitants. The capital is Havana. People speak the languages Spanish. The official currencies are Cuban peso.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>21.5000</coord-lat>
+		<coord-long>-80.0000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -3338,8 +3338,8 @@
 		<description>Cambodia is a country with a population of 14453680 inhabitants. The capital is Phnom Penh. People speak the languages Khmer. The official currencies are Riel.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>13.0000</coord-lat>
+		<coord-long>105.0000</coord-long>
 		<languages>
 			<language>Khmer</language>
 		</languages>
@@ -3355,8 +3355,8 @@
 		<description>Ethiopia is a country with a population of 88013491 inhabitants. The capital is Addis Ababa. People speak the languages Amharic. The official currencies are Birr.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>8.0000</coord-lat>
+		<coord-long>38.0000</coord-long>
 		<languages>
 			<language>Amharic</language>
 		</languages>
@@ -3372,8 +3372,8 @@
 		<description>Bermuda is a country with a population of 65365 inhabitants. The capital is Hamilton. People speak the languages English. The official currencies are Bermudian Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>32.3333</coord-lat>
+		<coord-long>-64.7500</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -3406,8 +3406,8 @@
 		<description>Vanuatu is a country with a population of 221552 inhabitants. The capital is Port Vila. The official currencies are Vanuatu vatu.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-16.0000</coord-lat>
+		<coord-long>167.0000</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -3422,8 +3422,8 @@
 		<description>Cameroon is a country with a population of 19294149 inhabitants. The capital is Yaoundé. People speak the languages French, English. The official currencies are CFA franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>6.0000</coord-lat>
+		<coord-long>12.0000</coord-long>
 		<languages>
 			<language>French</language>
 			<language>English</language>
@@ -3440,8 +3440,8 @@
 		<description>Cayman Islands is a country with a population of 44270 inhabitants. The capital is George Town. People speak the languages English. The official currencies are Cayman Islands Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>19.5000</coord-lat>
+		<coord-long>-80.5000</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -3457,8 +3457,8 @@
 		<description>Benin is a country with a population of 9056010 inhabitants. The capital is Porto-Novo (official). People speak the languages French. The official currencies are CFA franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>9.5000</coord-lat>
+		<coord-long>2.2500</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -3474,8 +3474,8 @@
 		<description>Brazil is a country with a population of 201103330 inhabitants. The capital is Brasília. People speak the languages Portuguese. The official currencies are Real.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-10.0000</coord-lat>
+		<coord-long>-55.0000</coord-long>
 		<languages>
 			<language>Portuguese</language>
 		</languages>
@@ -3491,8 +3491,8 @@
 		<description>Réunion is a country with a population of 776948 inhabitants. The capital is Saint-Denis. People speak the languages French. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-21.1000</coord-lat>
+		<coord-long>55.6000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -3508,8 +3508,8 @@
 		<description>Saint Kitts and Nevis is a country with a population of 49898 inhabitants. The capital is Basseterre. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>17.3333</coord-lat>
+		<coord-long>-62.7500</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -3525,8 +3525,8 @@
 		<description>Singapore is a country with a population of 4701069 inhabitants. The capital is Singapore. People speak the languages English, Chinese, Malay, Tamil. The official currencies are Singapore dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>1.3667</coord-lat>
+		<coord-long>103.8000</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Chinese</language>
@@ -3545,8 +3545,8 @@
 		<description>Iceland is a country with a population of 308910 inhabitants. The capital is Reykjavík. People speak the languages Icelandic. The official currencies are Icelandic króna.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>65.0000</coord-lat>
+		<coord-long>-18.0000</coord-long>
 		<languages>
 			<language>Icelandic</language>
 		</languages>
@@ -3562,8 +3562,8 @@
 		<description>Monaco is a country with a population of 32965 inhabitants. The capital is Monaco. People speak the languages French. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>43.7333</coord-lat>
+		<coord-long>7.4000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -3579,8 +3579,8 @@
 		<description>Slovenia is a country with a population of 2007000 inhabitants. The capital is Ljubljana. People speak the languages Slovene. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>46.0000</coord-lat>
+		<coord-long>15.0000</coord-long>
 		<languages>
 			<language>Slovene</language>
 		</languages>
@@ -3596,8 +3596,8 @@
 		<description>Honduras is a country with a population of 7989415 inhabitants. The capital is Tegucigalpa. People speak the languages Spanish. The official currencies are Honduran lempira.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>15.0000</coord-lat>
+		<coord-long>-86.5000</coord-long>
 		<languages>
 			<language>Spanish</language>
 		</languages>
@@ -3613,8 +3613,8 @@
 		<description>French Southern Territories is a country with a population of 140 inhabitants. The capital is Alfred Faure (Crozet Islands). People speak the languages French. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-43.0000</coord-lat>
+		<coord-long>67.0000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -3630,8 +3630,8 @@
 		<description>Germany is a country with a population of 81802257 inhabitants. The capital is Berlin. People speak the languages German. The official currencies are Euro.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>51.0000</coord-lat>
+		<coord-long>9.0000</coord-long>
 		<languages>
 			<language>German</language>
 		</languages>
@@ -3663,8 +3663,8 @@
 		<description>New Caledonia is a country with a population of 216494 inhabitants. The capital is Nouméa. People speak the languages French. The official currencies are CFP Franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-21.5000</coord-lat>
+		<coord-long>165.5000</coord-long>
 		<languages>
 			<language>French</language>
 		</languages>
@@ -3680,8 +3680,8 @@
 		<description>Palau is a country with a population of 19907 inhabitants. The capital is Melekeok.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>7.5000</coord-lat>
+		<coord-long>134.5000</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -3695,8 +3695,8 @@
 		<description>Dominica is a country with a population of 72813 inhabitants. The capital is Roseau. People speak the languages English. The official currencies are East Caribbean Dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>15.4167</coord-lat>
+		<coord-long>-61.3333</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -3712,8 +3712,8 @@
 		<description>Suriname is a country with a population of 492829 inhabitants. The capital is Paramaribo. People speak the languages Dutch. The official currencies are Surinamese dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>4.0000</coord-lat>
+		<coord-long>-56.0000</coord-long>
 		<languages>
 			<language>Dutch</language>
 		</languages>
@@ -3729,8 +3729,8 @@
 		<description>Eritrea is a country with a population of 5792984 inhabitants. The capital is Asmara. People speak the languages Tigrinya, Arabic, English. The official currencies are Tallero.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>15.0000</coord-lat>
+		<coord-long>39.0000</coord-long>
 		<languages>
 			<language>Tigrinya</language>
 			<language>Arabic</language>
@@ -3748,8 +3748,8 @@
 		<description>Tonga is a country with a population of 122580 inhabitants. The capital is Nukuʻalofa.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-20.0000</coord-lat>
+		<coord-long>-175.0000</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -3763,8 +3763,8 @@
 		<description>Maldives is a country with a population of 395650 inhabitants. The capital is Malé. People speak the languages Maldivian. The official currencies are Maldivian rufiyaa.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>3.2500</coord-lat>
+		<coord-long>73.0000</coord-long>
 		<languages>
 			<language>Maldivian</language>
 		</languages>
@@ -3797,8 +3797,8 @@
 		<description>Tanzania is a country with a population of 41892895 inhabitants. The capital is Dodoma (official). People speak the languages Swahili, English. The official currencies are Tanzanian shilling.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-6.0000</coord-lat>
+		<coord-long>35.0000</coord-long>
 		<languages>
 			<language>Swahili</language>
 			<language>English</language>
@@ -3815,8 +3815,8 @@
 		<description>Indonesia is a country with a population of 242968342 inhabitants. The capital is Jakarta. People speak the languages Indonesian. The official currencies are Rupiah.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-5.0000</coord-lat>
+		<coord-long>120.0000</coord-long>
 		<languages>
 			<language>Indonesian</language>
 		</languages>
@@ -3832,8 +3832,8 @@
 		<description>Cook Islands is a country with a population of 21388 inhabitants. The capital is Avarua. People speak the languages English, Cook Islands Māori. The official currencies are New Zealand dollar, Cook Islands dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-21.2333</coord-lat>
+		<coord-long>-159.7667</coord-long>
 		<languages>
 			<language>English</language>
 			<language>Cook Islands Māori</language>
@@ -3851,8 +3851,8 @@
 		<description>Christmas Island is a country with a population of 1500 inhabitants. The capital is Flying Fish Cove. People speak the languages English. The official currencies are Australian dollar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>-10.5000</coord-lat>
+		<coord-long>105.6667</coord-long>
 		<languages>
 			<language>English</language>
 		</languages>
@@ -3868,8 +3868,8 @@
 		<description>Liechtenstein is a country with a population of 35000 inhabitants. The capital is Vaduz. People speak the languages German. The official currencies are Swiss franc.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>47.1667</coord-lat>
+		<coord-long>9.5333</coord-long>
 		<languages>
 			<language>German</language>
 		</languages>
@@ -3885,8 +3885,8 @@
 		<description>Vietnam is a country with a population of 89571130 inhabitants. The capital is Hanoi. People speak the languages Vietnamese. The official currencies are đồng.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>16.0000</coord-lat>
+		<coord-long>106.0000</coord-long>
 		<languages>
 			<language>Vietnamese</language>
 		</languages>
@@ -3920,8 +3920,8 @@
 		<description>Kuwait is a country with a population of 2789132 inhabitants. The capital is Kuwait City. People speak the languages Arabic. The official currencies are Kuwaiti dinar.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>29.3375</coord-lat>
+		<coord-long>47.6581</coord-long>
 		<languages>
 			<language>Arabic</language>
 		</languages>
@@ -3937,8 +3937,8 @@
 		<description>Sri Lanka is a country with a population of 21513990 inhabitants. The capital is Sri Jayawardenapura Kotte. People speak the languages Sinhala, Tamil. The official currencies are Sri Lankan rupee.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>7.0000</coord-lat>
+		<coord-long>81.0000</coord-long>
 		<languages>
 			<language>Sinhala</language>
 			<language>Tamil</language>
@@ -3955,8 +3955,8 @@
 		<description>Northern Mariana Islands is a country with a population of 53883 inhabitants. The capital is Saipan. The official currencies are Insular area of the United States of America.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>15.2000</coord-lat>
+		<coord-long>145.7500</coord-long>
 		<languages>
 		</languages>
 		<currencies>
@@ -3971,8 +3971,8 @@
 		<description>Faroe Islands is a country with a population of 48228 inhabitants. The capital is Tórshavn. People speak the languages Faroese, Danish. The official currencies are Faroese króna.</description>
 		<flag-description>None</flag-description>
 		<treasure>None</treasure>
-		<coord-lat>0.000000</coord-lat>
-		<coord-long>0.000000</coord-long>
+		<coord-lat>62.0000</coord-lat>
+		<coord-long>-7.0000</coord-long>
 		<languages>
 			<language>Faroese</language>
 			<language>Danish</language>
@@ -3982,4 +3982,3 @@
 		</currencies>
 	</country>
 </countries>
-

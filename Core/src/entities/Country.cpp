@@ -7,49 +7,51 @@
 Country::Country() {
 }
 
-Country::Country(const Country &country) {
+Country::Country( const Country &country ) {
 	this->id = country.getID();
-	this->isoCode = strdup( country.getIsoCode() );
-	this->code = strdup( country.getCode() );
-	this->name = strdup(country.getName());
-	this->description = strdup(country.getDescription());
-	this->treasure = strdup(country.getTreasure());
-	this->coord = country.getCoord();
-	this->flagDesc = strdup(country.getFlagDescription());
-	this->capital = strdup(country.getCapital());
+	this->isoCode = country.getIsoCode();
+	this->code = country.getCode();
+	this->name = country.getName();
+	this->description = country.getDescription();
+	this->treasure = country.getTreasure();
+	this->flagDesc = country.getFlagDescription();
+	this->capital = country.getCapital();
 	this->languages = country.getLanguages();
 	this->currencies = country.getCurrencies();
+	this->latitude = country.getLatitude();
+	this->longitude = country.getLongitude();
 }
 
-Country& Country::operator=(const Country &country) {
+Country& Country::operator=( const Country &country ) {
 	this->id = country.getID();
-	this->code = strdup( country.getCode() );
-	this->isoCode = strdup( country.getIsoCode() );
-	this->name = strdup(country.getName());
-	this->description = strdup(country.getDescription());
-	this->treasure = strdup(country.getTreasure());
-	this->coord = country.getCoord();
-	this->flagDesc = strdup(country.getFlagDescription());
-	this->capital = strdup(country.getCapital());
+	this->code = country.getCode();
+	this->isoCode = country.getIsoCode();
+	this->name = country.getName();
+	this->description = country.getDescription();
+	this->treasure = country.getTreasure();
+	this->flagDesc = country.getFlagDescription();
+	this->capital = country.getCapital();
 	this->languages = country.getLanguages();
 	this->currencies = country.getCurrencies();
+	this->latitude = country.getLatitude();
+	this->longitude = country.getLongitude();
 	return *this;
 }
 
-void Country::setIsoCode( const char *isoCode ) {
-	this->isoCode = strdup( isoCode );
+void Country::setIsoCode( string isoCode ) {
+	this->isoCode = isoCode;
 }
 
-const char* Country::getIsoCode() const {
-	return strdup( isoCode );
+string Country::getIsoCode() const {
+	return isoCode;
 }
 
-void Country::setCode( const char *code ) {
-	this->code = strdup( code );
+void Country::setCode( string code ) {
+	this->code = code;
 }
 
-const char* Country::getCode() const {
-	return strdup( code );
+string Country::getCode() const {
+	return code;
 }
 
 Country::~Country() {
@@ -63,36 +65,36 @@ unsigned char Country::getID() const {
 	return id;
 }
 
-void Country::setName(const char *name) {
-	this->name = strdup(name);
+void Country::setName(string name) {
+	this->name = name;
 }
 
-const char *Country::getName() const {
-	return strdup(name);
+string Country::getName() const {
+	return name;
 }
 
-void Country::setDescription(const char *description) {
-	this->description = strdup(description);
+void Country::setDescription(string description) {
+	this->description = description;
 }
 
-const char *Country::getDescription() const {
-	return strdup(description);
+string Country::getDescription() const {
+	return description;
 }
 
-void Country::setFlagDescription(const char *flagDesc) {
-	this->flagDesc = strdup(flagDesc);
+void Country::setFlagDescription(string flagDesc) {
+	this->flagDesc = flagDesc;
 }
 
-const char *Country::getFlagDescription() const {
-	return strdup(flagDesc);
+string Country::getFlagDescription() const {
+	return flagDesc;
 }
 
-void Country::setTreasure(const char *treasure) {
-	this->treasure = strdup(treasure);
+void Country::setTreasure(string treasure) {
+	this->treasure = treasure;
 }
 
-const char *Country::getTreasure() const {
-	return strdup(treasure);
+string Country::getTreasure() const {
+	return treasure;
 }
 
 void Country::setLanguages( const vector<string> &languages ) {
@@ -111,20 +113,37 @@ const vector<string> Country::getCurrencies() const {
 	return currencies;
 }
 
-void Country::setCapital( const char *capital ) {
-	this->capital = strdup( capital );
+void Country::setCapital( string capital ) {
+	this->capital = capital;
 }
 
-const char* Country::getCapital() const {
-	return strdup( capital );
+string Country::getCapital() const {
+	return capital;
 }
 
-void Country::setCoord(const Point & coord) {
-	this->coord = coord;
+void Country::setLatitude( double latitude )
+{
+	this->latitude = latitude;
 }
 
-Point Country::getCoord() const {
-	return coord;
+double Country::getLatitude() const
+{
+	return latitude;
+}
+
+void Country::setLongitude( double longitude )
+{
+	this->longitude = longitude;
+}
+
+double Country::getLongitude() const
+{
+	return longitude;
+}
+		
+pair<double, double> Country::getLatitudeLongitude() const
+{
+	return pair<double, double>( latitude, longitude );
 }
 
 bool fileExists( const std::string& name )
@@ -133,20 +152,21 @@ bool fileExists( const std::string& name )
 	return f.is_open();
 }
 
-Surface *Country::getPhoto() const {
+Surface* Country::getPhoto() const {
 	char path[100];
-	sprintf(path, "data/countries/%s/postal.png", isoCode );
+	sprintf(path, "data/countries/%s/postal.png", isoCode.c_str() );
 
 	return fileExists( path ) ? new Surface( path ) : NULL;
 }
 
 Surface *Country::getFlag() const {
 	char path[100];
-	sprintf(path, "data/countries/%s/flag.png", isoCode );
+	sprintf(path, "data/countries/%s/flag.png", isoCode.c_str() );
 
 	return new Surface(path);
 }
 
-const char *Country::toString() const {
-	return strdup(name);
+string Country::toString() const {
+	return name;
 }
+

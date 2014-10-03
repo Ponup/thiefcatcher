@@ -41,16 +41,16 @@ int main(int argc, char * argv[]) {
 	}
 
 	Services services;
-	services.addService(new CoreService(CoreService::VIDEO | CoreService::AUDIO));
-	services.addService(new MixerService(AUDIO_S16SYS /*IX_DEFAULT_FREQUENCY*/, 2));
-	services.addService(new FontService());
+	services.addService( new CoreService( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) );
+	services.addService( new MixerService( AUDIO_S16SYS /*IX_DEFAULT_FREQUENCY*/, 2 ) );
+	services.addService( new FontService() );
 	services.init();
 
 	Configurator configurator = Configurator::getInstance();
 
 	try {
 		configurator.init();
-	} catch (std::runtime_error &error) {
+	} catch ( std::runtime_error &error ) {
 		fprintf( stderr, "%s\n", error.what() );
 		exit(1);
 	}
@@ -67,7 +67,7 @@ int main(int argc, char * argv[]) {
 		exit(1);
 	}
 
-	IntroScreen intro(window);
+	IntroScreen intro( window );
 	intro.run();
 
 	MenuScreen menuScreen( window, &configurator );

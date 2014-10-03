@@ -22,7 +22,7 @@ void Rocket::setColor(const Color &color) {
 }
 
 bool Rocket::isDead() {
-	return ( t > 0 && position.getY() > 700 );
+	return ( t > 0 && position.y > 700 );
 }
 
 void Rocket::update() {
@@ -31,8 +31,8 @@ void Rocket::update() {
 	float v_x = velIniX * cos(rad);
 	v_y = velIniY * sin(rad) - 9.8 * t;
 
-	float x = initialPos.getX() + v_x * t;
-	float y = initialPos.getY() - (v_y * t - 0.5 * 9.8 * pow(t, 2));
+	float x = initialPos.x + v_x * t;
+	float y = initialPos.y - (v_y * t - 0.5 * 9.8 * pow(t, 2));
 
 	t += 0.1;
 
@@ -41,6 +41,6 @@ void Rocket::update() {
 
 void Rocket::draw(Surface *surface) {
 	Uint32 c = color.toSDL(surface->toSDL());
-	filledCircleColor(surface->toSDL(), position.getX(), position.getY(), t/0.5, c);
+	filledCircleColor(surface->toSDL(), position.x, position.y, t/0.5, c);
 }
 

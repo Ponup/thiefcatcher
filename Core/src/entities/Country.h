@@ -2,63 +2,71 @@
 #define COUNTRY_H
 
 #include <vector>
+using std::vector;
+
 #include <string>
+using std::string;
+
+#include <utility>
+using std::pair;
 
 #include <Surface.h>
 #include <Point.h>
-
-using std::vector;
-using std::string;
 
 class Country {
 
 	private:
 		unsigned char id;
-		char *isoCode;
-		char *code;
-		char *name;
-		char *description;
-		char *treasure;
-		char *flagDesc;
-		char *capital;
-		Point coord;
+		string isoCode;
+		string code;
+		string name;
+		string description;
+		string treasure;
+		string flagDesc;
+		string capital;
+
+		double latitude, longitude;
 
 		vector<string> languages;
 		vector<string> currencies;
 		
 	public:
 		Country();
-		Country(const Country &country);
-		Country &operator=(const Country &country);
+		Country( const Country& country );
+		Country &operator=( const Country& country );
 		~Country();
 
-		void setIsoCode( const char *isoCode );
-		const char* getIsoCode() const;
-		void setCode( const char *code );
-		const char* getCode() const;
+		void setIsoCode( string isoCode );
+		string getIsoCode() const;
+		void setCode( string code );
+		string getCode() const;
 		void setID(unsigned char id);
 		unsigned char getID() const;
-		void setName(const char *name);
-		const char *getName() const;
-		void setDescription(const char *description);
-		const char *getDescription() const;
-		void setTreasure(const char *treasure);
-		const char *getTreasure() const;
-		void setFlagDescription(const char *flagDesc);
-		const char *getFlagDescription() const;
-		void setCoord(const Point &point);
-		Point getCoord() const;
+		void setName(string name);
+		string getName() const;
+		void setDescription(string description);
+		string getDescription() const;
+		void setTreasure(string treasure);
+		string getTreasure() const;
+		void setFlagDescription(string flagDesc);
+		string getFlagDescription() const;
 		void setLanguages( const vector<string> &languages );
 		const vector<string> getLanguages() const;
 		void setCurrencies( const vector<string> &currencies );
 		const vector<string> getCurrencies() const;
-		void setCapital( const char *capital );
-		const char* getCapital() const;
+		void setCapital( string capital );
+		string getCapital() const;
 
-		Surface *getPhoto() const;
-		Surface *getFlag() const;
+		void setLatitude( double latitude );
+		double getLatitude() const;
+		void setLongitude( double longitude );
+		double getLongitude() const;
+		pair<double, double> getLatitudeLongitude() const;
 
-		const char *toString() const;
+		Surface* getPhoto() const;
+		Surface* getFlag() const;
+
+		string toString() const;
 };
 
 #endif

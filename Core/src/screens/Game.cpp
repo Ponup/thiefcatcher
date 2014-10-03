@@ -16,6 +16,9 @@
 #include "screens/CountryDrawing.h"
 #include "screens/ProfileScreen.h"
 
+#include <utility>
+using std::pair;
+
 Game::Game(Surface * window_, PlayerCase * playerCase_) :
 	window(window_), playerCase(playerCase_) {
 
@@ -192,8 +195,8 @@ void Game::optionTravel() {
 		Country nextCountry = playerCase->nextCountry();
 		Country newCountry = playerCase->nextCountries[selected];
 
-		printf("Next country: %s\n", nextCountry.getName());
-		printf("Current country: %s\n", newCountry.getName());
+		printf("Next country: %s\n", nextCountry.getName().c_str());
+		printf("Current country: %s\n", newCountry.getName().c_str());
 
 		if (newCountry.getID() == nextCountry.getID()) {
 			int nextPos = playerCase->getCurrentPosition() + 1;
@@ -202,7 +205,7 @@ void Game::optionTravel() {
 		}
 
 		int hoursWasted = 3; // TODO calculateHours(*from, (*(playerCase->nextCountries + selected)));
-		printf("Time from %s to %s: %d hour(s)\n", from.getName(), newCountry.getName(), hoursWasted);
+		printf("Time from %s to %s: %d hour(s)\n", from.getName().c_str(), newCountry.getName().c_str(), hoursWasted);
 		increaseTime(hoursWasted);
 
 		playerCase->setCurrentCountry(newCountry);
@@ -303,7 +306,7 @@ void Game::optionProfile() {
 }
 
 int Game::calculateHours(Country &from, Country &to) {
-	vector<Point> path = MathUtil::calculatePath(from.getCoord(), to.getCoord());
+	vector<Point> path = MathUtil::calculatePath( from.getLatitudeLongitude(), to.getLatitudeLongitude() );
 	return int(path.size()/30);
 }
 

@@ -181,7 +181,7 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
 			Text text;
 			text.setFont(&fontHeader);
 			text.setText("Looking the database of criminals...");
-			text.draw(Point(400 - (text.getDimension().getWidth() >> 1), 250), screen);
+			text.draw(Point(400 - (text.getDimension().w >> 1), 250), screen);
 			
 			screen->flip();
 			

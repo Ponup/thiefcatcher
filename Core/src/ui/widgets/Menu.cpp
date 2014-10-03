@@ -12,7 +12,7 @@ Menu::Menu(Surface * window_) :
 	lastY = 150;
 	currentItem = -2;
 	
-	sound.load("resources/sounds/menu.wav");
+	sound.load("resources/sounds/step.wav");
 
 	// Fonts
 	headerFont.load("resources/fonts/gtw.ttf", 45);
@@ -38,7 +38,7 @@ void Menu::setSelectedItem(short selectedItem) {
 short Menu::addItem(string item) {
 	Text *text = new Text(item, &font);
 	Dimension dim = text->getDimension();
-	Point position((window->getDimension().getWidth() >> 1) - (dim.getWidth() >> 1), lastY);
+	Point position((window->getDimension().w >> 1) - (dim.w >> 1), lastY);
 
 	sensAreas.addArea(Area(position, dim));
 
@@ -48,7 +48,7 @@ short Menu::addItem(string item) {
 
 	items.push_back(menuItem);
 
-	lastY = lastY + dim.getHeight() + 5;
+	lastY = lastY + dim.h + 5;
 	
 	return items.size() - 1;
 }
@@ -81,7 +81,7 @@ void Menu::update() {
 		MenuItem item = items.at(i);
 		Text *text = item.getText();
 		if ((short)i == selectedItem) {
-			window->drawSurface(&pipeSurf, Point(185, item.getPosition().getY()));
+			window->drawSurface(&pipeSurf, Point(185, item.getPosition().y));
 			font.setColor(colorSelected);
 		} else {
 			font.setColor(colorNotSelected);

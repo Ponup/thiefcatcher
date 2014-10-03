@@ -28,8 +28,8 @@ void Clock::draw(const DateTime &dateTime, Surface *screen) {
 	int x = cos(-rad) * radio;
 	int y = sin(-rad) * radio;
 
-	int xx = position.getX() + radio;
-	int yy = position.getY() + radio;
+	int xx = position.x + radio;
+	int yy = position.y + radio;
 
 	screen->drawSurface(&clockSurf, position);
 	aalineRGBA(screen->toSDL(), xx, yy, xx + x, yy - y, 0, 0, 0, 255);

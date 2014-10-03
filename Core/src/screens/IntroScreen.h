@@ -6,10 +6,10 @@
 class IntroScreen {
 
 private:
-	Surface *screen;
+	Surface* screen;
 	
 public:
-	IntroScreen(Surface *screen);
+	IntroScreen(Surface* screen);
 	virtual ~IntroScreen();
 	
 	void run();

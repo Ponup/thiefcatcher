@@ -16,23 +16,37 @@ class Map : public EventHandler {
 		SensitiveAreas sensAreas;
 		int selected;
 		bool quit;
+		bool updatePending;
 		
-		Country *from;
-		Country *to;
+		Country* sourceCountry;
+		Country* targetCountry;
 		
-		Surface *window;
+		Surface* window;
+		Surface* bgSurface;
 
-		Surface airplane;		
+		Surface airplane;
+		SDL_Surface* directedAirplane;
 
 		Font font;
 		
 		Dimension airplaneDim;
-		
+		Point airplanePosition;
+
+		Point mapOffset;
+		Point offsetFix;
 		Surface map;
-		Surface target;
-		Surface target_over;
+
+		Point bulletRadius;
+		Surface bulletSurface;
+		Surface bulletOverSurface;
+
 		Point points[3];
 		
+		void addSensibleAreas();
+		void drawAllCountries();
+		void createStaticBackground();
+		void drawOptions();
+		void drawDirectedAirplane();
 		void updateScreen(bool update);
 		void gotoTarget();
 		
