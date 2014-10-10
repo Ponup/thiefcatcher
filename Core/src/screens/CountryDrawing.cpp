@@ -2,9 +2,6 @@
 
 #include <SDL.h>
 #include <FontManager.h>
-
-#include <SDL_rotozoom.h>
-
 #include <Text.h>
 
 void showCountry(Surface *window, const Country &country) {
@@ -18,18 +15,19 @@ void showCountry(Surface *window, const Country &country) {
 	/* Photo area */
 	Surface *countryPhoto = country.getPhoto();
 	if( NULL != countryPhoto ) {
-		Surface *temp = countryPhoto->getArea(Point(0, 0), Dimension(278, 298));
-		Surface photo(rotozoomSurface(temp->toSDL(), 5, .75, 1));
-		window->drawSurface(&photo, Point(30, 108));
-		delete temp;
+		Surface *countryPhotoPart = countryPhoto->getArea(Point(0, 0), Dimension(278, 298));
+		countryPhotoPart->transform( 5, .75, 1 );
+		window->drawSurface(countryPhotoPart, Point(30, 108));
+		delete countryPhotoPart;
+		delete countryPhoto;
 		
 		Surface polaroidSurf("resources/images/game/polaroid.png", false);
 		window->drawSurface(&polaroidSurf, Point(30, 108));
 	}
 	
 	Surface *flag = country.getFlag();
-	Surface rotatedFlag(rotozoomSurface(flag->toSDL(), 0, 0.5, 1));
-	window->drawSurface(&rotatedFlag, Point(300, 110));
+	flag->transform( 0, .5, 1 );
+	window->drawSurface(flag, Point(300, 110));
 	delete flag;
 
 	/* Description area */

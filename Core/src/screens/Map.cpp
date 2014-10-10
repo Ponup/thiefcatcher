@@ -1,7 +1,5 @@
 #include "Map.h"
 
-#include <SDL_rotozoom.h>
-
 #include "MathUtil.h"
 #include "MediaSound.h"
 #include "Text.h"
@@ -163,10 +161,11 @@ void Map::drawDirectedAirplane()
 	angle += 45; // because the airplane is rotated already.
 
 	airplane.load("resources/images/map/airplane-30.png", true);
-	directedAirplane = rotozoomSurface( airplane.toSDL(), angle, 1, 1 );
+	directedAirplane = airplane;
+	directedAirplane.transform( angle );
 
 	airplanePosition = latlong2point( sourceCountry->getLatitudeLongitude() ) - Point( 15, 15 ) + mapOffset - bulletRadius + offsetFix;
-	window->drawSurface( directedAirplane, airplanePosition );
+	window->drawSurface( &directedAirplane, airplanePosition );
 }
 
 void Map::gotoTarget() {
@@ -189,7 +188,7 @@ void Map::gotoTarget() {
 
 		window->drawSurface( bgSurface, Point( 0, 0 ) );
 		drawOptions();
-		window->drawSurface( directedAirplane, point );
+		window->drawSurface( &directedAirplane, point );
 		window->flip();
 		fr.regulate();
 	}

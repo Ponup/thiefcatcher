@@ -156,7 +156,7 @@ Surface* Country::getPhoto() const {
 	char path[100];
 	sprintf(path, "data/countries/%s/postal.png", isoCode.c_str() );
 
-	return fileExists( path ) ? new Surface( path ) : NULL;
+	return new Surface( fileExists( path ) ? path : "resources/images/notebook.png" );
 }
 
 Surface *Country::getFlag() const {
