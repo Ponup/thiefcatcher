@@ -11,7 +11,7 @@
 #include "entities/PlayersManager.h"
 #include "ui/Transitions.h"
 
-HallOfFameScreen::HallOfFameScreen(Surface *screen_) : screen(screen_), quit(false) {
+HallOfFameScreen::HallOfFameScreen(Window *screen_) : screen(screen_), quit(false) {
 }
 
 void HallOfFameScreen::show() {

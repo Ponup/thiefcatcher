@@ -2,12 +2,11 @@
 #define HELPSCREEN_H
 
 #include <Window.h>
-#include <Surface.h>
 
 class HelpScreen {
 
 private:
-	Surface *window;
+	Window *window;
 
 public:
 	HelpScreen( Window *window_ );

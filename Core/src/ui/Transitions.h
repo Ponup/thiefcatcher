@@ -2,6 +2,7 @@
 #define TRANSACTIONS_H_
 
 #include <Surface.h>
+#include <Window.h>
 
 class Transitions {
 public:
@@ -11,18 +12,18 @@ public:
 	/**
 	 * From right to left
 	 */
-	static void slideRL(Surface *window, Surface *newScreen);
+	static void slideRL(Window *window, Surface *newScreen);
 	
 
 	/**
 	 * From bottom to top
 	 */
-	static void slideTB(Surface *window, Surface *newScreen);
+	static void slideTB(Window *window, Surface *newScreen);
 
 	/**
 	 * From bottom to top
 	 */
-	static void slideBT(Surface *window, Surface *newScreen);
+	static void slideBT(Window *window, Surface *newScreen);
 };
 
 #endif

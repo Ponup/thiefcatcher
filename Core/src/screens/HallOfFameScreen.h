@@ -2,17 +2,17 @@
 #define HALLOFFAME_H
 
 #include <EventHandler.h>
-#include <Surface.h>
+#include <Window.h>
 
 #include <SDL.h>
 
 class HallOfFameScreen : public EventHandler {
 private:
-	Surface *screen;
+	Window *screen;
 	bool quit;
 	
 public:
-	HallOfFameScreen(Surface *screen);
+	HallOfFameScreen(Window *screen);
 	void show();
 	
 private:

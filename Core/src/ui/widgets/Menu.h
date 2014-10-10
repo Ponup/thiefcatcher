@@ -5,6 +5,7 @@
 using std::vector;
 
 #include <Surface.h>
+#include <Window.h>
 #include <Font.h>
 #include <FontManager.h>
 #include <Area.h>
@@ -26,7 +27,7 @@ class Menu : public EventHandler {
 		Font headerFont;
 		Font font;
 
-		Surface *window;
+		Window *window;
 		Surface backgroundSurf;		
 		Surface pipeSurf;
 
@@ -37,7 +38,7 @@ class Menu : public EventHandler {
 		void update();
 		
 	public:
-		Menu(Surface *window);
+		Menu(Window *window);
 		virtual ~Menu();
 
 		void setSelectedItem(short selectedItem);

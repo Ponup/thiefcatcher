@@ -1,6 +1,6 @@
 #include "PlaceSelector.h"
 
-PlaceSelector::PlaceSelector(Surface *screen, int *placesPrimaryKeys) {
+PlaceSelector::PlaceSelector(Window *screen, int *placesPrimaryKeys) {
 	this->screen = screen;
 
 	dialogPosition = Point(415, 466);

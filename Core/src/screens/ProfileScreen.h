@@ -3,6 +3,7 @@
 
 #include <EventHandler.h>
 #include <Surface.h>
+#include <Window.h>
 #include <Font.h>
 #include <SensitiveAreas.h>
 
@@ -17,7 +18,7 @@ using std::vector;
 class ProfileScreen : public EventHandler {
 
 private:
-	Surface *screen;
+	Window *screen;
 	PlayerCase *playerCase;
 
 	Surface bgSurface;
@@ -48,7 +49,7 @@ private:
 	void drawElements();
 
 public:
-	ProfileScreen(Surface *screen_, PlayerCase *playerCase_);
+	ProfileScreen(Window *screen_, PlayerCase *playerCase_);
 	~ProfileScreen();
 
 	int run();

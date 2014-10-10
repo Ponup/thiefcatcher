@@ -10,7 +10,7 @@ Transitions::~Transitions()
 {
 }
 
-void Transitions::slideRL(Surface * window, Surface * newScreen) {
+void Transitions::slideRL(Window * window, Surface * newScreen) {
 	SDL_Event e;
 	for(int i = 800; i >= 0; i -= 20) {
 		while(SDL_PollEvent(&e)) {
@@ -30,7 +30,7 @@ void Transitions::slideRL(Surface * window, Surface * newScreen) {
 	delete newScreen;
 }
 
-void Transitions::slideTB(Surface * window, Surface * newScreen) {
+void Transitions::slideTB(Window * window, Surface * newScreen) {
 	const int diff = 25;
 	
 	for(int i = diff; i <= 600; i += diff) {
@@ -44,7 +44,7 @@ void Transitions::slideTB(Surface * window, Surface * newScreen) {
 	delete newScreen;
 }
 
-void Transitions::slideBT(Surface * window, Surface * newScreen) {
+void Transitions::slideBT(Window * window, Surface * newScreen) {
 	const int diff = 25;
 	
 	for(int i = 600; i >= 0; i -= diff) {

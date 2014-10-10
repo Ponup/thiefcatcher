@@ -19,7 +19,7 @@ Point latlong2point( pair<double, double> latlong )
 	return point;
 }
 
-Map::Map(Surface *window_, Country *sourceCountry_, Country *targetCountry_) : selected(0), quit(false), updatePending( true ) {
+Map::Map(Window *window_, Country *sourceCountry_, Country *targetCountry_) : selected(0), quit(false), updatePending( true ) {
 	window = window_;
 	
 	sourceCountry = sourceCountry_;

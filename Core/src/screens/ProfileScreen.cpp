@@ -23,7 +23,7 @@
 
 #include "ui/Transitions.h"
 
-ProfileScreen::ProfileScreen(Surface *screen_, PlayerCase *playerCase_) :
+ProfileScreen::ProfileScreen(Window *screen_, PlayerCase *playerCase_) :
 	screen(screen_), playerCase(playerCase_) {
 
 	option = 0;

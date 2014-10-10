@@ -21,7 +21,7 @@ class Game {
 	private:
 		SensitiveAreas sensAreas;
 				
-		Surface *window;
+		Window *window;
 		Surface background;
 
 		Font timeFont;
@@ -57,7 +57,7 @@ class Game {
 	public:		
 		int currentOption;
 
-		Game(Surface *window, PlayerCase *playerCase);
+		Game(Window *window, PlayerCase *playerCase);
 		~Game();
 
 		void enterOption();		

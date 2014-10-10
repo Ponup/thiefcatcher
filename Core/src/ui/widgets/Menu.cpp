@@ -7,7 +7,7 @@
 
 #include "utilities/Translator.h"
 
-Menu::Menu(Surface * window_) :
+Menu::Menu(Window * window_) :
 	selectedItem(0), window(window_) {
 	lastY = 150;
 	currentItem = -2;

@@ -19,7 +19,7 @@
 #include <utility>
 using std::pair;
 
-Game::Game(Surface * window_, PlayerCase * playerCase_) :
+Game::Game(Window* window_, PlayerCase * playerCase_) :
 	window(window_), playerCase(playerCase_) {
 
 	background.load("resources/images/mainwindow_bg.png");

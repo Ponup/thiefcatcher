@@ -1,15 +1,15 @@
 #ifndef INTROSCREEN_H_
 #define INTROSCREEN_H_
 
-#include <Surface.h>
+#include <Window.h>
 
 class IntroScreen {
 
 private:
-	Surface* screen;
+	Window* screen;
 	
 public:
-	IntroScreen(Surface* screen);
+	IntroScreen(Window* screen);
 	virtual ~IntroScreen();
 	
 	void run();

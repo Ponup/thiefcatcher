@@ -4,6 +4,7 @@
 #include <EventHandler.h>
 #include <SensitiveAreas.h>
 #include <Surface.h>
+#include <Window.h>
 #include <Font.h>
 #include <Dimension.h>
 #include <Point.h>
@@ -21,7 +22,7 @@ class Map : public EventHandler {
 		Country* sourceCountry;
 		Country* targetCountry;
 		
-		Surface* window;
+		Window* window;
 		Surface* bgSurface;
 
 		Surface airplane;
@@ -56,7 +57,7 @@ class Map : public EventHandler {
 		void cancelScene();
 		
 	public:
-		Map(Surface *window_, Country *from_, Country *to_);
+		Map(Window *window_, Country *from_, Country *to_);
 		virtual ~Map();
 		
 		char getSelection();

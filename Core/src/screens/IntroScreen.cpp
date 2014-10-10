@@ -10,7 +10,7 @@
 
 #include "utilities/Translator.h"
 
-IntroScreen::IntroScreen(Surface *screen_) : screen(screen_) {
+IntroScreen::IntroScreen(Window *screen_) : screen(screen_) {
 }
 
 IntroScreen::~IntroScreen() {

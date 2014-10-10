@@ -4,6 +4,7 @@
 #include <SDL_gfxPrimitives.h>
 
 #include <Surface.h>
+#include <Window.h>
 #include <SurfaceUtil.h>
 
 #include <Font.h>
@@ -26,7 +27,7 @@ class PlaceSelector : public EventHandler {
 		
 		Place places[3];
 		
-		Surface *screen;
+		Window *screen;
 		Surface *surface;
 		Surface *dialogBackup;
 
@@ -42,7 +43,7 @@ class PlaceSelector : public EventHandler {
 //		Surface *loadImage(const char *name) const;
 		void update();
 	public:
-		PlaceSelector(Surface *screen, int *placesPrimaryKeys);
+		PlaceSelector(Window *screen, int *placesPrimaryKeys);
 		~PlaceSelector();
 		
 		void onQuit(SDL_QuitEvent event) {
