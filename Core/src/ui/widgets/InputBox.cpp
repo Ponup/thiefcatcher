@@ -13,15 +13,15 @@ InputBox::InputBox(Surface *dialog_, Font *font_, const Point &point_,
 	backup = window->getArea(point, dimension);
 	area = window->getArea(point, dimension);
 
-	SDL_EnableUNICODE(1);
-	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
+//	SDL_EnableUNICODE(1);
+//	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
 
 	setMaxChars(25);
 }
 
 InputBox::~InputBox() {
-	SDL_EnableKeyRepeat(0, 0);
-	SDL_EnableUNICODE(0);
+//	SDL_EnableKeyRepeat(0, 0);
+//	SDL_EnableUNICODE(0);
 }
 
 void InputBox::setBackground(const Color & background) {
@@ -45,10 +45,10 @@ string InputBox::getText() {
 
 void InputBox::handleEvent(SDL_Event & e) {
 	if (e.type == SDL_KEYDOWN) {
-		SDLKey key = e.key.keysym.sym;
+		int key = e.key.keysym.sym;
 		if (text.size() < maxChars && ((key >= SDLK_a && key <= SDLK_z) || (key
 				>= SDLK_0 && key <= SDLK_9) || key == SDLK_SPACE)) {
-			text += e.key.keysym.unicode;
+			text += e.key.keysym.sym;
 		} else if (key == SDLK_BACKSPACE) {
 			text = text.substr(0, text.size()-1);
 		}
@@ -56,8 +56,9 @@ void InputBox::handleEvent(SDL_Event & e) {
 }
 
 void InputBox::update() {
-	area->drawSurface(backup, Point(0, 0));
-	line.draw(Point(0, 0), area);
+	if(true)return;
+	area->drawSurface( backup );
+	line.draw( Point::Origin, area );
 	window->drawSurface(area, point);
 	window->updateArea(point, dimension);
 }

@@ -7,7 +7,6 @@ using std::vector;
 
 #include <FontManager.h>
 #include <Text.h>
-#include <System.h>
 
 #include "screens/Game.h"
 #include "screens/handlers/GameEventHandler.h"
@@ -24,7 +23,7 @@ AssignmentScreen::AssignmentScreen(Window *window) : ComputerScreen(window) {
 	fontInput.setColor(Color(255, 255, 255));
 	//font->setColor(Color(0, 255, 50));
 
-	input = new InputBox(window, &fontInput, Point(120, 440), Dimension(400, 22));
+	input = new InputBox(bgSurf, &fontInput, Point(120, 440), Dimension(400, 22));
 }
 
 AssignmentScreen::~AssignmentScreen() {
@@ -58,7 +57,7 @@ PlayerCase *AssignmentScreen::show() {
 		showLines();
 
 		// readKey() locks the user input
-		SDLKey key = readKey();
+		int key = readKey();
 		
 		if (key == SDLK_y || key == SDLK_s) {
 			player = PlayersManager::create(name);
@@ -130,7 +129,14 @@ PlayerCase *AssignmentScreen::show() {
 
 	showLines();
 
-	System::waitUser();
+	SDL_Event event;
+	bool quit = false;
+	while(!quit) {
+		while(SDL_PollEvent(&event)) {
+			quit = (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_KEYDOWN || event.type == SDL_QUIT);
+		}
+		SDL_Delay(10);		
+	}
 	
 	return playerCase;
 }

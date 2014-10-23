@@ -6,16 +6,15 @@
 #include <Text.h>
 
 #include "Constants.h"
-#include "utilities/fx/FireworksPS.h"
 #include "utilities/Translator.h"
 #include "entities/PlayersManager.h"
-#include "ui/Transitions.h"
 
 HallOfFameScreen::HallOfFameScreen(Window *screen_) : screen(screen_), quit(false) {
 }
 
 void HallOfFameScreen::show() {
 	Surface background("resources/images/menu/background.png");
+	Surface* canvas =new Surface("resources/images/menu/background.png");
 
 	Font headerFont("resources/fonts/gtw.ttf", 45);
 	headerFont.setColor(Color(255, 220, 220));
@@ -67,11 +66,9 @@ void HallOfFameScreen::show() {
 
 	players.clear();
 
-	screen->drawSurface(&background, Point(0, 0));	
-	// Transitions::slideRL(screen, screen->getArea());
+	canvas->drawSurface(&background);	
+	screen->drawSurface(canvas);
 	screen->flip();
-	
-	FireworksPS fireworks;
 	
 	MediaMusic sound("resources/sounds/fireworks.aif");
 	sound.play();
@@ -82,11 +79,10 @@ void HallOfFameScreen::show() {
 	while (!quit) {
 		captureEvents();
 
-		if( sound.isPlaying() && fireworks.getNumber() == 0 ) sound.fadeOut();
+		if( sound.isPlaying() ) sound.fadeOut();
 
-		screen->drawSurface(&background, Point(0, 0));
-		fireworks.update();
-		fireworks.draw(screen);
+		canvas->drawSurface(&background);
+		screen->drawSurface(canvas);
 		screen->flip();
 		
 		fr.regulate();

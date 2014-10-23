@@ -50,11 +50,13 @@ void IntroScreen::run() {
 		Point position(cos(angle) * radius, sin(angle) * radius);
 		textLine.setAlpha(alpha);
 
-		screen->drawSurface(&bgSurf, Point(0, 0));		
-		textLine.draw( textPos, screen );
-		screen->drawSurface(&bulletSurf, Point(bulletX, 230));
-		screen->drawSurface(&glassSurf, glassPos + position);
+		Surface canvas(bgSurf.toSDL());
 
+		textLine.draw( textPos, &canvas );
+		canvas.drawSurface(&bulletSurf, Point(bulletX, 230));
+		canvas.drawSurface(&glassSurf, glassPos + position);
+
+		screen->drawSurface( &canvas );
 		screen->flip();
 		fr.regulate();
 

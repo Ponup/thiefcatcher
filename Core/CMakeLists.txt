@@ -1,9 +1,4 @@
 
-#FIND_PACKAGE(SDL REQUIRED)
-#FIND_PACKAGE(SDL_image REQUIRED)
-#FIND_PACKAGE(SDL_gfx REQUIRED)
-#FIND_PACKAGE(SDL_mixer REQUIRED)
-#FIND_PACKAGE(SDL_ttf REQUIRED)
 FIND_PACKAGE(CURL REQUIRED)
 # FIND_PACKAGE(TINYXML2 REQUIRED)
 # FIND_PACKAGE(sqlite3)
@@ -26,7 +21,7 @@ ELSE()
 ENDIF()
 
 IF(UNIX)
-	ADD_DEFINITIONS(-std=c++11 -pedantic -pedantic-errors -Wall -Werror `sdl-config --cflags` -g)
+	ADD_DEFINITIONS(-std=c++11 -pedantic -pedantic-errors -Wall -Werror `sdl2-config --cflags` -g)
 ELSE(UNIX)
 	ADD_DEFINITIONS(-Wall)
 ENDIF(UNIX)
@@ -38,12 +33,12 @@ CMAKE_POLICY(SET CMP0003 NEW)
 MESSAGE(STATUS "Compiling under ${CMAKE_SYSTEM_NAME}")
 
 IF(WIN32)
-	LINK_LIBRARIES(${KANGAROO_LIB} sqlite3 curl SDLmain SDL SDL_image SDL_gfx SDL_mixer SDL_ttf)
+	LINK_LIBRARIES(${KANGAROO_LIB} sqlite3 curl SDLmain SDL2 SDL2_image SDL2_gfx SDL2_mixer SDL2_ttf)
 ENDIF()
 
 IF(UNIX)
-	EXEC_PROGRAM("sdl-config" ARGS "--libs" OUTPUT_VARIABLE SDLCONFIG_LIBS)
-	LINK_LIBRARIES(${KANGAROO_LIB} ${SDLCONFIG_LIBS} sqlite3 curl SDL_image SDL_gfx SDL_mixer SDL_ttf tinyxml2)
+	EXEC_PROGRAM("sdl2-config" ARGS "--libs" OUTPUT_VARIABLE SDLCONFIG_LIBS)
+	LINK_LIBRARIES(${KANGAROO_LIB} ${SDLCONFIG_LIBS} sqlite3 curl SDL2_image SDL2_gfx SDL2_mixer SDL2_ttf tinyxml2)
 ENDIF()
 
 ADD_EXECUTABLE(

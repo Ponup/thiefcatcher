@@ -23,20 +23,20 @@ Game::Game(Window* window_, PlayerCase * playerCase_) :
 	window(window_), playerCase(playerCase_) {
 
 	background.load("resources/images/mainwindow_bg.png");
-	window->drawSurface(&background, Point(0, 0));
+	canvas = new Surface( background.toSDL() );
 
 	clock.setPosition(Point(20, 7));
 
 	Area area(Point(410, 370), Dimension(340, 40));
-	backupSurf = window->getArea(area);
+	backupSurf = canvas->getArea(area);
 
 	timeFont.load("resources/fonts/FreeSansBold.ttf", 22);
 	timeFont.setColor(Color(252, 244, 221)); // #FCF4DD
 
-	timeControllerSurf = window->getArea(Point(120, 20), Dimension(320, 60));
-	timeSurfBackup = window->getArea(Point(120, 20), Dimension(320, 60));
+	timeControllerSurf = canvas->getArea(Point(120, 20), Dimension(320, 60));
+	timeSurfBackup = canvas->getArea(Point(120, 20), Dimension(320, 60));
 
-	dateTimePosition = Point(0, 0);
+	dateTimePosition = Point::Origin;
 
 	currentOption = 0;
 	
@@ -63,10 +63,12 @@ Game::Game(Window* window_, PlayerCase * playerCase_) :
 	labels[3] = _("Quit");
 
 	Country country = playerCase->getCurrentCountry();
-	showCountry(window, country);
+	showCountry(canvas, country);
 
 	updateTime();
 
+
+	window->drawSurface( canvas );
 	window->flip();
 }
 
@@ -82,6 +84,8 @@ Game::~Game() {
 	delete options_over[1];
 	delete options_over[2];
 	delete options_over[3];
+
+	delete canvas;
 }
 
 void Game::updateOption() {
@@ -89,29 +93,30 @@ void Game::updateOption() {
 	font.setColor(Color(255, 255, 255));
 
 	Area area(Point(410, 370), Dimension(340, 40));
-	window->drawSurface(backupSurf, Point(410, 370));
+	canvas->drawSurface(backupSurf, Point(410, 370));
 
 	for (int i = 0; i < 4; i++) {
 		if (i == currentOption) {
-			Text::drawString(labels[i], points[i] - Point(-5, 30), &font, window);
-			window->drawSurface(options[i], points[i]);
+			Text::drawString(labels[i], points[i] - Point(-5, 30), &font, canvas);
+			canvas->drawSurface(options[i], points[i]);
 		} else {
-			window->drawSurface(options[i], points[i]);
+			canvas->drawSurface(options[i], points[i]);
 		}
 	}
 
+	window->drawSurface( canvas );
 	window->flip();
 }
 
 void Game::quitGame() {
-	Surface *backup = window->getArea(Point(0, 0), window->getDimension());
+	Surface *backup = canvas->getArea( Point::Origin, canvas->getDimension() );
 
 	ConfirmationDialog dialog(window, _("Are you sure you want to abort this case?"));
 	int selected = dialog.showGetSelected();
-	if (selected == ConfirmationDialog::DIALOG_OK) {
+	if (selected == ConfirmationDialog::DIALOG_YES) {
 		state = GS_ABORT;
 	} else {
-		window->drawSurface(backup, Point(0, 0));
+		window->drawSurface(backup );
 		window->flip();
 	}
 
@@ -131,11 +136,11 @@ GameState Game::getGameState() {
 }
 
 Window *Game::getWindow() {
-	return (Window *)window;
+	return window;
 }
 
 void Game::updateTime() {
-	timeControllerSurf->drawSurface(timeSurfBackup, Point(0, 0));
+	timeControllerSurf->drawSurface( timeSurfBackup );
 
 	Text dayLine(playerCase->currentDate->getDayOfWeekName(), &timeFont);
 	Text hourLine(playerCase->currentDate->toString("%H:%M"), &timeFont);
@@ -144,10 +149,10 @@ void Game::updateTime() {
 	hourLine.draw(dateTimePosition + Point(0, timeFont.getLineSkip()),
 			timeControllerSurf);
 
-	window->drawSurface(timeControllerSurf, Point(120, 20));
-	window->updateArea(Area(Point(120, 20), Dimension(320, 60)));
+	canvas->drawSurface(timeControllerSurf, Point(120, 20));
+	canvas->updateArea(Area(Point(120, 20), Dimension(320, 60)));
 
-	clock.draw(*(playerCase->currentDate), window);
+	clock.draw(*(playerCase->currentDate), canvas);
 }
 
 void Game::increaseTime(int hours) {
@@ -179,7 +184,7 @@ void Game::enterOption() {
 }
 
 void Game::optionTravel() {
-	Surface *backup = window->getArea(Point(0, 0), window->getDimension());
+	Surface *backup = canvas->getArea( Point::Origin, canvas->getDimension());
 	Country &from = playerCase->getCurrentCountry();
 
 	Map map(window, &from, playerCase->nextCountries);
@@ -189,7 +194,7 @@ void Game::optionTravel() {
 
 	// If the user pressed ESCAPE or RIGHT_BUTTON, then the re-draw must be ignored.
 	if (selected != -1) {
-		window->drawSurface(&background, Point(0, 0));
+		window->drawSurface( &background );
 		window->flip();
 
 		Country nextCountry = playerCase->nextCountry();
@@ -212,9 +217,9 @@ void Game::optionTravel() {
 		playerCase->updateCountries();
 		playerCase->updateClues();
 
-		showCountry(window, newCountry);
+		showCountry(canvas, newCountry);
 	} else {
-		window->drawSurface(backup, Point(0, 0));
+		window->drawSurface(backup );
 		window->flip();
 	}
 
@@ -222,17 +227,15 @@ void Game::optionTravel() {
 }
 
 void Game::optionPlaces() {
-	Surface *backup = window->getArea(Point(0, 0),
-			window->getDimension());
+	Surface *backup = canvas->getArea( Point::Origin, canvas->getDimension());
 
 	int *placesPKazar = Random::nextArray(Vars::listPlacesPK(), 3);
-	PlaceSelector placeSelector(window, placesPKazar);
+	PlaceSelector placeSelector(window, canvas, placesPKazar);
 	int selected = placeSelector.showAndReturn();
+	window->drawSurface(backup );
 	if (selected == -1) {
-		window->drawSurface(backup, Point(0, 0));
 		window->flip();
 	} else {
-		window->drawSurface(backup, Point(0, 0));
 		increaseTime(3);
 
 		unsigned int secondsCurrent = playerCase->currentDate->toSeconds();
@@ -246,7 +249,7 @@ void Game::optionPlaces() {
 			Font *fontWarn = FontManager::getFont("FreeSansBold", 35);
 			fontWarn->setColor(Color(0xff, 0, 0));
 			Text warn("Only 3 hours left!", fontWarn);
-			warn.draw(Point(440, 15), window);
+			warn.draw(Point(440, 15), canvas);
 			delete fontWarn;
 		} else
 		if(playerCase->currentPosition == 6) {
@@ -263,7 +266,7 @@ void Game::optionPlaces() {
 		Surface *character = place.getCharacterSurface();
 		Point characterPosition = Point(318, 250);
 		Dimension characterDim = character->getDimension();
-		Surface *area = window->getArea(characterPosition, characterDim);
+		Surface *area = canvas->getArea(characterPosition, characterDim);
 		window->drawSurface(character, characterPosition);
 		Clue *clue = NULL;
 		Country country = playerCase->getCurrentCountry();
@@ -281,9 +284,9 @@ void Game::optionPlaces() {
 		hintFont->setColor(Color(211, 186, 164)); // #D3BAA4	
 
 		Text description(clue->getMessage(), hintFont);
-		description.drawLines(Point(440, 220), Dimension(285, 115), window);
+		description.drawLines(Point(440, 220), Dimension(285, 115), canvas);
 
-		window->updateArea(Point(395, 194), ballonSurf.getDimension());
+		canvas->updateArea(Point(395, 194), ballonSurf.getDimension());
 		delete hintFont;
 
 		delete area;
@@ -294,12 +297,12 @@ void Game::optionPlaces() {
 }
 
 void Game::optionProfile() {
-	Surface *backup = window->getArea(Point(0, 0), window->getDimension());
+	Surface *backup = canvas->getArea( Point::Origin, window->getDimension());
 
 	ProfileScreen profileScreen(window, playerCase);
 	profileScreen.run();
 
-	window->drawSurface(backup, Point(0, 0));
+	window->drawSurface(backup );
 	window->flip();
 	
 	delete backup;

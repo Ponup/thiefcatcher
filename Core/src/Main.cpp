@@ -6,6 +6,7 @@ using std::endl;
 #include <signal.h>
 
 #include <Services.h>
+
 #include <CoreService.h>
 #include <MixerService.h>
 #include <FontService.h>
@@ -36,11 +37,11 @@ int main(int argc, char * argv[]) {
 
 	signal(SIGINT, onInterrupt);
 
-	if (Updater::existsNewVersion(GAME_VERSION)) {
+	if (false &&Updater::existsNewVersion(GAME_VERSION)) {
 		cout << _("A new version of 'Thief Catcher' is available for download!") << endl;
 	}
 
-	Services services;
+	Kangaroo::Services services;
 	services.addService( new CoreService( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) );
 	services.addService( new MixerService( AUDIO_S16SYS /*IX_DEFAULT_FREQUENCY*/, 2 ) );
 	services.addService( new FontService() );

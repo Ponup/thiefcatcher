@@ -7,7 +7,7 @@ using std::string;
 #include <vector>
 using std::vector;
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 #include <Font.h>
 #include <Surface.h>
@@ -22,12 +22,12 @@ private:
 
 	Font *font;
 		
-	Surface *bgSurf;
 
 protected:
 	Window* window;
+	Surface *bgSurf;
 	
-	SDLKey readKey();
+	int readKey();
 	
 public:
 	ComputerScreen(Window *window_);

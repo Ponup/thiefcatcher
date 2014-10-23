@@ -64,8 +64,6 @@ OptionsScreen::OptionsScreen(Window *window_) : window(window_) {
 	updateScreen(false);
 
 	delete font;
-	
-	//Transitions::slideRL(window, window->getArea(Point(0, 0), Dimension(640, 480)));
 }
 
 OptionsScreen::~OptionsScreen() {
@@ -96,16 +94,21 @@ void OptionsScreen::updateValues() {
 }
 
 void OptionsScreen::updateScreen(bool update) {
-	window->drawSurface(backgroundSurf, Point(0, 0));
-	
-	languageValue->draw(Point(480, 130), window);
-	musicValue->draw(Point(480, 160), window);
-	soundsValue->draw(Point(480, 190), window);
-	fullscreenValue->draw(Point(480, 220), window);
-	
-	if(update) {
-		window->flip();
+	if( !update ) {
+		return;
 	}
+
+	Surface *canvas = new Surface(backgroundSurf->toSDL());
+	
+	languageValue->draw(Point(480, 130), canvas);
+	musicValue->draw(Point(480, 160), canvas);
+	soundsValue->draw(Point(480, 190), canvas);
+	fullscreenValue->draw(Point(480, 220), canvas);
+	
+	window->drawSurface( canvas );
+	delete canvas;
+
+	window->flip();
 }
 
 void OptionsScreen::onQuit(SDL_QuitEvent e) {

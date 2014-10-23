@@ -1,7 +1,7 @@
 #ifndef PLACE_SELECTOR_H 
 #define PLACE_SELECTOR_H
 
-#include <SDL_gfxPrimitives.h>
+#include <SDL2/SDL2_gfxPrimitives.h>
 
 #include <Surface.h>
 #include <Window.h>
@@ -29,6 +29,7 @@ class PlaceSelector : public EventHandler {
 		
 		Window *screen;
 		Surface *surface;
+		Surface* canvas;
 		Surface *dialogBackup;
 
 		Point dialogPosition;
@@ -43,7 +44,7 @@ class PlaceSelector : public EventHandler {
 //		Surface *loadImage(const char *name) const;
 		void update();
 	public:
-		PlaceSelector(Window *screen, int *placesPrimaryKeys);
+		PlaceSelector(Window *screen, Surface* canvas, int *placesPrimaryKeys);
 		~PlaceSelector();
 		
 		void onQuit(SDL_QuitEvent event) {

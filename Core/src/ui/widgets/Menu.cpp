@@ -1,6 +1,5 @@
 #include "Menu.h"
 
-#include <System.h>
 #include <FrameRegulator.h>
 #include <utilities/fx/Sprite.h>
 #include <MediaSound.h>
@@ -38,7 +37,7 @@ void Menu::setSelectedItem(short selectedItem) {
 short Menu::addItem(string item) {
 	Text *text = new Text(item, &font);
 	Dimension dim = text->getDimension();
-	Point position((window->getDimension().w >> 1) - (dim.w >> 1), lastY);
+	Point position(400 - (dim.w >> 1), lastY);
 
 	sensAreas.addArea(Area(position, dim));
 
@@ -70,26 +69,27 @@ short Menu::getSelectedItem() {
 void Menu::update() {
 	Color colorSelected(255, 255, 255);
 	Color colorNotSelected(63, 36, 18); // #3f2412
-		
-	window->drawSurface(&backgroundSurf, Point(0, 0));
+	
+	Surface* canvas = new Surface( backgroundSurf.toSDL() );	
 
 	Text textLine(_("Thief Catcher"));
 	textLine.setFont(&headerFont);
-	textLine.draw( Point(30, 10), window );
+	textLine.draw( Point(30, 10), canvas );
 	
 	for (unsigned int i = 0; i < items.size(); i++) {
 		MenuItem item = items.at(i);
 		Text *text = item.getText();
 		if ((short)i == selectedItem) {
-			window->drawSurface(&pipeSurf, Point(185, item.getPosition().y));
+			canvas->drawSurface(&pipeSurf, Point(185, item.getPosition().y));
 			font.setColor(colorSelected);
 		} else {
 			font.setColor(colorNotSelected);
 		}
 		text->setFont(&font);
-		text->draw(item.getPosition(), window);
+		text->draw(item.getPosition(), canvas);
 	}
-	
+
+	window->drawSurface( canvas );
 	window->flip();
 }
 

@@ -4,7 +4,7 @@
 #include <EventHandler.h>
 #include <Window.h>
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 class HallOfFameScreen : public EventHandler {
 private:

@@ -3,7 +3,7 @@
 Sprite::Sprite(const char *fileName, const int numFrames_, const Dimension &frameDim_)
 	: numFrames(numFrames_), frameDim(frameDim_) {
 	currentFrame = 0;
-	position = Point(0, 0);
+	position = Point::Origin;
 	
 	frames = new Surface*[numFrames];
 

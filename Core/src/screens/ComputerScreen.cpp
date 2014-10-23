@@ -12,7 +12,6 @@ using std::reverse;
 #include <FontManager.h>
 
 ComputerScreen::ComputerScreen(Window *window_) : window(window_) {
-	
 	currentLine = 0;
 	
 	bgSurf = new Surface("resources/images/notebook_background.png");
@@ -20,7 +19,7 @@ ComputerScreen::ComputerScreen(Window *window_) : window(window_) {
 	font = FontManager::getFont("NotCourierSans-Bold", 14);
 	font->setColor(Color(0, 255, 50));
 	
-	window->drawSurface(bgSurf, Point(0, 0));
+	window->drawSurface( bgSurf, Point::Origin );
 	window->flip();
 }
 
@@ -70,13 +69,13 @@ void ComputerScreen::addLine(string line) {
 void ComputerScreen::showLines() {
 	int numLines = static_cast<int>(lines.size());
 	for (; currentLine < numLines; currentLine++) {
-		window->drawSurface(bgSurf, Point(0, 0));
+		Surface* canvas = new Surface( bgSurf->toSDL() );
 
 		int ymin = 120;
 		int y = 400;
 		for (int x = currentLine; x >= 0; x--) {
 			Text text(lines.at(x).c_str(), font);
-			text.draw(Point(120, y), window);
+			text.draw(Point(120, y), canvas);
 
 			y -= font->getLineSkip();
 			if (y < ymin) {
@@ -84,13 +83,15 @@ void ComputerScreen::showLines() {
 			}
 		}
 
+		window->drawSurface( canvas );
+		delete canvas;
 		window->flip();
 		SDL_Delay(250);
 	}
 }
 
-SDLKey ComputerScreen::readKey() {
-	SDLKey key = SDLK_ESCAPE;
+int ComputerScreen::readKey() {
+	int key = SDLK_ESCAPE;
 
 	bool quit = false;
 	SDL_Event e;
@@ -111,3 +112,4 @@ SDLKey ComputerScreen::readKey() {
 void ComputerScreen::waitKey() {
 	readKey();
 }
+

@@ -8,7 +8,6 @@ using std::string;
 #include <FrameRegulator.h>
 
 #include "utilities/Translator.h"
-#include "ui/Transitions.h"
 #include "entities/CriminalsManager.h"
 #include "entities/format/CriminalFormatter.h"
 
@@ -65,35 +64,39 @@ void DossierScreen::show() {
 }
 
 void DossierScreen::updateScreen(bool update) {
+	if( !update ) {
+		return;
+	}
 	Criminal &criminal = criminals->at(index);
 
 	char path[50];
 	memset(path, '\0', 50);
 	sprintf(path, "data/criminals/%d.jpg", criminal.getID());
 
-	window->drawSurface(backgroundSurf, Point(0, 0));
+	Surface *canvas = new Surface( backgroundSurf->toSDL() );
 
 	Surface avatar(path, false);
-	window->drawSurface(&avatar, Point(460, 90));
+	canvas->drawSurface(&avatar, Point(460, 90));
 
 	Text text0(criminal.getName(), &fontName);
-	text0.draw(Point(140, 140), window);
+	text0.draw(Point(140, 140), canvas);
 
 	Text text2( CriminalFormatter::formatGenre( criminal ), &font);
-	text2.draw(Point(320, 250), window);
+	text2.draw(Point(320, 250), canvas);
 
 	Text text4(criminal.getHobby(), &font);
-	text4.draw(Point(320, 300), window);
+	text4.draw(Point(320, 300), canvas);
 
 	Text text6(criminal.getHair(), &font);
-	text6.draw(Point(320, 345), window);
+	text6.draw(Point(320, 345), canvas);
 
 	Text text8(criminal.getFeature(), &font);
-	text8.draw(Point(320, 390), window);
+	text8.draw(Point(320, 390), canvas);
 
-	if(update) {
-		window->flip();
-	}
+	window->drawSurface(canvas);
+	delete canvas;
+
+	window->flip();
 }
 
 void DossierScreen::onQuit(SDL_QuitEvent e) {

@@ -22,6 +22,7 @@ class Game {
 		SensitiveAreas sensAreas;
 				
 		Window *window;
+		Surface* canvas;
 		Surface background;
 
 		Font timeFont;

@@ -23,6 +23,7 @@ class Map : public EventHandler {
 		Country* targetCountry;
 		
 		Window* window;
+		Surface* canvas;
 		Surface* bgSurface;
 
 		Surface airplane;

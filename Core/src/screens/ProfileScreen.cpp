@@ -2,7 +2,6 @@
 
 #include <stdio.h>
 
-#include <System.h>
 #include <FontManager.h>
 
 #include <MediaSound.h>
@@ -14,14 +13,11 @@
 
 #include <components/InformationDialog.h>
 
-#include "utilities/fx/Sprites.h"
 #include "utilities/fx/Sprite.h"
 #include "utilities/Translator.h"
 
 #include "entities/CriminalsManager.h"
 #include "entities/format/CriminalFormatter.h"
-
-#include "ui/Transitions.h"
 
 ProfileScreen::ProfileScreen(Window *screen_, PlayerCase *playerCase_) :
 	screen(screen_), playerCase(playerCase_) {
@@ -48,8 +44,6 @@ ProfileScreen::ProfileScreen(Window *screen_, PlayerCase *playerCase_) :
 	bgSurface.load("resources/images/notebook_background.png");
 	
 	drawElements();
-	
-	//Transitions::slideBT(screen, screen->getArea());
 }
 
 ProfileScreen::~ProfileScreen() {
@@ -74,7 +68,8 @@ int ProfileScreen::run() {
 }
 
 void ProfileScreen::drawElements() {
-	screen->drawSurface(&bgSurface, Point(0, 0));
+	screen->drawSurface( &bgSurface );
+	Surface* canvas = new Surface( bgSurface.toSDL() );
 
 	int marginLeft = 150;
 	int marginTop = 190;
@@ -86,54 +81,56 @@ void ProfileScreen::drawElements() {
 		sprintf(message, _("You capture order was executed against '%s'").c_str(), playerCase->getCriminal().getName());
 		text.setFont(&fontOptions);
 		text.setText(message);
-		text.draw(Point(120, 200), screen);
+		text.draw(Point(120, 200), canvas);
 	} else {
 		text.setFont(&fontHeader);
 		text.setText("Capture order");
-		text.draw(Point(500, 120), screen);
+		text.draw(Point(500, 120), canvas );
 		// 0: sex, 1: hair, 2: hobby, 3: features, 4: capture, 5: cancel
 	
 		text.setFont(&fontOptions);
 		text.setText(_("Genre"));
-		text.draw(Point(marginLeft, marginTop), screen);
+		text.draw(Point(marginLeft, marginTop), canvas);
 	
 		text.setText( CriminalFormatter::formatGenre( static_cast<Genre>( genreIndex ) ) );
-		text.draw(Point(230, marginTop), screen);
+		text.draw(Point(230, marginTop), canvas);
 		sensAreas.addArea(Point(230, marginTop), text.getDimension()); // Genre: 0
 	
 		marginTop += 50;
 		text.setText("Hair");
-		text.draw(Point(marginLeft, marginTop), screen);
+		text.draw(Point(marginLeft, marginTop), canvas);
 			
 		text.setText(hairsList.at(hairIndex).c_str());
-		text.draw(Point(230, marginTop), screen);
+		text.draw(Point(230, marginTop), canvas);
 		sensAreas.addArea(Point(230, marginTop), text.getDimension()); // Hair: 1
 
 		marginTop += 50;
 		text.setText("Hobby");
-		text.draw(Point(marginLeft, marginTop), screen);
+		text.draw(Point(marginLeft, marginTop), canvas);
 	
 		text.setText(hobbiesList.at(hobbyIndex).c_str());
-		text.draw(Point(230, marginTop), screen);
+		text.draw(Point(230, marginTop), canvas);
 		sensAreas.addArea(Point(230, marginTop), text.getDimension()); // Hobby: 2
 	
 		marginTop += 50;
 		text.setText("Features");
-		text.draw(Point(marginLeft, marginTop), screen);
+		text.draw(Point(marginLeft, marginTop), canvas);
 	
 		text.setText(featuresList.at(featureIndex).c_str());
-		text.draw(Point(230, marginTop), screen);
+		text.draw(Point(230, marginTop), canvas);
 		sensAreas.addArea(Point(230, marginTop), text.getDimension()); // Feature: 3
 	
 		text.setFont(&fontButtons);
 		text.setText("Execute order");
-		text.draw(Point(250, 440), screen);
+		text.draw(Point(250, 440), canvas);
 		sensAreas.addArea(Point(250, 440), text.getDimension()); // Execute: 4
 	
 		text.setText("Save and close");
-		text.draw(Point(450, 440), screen);
+		text.draw(Point(450, 440), canvas);
 		sensAreas.addArea(Point(450, 440), text.getDimension()); // Cancel: 5
 	}
+	screen->drawSurface( canvas );
+	delete canvas;
 }
 
 void ProfileScreen::onQuit(SDL_QuitEvent e) {
@@ -174,15 +171,16 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
 			}
 			break;
 		case 4: {
-			screen->drawSurface(&bgSurface, Point(0, 0));
+			Surface* canvas = new Surface( bgSurface.toSDL() );
 			
 			Dimension spriteDim(128, 15);
 			
 			Text text;
 			text.setFont(&fontHeader);
 			text.setText("Looking the database of criminals...");
-			text.draw(Point(400 - (text.getDimension().w >> 1), 250), screen);
+			text.draw(Point(400 - (text.getDimension().w >> 1), 250), canvas);
 			
+			screen->drawSurface( canvas );
 			screen->flip();
 			
 			Sprite sprite("resources/images/sprites/frame%d.png", 12, spriteDim);
@@ -193,12 +191,15 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
 						
 			int milliSeconds = 0;
 			while(milliSeconds < 4000) {
-				sprite.draw(screen);
-				sprite.update(screen);
+				sprite.draw(canvas);
+				sprite.update(canvas);
+				screen->drawSurface( canvas );
+				screen->flip();
 				milliSeconds += 30;
 
 				SDL_Delay(30);
 			}
+			delete canvas;
 			
 			Criminal *criminal = CriminalsManager::findByFeatures(
 					static_cast<Genre>( genreIndex ),
@@ -222,8 +223,6 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
 		}
 		case 5:
 			quit = true;
-		default:
-			break;
 		}
 	}
 }

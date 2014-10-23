@@ -154,6 +154,7 @@ bool fileExists( const std::string& name )
 
 Surface* Country::getPhoto() const {
 	char path[100];
+	memset( path, '\0', 100 );
 	sprintf(path, "data/countries/%s/postal.png", isoCode.c_str() );
 
 	return new Surface( fileExists( path ) ? path : "resources/images/notebook.png" );

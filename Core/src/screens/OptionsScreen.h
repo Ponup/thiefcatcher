@@ -11,8 +11,6 @@
 #include "utilities/Translator.h"
 #include "utilities/Configurator.h"
 
-#include "ui/Transitions.h"
-
 class OptionsScreen : public EventHandler {
 
 private:

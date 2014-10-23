@@ -91,7 +91,7 @@ void MenuScreen::show() {
 		case 5: {
 			ConfirmationDialog dialog(window, _("Are you sure you want to quit?"));
 			int selected = dialog.showGetSelected();
-			quit = (selected == ConfirmationDialog::DIALOG_OK);
+			quit = (selected == ConfirmationDialog::DIALOG_YES);
 			} break;
 		}
 	}

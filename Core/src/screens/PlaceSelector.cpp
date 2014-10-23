@@ -1,15 +1,18 @@
 #include "PlaceSelector.h"
 
-PlaceSelector::PlaceSelector(Window *screen, int *placesPrimaryKeys) {
+PlaceSelector::PlaceSelector(Window *screen, Surface* canvas, int *placesPrimaryKeys) {
 	this->screen = screen;
 
 	dialogPosition = Point(415, 466);
 	dialogDimension = Dimension(348, 130);
 
-	dialogBackup = screen->getArea(dialogPosition, dialogDimension);
+	dialogBackup = canvas->getArea(dialogPosition, dialogDimension);
+//	canvas = screen->getArea( Point(0,0), screen->getDimension() );
 
 	surface = new Surface("resources/images/places/dialog.png");
-	screen->drawSurface(surface, Point(415, 466));
+	canvas->drawSurface(surface, Point(415, 466));
+
+	screen->drawSurface( canvas );
 	screen->flip();
 
 	quit = false;
@@ -52,22 +55,29 @@ PlaceSelector::~PlaceSelector() {
 
 void PlaceSelector::update() {
 	//screen->drawSurface(dialogBackup, dialogPosition);
-	screen->drawSurface(surface, Point(415, 466));
-
-	for (int i = 0; i < 3; i++) {
-		Point point(areas[i].x, areas[i].y);
-		screen->drawSurface(images[i], point);
-		if (selectedIndex == i) {
-			aacircleRGBA(screen->toSDL(), point.x + 40, point.y + 40, 40, 0xff, 0xfc, 0x7b, 255);
-			aacircleRGBA(screen->toSDL(), point.x + 40, point.y + 40, 39, 0xff, 0xfc, 0x7b, 255);
-		}
-	}
+	canvas->drawSurface(surface, Point(415, 466));
 
 	Font *font = FontManager::getFont("FreeSansBold", 14);
 	Text text(places[selectedIndex].getName(), font);
-	text.draw(Point((dialogDimension.w >> 1) - (text.getDimension().w >> 1), 110), screen);
+	text.draw(Point((dialogDimension.w >> 1) - (text.getDimension().w >> 1), 110), canvas);
 
-	screen->updateArea(dialogPosition, dialogDimension);
+
+	for (int i = 0; i < 3; i++) {
+		Point point(areas[i].x, areas[i].y);
+		canvas->drawSurface(images[i], point);
+	}
+
+	screen->drawSurface( canvas, dialogPosition );
+	screen->flip();
+	for (int i = 0; i < 3; i++) {
+		Point point(areas[i].x, areas[i].y);
+		if (selectedIndex == i) {
+			aacircleRGBA(Window::renderer, point.x + 40, point.y + 40, 40, 0xff, 0xfc, 0x7b, 255);
+			aacircleRGBA(Window::renderer, point.x + 40, point.y + 40, 39, 0xff, 0xfc, 0x7b, 255);
+		}
+	}
+
+	screen->flip();
 }
 
 int PlaceSelector::showAndReturn() {
@@ -77,7 +87,9 @@ int PlaceSelector::showAndReturn() {
 		captureEvents();
 	}
 
-	screen->updateArea(dialogPosition, dialogDimension);
+//	canvas->updateArea(dialogPosition, dialogDimension);
+	screen->drawSurface( canvas, dialogPosition );
+	screen->flip();
 
 	return returnCode;
 }

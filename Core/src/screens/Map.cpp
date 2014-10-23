@@ -5,6 +5,7 @@
 #include "Text.h"
 #include "FrameRegulator.h"
 #include "utilities/Translator.h"
+#include "entities/CountriesManager.h"
 
 Point latlong2point( pair<double, double> latlong )
 {
@@ -13,7 +14,7 @@ Point latlong2point( pair<double, double> latlong )
 	Point point;
 	point.y = (int)( ( ( -1 * latlong.first ) + 90 ) * 2.6 );
 	point.x = (int)( ( latlong.second + 180 ) * ( 720 / 360 ) );
-	printf("%f, %f => %s\n", latlong.first, latlong.second, point.toString() );
+	printf("%f, %f => %s\n", latlong.first, latlong.second, point.toString().c_str() );
 	return point;
 }
 
@@ -27,8 +28,7 @@ Map::Map(Window *window_, Country *sourceCountry_, Country *targetCountry_) : se
 
 	mapOffset = Point( 50, 80 );
 	// This point fixes the position of the bullets on the map.
-	offsetFix = Point( 160, 60 );
-	offsetFix = Point(0, 0);
+	offsetFix = Point::Origin;
 	
 	bulletRadius = Point( 10, 10 );
 
@@ -58,8 +58,6 @@ Map::Map(Window *window_, Country *sourceCountry_, Country *targetCountry_) : se
 Map::~Map() {
 }
 
-#include "entities/CountriesManager.h"
-
 void Map::drawAllCountries()
 {
 	vector<Country> countries = CountriesManager::findAll();
@@ -83,13 +81,14 @@ void Map::addSensibleAreas()
 }
 
 void Map::updateScreen( bool update ) {
-	window->drawSurface( bgSurface, Point( 0, 0 ) );
 
 	drawOptions();
 	drawDirectedAirplane();
 
-	if( update )
+	if( update ) {
+		window->drawSurface( canvas );
 		window->flip();
+	}
 
 	updatePending = false;
 }
@@ -112,16 +111,16 @@ void Map::drawOptions()
 		Point countryNamePosition(posx, posy);
 
 		if (i == selected) {
-			window->drawSurface(&tickSurf, Point(210, posy));
+			canvas->drawSurface(&tickSurf, Point(210, posy));
 			font.setColor(colorNormal);
-			window->drawSurface(&bulletOverSurface, points[i]);
+			canvas->drawSurface(&bulletOverSurface, points[i]);
 		} else {
 			font.setColor(colorHighlight);
-			window->drawSurface( &bulletSurface, points[i]);
+			canvas->drawSurface( &bulletSurface, points[i]);
 		}
 
 		Text text( targetCountry[i].getName(), &font );
-		text.draw( countryNamePosition, window );
+		text.draw( countryNamePosition, canvas );
 
 		posy += lineHeight;
 	}
@@ -151,6 +150,8 @@ void Map::createStaticBackground()
 
 	Text text( _("Choose your destination:"), &font );
 	text.draw( Point( 50, 505 ), bgSurface );
+
+	canvas = new Surface( bgSurface->toSDL() );
 }
 
 void Map::drawDirectedAirplane()
@@ -165,7 +166,7 @@ void Map::drawDirectedAirplane()
 	directedAirplane.transform( angle );
 
 	airplanePosition = latlong2point( sourceCountry->getLatitudeLongitude() ) - Point( 15, 15 ) + mapOffset - bulletRadius + offsetFix;
-	window->drawSurface( &directedAirplane, airplanePosition );
+	canvas->drawSurface( &directedAirplane, airplanePosition );
 }
 
 void Map::gotoTarget() {
@@ -185,11 +186,13 @@ void Map::gotoTarget() {
 	for( it = path.begin(); it != path.end(); it++ )
 	{
 		Point point = airplanePosition + (*it);
+		Surface *canvas = new Surface( bgSurface->toSDL() );
 
-		window->drawSurface( bgSurface, Point( 0, 0 ) );
 		drawOptions();
-		window->drawSurface( &directedAirplane, point );
+		canvas->drawSurface( &directedAirplane, point );
+		window->drawSurface( canvas );
 		window->flip();
+		delete canvas;
 		fr.regulate();
 	}
 
