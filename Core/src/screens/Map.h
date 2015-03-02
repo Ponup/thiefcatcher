@@ -26,8 +26,7 @@ class Map : public EventHandler {
 		Surface* canvas;
 		Surface* bgSurface;
 
-		Surface airplane;
-		Surface directedAirplane;
+		Surface *directedAirplane;
 
 		Font font;
 		

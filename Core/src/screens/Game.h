@@ -17,6 +17,42 @@ enum class GameState {
 	Abort
 };
 
+class SquareButton {
+private:
+	Surface *image;
+	Surface *imageOver;
+	Point position;
+	string label;
+public:
+	SquareButton(const char *image, const char *imageOver, const Point &position, const string &label)
+		: image(new Surface(image)), imageOver(new Surface(imageOver)), position(position), label(label)
+	{
+	}
+
+	~SquareButton() {
+		if(image != nullptr)
+			delete image;
+		if(imageOver != nullptr)
+			delete imageOver;
+	}
+
+	string getLabel() {
+		return label;
+	}
+
+	Point getPosition() {
+		return position;
+	}
+
+	Surface* getImage() {
+		return image;
+	}
+
+	Surface* getImageOver() {
+		return imageOver;
+	}
+};
+
 class Game {
 	private:
 		SensitiveAreas sensAreas;
@@ -37,11 +73,7 @@ class Game {
 		
 		Surface *backupSurf;
 		
-		Surface *options[4];
-		Surface *options_over[4];		
-		Point points[4];
-		
-		string labels[4];
+		SquareButton *buttons[4];
 		
 		PlayerCase *playerCase;
 		

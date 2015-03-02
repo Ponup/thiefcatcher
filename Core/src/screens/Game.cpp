@@ -43,25 +43,10 @@ Game::Game(Window* window_, PlayerCase * playerCase_) :
 	
 	state = GameState::Playing;
 
-	options[0] = new Surface("resources/images/game/button_travel.png");
-	options_over[0] = new Surface("resources/images/game/button_travel.png");
-	points[0] = Point(416, 402);
-	labels[0] = _("Travel");
-
-	options[1] = new Surface("resources/images/game/button_capture.png");
-	options_over[1] = new Surface("resources/images/game/button_capture.png");
-	points[1] = Point(554, 402);
-	labels[1] = _("Capture");
-
-	options[2] = new Surface("resources/images/game/button_places.png");
-	options_over[2] = new Surface("resources/images/game/button_places.png");
-	points[2] = Point(623, 402);
-	labels[2] = _("Places");
-
-	options[3] = new Surface("resources/images/game/button_quit.png");
-	options_over[3] = new Surface("resources/images/game/button_quit.png");
-	points[3] = Point(691, 402);
-	labels[3] = _("Quit");
+	buttons[0] = new SquareButton("resources/images/game/button_travel.png", "resources/images/game/button_travel.png", Point(416, 402), _("Travel"));
+	buttons[1] = new SquareButton("resources/images/game/button_capture.png", "resources/images/game/button_capture.png", Point(554, 402), _("Capture"));
+	buttons[2] = new SquareButton("resources/images/game/button_places.png", "resources/images/game/button_places.png", Point(623, 402), _("Places"));
+	buttons[3] = new SquareButton("resources/images/game/button_quit.png", "resources/images/game/button_quit.png", Point(691, 402), _("Quit"));
 
 	Country country = playerCase->getCurrentCountry();
 	showCountry(canvas, country);
@@ -75,16 +60,9 @@ Game::Game(Window* window_, PlayerCase * playerCase_) :
 Game::~Game() {
 	delete timeControllerSurf;
 	delete timeSurfBackup;
-
-	delete options[0];
-	delete options[1];
-	delete options[2];
-	delete options[3];
-	delete options_over[0];
-	delete options_over[1];
-	delete options_over[2];
-	delete options_over[3];
-
+	for (int i = 0; i < 4; i++) {
+		delete buttons[i];
+	}
 	delete canvas;
 }
 
@@ -97,10 +75,10 @@ void Game::updateOption() {
 
 	for (int i = 0; i < 4; i++) {
 		if (i == currentOption) {
-			Text::drawString(labels[i], points[i] - Point(-5, 30), &font, canvas);
-			canvas->drawSurface(options[i], points[i]);
+			Text::drawString(buttons[i]->getLabel(), buttons[i]->getPosition() - Point(-5, 30), &font, canvas);
+			canvas->drawSurface(buttons[i]->getImage(), buttons[i]->getPosition());
 		} else {
-			canvas->drawSurface(options[i], points[i]);
+			canvas->drawSurface(buttons[i]->getImage(), buttons[i]->getPosition());
 		}
 	}
 
@@ -212,7 +190,7 @@ void Game::optionTravel() {
 
 		showCountry(canvas, newCountry);
 	} else {
-		window->drawSurface(backup );
+		window->drawSurface( backup );
 		window->flip();
 	}
 

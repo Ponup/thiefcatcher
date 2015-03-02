@@ -42,8 +42,8 @@ int main(int argc, char * argv[]) {
 	}
 
 	Kangaroo::Services services;
-	services.addService( new CoreService( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) );
-	services.addService( new MixerService( AUDIO_S16SYS /*IX_DEFAULT_FREQUENCY*/, 2 ) );
+	services.addService( new CoreService( SDL_INIT_VIDEO ) );
+	services.addService(new MixerService(44100,2) );
 	services.addService( new FontService() );
 	services.init();
 

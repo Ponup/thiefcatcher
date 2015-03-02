@@ -24,6 +24,8 @@ Map::Map(Window *window_, Country *sourceCountry_, Country *targetCountry_) : se
 	sourceCountry = sourceCountry_;
 	targetCountry = targetCountry_;
 
+	directedAirplane = nullptr;
+
 	bgSurface = NULL;
 
 	mapOffset = Point( 50, 80 );
@@ -31,8 +33,6 @@ Map::Map(Window *window_, Country *sourceCountry_, Country *targetCountry_) : se
 	offsetFix = Point::Origin;
 	
 	bulletRadius = Point( 10, 10 );
-
-	airplane.load("resources/images/map/airplane-30.png", true);
 
 	font.load( "resources/fonts/FreeSansBold.ttf", 15 );
 	font.setColor( Color( 0x8e, 0x60, 0x3e ) );
@@ -56,6 +56,8 @@ Map::Map(Window *window_, Country *sourceCountry_, Country *targetCountry_) : se
 }
 
 Map::~Map() {
+	if (directedAirplane != nullptr)
+		delete directedAirplane;
 }
 
 void Map::drawAllCountries()
@@ -161,12 +163,13 @@ void Map::drawDirectedAirplane()
 	double angle = MathUtil::radian2degree( atan2( deltax, deltay ) );
 	angle += 45; // because the airplane is rotated already.
 
-	airplane.load("resources/images/map/airplane-30.png", true);
-	directedAirplane = airplane;
-	directedAirplane.transform( angle );
+	if (directedAirplane != nullptr)
+		delete directedAirplane;
+	directedAirplane = new Surface("resources/images/map/airplane-30.png", true);
+	directedAirplane->transform( angle );
 
 	airplanePosition = latlong2point( sourceCountry->getLatitudeLongitude() ) - Point( 15, 15 ) + mapOffset - bulletRadius + offsetFix;
-	canvas->drawSurface( &directedAirplane, airplanePosition );
+	canvas->drawSurface( directedAirplane, airplanePosition );
 }
 
 void Map::gotoTarget() {
@@ -189,7 +192,7 @@ void Map::gotoTarget() {
 		Surface *canvas = new Surface( bgSurface->toSDL() );
 
 		drawOptions();
-		canvas->drawSurface( &directedAirplane, point );
+		canvas->drawSurface( directedAirplane, point );
 		window->drawSurface( canvas );
 		window->flip();
 		delete canvas;
@@ -239,7 +242,7 @@ void Map::onMouseButtonDown(SDL_MouseButtonEvent e) {
 		int resolved = sensAreas.resolve(e.x, e.y);
 		if (resolved != -1) {
 			selected = resolved;
-			gotoTarget();
+			quit = true;
 		}
 		break;
 	}
