@@ -1,7 +1,7 @@
 #ifndef INPUTBOX_H
 #define INPUTBOX_H
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <Surface.h>
 #include <FontManager.h>
 #include <Text.h>

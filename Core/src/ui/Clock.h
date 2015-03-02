@@ -3,6 +3,7 @@
 
 #include <Point.h>
 #include <Surface.h>
+#include <Window.h>
 
 #include "utilities/DateTime.h"
 
@@ -11,9 +12,10 @@ class Clock {
 private:
 	Point position;
 	Surface clockSurf;
+	Window *window;
 
 public:
-	Clock();
+	Clock(Window *window);
 	~Clock();
 	
 	void setPosition(const Point &position);

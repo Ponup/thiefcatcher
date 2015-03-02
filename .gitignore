@@ -10,3 +10,11 @@ Core/CMakeFiles/
 *.o
 thiefcatcher-errors.log
 Core/data/game.db
+*.vcxproj
+*.vcxproj.filters
+Win32
+*.vcxproj.user
+THIEF_CATCHER.*
+Core/Debug
+Core/ThiefCatcher.dir
+Core/dev/game.db

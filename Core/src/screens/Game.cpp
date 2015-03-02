@@ -25,7 +25,8 @@ Game::Game(Window* window_, PlayerCase * playerCase_) :
 	background.load("resources/images/mainwindow_bg.png");
 	canvas = new Surface( background.toSDL() );
 
-	clock.setPosition(Point(20, 7));
+	clock = new Clock(window_);
+	clock->setPosition(Point(20, 7));
 
 	Area area(Point(410, 370), Dimension(340, 40));
 	backupSurf = canvas->getArea(area);
@@ -40,7 +41,7 @@ Game::Game(Window* window_, PlayerCase * playerCase_) :
 
 	currentOption = 0;
 	
-	state = GS_PLAYING;
+	state = GameState::Playing;
 
 	options[0] = new Surface("resources/images/game/button_travel.png");
 	options_over[0] = new Surface("resources/images/game/button_travel.png");
@@ -66,7 +67,6 @@ Game::Game(Window* window_, PlayerCase * playerCase_) :
 	showCountry(canvas, country);
 
 	updateTime();
-
 
 	window->drawSurface( canvas );
 	window->flip();
@@ -109,18 +109,11 @@ void Game::updateOption() {
 }
 
 void Game::quitGame() {
-	Surface *backup = canvas->getArea( Point::Origin, canvas->getDimension() );
-
 	ConfirmationDialog dialog(window, _("Are you sure you want to abort this case?"));
 	int selected = dialog.showGetSelected();
 	if (selected == ConfirmationDialog::DIALOG_YES) {
-		state = GS_ABORT;
-	} else {
-		window->drawSurface(backup );
-		window->flip();
+		state = GameState::Abort;
 	}
-
-	delete backup;
 }
 
 void Game::update() {
@@ -128,7 +121,7 @@ void Game::update() {
 }
 
 bool Game::isPlaying() {
-	return state == GS_PLAYING;
+	return state == GameState::Playing;
 }
 
 GameState Game::getGameState() {
@@ -152,7 +145,7 @@ void Game::updateTime() {
 	canvas->drawSurface(timeControllerSurf, Point(120, 20));
 	canvas->updateArea(Area(Point(120, 20), Dimension(320, 60)));
 
-	clock.draw(*(playerCase->currentDate), canvas);
+	clock->draw(*(playerCase->currentDate), canvas);
 }
 
 void Game::increaseTime(int hours) {
@@ -232,17 +225,18 @@ void Game::optionPlaces() {
 	int *placesPKazar = Random::nextArray(Vars::listPlacesPK(), 3);
 	PlaceSelector placeSelector(window, canvas, placesPKazar);
 	int selected = placeSelector.showAndReturn();
-	window->drawSurface(backup );
+	window->drawSurface( backup );
+	window->flip();
 	if (selected == -1) {
-		window->flip();
-	} else {
+		return;
+	}
 		increaseTime(3);
 
 		unsigned int secondsCurrent = playerCase->currentDate->toSeconds();
 		unsigned int secondsEnd = playerCase->endDate->toSeconds();
 
 		if(secondsCurrent >= secondsEnd) {
-			state = GS_LOST_TIME;
+			state = GameState::LostTimeout;
 			return;
 		} else
 		if((secondsEnd - secondsCurrent) / 3600 <= 3) {
@@ -250,24 +244,23 @@ void Game::optionPlaces() {
 			fontWarn->setColor(Color(0xff, 0, 0));
 			Text warn("Only 3 hours left!", fontWarn);
 			warn.draw(Point(440, 15), canvas);
-			delete fontWarn;
 		} else
 		if(playerCase->currentPosition == 6) {
-			state = playerCase->captureOrderExecuted ? GS_WON : GS_LOST_CAPTURE_ORDER;
+			state = playerCase->captureOrderExecuted ? GameState::Won : GameState::LostEscaped;
 			return;
 		}
 		Place place = PlacesManager::findByPrimaryKey(placesPKazar[selected]);
 		delete placesPKazar;
 
-		Surface backup("resources/images/mainwindow_bg.png");
-		Surface *b = backup.getArea(Area(Point(310, 145), Dimension( 450, 220)));
-		window->drawSurface(b, Point(310, 145));
+		Surface backup2("resources/images/mainwindow_bg.png");
+		Surface *b = backup2.getArea(Area(Point(310, 145), Dimension( 450, 220)));
+		canvas->drawSurface(b, Point(310, 145));
 
 		Surface *character = place.getCharacterSurface();
 		Point characterPosition = Point(318, 250);
 		Dimension characterDim = character->getDimension();
 		Surface *area = canvas->getArea(characterPosition, characterDim);
-		window->drawSurface(character, characterPosition);
+		canvas->drawSurface(character, characterPosition);
 		Clue *clue = NULL;
 		Country country = playerCase->getCurrentCountry();
 		if (country.getID() != playerCase->getLastCountry().getID()) {
@@ -277,7 +270,7 @@ void Game::optionPlaces() {
 		}
 
 		Surface ballonSurf("resources/images/ballon.png");
-		window->drawSurface(&ballonSurf, Point(395, 194));
+		canvas->drawSurface(&ballonSurf, Point(395, 194));
 
 		// Clue drawing
 		Font *hintFont = FontManager::getFont("FreeSansBold", 14);
@@ -287,11 +280,11 @@ void Game::optionPlaces() {
 		description.drawLines(Point(440, 220), Dimension(285, 115), canvas);
 
 		canvas->updateArea(Point(395, 194), ballonSurf.getDimension());
-		delete hintFont;
+		window->drawSurface(canvas);
+		window->flip();
 
 		delete area;
 		delete character;
-	}
 	
 	delete backup;
 }

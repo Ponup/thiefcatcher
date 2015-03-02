@@ -1,6 +1,6 @@
 #include "CountryDrawing.h"
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <FontManager.h>
 #include <Text.h>
 
@@ -18,7 +18,7 @@ void showCountry(Surface *canvas, const Country &country) {
 		Surface *countryPhotoPart = countryPhoto->getArea( Point::Origin, Dimension(278, 298) );
 		delete countryPhoto;
 		countryPhotoPart->transform( 5, .75, 1 );
-//		canvas->drawSurface(countryPhotoPart, Point(30, 108));
+		canvas->drawSurface(countryPhotoPart, Point(30, 108));
 		delete countryPhotoPart;
 		
 	}

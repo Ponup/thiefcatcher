@@ -6,8 +6,9 @@ PlaceSelector::PlaceSelector(Window *screen, Surface* canvas, int *placesPrimary
 	dialogPosition = Point(415, 466);
 	dialogDimension = Dimension(348, 130);
 
+	this->canvas = canvas;
 	dialogBackup = canvas->getArea(dialogPosition, dialogDimension);
-//	canvas = screen->getArea( Point(0,0), screen->getDimension() );
+	//canvas = screen->getArea( Point(0,0), screen->getDimension() );
 
 	surface = new Surface("resources/images/places/dialog.png");
 	canvas->drawSurface(surface, Point(415, 466));
@@ -54,13 +55,14 @@ PlaceSelector::~PlaceSelector() {
 }
 
 void PlaceSelector::update() {
-	//screen->drawSurface(dialogBackup, dialogPosition);
+	screen->drawSurface(dialogBackup, dialogPosition);
 	canvas->drawSurface(surface, Point(415, 466));
 
-	Font *font = FontManager::getFont("FreeSansBold", 14);
-	Text text(places[selectedIndex].getName(), font);
-	text.draw(Point((dialogDimension.w >> 1) - (text.getDimension().w >> 1), 110), canvas);
-
+	if (selectedIndex < 3) {
+		Font *font = FontManager::getFont("FreeSansBold", 14);
+		Text text(places[selectedIndex].getName(), font);
+		text.draw(Point((dialogDimension.w >> 1) - (text.getDimension().w >> 1), 110), canvas);
+	}
 
 	for (int i = 0; i < 3; i++) {
 		Point point(areas[i].x, areas[i].y);
@@ -68,7 +70,7 @@ void PlaceSelector::update() {
 	}
 
 	screen->drawSurface( canvas, dialogPosition );
-	screen->flip();
+
 	for (int i = 0; i < 3; i++) {
 		Point point(areas[i].x, areas[i].y);
 		if (selectedIndex == i) {
@@ -87,9 +89,9 @@ int PlaceSelector::showAndReturn() {
 		captureEvents();
 	}
 
-//	canvas->updateArea(dialogPosition, dialogDimension);
-	screen->drawSurface( canvas, dialogPosition );
-	screen->flip();
+	//canvas->updateArea(dialogPosition, dialogDimension);
+	//screen->drawSurface( canvas, dialogPosition );
+	//screen->flip();
 
 	return returnCode;
 }

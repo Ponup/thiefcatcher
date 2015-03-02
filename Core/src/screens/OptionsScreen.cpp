@@ -62,8 +62,6 @@ OptionsScreen::OptionsScreen(Window *window_) : window(window_) {
 	sensAreas.addArea(Point(480, 220), fullscreenValue->getDimension());
 
 	updateScreen(false);
-
-	delete font;
 }
 
 OptionsScreen::~OptionsScreen() {

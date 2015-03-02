@@ -9,13 +9,13 @@
 #include "entities/PlayerCase.h"
 #include "ui/Clock.h"
 
-typedef enum {
-	GS_PLAYING,
-	GS_LOST_TIME,
-	GS_LOST_CAPTURE_ORDER,
-	GS_WON,
-	GS_ABORT
-} GameState;
+enum class GameState {
+	Playing,
+	LostTimeout,
+	LostEscaped,
+	Won,
+	Abort
+};
 
 class Game {
 	private:
@@ -47,7 +47,7 @@ class Game {
 		
 		GameState state;
 
-		Clock clock;
+		Clock *clock;
 				
 		void optionTravel();
 		void optionNotes();

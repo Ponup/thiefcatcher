@@ -25,8 +25,6 @@ ComputerScreen::ComputerScreen(Window *window_) : window(window_) {
 
 ComputerScreen::~ComputerScreen() {
 	delete bgSurf;
-	
-	//@TODOdelete font;
 }
 
 void ComputerScreen::clear() {

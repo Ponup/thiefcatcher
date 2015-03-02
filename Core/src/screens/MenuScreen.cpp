@@ -53,17 +53,17 @@ void MenuScreen::show() {
 
 			ComputerScreen screen(window);
 			switch(game.getGameState()) {
-				case GS_WON:
+			case GameState::Won:
 					PlayersManager::updatePlayer(player);
 					screen.addLine(_("Congratulations, you have won the case and promoted!"));
 					break;
-				case GS_ABORT:
+			case GameState::Abort:
 					screen.addLine(_("The mission has been aborted, fortunately was all a hoax."));
 					break;
-				case GS_LOST_TIME:
+			case GameState::LostTimeout:
 					screen.addLine(_("You took a long time and the robber has escaped. Try again with another case."));
 					break;
-				case GS_LOST_CAPTURE_ORDER:
+			case GameState::LostEscaped:
 					screen.addLine(_("What a shame! You had cornered the thief but escaped because they had no warrant. Try with another case."));
 					break;
 				default:

@@ -7,7 +7,7 @@ using std::string;
 #include <vector>
 using std::vector;
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 #include <Font.h>
 #include <Surface.h>

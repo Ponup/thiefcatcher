@@ -1,7 +1,7 @@
 #ifndef PLACE_SELECTOR_H 
 #define PLACE_SELECTOR_H
 
-#include <SDL2/SDL2_gfxPrimitives.h>
+#include <SDL2_gfxPrimitives.h>
 
 #include <Surface.h>
 #include <Window.h>
