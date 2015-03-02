@@ -14,7 +14,6 @@ Point latlong2point( pair<double, double> latlong )
 	Point point;
 	point.y = (int)( ( ( -1 * latlong.first ) + 90 ) * 2.6 );
 	point.x = (int)( ( latlong.second + 180 ) * ( 720 / 360 ) );
-	printf("%f, %f => %s\n", latlong.first, latlong.second, point.toString().c_str() );
 	return point;
 }
 

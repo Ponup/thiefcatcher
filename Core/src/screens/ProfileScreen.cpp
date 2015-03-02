@@ -240,35 +240,28 @@ void ProfileScreen::onKeyDown(SDL_KeyboardEvent event) {
 		if (option > 0) {
 			option--;
 		}
-		printf("Up\n");
 		break;
 	case SDLK_DOWN:
 		if (option < 5) {
 			option++;
 		}
-		printf("Down\n");
 		break;
 	case SDLK_RIGHT:
 		break;
 	case SDLK_LEFT:
 		break;
 	case SDLK_RETURN:
-		printf("Enter\n");
 		switch (option) {
 		case 4:
-			printf("Executing capture order\n");
 			quit = true;
 		case 5:
-			printf("Cancelling dialog\n");
 			quit = true;
 			break;
 		}
 		break;
 	default:
-		printf("Ignoring key...\n");
 		break;
 	}
-	printf("Option: %d\n", option);
 }
 
 void ProfileScreen::onKeyUp(SDL_KeyboardEvent event) {

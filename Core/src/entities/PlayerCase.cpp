@@ -104,14 +104,12 @@ vector<Country> PlayerCase::getItinerary() const {
 
 bool PlayerCase::rightCountry() {
 	bool right = currentCountry.getID() == previousCountry().getID();
-	printf("I am in the right country? %s\n", right ? "true" : "false");
 	
 	return right;
 }
 
 Country & PlayerCase::previousCountry() {
 	Country & country = itinerary.at(currentPosition);
-	printf("Previous country: %s\n", country.getName().c_str());
 	return country;
 }
 
@@ -132,10 +130,7 @@ void PlayerCase::setCurrentCountry(const Country & country) {
 }
 
 void PlayerCase::updateCountries() {
-	printf("\nUpdating countries\n");
-
 	if(currentPosition + 1 == itinerary.size()) {
-		printf("Pais final\n");
 		return;
 	}
 
@@ -169,8 +164,6 @@ void PlayerCase::updateCountries() {
 
 void PlayerCase::updateClues() {
 	if(currentPosition + 1 == itinerary.size()) {
-		printf("Actualizando pistas en pais final\n");
-
 		Clue clue(_("You are close to catch him!"));
 
 		clues[0] = clues[1] = clues[2] = &clue;

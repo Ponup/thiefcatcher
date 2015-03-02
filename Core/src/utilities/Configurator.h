@@ -19,8 +19,8 @@ public:
 	
 	void init();
 
-	const char *getLanguage() const;
-	void setLanguage(const char *language);
+	string getLanguage() const;
+	void setLanguage( const string& language );
 	
 	bool isPlayMusic() const;
 	void setPlayMusic(bool playMusic);

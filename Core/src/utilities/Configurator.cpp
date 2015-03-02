@@ -21,11 +21,11 @@ Configurator &Configurator::getInstance() {
 	return *singleton;
 }
 
-const char *Configurator::getLanguage() const {
+string Configurator::getLanguage() const {
 	return getProperty("Language");
 }
 
-void Configurator::setLanguage(const char *language) {
+void Configurator::setLanguage( const string& language ) {
 	setProperty("Language", language);
 }
 

@@ -161,8 +161,6 @@ void Game::optionTravel() {
 	Map map(window, &from, playerCase->nextCountries);
 	int selected = map.getSelection();
 
-	printf("Selected country: %d\n", selected);
-
 	// If the user pressed ESCAPE or RIGHT_BUTTON, then the re-draw must be ignored.
 	if (selected != -1) {
 		window->drawSurface( &background );
@@ -171,17 +169,12 @@ void Game::optionTravel() {
 		Country nextCountry = playerCase->nextCountry();
 		Country newCountry = playerCase->nextCountries[selected];
 
-		printf("Next country: %s\n", nextCountry.getName().c_str());
-		printf("Current country: %s\n", newCountry.getName().c_str());
-
 		if (newCountry.getID() == nextCountry.getID()) {
 			int nextPos = playerCase->getCurrentPosition() + 1;
-			printf("Incrementing flight position to %d\n", nextPos);
 			playerCase->setCurrentPosition(nextPos);
 		}
 
 		int hoursWasted = 3; // TODO calculateHours(*from, (*(playerCase->nextCountries + selected)));
-		printf("Time from %s to %s: %d hour(s)\n", from.getName().c_str(), newCountry.getName().c_str(), hoursWasted);
 		increaseTime(hoursWasted);
 
 		playerCase->setCurrentCountry(newCountry);

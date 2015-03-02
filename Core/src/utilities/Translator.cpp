@@ -48,10 +48,10 @@ int my_setenv (const char * name, const char * value) {
 #endif
 }
 
-void Translator::init ( const char *localeCode ) {
+void Translator::init( const string &localeCode ) {
 	setlocale( LC_ALL, "" );
-	my_setenv( "LANGUAGE", localeCode );
-	my_setenv( "LANG", localeCode );
+	my_setenv( "LANGUAGE", localeCode.c_str() );
+	my_setenv( "LANG", localeCode.c_str() );
 	bindtextdomain( "messages", "resources/languages" );
 	bind_textdomain_codeset( "messages", "utf-8" );
 	textdomain( "messages" );

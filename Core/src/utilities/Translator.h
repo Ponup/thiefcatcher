@@ -6,7 +6,7 @@ using std::string;
 
 class Translator {
 	public:
-		static void init( const char *locale );
+		static void init( const string &locale );
 		static string translate( const char *id );
 };
 
