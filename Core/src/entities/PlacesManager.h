@@ -1,17 +1,11 @@
-#ifndef PLACESMANAGER_H
-#define PLACESMANAGER_H 1
+#pragma once
 
 #include <vector>
-#include <Database.h>
-#include <ResultSet.h>
-#include "Place.h"
-
 using std::vector;
+
+#include "Place.h"
 
 class PlacesManager {
 	public:
-		static Place & findByPrimaryKey(int id);
-		static vector<int> findAllPrimaryKeys();
+		static vector<Place> findRandom( int limit );
 };
-
-#endif

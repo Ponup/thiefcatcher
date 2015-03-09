@@ -1,26 +1,9 @@
 #include "Place.h"
 
-#include <Dimension.h>
-#include <Point.h>
-
 Place::Place() {
-	name = NULL;
-}
-
-Place::Place(const Place &place) {
-	this->id = place.getId();
-	this->name = strdup(place.getName());
-}
-
-Place & Place::operator=(const Place &place) {
-	this->id = place.getId();
-	this->name = strdup(place.getName());
-	return *this;
 }
 
 Place::~Place() {
-	if(name) free(name);
-	name = NULL;
 }
 
 void Place::setId(unsigned char id) {
@@ -31,27 +14,20 @@ unsigned char Place::getId() const {
 	return id;
 }
 
-void Place::setName(const char *name) {
-	this->name = strdup(name);
+void Place::setName( const string &name ) {
+	this->name = name;
 }
 
-const char *Place::getName() const {
-	return strdup(name);
+string Place::getName() const {
+	return name;
 }
 
-Surface *Place::getSurface() const {
-	char path[100];
-	memset(path, '\0', 100);
-	sprintf(path, "resources/images/places/%s.png", name);
-	
-	return new Surface(path, true);
+Surface* Place::getSurface() const {
+	string path = "resources/images/places/" + name + ".png";
+	return new Surface(path.c_str(), true);
 }
 
-Surface *Place::getCharacterSurface() const {
-	char path[100];
-	memset(path, '\0', 100);
-	sprintf(path, "resources/images/places/%s_character.png", name);
-	
-	return new Surface(path);
+Surface* Place::getCharacterSurface() const {
+	string path = "resources/images/places/" + name + "_character.png";
+	return new Surface(path.c_str());
 }
-

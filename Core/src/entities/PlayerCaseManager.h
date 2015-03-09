@@ -1,5 +1,4 @@
-#ifndef PLAYERCASEMANAGER_H_
-#define PLAYERCASEMANAGER_H_
+#pragma once
 
 #include "entities/PlayerCase.h"
 #include "entities/Player.h"
@@ -14,6 +13,3 @@ public:
 	static void save(PlayerCase *playerCase);
 	static PlayerCase &load(int idPlayer);
 };
-
-#endif
-

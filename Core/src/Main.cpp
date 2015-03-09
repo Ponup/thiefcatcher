@@ -12,6 +12,7 @@ using std::endl;
 #include <FontService.h>
 #include <MediaMusic.h>
 #include <Database.h>
+using Kangaroo::Database;
 
 #include "Constants.h"
 #include "Vars.h"
@@ -61,7 +62,7 @@ int main(int argc, char * argv[]) {
 	Window *window = new Window(_("Thief Catcher"), GAME_WINDOW_W, GAME_WINDOW_H, "resources/logo/thief_256.png", configurator.isFullScreen());
 
 	try {
-		Database::init( "data/game.db" );
+		Database::getInstance().init( "data/game.db" );
 		Vars::init();
 	} catch (std::runtime_error &error) {
 		fprintf(stderr, "ERROR: %s\n", error.what());

@@ -193,8 +193,8 @@ void Game::optionTravel() {
 void Game::optionPlaces() {
 	Surface *backup = canvas->getArea( Point::Origin, canvas->getDimension());
 
-	int *placesPKazar = Random::nextArray(Vars::listPlacesPK(), 3);
-	PlaceSelector placeSelector(window, canvas, placesPKazar);
+	vector<Place> randomPlaces = PlacesManager::findRandom(3);
+	PlaceSelector placeSelector(window, canvas, randomPlaces);
 	int selected = placeSelector.showAndReturn();
 	window->drawSurface( backup );
 	window->flip();
@@ -220,8 +220,7 @@ void Game::optionPlaces() {
 			state = playerCase->captureOrderExecuted ? GameState::Won : GameState::LostEscaped;
 			return;
 		}
-		Place place = PlacesManager::findByPrimaryKey(placesPKazar[selected]);
-		delete placesPKazar;
+		Place place = randomPlaces[ selected ];
 
 		Surface backup2("resources/images/mainwindow_bg.png");
 		Surface *b = backup2.getArea(Area(Point(310, 145), Dimension( 450, 220)));

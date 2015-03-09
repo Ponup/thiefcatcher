@@ -1,24 +1,20 @@
 #include "PlacesManager.h"
 
-Place & PlacesManager::findByPrimaryKey(int id) {
-	Place * place = new Place();
+#include <Database.h>
+using Kangaroo::Database;
 
-	ResultSet & rs = Database::getInstance().execute("SELECT id, name FROM place WHERE id = %d", id);
-	if(rs.rowsCount() == 1) {
-		place->setId(rs.getInt(0, 0));
-		place->setName(rs.getString(0, 1));
+#include <ResultSet.h>
+
+vector<Place> PlacesManager::findRandom( int limit ) {
+	vector<Place> places;
+
+	ResultSet &rs = Database::getInstance().execute("SELECT id, name FROM place ORDER BY RANDOM() LIMIT %d", limit );
+	while (rs.hasNext()) {
+		Place place;
+		place.setId(rs.getInt(0));
+		place.setName(rs.getString(1));
+		places.push_back(place);
 	}
 
-	return * place;
-}
-
-vector<int> PlacesManager::findAllPrimaryKeys() {
-	vector<int> primaryKeys;
-
-	ResultSet & rs = Database::getInstance().execute("SELECT id FROM place");
-	for(unsigned int i = 0; i < rs.rowsCount(); i++) {
-		primaryKeys.push_back(rs.getInt(i, 0));
-	}
-
-	return primaryKeys;	
+	return places;
 }

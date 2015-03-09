@@ -1,26 +1,24 @@
-#ifndef PLACE_H
-#define PLACE_H
+#pragma once
+
+#include <string>
+using std::string;
 
 #include <Surface.h>
 
 class Place {
 	private:
 		unsigned char id;
-		char *name;
+		string name;
 		
 	public:
 		Place();
-		Place(const Place &place);
-		Place & operator=(const Place &place);
 		~Place();
 
 		void setId(unsigned char id);
 		unsigned char getId() const;
-		void setName(const char *name);
-		const char *getName() const;
+		void setName( const string &name );
+		string getName() const;
 		
-		Surface *getSurface() const;
-		Surface *getCharacterSurface() const;
+		Surface* getSurface() const;
+		Surface* getCharacterSurface() const;
 };
-
-#endif

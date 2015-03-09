@@ -44,7 +44,7 @@ class PlaceSelector : public EventHandler {
 //		Surface *loadImage(const char *name) const;
 		void update();
 	public:
-		PlaceSelector(Window *screen, Surface* canvas, int *placesPrimaryKeys);
+		PlaceSelector(Window *screen, Surface* canvas, vector<Place> randomPlaces);
 		~PlaceSelector();
 		
 		void onQuit(SDL_QuitEvent event) {

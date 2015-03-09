@@ -60,8 +60,9 @@ PlayerCase *AssignmentScreen::show() {
 		int key = readKey();
 		
 		if (key == SDLK_y || key == SDLK_s) {
-			player = PlayersManager::create(name);
-			break;
+			if (player = PlayersManager::create(name)) {
+				break;
+			}
 		}
 
 		addLine(_("Please, type your name as it is known at the Interpol:"));

@@ -1,5 +1,8 @@
 #include "PlayerCaseManager.h"
 
+#include <Database.h>
+using Kangaroo::Database;
+
 #include <Random.h>
 
 #include "Vars.h"
@@ -75,10 +78,10 @@ PlayerCase &PlayerCaseManager::load(int idPlayer) {
 	
 	const char sql0[] = "SELECT id_player, id_criminal, current_position FROM player_case WHERE id_player = %d";
 	ResultSet & rs = Database::getInstance().execute(sql0, idPlayer);
-	if(rs.rowsCount() == 1) {
-		int id_player = rs.getInt(0, 0);
-		int id_criminal = rs.getInt(0, 1);
-		int current_position = rs.getInt(0, 2);
+	if(rs.hasNext()) {
+		int id_player = rs.getInt(0);
+		int id_criminal = rs.getInt(1);
+		int current_position = rs.getInt(2);
 		Player *player = PlayersManager::findByPrimaryKey(id_player);
 		playerCase->setPlayer(*player);
 		playerCase->setCriminal(*CriminalsManager::findByPrimaryKey(id_criminal));
@@ -88,8 +91,8 @@ PlayerCase &PlayerCaseManager::load(int idPlayer) {
 	const char sql1[] = "SELECT id_country FROM player_case_flight WHERE id_player = %d ORDER BY position ASC";
 	ResultSet & rs1 = Database::getInstance().execute(sql1, idPlayer);
 	vector<Country> countries;
-	for(unsigned int i = 0; i < rs1.rowsCount(); i++) {
-		int id_country = rs1.getInt(i, 0);
+	while (rs1.hasNext()) {
+		int id_country = rs1.getInt(0);
 		Country country = CountriesManager::findByPrimaryKey(id_country);
 		countries.push_back(country);
 	}

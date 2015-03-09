@@ -39,19 +39,16 @@ void HallOfFameScreen::show() {
 	int playerY = headerY + 40;
 	vector<Player> players = PlayersManager::findTop10();
 	for (unsigned int i = 0; i < players.size(); i++) {
-		Player player = (Player)players.at(i);
+		Player player = players.at(i);
 
-		char top[3];
-		memset(top, 0, 3);
-		sprintf(top, "%2d", i + 1);
 		char experience[30];
 		memset(experience, 0, 30);
 		sprintf(experience, "%d case(s)", player.getResolved());
 
-		const char *playerValues[] = {
-			top,
-			player.getName().c_str(),
-			player.getRank().c_str(),
+		string playerValues[] = {
+			std::to_string(i + 1),
+			player.getName(),
+			player.getRank(),
 			experience
 		};
 
@@ -59,7 +56,7 @@ void HallOfFameScreen::show() {
 		background.drawSurface(&icon, Point(210, playerY));
 
 		for(int i = 0; i < 4; i++)
-			Text::drawString(playerValues[i], Point(columnPos[i], playerY), &playerFont, &background); 
+			Text::drawString(playerValues[i].c_str(), Point(columnPos[i], playerY), &playerFont, &background); 
 
 		playerY += playerFont.getLineSkip();
 	}

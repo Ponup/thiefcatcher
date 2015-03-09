@@ -6,11 +6,11 @@
 Clue::Clue() {
 }
 
-Clue::Clue( string message ) {
+Clue::Clue( const string &message ) {
 	setMessage(message);
 }
 
-void Clue::setMessage( string message ) {
+void Clue::setMessage( const string &message ) {
 	this->message = message;
 }
 

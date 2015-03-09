@@ -1,6 +1,6 @@
 #include "PlaceSelector.h"
 
-PlaceSelector::PlaceSelector(Window *screen, Surface* canvas, int *placesPrimaryKeys) {
+PlaceSelector::PlaceSelector(Window *screen, Surface* canvas, vector<Place> randomPlaces) {
 	this->screen = screen;
 
 	dialogPosition = Point(415, 466);
@@ -18,9 +18,9 @@ PlaceSelector::PlaceSelector(Window *screen, Surface* canvas, int *placesPrimary
 
 	quit = false;
 
-	places[0] = PlacesManager::findByPrimaryKey(placesPrimaryKeys[0]);
-	places[1] = PlacesManager::findByPrimaryKey(placesPrimaryKeys[1]);
-	places[2] = PlacesManager::findByPrimaryKey(placesPrimaryKeys[2]);
+	places[0] = randomPlaces[0];
+	places[1] = randomPlaces[1];
+	places[2] = randomPlaces[2];
 
 	images[0] = places[0].getSurface();
 	images[1] = places[1].getSurface();

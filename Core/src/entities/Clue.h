@@ -1,5 +1,4 @@
-#ifndef CLUE_H
-#define CLUE_H
+#pragma once
 
 #include <string>
 using std::string;
@@ -11,12 +10,11 @@ private:
 
 public:
 	Clue();
-	Clue(string message);
+	Clue(const string &message);
 	~Clue();
 
-	void setMessage(string message);
+	void setMessage( const string &message);
 	string getMessage() const;
 };
 
-#endif
 
