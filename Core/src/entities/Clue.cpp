@@ -6,6 +6,9 @@
 Clue::Clue() {
 }
 
+Clue::~Clue() {
+}
+
 Clue::Clue( const string &message ) {
 	setMessage(message);
 }
@@ -16,8 +19,5 @@ void Clue::setMessage( const string &message ) {
 
 string Clue::getMessage() const {
 	return message;
-}
-
-Clue::~Clue() {
 }
 

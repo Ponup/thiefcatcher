@@ -5,11 +5,18 @@
 #include <MediaMusic.h>
 #include <Text.h>
 
+#include <HttpClient.h>
+using Kangaroo::HttpClient;
+
 #include "Constants.h"
 #include "utilities/Translator.h"
 #include "entities/PlayersManager.h"
 
-HallOfFameScreen::HallOfFameScreen(Window *screen_) : screen(screen_), quit(false) {
+#include "rapidjson/document.h"
+
+using namespace rapidjson;
+
+HallOfFameScreen::HallOfFameScreen( Window *screen ) : screen( screen ), quit( false ) {
 }
 
 void HallOfFameScreen::show() {
@@ -35,7 +42,21 @@ void HallOfFameScreen::show() {
 		Text::drawString(headerNames[i], Point(columnPos[i], headerY), &playerFont, &background);
 
 	playerFont.setColor(Color(255, 255, 255));	
-	
+
+	string data;
+
+	HttpClient request( "http://ponup-api.appspot.com/score/list?game_name=thiefcatcher" );
+	request.get( &data );
+
+	Document document;
+	document.Parse( data.c_str() );
+	if( document.IsArray() ) {
+		for( SizeType i = 0; i < document.Size(); i++ ) {
+			Value &value = document[ i ];
+			printf("%s (%d)\n", value["player_name"].GetString(), value["value"].GetInt() );
+		}
+	}
+
 	int playerY = headerY + 40;
 	vector<Player> players = PlayersManager::findTop10();
 	for (unsigned int i = 0; i < players.size(); i++) {

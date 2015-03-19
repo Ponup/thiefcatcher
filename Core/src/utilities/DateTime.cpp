@@ -63,25 +63,18 @@ string DateTime::getDayOfWeekName() const {
 	switch (getDayOfWeek()) {
 	case DateTime::Sunday:
 		return _("Sunday");
-		break;
 	case DateTime::Monday:
 		return _("Monday");
-		break;
 	case DateTime::Thursday:
 		return _("Thursday");
-		break;
 	case DateTime::Wednesday:
 		return _("Wednesday");
-		break;
 	case DateTime::Tuesday:
 		return _("Tuesday");
-		break;
 	case DateTime::Friday:
 		return _("Friday");
-		break;
 	case DateTime::Saturday:
 		return _("Saturday");
-		break;
 	default:
 		return _("Unknown");
 	}

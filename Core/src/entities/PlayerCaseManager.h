@@ -9,7 +9,7 @@ public:
 	PlayerCaseManager();
 	~PlayerCaseManager();
 	
-	static PlayerCase *createRandomCase(Player &player);
-	static void save(PlayerCase *playerCase);
-	static PlayerCase &load(int idPlayer);
+	static PlayerCase *createRandomCase( const Player &player );
+	static void save( const PlayerCase &playerCase );
+	static PlayerCase& load( int idPlayer );
 };

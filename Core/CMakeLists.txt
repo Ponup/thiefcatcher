@@ -8,23 +8,12 @@ INCLUDE_DIRECTORIES(
 	src/
 )
 
-IF(DEFINED ENV_WEB)
-	FILE(GLOB_RECURSE WTHIM_SOURCES "src/*.cpp" "src_env/web/*.cpp")
-	INCLUDE_DIRECTORIES(
-		src_env/web
-	)
-ELSE()
-	FILE(GLOB_RECURSE WTHIM_SOURCES "src/*.cpp" "src_env/local/*.cpp")
-	INCLUDE_DIRECTORIES(
-		src_env/local
-	)
-ENDIF()
-
 IF(UNIX)
-	ADD_DEFINITIONS(-std=c++11 -pedantic -pedantic-errors -Wall -Werror `sdl2-config --cflags` -g)
-ELSE(UNIX)
+	#ADD_DEFINITIONS(-std=c++11 -pedantic -pedantic-errors -Wall -Werror `sdl2-config --cflags` -g)
+	ADD_DEFINITIONS(-std=c++11 -Wall -Werror `sdl2-config --cflags` -g)
+ELSE()
 	ADD_DEFINITIONS(-Wall)
-ENDIF(UNIX)
+ENDIF()
 
 SET(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS 1)
 
@@ -41,11 +30,14 @@ IF(UNIX)
 	LINK_LIBRARIES(${KANGAROO_LIB} ${SDLCONFIG_LIBS} sqlite3 curl SDL2_image SDL2_gfx SDL2_mixer SDL2_ttf tinyxml2)
 ENDIF()
 
+FILE(GLOB_RECURSE GAME_SOURCES "src/*.cpp")
+INCLUDE_DIRECTORIES(src vendor)
+
 ADD_EXECUTABLE(
 	ThiefCatcher
 	WIN32
 	MACOSX_BUNDLE
-	${WTHIM_SOURCES}
+	${GAME_SOURCES}
 )
 
 #SET_TARGET_PROPERTIES(ThiefCatcher PROPERTIES OUTPUT_NAME "ThiefCatcher")

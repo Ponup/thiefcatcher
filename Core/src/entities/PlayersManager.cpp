@@ -7,6 +7,9 @@ using Kangaroo::Database;
 
 #include "utilities/Translator.h"
 
+#include <HttpClient.h>
+using Kangaroo::HttpClient;
+
 vector<Player> PlayersManager::findTop10() {
 	vector<Player> players;
 	
@@ -77,8 +80,14 @@ void PlayersManager::updatePlayer(Player &player) {
 	unsigned char numResolvedCases = player.getResolved() + 1;
 
 	player.setResolved(numResolvedCases);
-	
+
 	Database &db = Database::getInstance();
 	db.update("UPDATE player SET num_resolved_cases = num_resolved_cases + 1 WHERE id = %d", player.getID());
+
+	string url = "http://ponup-api.appspot.com/score/add";
+	string params = "game_name=thiefcatcher&player_name=" + player.getName() + "&value=" + std::to_string( numResolvedCases );
+
+	HttpClient request( url );
+	request.post( params );
 }
 

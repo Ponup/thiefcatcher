@@ -18,3 +18,4 @@ vector<Place> PlacesManager::findRandom( int limit ) {
 
 	return places;
 }
+

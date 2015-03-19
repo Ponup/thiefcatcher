@@ -19,9 +19,9 @@ class Player {
 		
 		void setID(int id);
 		int getID() const;
-		void setName(string name);
+		void setName( const string& name);
 		string getName() const;
-		void setRank(string rank);
+		void setRank( const string& rank );
 		string getRank() const;
 		void setResolved(unsigned int resolved);
 		unsigned int getResolved() const;

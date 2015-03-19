@@ -1,5 +1,7 @@
-#ifndef PLAYERCASE_H
-#define PLAYERCASE_H
+#pragma once
+
+#include <string>
+using std::string;
 
 #include <vector>
 using std::vector;
@@ -27,17 +29,17 @@ public:
 
 	Clue *clues[3];
 
-	char *stolenObject;
+	string stolenObject;
 	bool captureOrderExecuted;
 
 public:
 	vector<Country> itinerary;
 
 	PlayerCase();
-	PlayerCase(const PlayerCase &playerCase);
+	PlayerCase( const PlayerCase &playerCase );
 	~PlayerCase();
 
-	PlayerCase operator=(const PlayerCase & playerCase);
+	PlayerCase operator=( const PlayerCase &playerCase );
 
 	bool rightCountry();
 	Country &nextCountry();
@@ -45,15 +47,15 @@ public:
 	Country &previousCountry();
 	Country &getLastCountry();
 
-	void setPlayer(Player & player);
+	void setPlayer( const Player &player );
 	Player getPlayer() const;
-	void setCriminal(Criminal & criminal);
+	void setCriminal( const Criminal &criminal );
 	Criminal getCriminal() const;
 	void setCurrentPosition(int currentPosition);
 	int getCurrentPosition() const;
 
-	void setStolenObject(const char *stolenObject);
-	const char *getStolenObject() const;
+	void setStolenObject( const string &stolenObject );
+	string getStolenObject() const;
 
 	bool isCaptureOrderExecuted() const;
 	void setCaptureOrderExecuted(bool captureOrderExecuted);
@@ -61,13 +63,11 @@ public:
 	void setItinerary(vector<Country> itinerary);
 	vector<Country> getItinerary() const;
 
-	void setCurrentCountry(const Country & country);
+	void setCurrentCountry( const Country &country );
 
 	void updateCountries();
 	void updateClues();
 
 	const char *toString() const;
 };
-
-#endif
 

@@ -4,6 +4,9 @@
 
 #include <fstream>
 
+#include <string>
+using std::string;
+
 Country::Country() {
 }
 
@@ -38,7 +41,7 @@ Country& Country::operator=( const Country &country ) {
 	return *this;
 }
 
-void Country::setIsoCode( string isoCode ) {
+void Country::setIsoCode( const string &isoCode ) {
 	this->isoCode = isoCode;
 }
 
@@ -46,7 +49,7 @@ string Country::getIsoCode() const {
 	return isoCode;
 }
 
-void Country::setCode( string code ) {
+void Country::setCode( const string &code ) {
 	this->code = code;
 }
 
@@ -65,7 +68,7 @@ unsigned char Country::getID() const {
 	return id;
 }
 
-void Country::setName(string name) {
+void Country::setName( const string &name ) {
 	this->name = name;
 }
 
@@ -73,7 +76,7 @@ string Country::getName() const {
 	return name;
 }
 
-void Country::setDescription(string description) {
+void Country::setDescription( const string &description ) {
 	this->description = description;
 }
 
@@ -81,7 +84,7 @@ string Country::getDescription() const {
 	return description;
 }
 
-void Country::setFlagDescription(string flagDesc) {
+void Country::setFlagDescription( const string &flagDesc ) {
 	this->flagDesc = flagDesc;
 }
 
@@ -89,7 +92,7 @@ string Country::getFlagDescription() const {
 	return flagDesc;
 }
 
-void Country::setTreasure(string treasure) {
+void Country::setTreasure( const string &treasure ) {
 	this->treasure = treasure;
 }
 
@@ -113,7 +116,7 @@ const vector<string> Country::getCurrencies() const {
 	return currencies;
 }
 
-void Country::setCapital( string capital ) {
+void Country::setCapital( const string &capital ) {
 	this->capital = capital;
 }
 
@@ -153,17 +156,12 @@ bool fileExists( const std::string& name )
 }
 
 Surface* Country::getPhoto() const {
-	char path[100];
-	memset( path, '\0', 100 );
-	sprintf(path, "data/countries/%s/postal.png", isoCode.c_str() );
-
-	return new Surface( fileExists( path ) ? path : "resources/images/notebook.png" );
+	string path = "data/countries/" + isoCode + "/postal.png";
+	return new Surface( fileExists( path.c_str() ) ? path.c_str() : "resources/images/notebook.png" );
 }
 
 Surface *Country::getFlag() const {
-	char path[100];
-	sprintf(path, "data/countries/%s/flag.png", isoCode.c_str() );
-
+	string path = "data/countries/" + isoCode + "/flag.png";
 	return new Surface(path);
 }
 

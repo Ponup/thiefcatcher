@@ -3,7 +3,6 @@
 #include "MathUtil.h"
 #include "MediaSound.h"
 #include "Text.h"
-#include "FrameRegulator.h"
 #include "utilities/Translator.h"
 #include "entities/CountriesManager.h"
 
@@ -17,12 +16,10 @@ Point latlong2point( pair<double, double> latlong )
 	return point;
 }
 
-Map::Map(Window *window_, Country *sourceCountry_, Country *targetCountry_) : selected(0), quit(false), updatePending( true ) {
-	window = window_;
+Map::Map(Window *window_, Country *sourceCountry_, Country *targetCountry_) : 
+	selected(0), quit(false), updatePending( true ),
+	sourceCountry( sourceCountry_ ), targetCountry( targetCountry_ ), window( window_ ) {
 	
-	sourceCountry = sourceCountry_;
-	targetCountry = targetCountry_;
-
 	directedAirplane = nullptr;
 
 	bgSurface = NULL;
@@ -129,7 +126,7 @@ void Map::drawOptions()
 
 void Map::createStaticBackground()
 {
-	if( NULL != bgSurface )
+	if( nullptr != bgSurface )
 		return;
 
 	bgSurface = new Surface( "resources/images/empty_background.jpg" );
@@ -174,19 +171,26 @@ void Map::drawDirectedAirplane()
 void Map::gotoTarget() {
 	quit = true;
 
-	MediaSound sound("resources/sounds/airplane.wav");
-
 	Point sourcePoint = airplanePosition;
 	Point targetPoint = points[ selected ] - bulletRadius;
 	vector<Point> path = MathUtil::calculatePath( sourcePoint, targetPoint );
 
-	FrameRegulator fr( 50 );
-	fr.setUp();
-
+	MediaSound sound("resources/sounds/airplane.wav");
 	sound.play();
+
 	vector<Point>::iterator it;
-	for( it = path.begin(); it != path.end(); it++ )
-	{
+	it = path.begin();
+
+	SDL_Event ev;
+
+	bool stopAnimation = false;
+	while( !stopAnimation ) {
+		while( SDL_PollEvent( &ev ) ) {
+			if( ev.type == SDL_QUIT || ev.type == SDL_KEYDOWN || ev.type == SDL_MOUSEBUTTONDOWN ) {
+				stopAnimation = true;
+			}
+		}
+
 		Point point = airplanePosition + (*it);
 		Surface *canvas = new Surface( bgSurface->toSDL() );
 
@@ -194,11 +198,19 @@ void Map::gotoTarget() {
 		canvas->drawSurface( directedAirplane, point );
 		window->drawSurface( canvas );
 		window->flip();
+
 		delete canvas;
-		fr.regulate();
+
+		it++;
+
+		if( it == path.end() ) {
+			break; // the outer loop
+		}
+
+		SDL_Delay( 10 );
 	}
 
-	SDL_Delay( 800 );
+	SDL_Delay( 600 );
 }
 
 char Map::getSelection() {
@@ -223,8 +235,6 @@ void Map::onKeyDown(SDL_KeyboardEvent key) {
 		selected++;
 		if (selected > 2)
 			selected = 0;
-		break;
-	default:
 		break;
 	}
 }

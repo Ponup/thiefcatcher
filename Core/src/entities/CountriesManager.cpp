@@ -12,6 +12,9 @@ using std::string;
 
 #include <stdlib.h>
 
+#include <algorithm>
+using std::random_shuffle;
+
 vector<Country> CountriesManager::findAll() {
 	static vector<Country> countries;
 
@@ -63,19 +66,15 @@ vector<Country> CountriesManager::findAll() {
 	return countries;	
 }
 
-vector<int> CountriesManager::findAllPrimaryKeys() {
-	vector<int> primaryKeys;
-
-	vector<Country> countries = findAll();
-	for( vector<Country>::iterator it = countries.begin(); it != countries.end(); it++ ) {
-		primaryKeys.push_back( (*it).getID() );
-	}
-
-	return primaryKeys;	
-}
-
 Country CountriesManager::findByPrimaryKey( unsigned int id ) {
 	vector<Country> countries = findAll();
 	return countries.at( id - 1 );
 }
+
+vector<Country> CountriesManager::findRandom( int limit ) {
+	vector<Country> countries = findAll();
+	random_shuffle( countries.begin(), countries.end() );
+	return vector<Country>( countries.begin(), countries.begin() + limit );
+}
+
 

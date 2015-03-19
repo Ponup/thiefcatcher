@@ -35,7 +35,7 @@ int Player::getID() const {
 	return id;
 }
 
-void Player::setName(string name) {
+void Player::setName( const string& name) {
 	this->name = name;
 }
 
@@ -43,7 +43,7 @@ string Player::getName() const {
 	return name;
 }
 
-void Player::setRank(string rank) {
+void Player::setRank( const string& rank) {
 	this->rank = rank;
 }
 

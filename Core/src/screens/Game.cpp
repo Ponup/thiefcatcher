@@ -201,60 +201,61 @@ void Game::optionPlaces() {
 	if (selected == -1) {
 		return;
 	}
-		increaseTime(3);
 
-		unsigned int secondsCurrent = playerCase->currentDate->toSeconds();
-		unsigned int secondsEnd = playerCase->endDate->toSeconds();
+	increaseTime(3);
 
-		if(secondsCurrent >= secondsEnd) {
-			state = GameState::LostTimeout;
-			return;
-		} else
-		if((secondsEnd - secondsCurrent) / 3600 <= 3) {
-			Font *fontWarn = FontManager::getFont("FreeSansBold", 35);
-			fontWarn->setColor(Color(0xff, 0, 0));
-			Text warn("Only 3 hours left!", fontWarn);
-			warn.draw(Point(440, 15), canvas);
-		} else
-		if(playerCase->currentPosition == 6) {
-			state = playerCase->captureOrderExecuted ? GameState::Won : GameState::LostEscaped;
-			return;
-		}
-		Place place = randomPlaces[ selected ];
+	unsigned int secondsCurrent = playerCase->currentDate->toSeconds();
+	unsigned int secondsEnd = playerCase->endDate->toSeconds();
 
-		Surface backup2("resources/images/mainwindow_bg.png");
-		Surface *b = backup2.getArea(Area(Point(310, 145), Dimension( 450, 220)));
-		canvas->drawSurface(b, Point(310, 145));
+	if(secondsCurrent >= secondsEnd) {
+		state = GameState::LostTimeout;
+		return;
+	} else
+	if((secondsEnd - secondsCurrent) / 3600 <= 3) {
+		Font *fontWarn = FontManager::getFont("FreeSansBold", 35);
+		fontWarn->setColor(Color(0xff, 0, 0));
+		Text warn("Only 3 hours left!", fontWarn);
+		warn.draw(Point(440, 15), canvas);
+	} else
+	if(playerCase->currentPosition == 6) {
+		state = playerCase->captureOrderExecuted ? GameState::Won : GameState::LostEscaped;
+		return;
+	}
+	Place place = randomPlaces[ selected ];
 
-		Surface *character = place.getCharacterSurface();
-		Point characterPosition = Point(318, 250);
-		Dimension characterDim = character->getDimension();
-		Surface *area = canvas->getArea(characterPosition, characterDim);
-		canvas->drawSurface(character, characterPosition);
-		Clue *clue = NULL;
-		Country country = playerCase->getCurrentCountry();
-		if (country.getID() != playerCase->getLastCountry().getID()) {
-			clue = new Clue(_("I don't have any clues! (you are in the wrong country!)"));
-		} else {
-			clue = playerCase->clues[selected];
-		}
+	Surface backup2("resources/images/mainwindow_bg.png");
+	Surface *b = backup2.getArea(Area(Point(310, 145), Dimension( 450, 220)));
+	canvas->drawSurface(b, Point(310, 145));
 
-		Surface ballonSurf("resources/images/ballon.png");
-		canvas->drawSurface(&ballonSurf, Point(395, 194));
+	Surface *character = place.getCharacterSurface();
+	Point characterPosition = Point(318, 250);
+	Dimension characterDim = character->getDimension();
+	Surface *area = canvas->getArea(characterPosition, characterDim);
+	canvas->drawSurface(character, characterPosition);
+	Clue *clue = NULL;
+	Country country = playerCase->getCurrentCountry();
+	if (country.getID() != playerCase->getLastCountry().getID()) {
+		clue = new Clue(_("I don't have any clues! (you are in the wrong country!)"));
+	} else {
+		clue = playerCase->clues[selected];
+	}
 
-		// Clue drawing
-		Font *hintFont = FontManager::getFont("FreeSansBold", 14);
-		hintFont->setColor(Color(211, 186, 164)); // #D3BAA4	
+	Surface ballonSurf("resources/images/ballon.png");
+	canvas->drawSurface(&ballonSurf, Point(395, 194));
 
-		Text description(clue->getMessage(), hintFont);
-		description.drawLines(Point(440, 220), Dimension(285, 115), canvas);
+	// Clue drawing
+	Font *hintFont = FontManager::getFont("FreeSansBold", 14);
+	hintFont->setColor(Color(211, 186, 164)); // #D3BAA4	
 
-		canvas->updateArea(Point(395, 194), ballonSurf.getDimension());
-		window->drawSurface(canvas);
-		window->flip();
+	Text description(clue->getMessage(), hintFont);
+	description.drawLines(Point(440, 220), Dimension(285, 115), canvas);
 
-		delete area;
-		delete character;
+	canvas->updateArea(Point(395, 194), ballonSurf.getDimension());
+	window->drawSurface(canvas);
+	window->flip();
+
+	delete area;
+	delete character;
 	
 	delete backup;
 }

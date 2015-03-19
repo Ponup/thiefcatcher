@@ -60,3 +60,4 @@ bool Configurator::isAnimations() const {
 void Configurator::setAnimations(bool animations) {
 	setBoolProperty("Animations", animations);
 }
+

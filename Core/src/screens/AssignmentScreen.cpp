@@ -60,7 +60,7 @@ PlayerCase *AssignmentScreen::show() {
 		int key = readKey();
 		
 		if (key == SDLK_y || key == SDLK_s) {
-			if (player = PlayersManager::create(name)) {
+			if ((player = PlayersManager::create(name))) {
 				break;
 			}
 		}
@@ -102,7 +102,7 @@ PlayerCase *AssignmentScreen::show() {
 
 	memset(line, '\0', 500);
 	sprintf(line, _("The loot has been identified as %s.").c_str(),
-			playerCase->getStolenObject());
+			playerCase->getStolenObject().c_str() );
 	addLine(line);
 
 	memset(line, '\0', 500);

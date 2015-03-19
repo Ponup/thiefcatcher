@@ -1,5 +1,4 @@
-#ifndef COUNTRIESMANAGER_H
-#define COUNTRIESMANAGER_H
+#pragma once
 
 #include <vector>
 using std::vector;
@@ -8,10 +7,9 @@ using std::vector;
 
 class CountriesManager {
 
-	public:
-		static vector<Country> findAll();
-		static vector<int> findAllPrimaryKeys();
-		static Country findByPrimaryKey( unsigned int id );
+public:
+	static vector<Country> findAll();
+	static Country findByPrimaryKey( unsigned int id );
+	static vector<Country> findRandom( int limit );
 };
 
-#endif

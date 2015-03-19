@@ -8,8 +8,6 @@ using std::random_shuffle;
 #include "entities/ClueManager.h"
 #include "entities/CountriesManager.h"
 
-#include "Vars.h"
-
 #include "utilities/Translator.h"
 
 PlayerCase::PlayerCase() {
@@ -26,7 +24,7 @@ PlayerCase::PlayerCase(const PlayerCase &playerCase) {
 	currentPosition = playerCase.getCurrentPosition();
 	itinerary = playerCase.getItinerary();
 	captureOrderExecuted = playerCase.isCaptureOrderExecuted();
-	stolenObject = strdup(playerCase.getStolenObject());
+	stolenObject = playerCase.getStolenObject();
 }
 
 PlayerCase PlayerCase::operator=(const PlayerCase &playerCase) {
@@ -38,7 +36,7 @@ PlayerCase PlayerCase::operator=(const PlayerCase &playerCase) {
 	currentPosition = playerCase.getCurrentPosition();
 	itinerary = playerCase.getItinerary();
 	captureOrderExecuted = playerCase.isCaptureOrderExecuted();
-	stolenObject = strdup(playerCase.getStolenObject());
+	stolenObject = playerCase.getStolenObject();
 	return *this;
 }
 
@@ -50,11 +48,9 @@ PlayerCase::~PlayerCase() {
 	delete clues[2];
 	delete clues[1];
 	delete clues[0];
-
-	free(stolenObject);
 }
 
-void PlayerCase::setCriminal(Criminal &criminal) {
+void PlayerCase::setCriminal( const Criminal &criminal ) {
 	this->criminal = criminal;
 }
 
@@ -62,7 +58,7 @@ Criminal PlayerCase::getCriminal() const {
 	return criminal;
 }
 
-void PlayerCase::setPlayer(Player & player) {
+void PlayerCase::setPlayer( const Player &player ) {
 	this->player = player;
 }
 
@@ -78,12 +74,12 @@ int PlayerCase::getCurrentPosition() const {
 	return currentPosition;
 }
 
-void PlayerCase::setStolenObject(const char *stolenObject) {
-	this->stolenObject = strdup(stolenObject);
+void PlayerCase::setStolenObject( const string &stolenObject ) {
+	this->stolenObject = stolenObject;
 }
 
-const char *PlayerCase::getStolenObject() const {
-	return strdup(stolenObject);
+string PlayerCase::getStolenObject() const {
+	return stolenObject;
 }
 
 bool PlayerCase::isCaptureOrderExecuted() const {
@@ -103,14 +99,11 @@ vector<Country> PlayerCase::getItinerary() const {
 }
 
 bool PlayerCase::rightCountry() {
-	bool right = currentCountry.getID() == previousCountry().getID();
-	
-	return right;
+	return ( currentCountry.getID() == previousCountry().getID() );
 }
 
 Country & PlayerCase::previousCountry() {
-	Country & country = itinerary.at(currentPosition);
-	return country;
+	return itinerary.at(currentPosition);
 }
 
 Country & PlayerCase::getCurrentCountry() {
@@ -134,32 +127,19 @@ void PlayerCase::updateCountries() {
 		return;
 	}
 
-	if (rightCountry()) {
-		nextCountries[0] = nextCountry();
-	} else {
-		nextCountries[0] = previousCountry();
-	}
+	nextCountries[0] = ( rightCountry() ? nextCountry() : previousCountry() );
 
-	vector<int> countriesPK = Vars::listCountriesPK();
-	int numCountries = countriesPK.size();
-
-	int *keys = new int[numCountries - 1];
-	memset(keys, '\0', numCountries - 1);
-	for(int i = 0, x = 0; i < numCountries; i++) {
-		if(countriesPK[i] != nextCountries[0].getID()) {
-			keys[x] = countriesPK[i];
-			x++;
+	vector<Country> randomCountries = CountriesManager::findRandom( 3 );
+	for( int i = 0, pos = 1; i < 3 && pos < 3; i++ ) {
+		if( randomCountries[ i ].getID() == nextCountries[0].getID() ) {
+			continue;
 		}
+
+		nextCountries[ pos ] = randomCountries[ i ];
+		pos++;
 	}
-	
-	int *countriesPKazar = Random::nextArray(keys, numCountries - 1, 2);
-	nextCountries[1] = CountriesManager::findByPrimaryKey(countriesPKazar[0]);
-	nextCountries[2] = CountriesManager::findByPrimaryKey(countriesPKazar[1]);
-	
-	delete countriesPKazar;
-	delete keys;	
-	
-	random_shuffle(nextCountries, nextCountries + 3);
+
+	random_shuffle( nextCountries, nextCountries + 3 );
 }
 
 void PlayerCase::updateClues() {

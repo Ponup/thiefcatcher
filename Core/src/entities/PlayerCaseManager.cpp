@@ -19,7 +19,7 @@ PlayerCaseManager::~PlayerCaseManager()
 {
 }
 
-PlayerCase *PlayerCaseManager::createRandomCase(Player &player) {
+PlayerCase *PlayerCaseManager::createRandomCase( const Player &player ) {
 	PlayerCase *playerCase = new PlayerCase;
 	playerCase->setPlayer(player);
 	
@@ -28,25 +28,18 @@ PlayerCase *PlayerCaseManager::createRandomCase(Player &player) {
 	delete criminalsPKrandom;
 	playerCase->setCriminal(*criminal);
 	
-	int *countriesPKrandom = Random::nextArray(Vars::listCountriesPK(), 7);
-
-	vector<Country> itinerary;
-	for(unsigned int i = 0; i < 7; i++) {
-		Country country = CountriesManager::findByPrimaryKey( countriesPKrandom[i] );
-		itinerary.push_back(country);
-	}
-	const char *sto = itinerary[0].getTreasure().c_str();
-	playerCase->setStolenObject(sto);
+	vector<Country> itinerary = CountriesManager::findRandom( 7 );
+	string stolenObject = itinerary[0].getTreasure();
+	playerCase->setStolenObject( stolenObject );
 	
 	playerCase->itinerary = itinerary;
-	playerCase->setCurrentCountry(CountriesManager::findByPrimaryKey(countriesPKrandom[0]));
-	delete countriesPKrandom;
+	playerCase->setCurrentCountry( itinerary[0] );
 
 	playerCase->startDate = new DateTime;
 	playerCase->currentDate = new DateTime;
 
 	playerCase->endDate = new DateTime;
-	playerCase->endDate->increase(7, DateTime::Day);
+	playerCase->endDate->increase( 7, DateTime::Day );
 	//playerCase->endDate->increase(7, DateTime::Hour);
 	
 	playerCase->updateCountries();
@@ -57,27 +50,24 @@ PlayerCase *PlayerCaseManager::createRandomCase(Player &player) {
 	return playerCase;
 }
 
-void PlayerCaseManager::save(PlayerCase *playerCase) {
-	const char sql0[] = "DELETE FROM player_case WHERE id_player = %d";
-	Database::getInstance().execute(sql0, playerCase->player.getID());
+void PlayerCaseManager::save( const PlayerCase &playerCase) {
+	Database &db = Database::getInstance();
 
-	const char sql1[] = "DELETE FROM player_case_flight WHERE id_player = %d";
-	Database::getInstance().execute(sql1, playerCase->player.getID());
+	db.execute( "DELETE FROM player_case WHERE id_player = %d", playerCase.player.getID() );
+	db.execute( "DELETE FROM player_case_flight WHERE id_player = %d", playerCase.player.getID() );
+	db.execute( "INSERT INTO player_case VALUES (%d, %d, 0)", playerCase.player.getID(), playerCase.criminal.getID() );
 	
-	const char sql2[] = "INSERT INTO player_case VALUES (%d, %d, 0)";
-	Database::getInstance().execute(sql2, playerCase->player.getID(), playerCase->criminal.getID());
-	
-	for(unsigned int i = 0; i < playerCase->itinerary.size(); i++) {
-		const char sql3[] = "INSERT INTO player_case_flight VALUES (%d, %d, %d)";
-		Database::getInstance().execute(sql3, playerCase->player.getID(), i, playerCase->itinerary[i].getID());
+	for(unsigned int i = 0; i < playerCase.itinerary.size(); i++) {
+		db.execute( "INSERT INTO player_case_flight VALUES (%d, %d, %d)", playerCase.player.getID(), i, playerCase.itinerary[i].getID() );
 	}
 }
 
-PlayerCase &PlayerCaseManager::load(int idPlayer) {
+PlayerCase &PlayerCaseManager::load( int idPlayer ) {
 	PlayerCase *playerCase = new PlayerCase();
 	
-	const char sql0[] = "SELECT id_player, id_criminal, current_position FROM player_case WHERE id_player = %d";
-	ResultSet & rs = Database::getInstance().execute(sql0, idPlayer);
+	Database &db = Database::getInstance();
+	
+	ResultSet &rs = db.execute( "SELECT id_player, id_criminal, current_position FROM player_case WHERE id_player = %d", idPlayer);
 	if(rs.hasNext()) {
 		int id_player = rs.getInt(0);
 		int id_criminal = rs.getInt(1);
@@ -88,8 +78,7 @@ PlayerCase &PlayerCaseManager::load(int idPlayer) {
 		playerCase->setCurrentPosition(current_position);
 	}
 	
-	const char sql1[] = "SELECT id_country FROM player_case_flight WHERE id_player = %d ORDER BY position ASC";
-	ResultSet & rs1 = Database::getInstance().execute(sql1, idPlayer);
+	ResultSet &rs1 = db.execute( "SELECT id_country FROM player_case_flight WHERE id_player = %d ORDER BY position ASC", idPlayer);
 	vector<Country> countries;
 	while (rs1.hasNext()) {
 		int id_country = rs1.getInt(0);
