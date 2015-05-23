@@ -1,5 +1,4 @@
-#ifndef CLUEMANAGER_H_
-#define CLUEMANAGER_H_
+#pragma once
 
 #include "entities/Clue.h"
 #include "entities/Criminal.h"
@@ -11,8 +10,6 @@ public:
 	ClueManager();
 	~ClueManager();
 
-	static Clue *create(const Criminal &criminal, const Country &country);
+	static Clue *create( const Criminal &criminal, const Country &country );
 };
-
-#endif
 

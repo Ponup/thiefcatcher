@@ -1,8 +1,5 @@
 #include "Clue.h"
 
-#include <stdlib.h>
-#include <string.h>
-
 Clue::Clue() {
 }
 

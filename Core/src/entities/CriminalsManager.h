@@ -1,5 +1,4 @@
-#ifndef CRIMINALSMANAGER_H
-#define CRIMINALSMANAGER_H 1
+#pragma once
 
 #include <vector>
 using std::vector;
@@ -20,16 +19,15 @@ using std::string;
 
 class CriminalsManager {
 
-	public:
-		static vector<Criminal>* findAll();
-		static vector<int> findAllPrimaryKeys();
-		
-		static vector<string> &findAllHairs();
-		static vector<string> &findAllHobbies();
-		static vector<string> &findAllFeatures();
-		
-		static Criminal* findByPrimaryKey( unsigned int id );
-		static Criminal* findByFeatures( Genre genre, const char *hobby, const char *hair );
+public:
+	static vector<Criminal>* findAll();
+	static vector<int> findAllPrimaryKeys();
+	
+	static vector<string> &findAllHairs();
+	static vector<string> &findAllHobbies();
+	static vector<string> &findAllFeatures();
+	
+	static Criminal* findByPrimaryKey( unsigned int id );
+	static Criminal* findByFeatures( Genre genre, const string &hobby, const string &hair );
 };
 
-#endif

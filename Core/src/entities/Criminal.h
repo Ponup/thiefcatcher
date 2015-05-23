@@ -1,5 +1,8 @@
 #pragma once
 
+#include <string>
+using std::string;
+
 enum class Genre {
 	Female = 0,
 	Male
@@ -9,34 +12,34 @@ class Criminal {
 
 private:
 	int id;
-	char *name;
+	string name;
 	Genre genre;
-	char *hobby;
-	char *hair;
-	char *feature;
+	string hobby;
+	string hair;
+	string feature;
 	
 public:
 	Criminal();
 	~Criminal();
 	
-	void setID(int id);
+	void setID( int id );
 	int getID() const;
 	
-	void setName(const char *name);
-	const char *getName() const;
+	void setName( const string &name );
+	string getName() const;
 	
 	void setGenre( Genre genre );
 	Genre getGenre() const;
 	
-	void setHobby(const char *hobby);
-	const char *getHobby() const;
+	void setHobby( const string &hobby );
+	string getHobby() const;
 	
-	void setHair(const char *hair);
-	const char *getHair() const;
+	void setHair( const string &hair );
+	string getHair() const;
 	
-	void setFeature(const char *feature);
-	const char *getFeature() const;
+	void setFeature( const string &feature );
+	string getFeature() const;
 
-	const char *toString() const;
+	string toString() const;
 };
 

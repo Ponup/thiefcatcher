@@ -162,7 +162,7 @@ const char *PlayerCase::toString() const {
 	if(!text) return NULL;
 
 	sprintf(text, "Player: %s\n", player.toString());
-	sprintf(text, "%sCriminal: %s\n", text, criminal.toString());
+	sprintf(text, "%sCriminal: %s\n", text, criminal.toString().c_str());
 	sprintf(text, "%sStart date: %s\n", text, startDate->toString("%A %d, %H:%M"));
 	sprintf(text, "%sEnd date: %s\n", text, endDate->toString("%A %d, %H:%M"));
 	if(itinerary.size() > 0) {

@@ -1,16 +1,13 @@
-#ifndef TRANSLATOR_H
-#define TRANSLATOR_H
+#pragma once
 
 #include <string>
 using std::string;
 
 class Translator {
-	public:
-		static void init( const string &locale );
-		static string translate( const char *id );
+public:
+	static void init( const string &locale );
+	static string translate( const char *id );
 };
 
 #define _(x) Translator::translate(x) 
-
-#endif
 

@@ -78,7 +78,7 @@ void ProfileScreen::drawElements() {
 
 	if(playerCase->captureOrderExecuted) {
 		char message[100];
-		sprintf(message, _("You capture order was executed against '%s'").c_str(), playerCase->getCriminal().getName());
+		sprintf(message, _("You capture order was executed against '%s'").c_str(), playerCase->getCriminal().getName().c_str());
 		text.setFont(&fontOptions);
 		text.setText(message);
 		text.draw(Point(120, 200), canvas);
@@ -210,7 +210,7 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
 				dlg.show();
 			} else if (criminal->getID() == playerCase->getCriminal().getID()) {
 				char message[100];
-				sprintf(message, _("Your capture order was succesfuly executed against '%s'!").c_str(), criminal->getName());
+				sprintf(message, _("Your capture order was succesfuly executed against '%s'!").c_str(), criminal->getName().c_str());
 				InformationDialog dlg(screen, message);
 				dlg.show();
 				playerCase->captureOrderExecuted = true;

@@ -1,10 +1,9 @@
 #include "Criminal.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include "entities/format/CriminalFormatter.h"
+
+#include <sstream>
+using std::stringstream;
 
 Criminal::Criminal() {
 	id = -1;
@@ -21,12 +20,12 @@ int Criminal::getID() const {
 	return id;
 }
 
-void Criminal::setName(const char *name) {
-	this->name = strdup(name);
+void Criminal::setName(const string &name) {
+	this->name = name;
 }
 
-const char *Criminal::getName() const {
-	return strdup(name);
+string Criminal::getName() const {
+	return name;
 }
 
 void Criminal::setGenre( Genre genre ) {
@@ -37,38 +36,34 @@ Genre Criminal::getGenre() const {
 	return genre;
 }
 
-void Criminal::setHobby(const char *hobby) {
-	this->hobby = strdup(hobby);
+void Criminal::setHobby(const string &hobby) {
+	this->hobby = hobby;
 }
 
-const char *Criminal::getHobby() const {
+string Criminal::getHobby() const {
 	return hobby;
 }
 
-void Criminal::setHair(const char *hair) {
-	this->hair = strdup(hair);
+void Criminal::setHair(const string &hair) {
+	this->hair = hair;
 }
 
-const char *Criminal::getHair() const {
+string Criminal::getHair() const {
 	return hair;
 }
 
-void Criminal::setFeature(const char *feature) {
-	this->feature = strdup(feature);
+void Criminal::setFeature(const string &feature) {
+	this->feature = feature;
 }
 
-const char *Criminal::getFeature() const {
+string Criminal::getFeature() const {
 	return feature;
 }
 
-const char *Criminal::toString() const {
-	char *text = (char *)calloc(200, sizeof(char));
-	if(!text) return NULL;
+string Criminal::toString() const {
+	stringstream text;
+	text << "name: " << name << ", genre: " << CriminalFormatter::formatGenre( genre ) << ", hobby: " << hobby << ", hair: " << hair << ", feature: " << feature;
 
-	sprintf(text, "name: %s, sex: %s, hobby: %s, hair: %s, feature: %s",
-		name, CriminalFormatter::formatGenre( genre ).c_str(), hobby, hair, feature
-	);
-
-	return text;
+	return text.str();
 }
 

@@ -10,11 +10,10 @@ private:
 
 public:
 	Clue();
-	Clue(const string &message);
+	Clue( const string &message );
 	~Clue();
 
-	void setMessage( const string &message);
+	void setMessage( const string &message );
 	string getMessage() const;
 };
-
 

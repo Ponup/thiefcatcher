@@ -73,11 +73,11 @@ vector<string> &CriminalsManager::findAllFeatures() {
 	return *list;
 }
 
-Criminal *CriminalsManager::findByFeatures( Genre genre, const char *hobby, const char *hair) {
+Criminal *CriminalsManager::findByFeatures( Genre genre, const string &hobby, const string &hair ) {
 	vector<Criminal> *criminals = findAll();
 	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
 		Criminal criminal = *it;
-		if( genre == criminal.getGenre() && strcasecmp( criminal.getHobby(), hobby ) == 0 && strcasecmp( criminal.getHair(), hair ) == 0 ) {
+		if( genre == criminal.getGenre() && criminal.getHobby() == hobby && criminal.getHair() == hair ) {
 			return new Criminal( criminal );
 		}
 	}

@@ -45,7 +45,7 @@ void HallOfFameScreen::show() {
 
 	string data;
 
-	HttpClient request( "http://ponup-api.appspot.com/score/list?game_name=thiefcatcher" );
+	HttpClient request( "http://localhost:8080/score/list?game_name=thiefcatcher" );
 	request.get( &data );
 
 	Document document;
