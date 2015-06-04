@@ -1,3 +1,6 @@
 [submodule "Kangaroo"]
 	path = Kangaroo
 	url = git@github.com:Ponup/kangaroo.git
+[submodule "Core/vendor/ponup-api"]
+	path = Core/vendor/ponup-api
+	url = https://github.com/Ponup/api-cpp-client.git

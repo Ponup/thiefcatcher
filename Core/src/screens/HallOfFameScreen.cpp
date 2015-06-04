@@ -5,16 +5,12 @@
 #include <MediaMusic.h>
 #include <Text.h>
 
-#include <HttpClient.h>
-using Kangaroo::HttpClient;
-
 #include "Constants.h"
 #include "utilities/Translator.h"
 #include "entities/PlayersManager.h"
 
-#include "rapidjson/document.h"
-
-using namespace rapidjson;
+#include "ponup-api/Api.h"
+using namespace Ponup;
 
 HallOfFameScreen::HallOfFameScreen( Window *screen ) : screen( screen ), quit( false ) {
 }
@@ -40,36 +36,24 @@ void HallOfFameScreen::show() {
 
 	for(int i = 0; i < 4; i++)
 		Text::drawString(headerNames[i], Point(columnPos[i], headerY), &playerFont, &background);
+	
+	int playerY = headerY + 40;
 
 	playerFont.setColor(Color(255, 255, 255));	
 
-	string data;
+	vector<Score> scores = Ponup::Api::getScores( "thiefcatcher" );
 
-	HttpClient request( "http://localhost:8080/score/list?game_name=thiefcatcher" );
-	request.get( &data );
-
-	Document document;
-	document.Parse( data.c_str() );
-	if( document.IsArray() ) {
-		for( SizeType i = 0; i < document.Size(); i++ ) {
-			Value &value = document[ i ];
-			printf("%s (%d)\n", value["player_name"].GetString(), value["value"].GetInt() );
-		}
-	}
-
-	int playerY = headerY + 40;
-	vector<Player> players = PlayersManager::findTop10();
-	for (unsigned int i = 0; i < players.size(); i++) {
-		Player player = players.at(i);
+	for (unsigned int i = 0; i < scores.size(); i++) {
+		Score score = scores.at( i );
 
 		char experience[30];
 		memset(experience, 0, 30);
-		sprintf(experience, "%d case(s)", player.getResolved());
+		sprintf(experience, "%d case(s)", score.getGameLevelNumber());
 
 		string playerValues[] = {
 			std::to_string(i + 1),
-			player.getName(),
-			player.getRank(),
+			score.getPlayerName(),
+			score.getGameLevel(),
 			experience
 		};
 
@@ -81,8 +65,6 @@ void HallOfFameScreen::show() {
 
 		playerY += playerFont.getLineSkip();
 	}
-
-	players.clear();
 
 	canvas->drawSurface(&background);	
 	screen->drawSurface(canvas);

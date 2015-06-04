@@ -27,34 +27,34 @@ Clue *ClueManager::create(const Criminal &criminal, const Country &country) {
 		message = fmt::format(_("I heard {0} left in a rowboat, flying a {1} flag."), CriminalFormatter::formatGenreArticle(criminal, false), country.getFlagDescription() );
 		break;
 	case 2:
-		sprintf(message, _("My sources tell me %s changed %s money to %s.").c_str(),
-			CriminalFormatter::formatGenreArticle(criminal, false).c_str(),
-			CriminalFormatter::formatGenrePossessive(criminal).c_str(),
-			country.getCurrencies().at( 0 ).c_str() );
+		message = fmt::format( _("My sources told me {0} changed {1} money to {3}."),
+			CriminalFormatter::formatGenreArticle(criminal, false),
+			CriminalFormatter::formatGenrePossessive(criminal),
+			country.getCurrencies().at( 0 ) );
 		break;
 	case 3:
-		sprintf(message, _("%s had %s hair").c_str(),
-			CriminalFormatter::formatGenreArticle(criminal, true).c_str(),
-			criminal.getHair().c_str());
+		message = fmt::format( _("{0} had {1} hair"),
+			CriminalFormatter::formatGenreArticle(criminal, true),
+			criminal.getHair() );
 		break;
 	case 4:
-		sprintf(message, _("%s mentioned that %s %s.").c_str(),
-			CriminalFormatter::formatGenreArticle(criminal, true).c_str(),
-			CriminalFormatter::formatGenreArticle(criminal, false).c_str(),
-			criminal.getHobby().c_str());
+		message = fmt::format( _("{0} mentioned that {1} {2}"),
+			CriminalFormatter::formatGenreArticle(criminal, true),
+			CriminalFormatter::formatGenreArticle(criminal, false),
+			criminal.getHobby() );
 		break;
 	case 5:
-		sprintf(message, _("%s had a %s").c_str(),
-			CriminalFormatter::formatGenreArticle(criminal, true).c_str(),
-			criminal.getFeature().c_str());
+		message = fmt::format( _("{0} had a {1}"),
+			CriminalFormatter::formatGenreArticle(criminal, true),
+			criminal.getFeature() );
 		break;
 	case 6:
-		sprintf(message, _("All I know is that %s was planning to trek across %s.").c_str(),
-			CriminalFormatter::formatGenreArticle(criminal, true).c_str(),
-			country.getFlagDescription().c_str());
+		message = fmt::format( _("All I know is that {0} was planning to trek across {1}."),
+			CriminalFormatter::formatGenreArticle(criminal, true),
+			country.getFlagDescription() );
 		break;
 	case 7:
-		strcat(message, _("Sorry, I can't remember!").c_str());
+		message = _("Sorry, I can't remember");
 		break;
 	}
 	
