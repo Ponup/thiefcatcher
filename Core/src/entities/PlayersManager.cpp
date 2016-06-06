@@ -12,10 +12,10 @@ using Kangaroo::HttpClient;
 
 vector<Player> PlayersManager::findTop10() {
 	vector<Player> players;
-	
+
 	const char *sql = "SELECT player.id, player.name, player.num_resolved_cases, player_rank.description FROM player INNER JOIN player_rank ON ( player_rank.resolved = player.num_resolved_cases ) ORDER BY num_resolved_cases DESC LIMIT 10";
 
-	ResultSet &rs = Database::getInstance().execute( sql );
+	ResultSet &rs = Database::getInstance().execute(sql);
 	while (rs.hasNext()) {
 		Player player;
 		player.setID(rs.getInt(0));
@@ -36,14 +36,14 @@ vector<int> PlayersManager::findAllPrimaryKeys() {
 		primaryKeys.push_back(rs.getInt(0));
 	}
 
-	return primaryKeys;	
+	return primaryKeys;
 }
 
 Player *PlayersManager::findByPrimaryKey(int id) {
 	Player *player = NULL;
 
 	ResultSet &rs = Database::getInstance().execute("SELECT id, name, num_resolved_cases FROM player WHERE id = %d", id);
-	if(rs.hasNext()) {
+	if (rs.hasNext()) {
 		player = new Player;
 		player->setID(rs.getInt(0));
 		player->setName(rs.getString(1));
@@ -53,12 +53,12 @@ Player *PlayersManager::findByPrimaryKey(int id) {
 	return player;
 }
 
-Player *PlayersManager::findByName( const string &name ) {
+Player *PlayersManager::findByName(const string &name) {
 	Player *player = nullptr;
 
 	Database &db = Database::getInstance();
-	ResultSet &rs = db.execute("SELECT player.id, player.name, player.num_resolved_cases, player_rank.description FROM player INNER JOIN player_rank ON ( player_rank.resolved = player.num_resolved_cases ) WHERE player.name = '%s'", name.c_str() );
-	if(rs.hasNext()) {
+	ResultSet &rs = db.execute("SELECT player.id, player.name, player.num_resolved_cases, player_rank.description FROM player INNER JOIN player_rank ON ( player_rank.resolved = player.num_resolved_cases ) WHERE player.name = '%s'", name.c_str());
+	if (rs.hasNext()) {
 		player = new Player;
 		player->setID(rs.getInt(0));
 		player->setName(rs.getString(1));
@@ -69,9 +69,9 @@ Player *PlayersManager::findByName( const string &name ) {
 	return player;
 }
 
-Player *PlayersManager::create( const string &name ) {
+Player *PlayersManager::create(const string &name) {
 	Database &db = Database::getInstance();
-	db.update("INSERT INTO player (id, name, num_resolved_cases) VALUES (NULL, '%s', 0)", name.c_str() );
+	db.update("INSERT INTO player (id, name, num_resolved_cases) VALUES (NULL, '%s', 0)", name.c_str());
 
 	return findByName(name);
 }
@@ -85,9 +85,9 @@ void PlayersManager::updatePlayer(Player &player) {
 	db.update("UPDATE player SET num_resolved_cases = num_resolved_cases + 1 WHERE id = %d", player.getID());
 
 	string url = "http://ponup-api.appspot.com/score/add";
-	string params = "game_name=thiefcatcher&player_name=" + player.getName() + "&value=" + std::to_string( numResolvedCases );
+	string params = "game_name=thiefcatcher&player_name=" + player.getName() + "&value=" + std::to_string(numResolvedCases);
 
-	HttpClient request( url );
-	request.post( params );
+	HttpClient request(url);
+	request.post(params);
 }
 

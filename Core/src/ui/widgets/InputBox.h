@@ -1,5 +1,4 @@
-#ifndef INPUTBOX_H
-#define INPUTBOX_H
+#pragma once
 
 #include <SDL.h>
 #include <Surface.h>
@@ -10,41 +9,40 @@
 using std::string;
 
 class InputBox {
-	private:
-		string text;
-		Text line;
-		Color background;
-		Color foreground;
+private:
+    string text;
+    Text line;
+    Color background;
+    Color foreground;
 
-		Surface *window;
-		Surface *area;
-		Font *font;
-		Point point;
-		Dimension dimension;
-		
-		unsigned short maxChars;
-		
-		Surface *backup;
-		
-	public:
-		InputBox();
-		InputBox(Surface *dialog_, Font *font_, const Point &point_, const Dimension &dimension_);
-		~InputBox();
-		
-		void setBackground(const Color &background);
-		void setForeground(const Color &foreground);
-		void setFont(Font *font);
-		void handleEvent(SDL_Event &event);
-		void update();
-		
-		void setMaxChars(unsigned short maxChars);
-		unsigned short getMaxChars() const;
-		
-		string getText();
-		string get();
-		
-		void clear();
+    Surface *window;
+    Surface *area;
+    Font *font;
+    Point point;
+    Dimension dimension;
+
+    unsigned short maxChars;
+
+    Surface *backup;
+
+public:
+    InputBox();
+    InputBox(Surface *dialog_, Font *font_, const Point &point_, const Dimension &dimension_);
+    ~InputBox();
+
+    void setBackground(const Color &background);
+    void setForeground(const Color &foreground);
+    void setFont(Font *font);
+    void handleEvent(SDL_Event &event);
+    void update();
+
+    void setMaxChars(unsigned short maxChars);
+    unsigned short getMaxChars() const;
+
+    string getText();
+    string get();
+
+    void clear();
+
+    void putChar(SDL_Keycode key);
 };
-
-#endif
-

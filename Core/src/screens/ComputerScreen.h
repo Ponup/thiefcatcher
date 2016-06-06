@@ -18,7 +18,7 @@ class ComputerScreen {
 private:
 	vector<string> lines;
 	
-	int currentLine;
+	unsigned int currentLine;
 
 	Font *font;
 		

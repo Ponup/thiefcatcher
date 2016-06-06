@@ -18,10 +18,9 @@ using std::vector;
 
 #include "utilities/Translator.h"
 
-AssignmentScreen::AssignmentScreen(Window *window) : ComputerScreen(window) {	
+AssignmentScreen::AssignmentScreen(Window *window) : ComputerScreen(window) {
 	fontInput.load("resources/fonts/NotCourierSans-Bold.ttf", 14);
 	fontInput.setColor(Color(255, 255, 255));
-	//font->setColor(Color(0, 255, 50));
 
 	input = new InputBox(bgSurf, &fontInput, Point(120, 440), Dimension(400, 22));
 }
@@ -30,27 +29,20 @@ AssignmentScreen::~AssignmentScreen() {
 	delete input;
 }
 
-bool isValidName( string name ) {
-	return ( name.length() > 2 );
+bool isValidName(const string& name) {
+	return (name.length() > 2);
 }
 
 PlayerCase *AssignmentScreen::show() {
 	addLine(_("Police at the keyboard, please identify yourself:"));
 	showLines();
 
-	string name = input->get();
-	addLine(name);
-
-	while( !isValidName( name ) ) {
-		addLine(_("Your name is not valid. Please type a name with at least two characters:"));
-		showLines();
-
-		input->clear();
-		
-		name = input->get();
-		addLine(name);
+	bool quitted;
+	string name = askName(quitted);
+	if (quitted) {
+		return nullptr;
 	}
-	
+
 	Player *player = PlayersManager::findByName(name);
 	while (!player) {
 		addLine(_("Your name does not appear in the files of Interpol. Are you new here? (Y/N):"));
@@ -58,7 +50,7 @@ PlayerCase *AssignmentScreen::show() {
 
 		// readKey() locks the user input
 		int key = readKey();
-		
+
 		if (key == SDLK_y || key == SDLK_s) {
 			if ((player = PlayersManager::create(name))) {
 				break;
@@ -69,8 +61,11 @@ PlayerCase *AssignmentScreen::show() {
 		showLines();
 
 		input->clear();
-		
-		name= input->get();
+
+		name = askName(quitted);
+		if (quitted) {
+			return nullptr;
+		}
 		addLine(name);
 
 		player = PlayersManager::findByName(name);
@@ -97,29 +92,29 @@ PlayerCase *AssignmentScreen::show() {
 
 	memset(line, '\0', 500);
 	sprintf(line, _("National treasure stolen in %s.").c_str(),
-			playerCase->currentCountry.getName().c_str());
+		playerCase->currentCountry.getName().c_str());
 	addLine(line);
 
 	memset(line, '\0', 500);
 	sprintf(line, _("The loot has been identified as %s.").c_str(),
-			playerCase->getStolenObject().c_str() );
+		playerCase->getStolenObject().c_str());
 	addLine(line);
 
 	memset(line, '\0', 500);
 	sprintf(line, _("A %s suspect was seen at the crime scene.").c_str(),
-		CriminalFormatter::formatGenre( playerCase->getCriminal() ).c_str() );
+		CriminalFormatter::formatGenre(playerCase->getCriminal()).c_str());
 	addLine(line);
 
 	memset(line, '\0', 500);
 	sprintf(
-			line,
-			_("Your mission: To pursue the thief from %s to its hideout and arrest him!").c_str(),
-			playerCase->currentCountry.getName().c_str());
+		line,
+		_("Your mission: To pursue the thief from %s to its hideout and arrest him!").c_str(),
+		playerCase->currentCountry.getName().c_str());
 	addLine(line);
 
 	memset(line, '\0', 500);
 	sprintf(line, _("You have to arrest the thief before %s.").c_str(),
-			playerCase->endDate->toString("%A %d, %H:%M"));
+		playerCase->endDate->toString("%A %d, %H:%M"));
 	addLine(line);
 
 	addLine(" ");
@@ -132,13 +127,50 @@ PlayerCase *AssignmentScreen::show() {
 
 	SDL_Event event;
 	bool quit = false;
-	while(!quit) {
-		while(SDL_PollEvent(&event)) {
+	while (!quit) {
+		while (SDL_PollEvent(&event)) {
 			quit = (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_KEYDOWN || event.type == SDL_QUIT);
 		}
-		SDL_Delay(10);		
+		SDL_Delay(10);
 	}
-	
+
 	return playerCase;
+}
+
+string AssignmentScreen::askName(bool &quitted) {
+	string name;
+
+	SDL_Event ev;
+	bool keepLooping;
+
+	while (!keepLooping) {
+		if (SDL_PollEvent(&ev)) {
+			if (ev.type == SDL_QUIT) {
+				keepLooping = quitted = true;
+			} else if (ev.type == SDL_KEYDOWN) {
+				SDL_Keycode keyCode = ev.key.keysym.sym;
+				if (keyCode == SDLK_ESCAPE) {
+					keepLooping = quitted = true;
+				} else if (keyCode == SDLK_RETURN) {
+					name = input->getText();
+					addLine(name);
+
+					if (!isValidName(name)) {
+						addLine(_("Your name is not valid. Please type a name with at least two characters:"));
+						input->clear();
+					} else {
+						keepLooping = true;
+					}
+
+					showLines();
+				} else {
+					input->putChar(keyCode);
+				}
+			}
+		}
+		SDL_Delay(30);
+	}
+
+	return name;
 }
 

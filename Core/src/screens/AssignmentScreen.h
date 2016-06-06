@@ -15,6 +15,8 @@ private:
 
 	Font fontInput;
 	
+        string askName(bool &quitted);
+        
 public:
 	AssignmentScreen(Window *window);
 	virtual ~AssignmentScreen();

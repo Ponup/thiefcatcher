@@ -59,7 +59,7 @@ int main(int argc, char * argv[]) {
 
 	Translator::init(configurator.getLanguage());
 
-	Window *window = new Window(_("Thief Catcher"), GAME_WINDOW_W, GAME_WINDOW_H, "resources/logo/thief_256.png", configurator.isFullScreen());
+	Window window(_("Thief Catcher"), GAME_WINDOW_W, GAME_WINDOW_H, "resources/logo/thief_256.png", configurator.isFullScreen());
 
 	try {
 		Database::getInstance().init( "data/game.db" );
@@ -69,13 +69,11 @@ int main(int argc, char * argv[]) {
 		exit(1);
 	}
 
-	IntroScreen intro( window );
+	IntroScreen intro( &window );
 	intro.run();
 
-	MenuScreen menuScreen( window, &configurator );
+	MenuScreen menuScreen( &window, &configurator );
 	menuScreen.show();
-
-	delete window;
 
 	services.destroy();
 

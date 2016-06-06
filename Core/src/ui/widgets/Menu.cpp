@@ -7,17 +7,17 @@
 #include "utilities/Translator.h"
 
 Menu::Menu(Window * window_) :
-	selectedItem(0), window(window_) {
+selectedItem(0), window(window_) {
 	lastY = 150;
 	currentItem = -2;
-	
+
 	sound.load("resources/sounds/step.wav");
 
 	// Fonts
 	headerFont.load("resources/fonts/gtw.ttf", 45);
 	headerFont.setColor(Color(255, 220, 220));
 	font.load("resources/fonts/FreeSansBold.ttf", 30);
-	
+
 	backgroundSurf.load("resources/images/menu/background.png");
 	pipeSurf.load("resources/images/menu/pipe.png");
 }
@@ -48,7 +48,7 @@ short Menu::addItem(string item) {
 	items.push_back(menuItem);
 
 	lastY = lastY + dim.h + 5;
-	
+
 	return items.size() - 1;
 }
 
@@ -68,31 +68,29 @@ short Menu::getSelectedItem() {
 
 void Menu::update() {
 	Color colorSelected(255, 255, 255);
-	Color colorNotSelected(63, 36, 18); // #3f2412
-	
-	Surface* canvas = new Surface( backgroundSurf.toSDL() );	
+	Color colorNotSelected(0x3f, 0x24, 0x12);
+
+	Surface canvas(backgroundSurf.toSDL());
 
 	Text textLine(_("Thief Catcher"));
 	textLine.setFont(&headerFont);
-	textLine.draw( Point(30, 10), canvas );
-	
+	textLine.draw(Point(30, 10), &canvas);
+
 	for (unsigned int i = 0; i < items.size(); i++) {
 		MenuItem item = items.at(i);
 		Text *text = item.getText();
-		if ((short)i == selectedItem) {
-			canvas->drawSurface(&pipeSurf, Point(185, item.getPosition().y));
+		if ((short) i == selectedItem) {
+			canvas.drawSurface(&pipeSurf, Point(185, item.getPosition().y));
 			font.setColor(colorSelected);
 		} else {
 			font.setColor(colorNotSelected);
 		}
 		text->setFont(&font);
-		text->draw(item.getPosition(), canvas);
+		text->draw(item.getPosition(), &canvas);
 	}
 
-	window->drawSurface( canvas );
+	window->drawSurface(&canvas);
 	window->flip();
-
-	delete canvas;
 }
 
 void Menu::onQuit(SDL_QuitEvent e) {
@@ -101,26 +99,26 @@ void Menu::onQuit(SDL_QuitEvent e) {
 
 void Menu::onKeyDown(SDL_KeyboardEvent key) {
 	switch (key.keysym.sym) {
-	case SDLK_UP:
-		if (selectedItem > 0) {
-			selectedItem--;
-//			sound.play();
-		}
-		break;
-	case SDLK_DOWN:
-		if (selectedItem < (int)items.size()-1) {
-			selectedItem++;
-//			sound.play();
-		}
-		break;
-	case SDLK_RETURN:
-		currentItem = selectedItem;
-		break;
-	case SDLK_ESCAPE:
-		currentItem = selectedItem = 5;  
-		break;
-	default:
-		break;
+		case SDLK_UP:
+			if (selectedItem > 0) {
+				selectedItem--;
+				//			sound.play();
+			}
+			break;
+		case SDLK_DOWN:
+			if (selectedItem < (int) items.size() - 1) {
+				selectedItem++;
+				//			sound.play();
+			}
+			break;
+		case SDLK_RETURN:
+			currentItem = selectedItem;
+			break;
+		case SDLK_ESCAPE:
+			currentItem = selectedItem = 5;
+			break;
+		default:
+			break;
 	}
 }
 

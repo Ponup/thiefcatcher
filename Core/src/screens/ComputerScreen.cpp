@@ -13,13 +13,13 @@ using std::reverse;
 
 ComputerScreen::ComputerScreen(Window *window_) : window(window_) {
 	currentLine = 0;
-	
+
 	bgSurf = new Surface("resources/images/notebook_background.png");
 
 	font = FontManager::getFont("NotCourierSans-Bold", 14);
 	font->setColor(Color(0, 255, 50));
-	
-	window->drawSurface( bgSurf, Point::Origin );
+
+	window->drawSurface(bgSurf, Point::Origin);
 	window->flip();
 }
 
@@ -32,48 +32,45 @@ void ComputerScreen::clear() {
 	currentLine = 0;
 }
 
-vector<string> &split( const string &s, char delim, vector<string> &elems ) {
-	stringstream ss( s );
+vector<string> &split(const string &s, char delim, vector<string> &elems) {
+	stringstream ss(s);
 	string item;
-	while( getline( ss, item, delim ) ) {
-		elems.push_back( item );
+	while (getline(ss, item, delim)) {
+		elems.push_back(item);
 	}
 	return elems;
 }
 
 void ComputerScreen::addLine(string line) {
 	vector<string> tokens;
-	split( line, ' ', tokens );
-	reverse( tokens.begin(), tokens.end() );
+	split(line, ' ', tokens);
+	reverse(tokens.begin(), tokens.end());
 
 	string nextLine;
-	while( !tokens.empty() )
-	{
-		string nextWord = ( nextLine.empty() ? tokens.back() : string(" ") + tokens.back() );
-		if( Text( ( nextLine + nextWord ).c_str(), font ).getDimension().w < 550 ) {
-			nextLine.append( nextWord );
-		}
-		else
-		{
-			lines.push_back( nextLine );
+	while (!tokens.empty()) {
+		string nextWord = (nextLine.empty() ? tokens.back() : string(" ") + tokens.back());
+		if (Text((nextLine + nextWord).c_str(), font).getDimension().w < 550) {
+			nextLine.append(nextWord);
+		} else {
+			lines.push_back(nextLine);
 			nextLine = tokens.back();
 		}
 		tokens.pop_back();
 	}
 
-	lines.push_back( nextLine );
+	lines.push_back(nextLine);
 }
 
 void ComputerScreen::showLines() {
-	int numLines = static_cast<int>(lines.size());
+	vector<string>::size_type numLines = lines.size();
 	for (; currentLine < numLines; currentLine++) {
-		Surface* canvas = new Surface( bgSurf->toSDL() );
+		Surface canvas(bgSurf->toSDL());
 
 		int ymin = 120;
 		int y = 400;
 		for (int x = currentLine; x >= 0; x--) {
 			Text text(lines.at(x).c_str(), font);
-			text.draw(Point(120, y), canvas);
+			text.draw(Point(120, y), &canvas);
 
 			y -= font->getLineSkip();
 			if (y < ymin) {
@@ -81,8 +78,7 @@ void ComputerScreen::showLines() {
 			}
 		}
 
-		window->drawSurface( canvas );
-		delete canvas;
+		window->drawSurface(&canvas);
 		window->flip();
 		SDL_Delay(250);
 	}
