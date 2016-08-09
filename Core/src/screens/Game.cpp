@@ -19,28 +19,29 @@
 #include <utility>
 using std::pair;
 
-Game::Game(Window* window_, PlayerCase * playerCase_) :
-	window(window_), playerCase(playerCase_) {
+Game::Game(Window* window, PlayerCase* playerCase) :
+window(window),
+playerCase(playerCase) {
 
-	background.load("resources/images/mainwindow_bg.png");
-	canvas = new Surface( background.toSDL() );
+	bgSurface.load("resources/images/mainwindow_bg.png");
+	bgSurfaceCopy = new Surface(bgSurface.toSDL());
 
-	clock = new Clock(window_);
+	clock = new Clock(window);
 	clock->setPosition(Point(20, 7));
 
 	Area area(Point(410, 370), Dimension(340, 40));
-	backupSurf = canvas->getArea(area);
+	backupSurf = bgSurfaceCopy->getArea(area);
 
 	timeFont.load("resources/fonts/FreeSansBold.ttf", 22);
 	timeFont.setColor(Color(252, 244, 221)); // #FCF4DD
 
-	timeControllerSurf = canvas->getArea(Point(120, 20), Dimension(320, 60));
-	timeSurfBackup = canvas->getArea(Point(120, 20), Dimension(320, 60));
+	timeControllerSurf = bgSurfaceCopy->getArea(Point(120, 20), Dimension(320, 60));
+	timeSurfBackup = bgSurfaceCopy->getArea(Point(120, 20), Dimension(320, 60));
 
 	dateTimePosition = Point::Origin;
 
 	currentOption = 0;
-	
+
 	state = GameState::Playing;
 
 	buttons[0] = new SquareButton("resources/images/game/button_travel.png", "resources/images/game/button_travel.png", Point(416, 402), _("Travel"));
@@ -49,11 +50,11 @@ Game::Game(Window* window_, PlayerCase * playerCase_) :
 	buttons[3] = new SquareButton("resources/images/game/button_quit.png", "resources/images/game/button_quit.png", Point(691, 402), _("Quit"));
 
 	Country country = playerCase->getCurrentCountry();
-	showCountry(canvas, country);
+	showCountry(bgSurfaceCopy, country);
 
 	updateTime();
 
-	window->drawSurface( canvas );
+	window->drawSurface(bgSurfaceCopy);
 	window->flip();
 }
 
@@ -63,7 +64,7 @@ Game::~Game() {
 	for (int i = 0; i < 4; i++) {
 		delete buttons[i];
 	}
-	delete canvas;
+	delete bgSurfaceCopy;
 }
 
 void Game::updateOption() {
@@ -71,18 +72,18 @@ void Game::updateOption() {
 	font.setColor(Color(255, 255, 255));
 
 	Area area(Point(410, 370), Dimension(340, 40));
-	canvas->drawSurface(backupSurf, Point(410, 370));
+	bgSurfaceCopy->drawSurface(backupSurf, Point(410, 370));
 
 	for (int i = 0; i < 4; i++) {
 		if (i == currentOption) {
-			Text::drawString(buttons[i]->getLabel(), buttons[i]->getPosition() - Point(-5, 30), &font, canvas);
-			canvas->drawSurface(buttons[i]->getImage(), buttons[i]->getPosition());
+			Text::drawString(buttons[i]->getLabel(), buttons[i]->getPosition() - Point(-5, 30), &font, bgSurfaceCopy);
+			bgSurfaceCopy->drawSurface(buttons[i]->getImage(), buttons[i]->getPosition());
 		} else {
-			canvas->drawSurface(buttons[i]->getImage(), buttons[i]->getPosition());
+			bgSurfaceCopy->drawSurface(buttons[i]->getImage(), buttons[i]->getPosition());
 		}
 	}
 
-	window->drawSurface( canvas );
+	window->drawSurface(bgSurfaceCopy);
 	window->flip();
 }
 
@@ -111,19 +112,19 @@ Window *Game::getWindow() {
 }
 
 void Game::updateTime() {
-	timeControllerSurf->drawSurface( timeSurfBackup );
+	timeControllerSurf->drawSurface(timeSurfBackup);
 
 	Text dayLine(playerCase->currentDate->getDayOfWeekName(), &timeFont);
 	Text hourLine(playerCase->currentDate->toString("%H:%M"), &timeFont);
 
 	dayLine.draw(dateTimePosition, timeControllerSurf);
 	hourLine.draw(dateTimePosition + Point(0, timeFont.getLineSkip()),
-			timeControllerSurf);
+		timeControllerSurf);
 
-	canvas->drawSurface(timeControllerSurf, Point(120, 20));
-	canvas->updateArea(Area(Point(120, 20), Dimension(320, 60)));
+	bgSurfaceCopy->drawSurface(timeControllerSurf, Point(120, 20));
+	bgSurfaceCopy->updateArea(Area(Point(120, 20), Dimension(320, 60)));
 
-	clock->draw(*(playerCase->currentDate), canvas);
+	clock->draw(*(playerCase->currentDate), bgSurfaceCopy);
 }
 
 void Game::increaseTime(int hours) {
@@ -139,23 +140,23 @@ void Game::increaseTime(int hours) {
 
 void Game::enterOption() {
 	switch (currentOption) {
-	case 0:
-		optionTravel();
-		break;
-	case 1:
-		optionProfile();
-		break;
-	case 2:
-		optionPlaces();
-		break;
-	case 3:
-		quitGame();
-		break;
+		case 0:
+			optionTravel();
+			break;
+		case 1:
+			optionProfile();
+			break;
+		case 2:
+			optionPlaces();
+			break;
+		case 3:
+			quitGame();
+			break;
 	}
 }
 
 void Game::optionTravel() {
-	Surface *backup = canvas->getArea( Point::Origin, canvas->getDimension());
+	Surface *backup = bgSurfaceCopy->getArea(Point::Origin, bgSurfaceCopy->getDimension());
 	Country &from = playerCase->getCurrentCountry();
 
 	Map map(window, &from, playerCase->nextCountries);
@@ -163,7 +164,7 @@ void Game::optionTravel() {
 
 	// If the user pressed ESCAPE or RIGHT_BUTTON, then the re-draw must be ignored.
 	if (selected != -1) {
-		window->drawSurface( &background );
+		window->drawSurface(&bgSurface);
 		window->flip();
 
 		Country nextCountry = playerCase->nextCountry();
@@ -181,9 +182,9 @@ void Game::optionTravel() {
 		playerCase->updateCountries();
 		playerCase->updateClues();
 
-		showCountry(canvas, newCountry);
+		showCountry(bgSurfaceCopy, newCountry);
 	} else {
-		window->drawSurface( backup );
+		window->drawSurface(backup);
 		window->flip();
 	}
 
@@ -191,12 +192,14 @@ void Game::optionTravel() {
 }
 
 void Game::optionPlaces() {
-	Surface *backup = canvas->getArea( Point::Origin, canvas->getDimension());
+	Surface windowSurface(window->getSurface());
+	Surface *backup = bgSurfaceCopy->getArea(Point::Origin, bgSurfaceCopy->getDimension());
 
 	vector<Place> randomPlaces = PlacesManager::findRandom(3);
-	PlaceSelector placeSelector(window, canvas, randomPlaces);
+	PlaceSelector placeSelector(window, bgSurfaceCopy, randomPlaces);
 	int selected = placeSelector.showAndReturn();
-	window->drawSurface( backup );
+	window->drawSurface(backup);
+	window->drawSurface(&windowSurface);
 	window->flip();
 	if (selected == -1) {
 		return;
@@ -207,31 +210,31 @@ void Game::optionPlaces() {
 	unsigned int secondsCurrent = playerCase->currentDate->toSeconds();
 	unsigned int secondsEnd = playerCase->endDate->toSeconds();
 
-	if(secondsCurrent >= secondsEnd) {
+	if (secondsCurrent >= secondsEnd) {
 		state = GameState::LostTimeout;
 		return;
 	} else
-	if((secondsEnd - secondsCurrent) / 3600 <= 3) {
+		if ((secondsEnd - secondsCurrent) / 3600 <= 3) {
 		Font *fontWarn = FontManager::getFont("FreeSansBold", 35);
 		fontWarn->setColor(Color(0xff, 0, 0));
 		Text warn("Only 3 hours left!", fontWarn);
-		warn.draw(Point(440, 15), canvas);
+		warn.draw(Point(440, 15), bgSurfaceCopy);
 	} else
-	if(playerCase->currentPosition == 6) {
+		if (playerCase->currentPosition == 6) {
 		state = playerCase->captureOrderExecuted ? GameState::Won : GameState::LostEscaped;
 		return;
 	}
 	Place place = randomPlaces[ selected ];
 
 	Surface backup2("resources/images/mainwindow_bg.png");
-	Surface *b = backup2.getArea(Area(Point(310, 145), Dimension( 450, 220)));
-	canvas->drawSurface(b, Point(310, 145));
+	Surface *b = backup2.getArea(Area(Point(310, 145), Dimension(450, 220)));
+	bgSurfaceCopy->drawSurface(b, Point(310, 145));
 
 	Surface *character = place.getCharacterSurface();
 	Point characterPosition = Point(318, 250);
 	Dimension characterDim = character->getDimension();
-	Surface *area = canvas->getArea(characterPosition, characterDim);
-	canvas->drawSurface(character, characterPosition);
+	Surface *area = bgSurfaceCopy->getArea(characterPosition, characterDim);
+	bgSurfaceCopy->drawSurface(character, characterPosition);
 	Clue *clue = NULL;
 	Country country = playerCase->getCurrentCountry();
 	if (country.getID() != playerCase->getLastCountry().getID()) {
@@ -241,39 +244,39 @@ void Game::optionPlaces() {
 	}
 
 	Surface ballonSurf("resources/images/ballon.png");
-	canvas->drawSurface(&ballonSurf, Point(395, 194));
+	bgSurfaceCopy->drawSurface(&ballonSurf, Point(395, 194));
 
 	// Clue drawing
 	Font *hintFont = FontManager::getFont("FreeSansBold", 14);
 	hintFont->setColor(Color(211, 186, 164)); // #D3BAA4	
 
 	Text description(clue->getMessage(), hintFont);
-	description.drawLines(Point(440, 220), Dimension(285, 115), canvas);
+	description.drawLines(Point(440, 220), Dimension(285, 115), bgSurfaceCopy);
 
-	canvas->updateArea(Point(395, 194), ballonSurf.getDimension());
-	window->drawSurface(canvas);
+	bgSurfaceCopy->updateArea(Point(395, 194), ballonSurf.getDimension());
+	window->drawSurface(bgSurfaceCopy);
 	window->flip();
 
 	delete area;
 	delete character;
-	
+
 	delete backup;
 }
 
 void Game::optionProfile() {
-	Surface *backup = canvas->getArea( Point::Origin, window->getDimension());
+	Surface *backup = bgSurfaceCopy->getArea(Point::Origin, window->getDimension());
 
 	ProfileScreen profileScreen(window, playerCase);
 	profileScreen.run();
 
-	window->drawSurface(backup );
+	window->drawSurface(backup);
 	window->flip();
-	
+
 	delete backup;
 }
 
 int Game::calculateHours(Country &from, Country &to) {
-	vector<Point> path = MathUtil::calculatePath( from.getLatitudeLongitude(), to.getLatitudeLongitude() );
-	return int(path.size()/30);
+	vector<Point> path = MathUtil::calculatePath(from.getLatitudeLongitude(), to.getLatitudeLongitude());
+	return int(path.size() / 30);
 }
 

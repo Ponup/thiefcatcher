@@ -4,16 +4,15 @@
 using std::string;
 
 class Clue {
-
 private:
-	string message;
+    string message;
 
 public:
-	Clue();
-	Clue( const string &message );
-	~Clue();
+    Clue();
+    Clue(const string &message);
+    ~Clue();
 
-	void setMessage( const string &message );
-	string getMessage() const;
+    void setMessage(const string &message);
+    string getMessage() const;
 };
 

@@ -10,101 +10,101 @@
 #include "ui/Clock.h"
 
 enum class GameState {
-	Playing,
-	LostTimeout,
-	LostEscaped,
-	Won,
-	Abort
+    Playing,
+    LostTimeout,
+    LostEscaped,
+    Won,
+    Abort
 };
 
 class SquareButton {
 private:
-	Surface *image;
-	Surface *imageOver;
-	Point position;
-	string label;
+    Surface *image;
+    Surface *imageOver;
+    Point position;
+    string label;
 public:
-	SquareButton(const char *image, const char *imageOver, const Point &position, const string &label)
-		: image(new Surface(image)), imageOver(new Surface(imageOver)), position(position), label(label)
-	{
-	}
 
-	~SquareButton() {
-		if(image != nullptr)
-			delete image;
-		if(imageOver != nullptr)
-			delete imageOver;
-	}
+    SquareButton(const char *image, const char *imageOver, const Point &position, const string &label)
+    : image(new Surface(image)), imageOver(new Surface(imageOver)), position(position), label(label) {
+    }
 
-	string getLabel() {
-		return label;
-	}
+    ~SquareButton() {
+        if (image != nullptr)
+            delete image;
+        if (imageOver != nullptr)
+            delete imageOver;
+    }
 
-	Point getPosition() {
-		return position;
-	}
+    string getLabel() {
+        return label;
+    }
 
-	Surface* getImage() {
-		return image;
-	}
+    Point getPosition() {
+        return position;
+    }
 
-	Surface* getImageOver() {
-		return imageOver;
-	}
+    Surface* getImage() {
+        return image;
+    }
+
+    Surface* getImageOver() {
+        return imageOver;
+    }
 };
 
 class Game {
-	private:
-		SensitiveAreas sensAreas;
-				
-		Window *window;
-		Surface* canvas;
-		Surface background;
+private:
+    SensitiveAreas sensAreas;
 
-		Font timeFont;
-		Surface *timeControllerSurf;
-		Surface *timeSurfBackup;
-		Point dateTimePosition;
-		
-		SDL_Surface *fontSurface;
-		
-		SDL_Surface *optionBackup;
-		SDL_Rect lastRect;
-		
-		Surface *backupSurf;
-		
-		SquareButton *buttons[4];
-		
-		PlayerCase *playerCase;
-		
-		GameState state;
+    Window *window;
+    Surface* bgSurfaceCopy;
+    Surface bgSurface;
 
-		Clock *clock;
-				
-		void optionTravel();
-		void optionNotes();
-		void optionPlaces();
-		void optionProfile();
-		
-		int calculateHours(Country &from, Country &to);
-	public:		
-		int currentOption;
+    Font timeFont;
+    Surface *timeControllerSurf;
+    Surface *timeSurfBackup;
+    Point dateTimePosition;
 
-		Game(Window *window, PlayerCase *playerCase);
-		~Game();
+    SDL_Surface *fontSurface;
 
-		void enterOption();		
-		void updateOption();
-		Window *getWindow();
-		void quitGame();
+    SDL_Surface *optionBackup;
+    SDL_Rect lastRect;
 
-		GameState getGameState();
+    Surface *backupSurf;
 
-		void updateTime();
-		void increaseTime(int hours);
+    SquareButton *buttons[4];
 
-		bool isPlaying();
-		void update();
+    PlayerCase *playerCase;
+
+    GameState state;
+
+    Clock *clock;
+
+    void optionTravel();
+    void optionNotes();
+    void optionPlaces();
+    void optionProfile();
+
+    int calculateHours(Country &from, Country &to);
+public:
+    int currentOption;
+
+    Game(Window *window, PlayerCase *playerCase);
+    ~Game();
+
+    void enterOption();
+    void updateOption();
+    Window *getWindow();
+    void quitGame();
+
+    GameState getGameState();
+
+    void updateTime();
+    void increaseTime(int hours);
+
+    bool isPlaying();
+    void update();
 };
 
 #endif

@@ -19,48 +19,49 @@
 #include "entities/PlacesManager.h"
 
 class PlaceSelector : public EventHandler {
+private:
+    SensitiveAreas sensAreas;
 
-	private:
-		SensitiveAreas sensAreas;
-		
-		bool quit;
-		
-		Place places[3];
-		
-		Window *screen;
-		Surface *surface;
-		Surface* canvas;
-		Surface *dialogBackup;
+    bool quit;
 
-		Point dialogPosition;
-		Dimension dialogDimension;
+    Place places[3];
 
-		Surface *images[3];
-		SDL_Rect areas[3];	
-		
-		int selectedIndex;
-		int returnCode;
-		
-//		Surface *loadImage(const char *name) const;
-		void update();
-	public:
-		PlaceSelector(Window *screen, Surface* canvas, vector<Place> randomPlaces);
-		~PlaceSelector();
-		
-		void onQuit(SDL_QuitEvent event) {
-			
-		}
-		void onMouseMotion(SDL_MouseMotionEvent event);
-		void onMouseButtonDown(SDL_MouseButtonEvent event);
-		void onMouseButtonUp(SDL_MouseButtonEvent event) {
-			
-		}
-		void onKeyDown(SDL_KeyboardEvent event);
-		void onKeyUp(SDL_KeyboardEvent event) {
-			
-		}
+    Window *screen;
+    Surface *surface;
+    Surface* bgSurface;
+    Surface *dialogBackup;
 
-		int showAndReturn();
+    Point dialogPosition;
+    Dimension dialogDimension;
+
+    Surface *images[3];
+    SDL_Rect areas[3];
+
+    int selectedIndex;
+    int returnCode;
+
+    //		Surface *loadImage(const char *name) const;
+    void update();
+public:
+    PlaceSelector(Window *screen, Surface* canvas, vector<Place> randomPlaces);
+    ~PlaceSelector();
+
+    void onQuit(SDL_QuitEvent event) {
+
+    }
+    void onMouseMotion(SDL_MouseMotionEvent event);
+    void onMouseButtonDown(SDL_MouseButtonEvent event);
+
+    void onMouseButtonUp(SDL_MouseButtonEvent event) {
+
+    }
+    void onKeyDown(SDL_KeyboardEvent event);
+
+    void onKeyUp(SDL_KeyboardEvent event) {
+
+    }
+
+    int showAndReturn();
 };
 
 #endif

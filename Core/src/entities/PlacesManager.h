@@ -6,9 +6,8 @@ using std::vector;
 #include "Place.h"
 
 class PlacesManager {
-
 public:
-	static vector<Place> findRandom( int limit );
+    static vector<Place> findRandom(unsigned int limit);
 
 };
 

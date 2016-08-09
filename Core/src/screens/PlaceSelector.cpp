@@ -1,19 +1,19 @@
 #include "PlaceSelector.h"
 
-PlaceSelector::PlaceSelector(Window *screen, Surface* canvas, vector<Place> randomPlaces) {
-	this->screen = screen;
+PlaceSelector::PlaceSelector(Window *screen, Surface* bgSurface, vector<Place> randomPlaces) :
+	screen(screen),
+	bgSurface(bgSurface)
+	{
 
 	dialogPosition = Point(415, 466);
 	dialogDimension = Dimension(348, 130);
 
-	this->canvas = canvas;
-	dialogBackup = canvas->getArea(dialogPosition, dialogDimension);
-	//canvas = screen->getArea( Point(0,0), screen->getDimension() );
+	dialogBackup = bgSurface->getArea(dialogPosition, dialogDimension);
 
 	surface = new Surface("resources/images/places/dialog.png");
-	canvas->drawSurface(surface, Point(415, 466));
+	bgSurface->drawSurface(surface, Point(415, 466));
 
-	screen->drawSurface( canvas );
+	screen->drawSurface(bgSurface);
 	screen->flip();
 
 	quit = false;
@@ -56,20 +56,20 @@ PlaceSelector::~PlaceSelector() {
 
 void PlaceSelector::update() {
 	screen->drawSurface(dialogBackup, dialogPosition);
-	canvas->drawSurface(surface, Point(415, 466));
+	bgSurface->drawSurface(surface, Point(415, 466));
 
 	if (selectedIndex < 3) {
 		Font *font = FontManager::getFont("FreeSansBold", 14);
 		Text text(places[selectedIndex].getName(), font);
-		text.draw(Point((dialogDimension.w >> 1) - (text.getDimension().w >> 1), 110), canvas);
+		text.draw(Point((dialogDimension.w >> 1) - (text.getDimension().w >> 1), 110), bgSurface);
 	}
 
 	for (int i = 0; i < 3; i++) {
 		Point point(areas[i].x, areas[i].y);
-		canvas->drawSurface(images[i], point);
+		bgSurface->drawSurface(images[i], point);
 	}
 
-	screen->drawSurface( canvas, dialogPosition );
+	screen->drawSurface(bgSurface, dialogPosition);
 
 	for (int i = 0; i < 3; i++) {
 		Point point(areas[i].x, areas[i].y);
@@ -98,30 +98,30 @@ int PlaceSelector::showAndReturn() {
 
 void PlaceSelector::onKeyDown(SDL_KeyboardEvent event) {
 	switch (event.keysym.sym) {
-	case SDLK_ESCAPE:
-		returnCode = -1;
-		quit = true;
-		break;
-	case SDLK_RETURN:
-		returnCode = selectedIndex;
-		quit = true;
-		break;
-	case SDLK_LEFT:
-		if (selectedIndex == 0)
-			selectedIndex = 2;
-		else
-			selectedIndex--;
-		update();
-		break;
-	case SDLK_RIGHT:
-		if (selectedIndex == 2)
-			selectedIndex = 0;
-		else
-			selectedIndex++;
-		update();
-		break;
-	default:
-		break;
+		case SDLK_ESCAPE:
+			returnCode = -1;
+			quit = true;
+			break;
+		case SDLK_RETURN:
+			returnCode = selectedIndex;
+			quit = true;
+			break;
+		case SDLK_LEFT:
+			if (selectedIndex == 0)
+				selectedIndex = 2;
+			else
+				selectedIndex--;
+			update();
+			break;
+		case SDLK_RIGHT:
+			if (selectedIndex == 2)
+				selectedIndex = 0;
+			else
+				selectedIndex++;
+			update();
+			break;
+		default:
+			break;
 	}
 }
 
