@@ -1,6 +1,7 @@
 
 #include <iostream>
 using std::cout;
+using std::cerr;
 using std::endl;
 
 #include <signal.h>
@@ -30,31 +31,32 @@ using Kangaroo::Database;
 #include "utilities/Configurator.h"
 
 void onInterrupt(int code) {
-	printf("Game interrupted by the user (code: %d). Exiting.\n", code);
-	exit(1);
+	cout << "Game interrupted by the user (code: " << code << "). Exiting." << endl;
+	exit(EXIT_FAILURE);
 }
 
-int main(int argc, char * argv[]) {
+int main(int argc, char** argv) {
 
 	signal(SIGINT, onInterrupt);
 
-	if (false &&Updater::existsNewVersion(GAME_VERSION)) {
+	if (Updater::existsNewVersion(GAME_VERSION)) {
 		cout << _("A new version of 'Thief Catcher' is available for download!") << endl;
 	}
 
 	Kangaroo::Services services;
-	services.addService( new CoreService( SDL_INIT_VIDEO ) );
-	services.addService(new MixerService(44100,2) );
-	services.addService( new FontService() );
+	services.addService(new CoreService(SDL_INIT_VIDEO));
+	services.addService(new MixerService(44100, 2));
+	services.addService(new FontService());
 	services.init();
 
 	Configurator configurator = Configurator::getInstance();
 
 	try {
 		configurator.init();
-	} catch ( std::runtime_error &error ) {
-		fprintf( stderr, "%s\n", error.what() );
-		exit(1);
+	}
+	catch (const std::runtime_error &error) {
+		cerr << "An error has occurred: " << error.what() << endl;
+		return EXIT_FAILURE;
 	}
 
 	Translator::init(configurator.getLanguage());
@@ -62,21 +64,23 @@ int main(int argc, char * argv[]) {
 	Window window(_("Thief Catcher"), GAME_WINDOW_W, GAME_WINDOW_H, "resources/logo/thief_256.png", configurator.isFullScreen());
 
 	try {
-		Database::getInstance().init( "data/game.db" );
+		Database::getInstance().init("data/game.db");
 		Vars::init();
-	} catch (std::runtime_error &error) {
-		fprintf(stderr, "ERROR: %s\n", error.what());
-		exit(1);
+	}
+	catch (const std::runtime_error &error) {
+		cerr << "An error has occurred: " << error.what() << endl;
+		return EXIT_FAILURE;
 	}
 
-	IntroScreen intro( &window );
+#ifndef TC_SKIP_INTRO
+	IntroScreen intro(&window);
 	intro.run();
+#endif
 
-	MenuScreen menuScreen( &window, &configurator );
+	MenuScreen menuScreen(&window, &configurator);
 	menuScreen.show();
 
 	services.destroy();
 
 	return EXIT_SUCCESS;
 }
-

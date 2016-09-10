@@ -35,7 +35,7 @@ void Clock::draw(const DateTime &dateTime, Surface *screen) {
 	int yy = position.y + radio;
 
 	screen->updateArea(Area(position, clockSurf.getDimension()));
-	aalineRGBA(window->renderer, xx, yy, xx + x, yy - y, 0, 0, 0, 255);
 	window->flip();
+	aalineRGBA(window->renderer, xx, yy, xx + x, yy - y, 0, 0, 0, 255);
 }
 

@@ -1,5 +1,4 @@
-#ifndef GAME_H
-#define GAME_H
+#pragma once
 
 #include <SensitiveAreas.h>
 #include <Surface.h>
@@ -8,6 +7,7 @@
 
 #include "entities/PlayerCase.h"
 #include "ui/Clock.h"
+#include "ui/widgets/SquareButton.h"
 
 enum class GameState {
     Playing,
@@ -15,42 +15,6 @@ enum class GameState {
     LostEscaped,
     Won,
     Abort
-};
-
-class SquareButton {
-private:
-    Surface *image;
-    Surface *imageOver;
-    Point position;
-    string label;
-public:
-
-    SquareButton(const char *image, const char *imageOver, const Point &position, const string &label)
-    : image(new Surface(image)), imageOver(new Surface(imageOver)), position(position), label(label) {
-    }
-
-    ~SquareButton() {
-        if (image != nullptr)
-            delete image;
-        if (imageOver != nullptr)
-            delete imageOver;
-    }
-
-    string getLabel() {
-        return label;
-    }
-
-    Point getPosition() {
-        return position;
-    }
-
-    Surface* getImage() {
-        return image;
-    }
-
-    Surface* getImageOver() {
-        return imageOver;
-    }
 };
 
 class Game {
@@ -82,7 +46,6 @@ private:
     Clock *clock;
 
     void optionTravel();
-    void optionNotes();
     void optionPlaces();
     void optionProfile();
 
@@ -98,13 +61,11 @@ public:
     Window *getWindow();
     void quitGame();
 
-    GameState getGameState();
+    GameState getGameState() const;
 
     void updateTime();
     void increaseTime(int hours);
 
-    bool isPlaying();
+    bool isPlaying() const;
     void update();
 };
-
-#endif

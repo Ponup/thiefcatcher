@@ -37,7 +37,7 @@ PlayerCase *AssignmentScreen::show() {
 	addLine(_("Police at the keyboard, please identify yourself:"));
 	showLines();
 
-	bool quitted;
+	bool quitted = false;
 	string name = askName(quitted);
 	if (quitted) {
 		return nullptr;
@@ -141,7 +141,7 @@ string AssignmentScreen::askName(bool &quitted) {
 	string name;
 
 	SDL_Event ev;
-	bool keepLooping;
+	bool keepLooping = false;
 
 	while (!keepLooping) {
 		if (SDL_PollEvent(&ev)) {

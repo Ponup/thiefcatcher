@@ -99,11 +99,11 @@ void Game::update() {
 	updateOption();
 }
 
-bool Game::isPlaying() {
+bool Game::isPlaying() const {
 	return state == GameState::Playing;
 }
 
-GameState Game::getGameState() {
+GameState Game::getGameState() const {
 	return state;
 }
 
