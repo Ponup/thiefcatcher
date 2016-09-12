@@ -1,5 +1,7 @@
 #include "OptionsScreen.h"
 
+#include "Game.h"
+
 enum {
 	LANG_ENGLISH = 0,
 	LANG_SPANISH,
@@ -9,7 +11,9 @@ enum {
 
 const char LANGUAGES[NUM_LANGUAGES][20] = { "Spanish", "English", "Catalan" };
 
-OptionsScreen::OptionsScreen(Window *window_) : window(window_) {
+OptionsScreen::OptionsScreen(Renderer* renderer) :
+	renderer(renderer),
+	backgroundTexture(renderer->internal, "resources/images/menu/background.png") {
 	quit = false;
 
 	configurator = Configurator::getInstance();
@@ -17,33 +21,8 @@ OptionsScreen::OptionsScreen(Window *window_) : window(window_) {
 
 	languageIndex = 0;
 
-	Font *font = FontManager::getFont("FreeSansBold", 25);
-	font->setColor(Color(63, 36, 18));
-
 	fontValue = FontManager::getFont("FreeSans", 25);
 	fontValue->setColor(Color(0, 0, 255));
-	
-	backgroundSurf = new Surface("resources/images/menu/background.png");
-
-	Font headerFont("resources/fonts/gtw.ttf", 45);
-	headerFont.setColor(Color(255, 220, 220));
-	Text headerText(_("Thief Catcher"), &headerFont);
-	headerText.draw(Point(30, 10), backgroundSurf);
-
-	headerFont.setColor(Color(63, 36, 18));
-	Text screenTitle(_("Options"), &headerFont);
-	int x = window->getDimension().w - screenTitle.getDimension().w - 30;
-	screenTitle.draw(Point(x, 10), backgroundSurf);
-		
-	Text languageLabel(_("Language"), font);
-	Text musicLabel(_("Music"), font);
-	Text soundsLabel(_("Sounds"), font);
-	Text fullscreenLabel(_("Full screen"), font);
-
-	languageLabel.draw(Point(200, 130), backgroundSurf);
-	musicLabel.draw(Point(200, 160), backgroundSurf);
-	soundsLabel.draw(Point(200, 190), backgroundSurf);
-	fullscreenLabel.draw(Point(200, 220), backgroundSurf);
 
 	languageValue = new Text();
 	languageValue->setFont(fontValue);
@@ -69,8 +48,6 @@ OptionsScreen::~OptionsScreen() {
 	delete musicValue;
 	delete soundsValue;
 	delete fullscreenValue;
-	
-	delete backgroundSurf;
 }
 
 void OptionsScreen::show() {
@@ -96,17 +73,37 @@ void OptionsScreen::updateScreen(bool update) {
 		return;
 	}
 
-	Surface *canvas = new Surface(backgroundSurf->toSDL());
-	
-	languageValue->draw(Point(480, 130), canvas);
-	musicValue->draw(Point(480, 160), canvas);
-	soundsValue->draw(Point(480, 190), canvas);
-	fullscreenValue->draw(Point(480, 220), canvas);
-	
-	window->drawSurface( canvas );
-	delete canvas;
+	renderer->drawTexture(&backgroundTexture);
 
-	window->flip();
+	Font *font = FontManager::getFont("FreeSansBold", 25);
+	font->setColor(Color(63, 36, 18));
+
+	Font headerFont("resources/fonts/gtw.ttf", 45);
+	headerFont.setColor(Color(255, 220, 220));
+	Text headerText(_("Thief Catcher"), &headerFont);
+	renderer->drawText(&headerText, Point(30, 10));
+
+	headerFont.setColor(Color(63, 36, 18));
+	Text screenTitle(_("Options"), &headerFont);
+	int x = Game::Width - screenTitle.getDimension().w - 30;
+	renderer->drawText(&screenTitle, Point(x, 10));
+
+	Text languageLabel(_("Language"), font);
+	Text musicLabel(_("Music"), font);
+	Text soundsLabel(_("Sounds"), font);
+	Text fullscreenLabel(_("Full screen"), font);
+
+	renderer->drawText(&languageLabel, Point(200, 130));
+	renderer->drawText(&musicLabel, Point(200, 160));
+	renderer->drawText(&soundsLabel, Point(200, 190));
+	renderer->drawText(&fullscreenLabel, Point(200, 220));
+
+	renderer->drawText(languageValue, Point(480, 130));
+	renderer->drawText(musicValue, Point(480, 160));
+	renderer->drawText(soundsValue, Point(480, 190));
+	renderer->drawText(fullscreenValue, Point(480, 220));
+	
+	renderer->present();
 }
 
 void OptionsScreen::onQuit(SDL_QuitEvent e) {
@@ -153,7 +150,7 @@ void OptionsScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
 				break;
 			case 3:
 				configurator.setFullScreen(!configurator.isFullScreen());
-				window->toggleFullScreen();
+				//window->toggleFullScreen();
 				break;
 			}
 		}

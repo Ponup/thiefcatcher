@@ -6,8 +6,15 @@
 #include <Window.h>
 
 #include "entities/PlayerCase.h"
+#include "entities/Place.h"
 #include "ui/Clock.h"
 #include "ui/widgets/SquareButton.h"
+
+#include <Texture.h>
+#include <Renderer.h>
+
+using Kangaroo::Texture;
+using Kangaroo::Renderer;
 
 enum class GameState {
     Playing,
@@ -18,16 +25,14 @@ enum class GameState {
 };
 
 class Game {
-private:
-    SensitiveAreas sensAreas;
+
+	SensitiveAreas sensAreas;
 
     Window *window;
-    Surface* bgSurfaceCopy;
-    Surface bgSurface;
-
+	Renderer renderer;
+	Texture backgroundTexture;
+	
     Font timeFont;
-    Surface *timeControllerSurf;
-    Surface *timeSurfBackup;
     Point dateTimePosition;
 
     SDL_Surface *fontSurface;
@@ -35,15 +40,17 @@ private:
     SDL_Surface *optionBackup;
     SDL_Rect lastRect;
 
-    Surface *backupSurf;
-
     SquareButton *buttons[4];
 
     PlayerCase *playerCase;
+	Clue* clue;
+	Place place;
 
     GameState state;
 
     Clock *clock;
+
+	void drawScene();
 
     void optionTravel();
     void optionPlaces();
@@ -51,19 +58,23 @@ private:
 
     int calculateHours(Country &from, Country &to);
 public:
+
+	static const int Width = 800;
+	static const int Height = 600;
+
     int currentOption;
 
     Game(Window *window, PlayerCase *playerCase);
     ~Game();
 
     void enterOption();
-    void updateOption();
+    void drawPlacesArea();
     Window *getWindow();
     void quitGame();
 
     GameState getGameState() const;
 
-    void updateTime();
+    void drawTimeArea();
     void increaseTime(int hours);
 
     bool isPlaying() const;

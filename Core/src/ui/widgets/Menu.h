@@ -1,5 +1,4 @@
-#ifndef MENU_H
-#define MENU_H
+#pragma once 
 
 #include <vector>
 using std::vector;
@@ -15,6 +14,10 @@ using std::vector;
 
 #include "MenuItem.h"
 
+#include "Texture.h"
+
+using Kangaroo::Texture;
+
 class Menu : public EventHandler {
 	private:
 		short selectedItem;
@@ -28,8 +31,8 @@ class Menu : public EventHandler {
 		Font font;
 
 		Window *window;
-		Surface backgroundSurf;		
-		Surface pipeSurf;
+		Texture backgroundTexture;
+		Texture smokingPipeTexture;
 
 		MediaSound sound;
 		
@@ -55,5 +58,3 @@ class Menu : public EventHandler {
 		void onMouseButtonUp(SDL_MouseButtonEvent e);
 		void onMouseMotion(SDL_MouseMotionEvent e);
 };
-
-#endif

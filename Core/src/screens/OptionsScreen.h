@@ -1,5 +1,4 @@
-#ifndef OPTIONSSCREEN_H
-#define OPTIONSSCREEN_H
+#pragma once
 
 #include <Window.h>
 #include <EventHandler.h>
@@ -7,14 +6,18 @@
 #include <SensitiveAreas.h>
 
 #include <Text.h>
+#include <Renderer.h>
+#include <Texture.h>
+
+using Kangaroo::Renderer;
+using Kangaroo::Texture;
 
 #include "utilities/Translator.h"
 #include "utilities/Configurator.h"
 
 class OptionsScreen : public EventHandler {
 
-private:
-	Window *window;
+	Renderer* renderer;
 	bool quit;
 	Configurator configurator;
 	SensitiveAreas sensAreas;
@@ -23,7 +26,7 @@ private:
 
 	Font *fontValue;
 	
-	Surface *backgroundSurf;
+	Texture backgroundTexture;
 	
 	Text *musicValue;
 	Text *soundsValue;
@@ -31,7 +34,7 @@ private:
 	Text *fullscreenValue;
 
 public:
-	OptionsScreen(Window *window);
+	OptionsScreen(Renderer* renderer);
 	virtual ~OptionsScreen();
 
 	void show();
@@ -47,5 +50,3 @@ private:
 	void onKeyDown(SDL_KeyboardEvent);
 	void onKeyUp(SDL_KeyboardEvent);
 };
-
-#endif

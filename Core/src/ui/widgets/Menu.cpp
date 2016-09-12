@@ -6,8 +6,18 @@
 
 #include "utilities/Translator.h"
 
+#include "Renderer.h"
+#include "Texture.h"
+
+using Kangaroo::Renderer;
+using Kangaroo::Texture;
+
 Menu::Menu(Window * window_) :
-selectedItem(0), window(window_) {
+	selectedItem(0),
+	window(window_),
+	backgroundTexture(window_->renderer, "resources/images/menu/background.png"),
+	smokingPipeTexture(window_->renderer, "resources/images/menu/pipe.png")
+	{
 	lastY = 150;
 	currentItem = -2;
 
@@ -17,9 +27,6 @@ selectedItem(0), window(window_) {
 	headerFont.load("resources/fonts/gtw.ttf", 45);
 	headerFont.setColor(Color(255, 220, 220));
 	font.load("resources/fonts/FreeSansBold.ttf", 30);
-
-	backgroundSurf.load("resources/images/menu/background.png");
-	pipeSurf.load("resources/images/menu/pipe.png");
 }
 
 Menu::~Menu() {
@@ -70,27 +77,28 @@ void Menu::update() {
 	Color colorSelected(255, 255, 255);
 	Color colorNotSelected(0x3f, 0x24, 0x12);
 
-	Surface canvas(backgroundSurf.toSDL());
+	Renderer renderer(window->renderer);
+
+	renderer.drawTexture(&backgroundTexture);
 
 	Text textLine(_("Thief Catcher"));
 	textLine.setFont(&headerFont);
-	textLine.draw(Point(30, 10), &canvas);
+	renderer.drawText(&textLine, Point(30, 10));
 
 	for (unsigned int i = 0; i < items.size(); i++) {
 		MenuItem item = items.at(i);
 		Text *text = item.getText();
 		if ((short) i == selectedItem) {
-			canvas.drawSurface(&pipeSurf, Point(185, item.getPosition().y));
+			renderer.drawTexture(&smokingPipeTexture, Point(185, item.getPosition().y));
 			font.setColor(colorSelected);
 		} else {
 			font.setColor(colorNotSelected);
 		}
 		text->setFont(&font);
-		text->draw(item.getPosition(), &canvas);
+		renderer.drawText(text, item.getPosition());
 	}
 
-	window->drawSurface(&canvas);
-	window->flip();
+	renderer.present();
 }
 
 void Menu::onQuit(SDL_QuitEvent e) {

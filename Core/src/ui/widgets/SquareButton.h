@@ -1,21 +1,23 @@
 #pragma once
 
-#include "Surface.h"
-#include "Point.h"
+#include <Texture.h>
+#include <Point.h>
+
+using Kangaroo::Texture;
 
 class SquareButton {
 
-	Surface* image;
-	Surface* imageOver;
+	Texture* image;
+	Texture* imageOver;
 	Point position;
 	string label;
 
 public:
-	SquareButton(const char *image, const char *imageOver, const Point& position, const string& label);
+	SquareButton(SDL_Renderer* renderer, const char *image, const char *imageOver, const Point& position, const string& label);
 	~SquareButton();
 
 	string getLabel();
 	Point getPosition();
-	Surface* getImage();
-	Surface* getImageOver();
+	Texture* getImage();
+	Texture* getImageOver();
 };

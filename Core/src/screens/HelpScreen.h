@@ -1,19 +1,18 @@
-#ifndef HELPSCREEN_H
-#define HELPSCREEN_H
+#pragma once
 
 #include <Window.h>
 
+#include <Renderer.h>
+
+using Kangaroo::Renderer;
+
 class HelpScreen {
 
-private:
-	Window *window;
+	Renderer* renderer;
 
 public:
-	HelpScreen( Window *window_ );
+	HelpScreen(Renderer* renderer);
 	~HelpScreen();
 
 	void show();
 };
-
-#endif
-

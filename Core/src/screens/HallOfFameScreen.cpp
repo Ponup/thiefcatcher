@@ -12,39 +12,41 @@
 #include "ponup-api/Api.h"
 using namespace Ponup;
 
-HallOfFameScreen::HallOfFameScreen( Window *screen ) : screen( screen ), quit( false ) {
+HallOfFameScreen::HallOfFameScreen(Renderer* renderer) : renderer(renderer), quit(false) {
 }
 
 void HallOfFameScreen::show() {
-	Surface background("resources/images/menu/background.png");
-	Surface* canvas =new Surface("resources/images/menu/background.png");
+	Texture backgroundTexture(renderer->internal, "resources/images/menu/background.png");
+	renderer->drawTexture(&backgroundTexture);
 
 	Font headerFont("resources/fonts/gtw.ttf", 45);
 	headerFont.setColor(Color(255, 220, 220));
 	Text headerText(_("Thief Catcher"), &headerFont);
-	headerText.draw(Point(30, 10), &background);
+	renderer->drawText(&headerText, Point(30, 10));
 
 	Font playerFont("resources/fonts/FreeSansBold.ttf", 14);
-	playerFont.setColor(Color(0x00, 0x00, 0x00));	
+	playerFont.setColor(Color(0x00, 0x00, 0x00));
 
 	int columnPos[4] = { 240, 260, 360, 480 };
 	string headerNames[] = {
 		_("#"), _("Player"), _("Rank"), _("Experience")
 	};
-	
+
 	int headerY = 140;
 
-	for(int i = 0; i < 4; i++)
-		Text::drawString(headerNames[i], Point(columnPos[i], headerY), &playerFont, &background);
-	
+	for (int i = 0; i < 4; i++) {
+		Text header(headerNames[i], &playerFont);
+		renderer->drawText(&header, Point(columnPos[i], headerY));
+	}
+
 	int playerY = headerY + 40;
 
-	playerFont.setColor(Color(255, 255, 255));	
+	playerFont.setColor(Color(255, 255, 255));
 
-	vector<Score> scores = Ponup::Api::getScores( "thiefcatcher" );
+	vector<Score> scores = Ponup::Api::getScores("thiefcatcher");
 
 	for (unsigned int i = 0; i < scores.size(); i++) {
-		Score score = scores.at( i );
+		Score score = scores.at(i);
 
 		char experience[30];
 		memset(experience, 0, 30);
@@ -57,38 +59,34 @@ void HallOfFameScreen::show() {
 			experience
 		};
 
-		Surface icon("resources/icons/award_star_gold_1.png", true);
-		background.drawSurface(&icon, Point(210, playerY));
+		Texture icon(renderer->internal, "resources/icons/award_star_gold_1.png");
+		renderer->drawTexture(&icon, Point(210, playerY));
 
-		for(int i = 0; i < 4; i++)
-			Text::drawString(playerValues[i].c_str(), Point(columnPos[i], playerY), &playerFont, &background); 
+		for (int i = 0; i < 4; i++) {
+			Text value(playerValues[i].c_str(), &playerFont);
+			renderer->drawText(&value, Point(columnPos[i], playerY));
+		}
 
 		playerY += playerFont.getLineSkip();
 	}
 
-	canvas->drawSurface(&background);	
-	screen->drawSurface(canvas);
-	screen->flip();
-	
+	renderer->present();
+
 	MediaMusic sound("resources/sounds/fireworks.aif");
 	sound.play();
 
 	FrameRegulator fr(120);
 	fr.setUp();
-	
+
 	while (!quit) {
 		captureEvents();
 
-		if( sound.isPlaying() ) sound.fadeOut();
+		if (sound.isPlaying()) sound.fadeOut();
 
-		canvas->drawSurface(&background);
-		screen->drawSurface(canvas);
-		screen->flip();
-		
 		fr.regulate();
 	}
 
-	if( sound.isPlaying() )	
+	if (sound.isPlaying())
 		sound.stop();
 }
 
@@ -97,7 +95,7 @@ void HallOfFameScreen::onKeyDown(SDL_KeyboardEvent e) {
 }
 
 void HallOfFameScreen::onKeyUp(SDL_KeyboardEvent e) {
-	
+
 }
 
 void HallOfFameScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
@@ -105,10 +103,10 @@ void HallOfFameScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
 }
 
 void HallOfFameScreen::onMouseButtonUp(SDL_MouseButtonEvent e) {
-	
+
 }
 
 void HallOfFameScreen::onMouseMotion(SDL_MouseMotionEvent e) {
-	
+
 }
 

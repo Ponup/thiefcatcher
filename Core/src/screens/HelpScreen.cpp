@@ -3,23 +3,27 @@
 #include <Font.h>
 #include <Text.h>
 
+#include "Game.h"
+
 #include "utilities/Translator.h"
 
-HelpScreen::HelpScreen(Window * window_) : window(window_) {
+HelpScreen::HelpScreen(Renderer* renderer) : renderer(renderer) {
 }
 
 void HelpScreen::show() {
-	Surface backgroundSurf("resources/images/menu/background.png");
+	Texture backgroundSurf(renderer->internal, "resources/images/menu/background.png");
+
+	renderer->drawTexture(&backgroundSurf);
 
 	Font headerFont("resources/fonts/gtw.ttf", 45);
 	headerFont.setColor(Color(255, 220, 220));
 	Text headerText(_("Thief Catcher"), &headerFont);
-	headerText.draw(Point(30, 10), &backgroundSurf);
+	renderer->drawText(&headerText, Point(30, 10));
 
 	headerFont.setColor(Color(63, 36, 18));
 	Text sectionText(_("Help"), &headerFont);
-	int x = window->getDimension().w - sectionText.getDimension().w - 30;
-	sectionText.draw(Point(x, 10), &backgroundSurf);
+	int x = Game::Width - sectionText.getDimension().w - 30;
+	renderer->drawText(&sectionText, Point(x, 10));
 
 	Font font("resources/fonts/FreeSansBold.ttf", 25);
 	font.setColor(Color(63, 36, 18));
@@ -45,26 +49,25 @@ void HelpScreen::show() {
 	Text quit0(_("Quit"), &font);
 	Text quit1(SDL_GetKeyName(SDLK_ESCAPE), &fontValue);
 	
-	turnMusic0.draw(Point(200, 160), &backgroundSurf);
-	turnMusic1.draw(Point(480, 160), &backgroundSurf);
+	renderer->drawText(&turnMusic0, Point(200, 160));
+	renderer->drawText(&turnMusic1, Point(480, 160));
 	
-	turnSounds0.draw(Point(200, 190), &backgroundSurf);
-	turnSounds1.draw(Point(480, 190), &backgroundSurf);
+	renderer->drawText(&turnSounds0, Point(200, 190));
+	renderer->drawText(&turnSounds1, Point(480, 190));
 
-	fullScreen0.draw(Point(200, 220), &backgroundSurf);
-	fullScreen1.draw(Point(480, 220), &backgroundSurf);
+	renderer->drawText(&fullScreen0, Point(200, 220));
+	renderer->drawText(&fullScreen1, Point(480, 220));
 
-	saveGame0.draw(Point(200, 250), &backgroundSurf);
-	saveGame1.draw(Point(480, 250), &backgroundSurf);
+	renderer->drawText(&saveGame0, Point(200, 250));
+	renderer->drawText(&saveGame1, Point(480, 250));
 	
-	loadGame0.draw(Point(200, 280), &backgroundSurf);
-	loadGame1.draw(Point(480, 280), &backgroundSurf);
+	renderer->drawText(&loadGame0, Point(200, 280));
+	renderer->drawText(&loadGame1, Point(480, 280));
 
-	quit0.draw(Point(200, 310), &backgroundSurf);
-	quit1.draw(Point(480, 310), &backgroundSurf);
+	renderer->drawText(&quit0, Point(200, 310));
+	renderer->drawText(&quit1, Point(480, 310));
 
-	window->drawSurface( &backgroundSurf );
-	window->flip();
+	renderer->present();
 
 	SDL_Event event;
 	bool quit = false;

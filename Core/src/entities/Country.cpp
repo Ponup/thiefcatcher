@@ -158,11 +158,6 @@ Surface* Country::getPhoto() const {
 	return new Surface(fileExists(path.c_str()) ? path.c_str() : "resources/images/notebook.png");
 }
 
-Surface *Country::getFlag() const {
-	string path = "data/countries/" + isoCode + "/flag.png";
-	return new Surface(path);
-}
-
 string Country::toString() const {
 	return name;
 }

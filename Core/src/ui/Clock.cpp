@@ -3,8 +3,10 @@
 #include <math.h>
 #include <SDL2_gfxPrimitives.h>
 
-Clock::Clock(Window *window) : window(window) {
-	clockSurf.load("resources/images/game/clock_small.png", true);
+Clock::Clock(Window *window) :
+	window(window),
+	surface(window->renderer, "resources/images/game/clock_small.png")
+	{
 }
 
 Clock::~Clock() {
@@ -14,13 +16,11 @@ void Clock::setPosition(const Point &position) {
 	this->position = position;
 }
 
-void Clock::draw(const DateTime &dateTime, Surface *screen) {
+void Clock::draw(const DateTime &dateTime, Renderer* renderer) {
 	// angle = 30 * (3-3) = -90 - 90º = 0
 	// angle = 30 * (6-3) = -180 - 90º = 90
 	// angle = 30 * (9-3) = -270 - 90 =
 	// angle = 30 * (12-3) = 
-
-	screen->drawSurface(&clockSurf, position);
 
 	int angle = 30 * dateTime.getHour();
 	
@@ -34,8 +34,7 @@ void Clock::draw(const DateTime &dateTime, Surface *screen) {
 	int xx = position.x + radio;
 	int yy = position.y + radio;
 
-	screen->updateArea(Area(position, clockSurf.getDimension()));
-	window->flip();
+	renderer->drawTexture(&surface, position);
 	aalineRGBA(window->renderer, xx, yy, xx + x, yy - y, 0, 0, 0, 255);
 }
 

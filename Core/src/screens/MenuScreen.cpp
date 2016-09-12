@@ -16,6 +16,10 @@
 #include "screens/DossierScreen.h"
 #include "screens/HallOfFameScreen.h"
 
+#include <Renderer.h>
+
+using Kangaroo::Renderer;
+
 void MenuScreen::show() {
 	Menu menu(window);
 	menu.setSelectedItem(0);
@@ -25,6 +29,8 @@ void MenuScreen::show() {
 	menu.addItem(_("Options"));
 	menu.addItem(_("Help"));
 	menu.addItem(_("Quit"));
+
+	Renderer renderer(window->renderer);
 
 	MediaMusic music("resources/sounds/weird_loop.wav");
 	if (configurator->isPlayMusic())
@@ -38,9 +44,9 @@ void MenuScreen::show() {
 
 		switch (optionSelected) {
 		case 0: {
-			AssignmentScreen assigScreen(window);
+			AssignmentScreen assigScreen(&renderer);
 			PlayerCase *playerCase = assigScreen.show();
-			if(playerCase == NULL) continue;
+			if (playerCase == NULL) continue;
 
 			Game game(window, playerCase);
 			GameEventHandler gameEventHandler(&game);
@@ -51,48 +57,48 @@ void MenuScreen::show() {
 
 			Player player = playerCase->getPlayer();
 
-			ComputerScreen screen(window);
-			switch(game.getGameState()) {
+			ComputerScreen screen(&renderer);
+			switch (game.getGameState()) {
 			case GameState::Won:
-					PlayersManager::updatePlayer(player);
-					screen.addLine(_("Congratulations, you have won the case and promoted!"));
-					break;
+				PlayersManager::updatePlayer(player);
+				screen.addLine(_("Congratulations, you have won the case and promoted!"));
+				break;
 			case GameState::Abort:
-					screen.addLine(_("The mission has been aborted, fortunately was all a hoax."));
-					break;
+				screen.addLine(_("The mission has been aborted, fortunately was all a hoax."));
+				break;
 			case GameState::LostTimeout:
-					screen.addLine(_("You took a long time and the robber has escaped. Try again with another case."));
-					break;
+				screen.addLine(_("You took a long time and the robber has escaped. Try again with another case."));
+				break;
 			case GameState::LostEscaped:
-					screen.addLine(_("What a shame! You had cornered the thief but escaped because they had no warrant. Try with another case."));
-					break;
-				default:
-					screen.addLine(_("Internal error. Oopss."));
+				screen.addLine(_("What a shame! You had cornered the thief but escaped because they had no warrant. Try with another case."));
+				break;
+			default:
+				screen.addLine(_("Internal error. Oopss."));
 			}
 			screen.showLines();
 			screen.waitKey();
-			} break;
+		} break;
 		case 1: {
 			DossierScreen dossierScreen(window);
 			dossierScreen.show();
-			} break;
+		} break;
 		case 2: {
-			HallOfFameScreen hallOfFame(window);
+			HallOfFameScreen hallOfFame(&renderer);
 			hallOfFame.show();
-			} break;
+		} break;
 		case 3: {
-			OptionsScreen optionsScreen(window);
+			OptionsScreen optionsScreen(&renderer);
 			optionsScreen.show();
-			} break;
+		} break;
 		case 4: {
-			HelpScreen helpScreen(window);
+			HelpScreen helpScreen(&renderer);
 			helpScreen.show();
-			} break;
+		} break;
 		case 5: {
 			ConfirmationDialog dialog(window, _("Are you sure you want to quit?"));
 			int selected = dialog.showGetSelected();
 			quit = (selected == ConfirmationDialog::DIALOG_YES);
-			} break;
+		} break;
 		}
 	}
 }

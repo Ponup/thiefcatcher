@@ -1,5 +1,4 @@
-#ifndef PLACE_SELECTOR_H 
-#define PLACE_SELECTOR_H
+#pragma once
 
 #include <SDL2_gfxPrimitives.h>
 
@@ -18,32 +17,36 @@
 #include "entities/Place.h"
 #include "entities/PlacesManager.h"
 
+#include <Renderer.h>
+
+using Kangaroo::Renderer;
+
 class PlaceSelector : public EventHandler {
-private:
-    SensitiveAreas sensAreas;
+
+	SensitiveAreas sensAreas;
 
     bool quit;
 
     Place places[3];
 
+	Renderer* renderer;
+
     Window *screen;
-    Surface *surface;
-    Surface* bgSurface;
-    Surface *dialogBackup;
 
     Point dialogPosition;
     Dimension dialogDimension;
 
-    Surface *images[3];
+    Texture *images[3];
     SDL_Rect areas[3];
 
     int selectedIndex;
     int returnCode;
 
-    //		Surface *loadImage(const char *name) const;
-    void update();
+	void drawIcons();
+	void draw();
+
 public:
-    PlaceSelector(Window *screen, Surface* canvas, vector<Place> randomPlaces);
+    PlaceSelector(Renderer* renderer, Surface* canvas, vector<Place> randomPlaces);
     ~PlaceSelector();
 
     void onQuit(SDL_QuitEvent event) {
@@ -63,6 +66,3 @@ public:
 
     int showAndReturn();
 };
-
-#endif
-

@@ -43,12 +43,12 @@ void GameEventHandler::onKeyDown(SDL_KeyboardEvent key) {
 		case SDLK_LEFT:
 			game->currentOption--;
 			if(game->currentOption == -1) game->currentOption = 3;
-			game->updateOption();					
+			game->drawPlacesArea();					
 			break;
 		case SDLK_RIGHT:
 			game->currentOption++;
 			if(game->currentOption > 3) game->currentOption = 0;
-			game->updateOption();
+			game->drawPlacesArea();
 			break;
 		case SDLK_RETURN:
 			game->enterOption();

@@ -1,5 +1,4 @@
-#ifndef PROFILESCREEN_H_
-#define PROFILESCREEN_H_
+#pragma once
 
 #include <EventHandler.h>
 #include <Surface.h>
@@ -15,13 +14,19 @@ using std::vector;
 
 #include "entities/PlayerCase.h"
 
+#include <Renderer.h>
+#include <Texture.h>
+
+using Kangaroo::Renderer;
+using Kangaroo::Texture;
+
 class ProfileScreen : public EventHandler {
 
-private:
 	Window *screen;
+	Renderer* renderer;
 	PlayerCase *playerCase;
 
-	Surface bgSurface;
+	Texture backgroundTexture;
 
 	bool quit;
 
@@ -49,7 +54,7 @@ private:
 	void drawElements();
 
 public:
-	ProfileScreen(Window *screen_, PlayerCase *playerCase_);
+	ProfileScreen(Renderer* renderer, PlayerCase *playerCase_);
 	~ProfileScreen();
 
 	int run();
@@ -61,5 +66,3 @@ public:
 	void onKeyDown(SDL_KeyboardEvent);
 	void onKeyUp(SDL_KeyboardEvent);
 };
-
-#endif

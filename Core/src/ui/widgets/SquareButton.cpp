@@ -1,12 +1,12 @@
 #include "SquareButton.h"
 
-SquareButton::SquareButton(const char* image, const char* imageOver, const Point& position, const string& label) :
-	image(new Surface(image)),
-	imageOver(new Surface(imageOver)),
+SquareButton::SquareButton(SDL_Renderer* renderer, const char* image, const char* imageOver, const Point& position, const string& label) :
+	image(new Texture(renderer, image)),
+	imageOver(new Texture(renderer, imageOver)),
 	position(position),
 	label(label)
-	{
-	}
+{
+}
 
 SquareButton::~SquareButton() {
 	if (image != nullptr)
@@ -23,10 +23,10 @@ Point SquareButton::getPosition() {
 	return position;
 }
 
-Surface* SquareButton::getImage() {
+Texture* SquareButton::getImage() {
 	return image;
 }
 
-Surface* SquareButton::getImageOver() {
+Texture* SquareButton::getImageOver() {
 	return imageOver;
 }

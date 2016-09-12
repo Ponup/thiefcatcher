@@ -18,11 +18,11 @@ using std::vector;
 
 #include "utilities/Translator.h"
 
-AssignmentScreen::AssignmentScreen(Window *window) : ComputerScreen(window) {
+AssignmentScreen::AssignmentScreen(Renderer* renderer) : ComputerScreen(renderer) {
 	fontInput.load("resources/fonts/NotCourierSans-Bold.ttf", 14);
 	fontInput.setColor(Color(255, 255, 255));
 
-	input = new InputBox(bgSurf, &fontInput, Point(120, 440), Dimension(400, 22));
+	input = new InputBox(&fontInput, Point(120, 440), Dimension(400, 22));
 }
 
 AssignmentScreen::~AssignmentScreen() {

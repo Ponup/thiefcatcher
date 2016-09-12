@@ -1,5 +1,4 @@
-#ifndef DOSSIERSCREEN_H_
-#define DOSSIERSCREEN_H_
+#pragma once
 
 #include <vector>
 using std::vector;
@@ -10,7 +9,11 @@ using std::vector;
 #include <Font.h>
 #include <Surface.h>
 
+#include <Texture.h>
+
 #include "entities/Criminal.h"
+
+using Kangaroo::Texture;
 
 class DossierScreen : public EventHandler {
 
@@ -27,7 +30,7 @@ private:
 	Font fontName;
 	Font font;
 	
-	Surface *backgroundSurf;
+	Texture backgroundTexture;
 
 	void updateScreen(bool update);
 
@@ -45,5 +48,3 @@ public:
 	void onKeyUp(SDL_KeyboardEvent);
 
 };
-
-#endif

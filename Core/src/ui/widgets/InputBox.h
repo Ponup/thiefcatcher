@@ -9,40 +9,38 @@
 using std::string;
 
 class InputBox {
-private:
-    string text;
-    Text line;
-    Color background;
-    Color foreground;
 
-    Surface *window;
-    Surface *area;
-    Font *font;
-    Point point;
-    Dimension dimension;
+	string text;
+	Color background;
+	Color foreground;
 
-    unsigned short maxChars;
+	Surface *window;
+	Font *font;
+	Point point;
+	Dimension dimension;
 
-    Surface *backup;
+	unsigned short maxChars;
 
 public:
-    InputBox();
-    InputBox(Surface *dialog_, Font *font_, const Point &point_, const Dimension &dimension_);
-    ~InputBox();
+	Text line;
 
-    void setBackground(const Color &background);
-    void setForeground(const Color &foreground);
-    void setFont(Font *font);
-    void handleEvent(SDL_Event &event);
-    void update();
+	InputBox();
+	InputBox(Font *font_, const Point &point_, const Dimension &dimension_);
+	~InputBox();
 
-    void setMaxChars(unsigned short maxChars);
-    unsigned short getMaxChars() const;
+	void setBackground(const Color &background);
+	void setForeground(const Color &foreground);
+	void setFont(Font *font);
+	void handleEvent(SDL_Event &event);
+	void update();
 
-    string getText();
-    string get();
+	void setMaxChars(unsigned short maxChars);
+	unsigned short getMaxChars() const;
 
-    void clear();
+	string getText();
+	string get();
 
-    void putChar(SDL_Keycode key);
+	void clear();
+
+	void putChar(SDL_Keycode key);
 };

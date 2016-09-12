@@ -1,5 +1,4 @@
-#ifndef COUNTRY_H
-#define COUNTRY_H
+#pragma once
 
 #include <vector>
 using std::vector;
@@ -64,10 +63,6 @@ public:
     pair<double, double> getLatitudeLongitude() const;
 
     Surface* getPhoto() const;
-    Surface* getFlag() const;
 
     string toString() const;
 };
-
-#endif
-

@@ -11,20 +11,17 @@ using std::reverse;
 
 #include <FontManager.h>
 
-ComputerScreen::ComputerScreen(Window *window_) : window(window_) {
+ComputerScreen::ComputerScreen(Renderer* renderer) :
+	renderer(renderer),
+	backgroundTexture(renderer->internal, "resources/images/notebook_background.png")
+	{
 	currentLine = 0;
-
-	bgSurf = new Surface("resources/images/notebook_background.png");
 
 	font = FontManager::getFont("NotCourierSans-Bold", 14);
 	font->setColor(Color(0, 255, 50));
-
-	window->drawSurface(bgSurf, Point::Origin);
-	window->flip();
 }
 
 ComputerScreen::~ComputerScreen() {
-	delete bgSurf;
 }
 
 void ComputerScreen::clear() {
@@ -64,13 +61,13 @@ void ComputerScreen::addLine(string line) {
 void ComputerScreen::showLines() {
 	vector<string>::size_type numLines = lines.size();
 	for (; currentLine < numLines; currentLine++) {
-		Surface canvas(bgSurf->toSDL());
+		renderer->drawTexture(&backgroundTexture);
 
 		int ymin = 120;
 		int y = 400;
 		for (int x = currentLine; x >= 0; x--) {
 			Text text(lines.at(x).c_str(), font);
-			text.draw(Point(120, y), &canvas);
+			renderer->drawText(&text, Point(120, y));
 
 			y -= font->getLineSkip();
 			if (y < ymin) {
@@ -78,8 +75,7 @@ void ComputerScreen::showLines() {
 			}
 		}
 
-		window->drawSurface(&canvas);
-		window->flip();
+		renderer->present();
 		SDL_Delay(250);
 	}
 }

@@ -21,13 +21,3 @@ void Place::setName( const string &name ) {
 string Place::getName() const {
 	return name;
 }
-
-Surface* Place::getSurface() const {
-	string path = "resources/images/places/" + name + ".png";
-	return new Surface(path.c_str(), true);
-}
-
-Surface* Place::getCharacterSurface() const {
-	string path = "resources/images/places/" + name + "_character.png";
-	return new Surface(path.c_str());
-}

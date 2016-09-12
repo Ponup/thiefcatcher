@@ -1,5 +1,4 @@
-#ifndef ASSIGNMENTSCREEN_H_
-#define ASSIGNMENTSCREEN_H_
+#pragma once
 
 #include <Window.h>
 #include <Font.h>
@@ -9,20 +8,17 @@
 #include "entities/PlayerCase.h"
 
 class AssignmentScreen : public ComputerScreen {
-	
-private:
+
 	InputBox *input;
 
 	Font fontInput;
-	
-        string askName(bool &quitted);
-        
+
+	string askName(bool &quitted);
+
 public:
-	AssignmentScreen(Window *window);
+	AssignmentScreen(Renderer* renderer);
 	virtual ~AssignmentScreen();
 
 	PlayerCase *show();
 };
-
-#endif
 

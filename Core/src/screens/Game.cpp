@@ -20,23 +20,18 @@
 using std::pair;
 
 Game::Game(Window* window, PlayerCase* playerCase) :
-window(window),
-playerCase(playerCase) {
-
-	bgSurface.load("resources/images/mainwindow_bg.png");
-	bgSurfaceCopy = new Surface(bgSurface.toSDL());
+	window(window),
+	renderer(window->renderer),
+	backgroundTexture(window->renderer, "resources/images/mainwindow_bg.png"),
+	playerCase(playerCase),
+	clue(nullptr)
+{
 
 	clock = new Clock(window);
 	clock->setPosition(Point(20, 7));
 
-	Area area(Point(410, 370), Dimension(340, 40));
-	backupSurf = bgSurfaceCopy->getArea(area);
-
 	timeFont.load("resources/fonts/FreeSansBold.ttf", 22);
 	timeFont.setColor(Color(252, 244, 221)); // #FCF4DD
-
-	timeControllerSurf = bgSurfaceCopy->getArea(Point(120, 20), Dimension(320, 60));
-	timeSurfBackup = bgSurfaceCopy->getArea(Point(120, 20), Dimension(320, 60));
 
 	dateTimePosition = Point::Origin;
 
@@ -44,47 +39,34 @@ playerCase(playerCase) {
 
 	state = GameState::Playing;
 
-	buttons[0] = new SquareButton("resources/images/game/button_travel.png", "resources/images/game/button_travel.png", Point(416, 402), _("Travel"));
-	buttons[1] = new SquareButton("resources/images/game/button_capture.png", "resources/images/game/button_capture.png", Point(554, 402), _("Capture"));
-	buttons[2] = new SquareButton("resources/images/game/button_places.png", "resources/images/game/button_places.png", Point(623, 402), _("Places"));
-	buttons[3] = new SquareButton("resources/images/game/button_quit.png", "resources/images/game/button_quit.png", Point(691, 402), _("Quit"));
+	buttons[0] = new SquareButton(window->renderer, "resources/images/game/button_travel.png", "resources/images/game/button_travel.png", Point(416, 402), _("Travel"));
+	buttons[1] = new SquareButton(window->renderer, "resources/images/game/button_capture.png", "resources/images/game/button_capture.png", Point(554, 402), _("Capture"));
+	buttons[2] = new SquareButton(window->renderer, "resources/images/game/button_places.png", "resources/images/game/button_places.png", Point(623, 402), _("Places"));
+	buttons[3] = new SquareButton(window->renderer, "resources/images/game/button_quit.png", "resources/images/game/button_quit.png", Point(691, 402), _("Quit"));
 
-	Country country = playerCase->getCurrentCountry();
-	showCountry(bgSurfaceCopy, country);
-
-	updateTime();
-
-	window->drawSurface(bgSurfaceCopy);
-	window->flip();
+	drawScene();
 }
 
 Game::~Game() {
-	delete timeControllerSurf;
-	delete timeSurfBackup;
 	for (int i = 0; i < 4; i++) {
 		delete buttons[i];
 	}
-	delete bgSurfaceCopy;
 }
 
-void Game::updateOption() {
+void Game::drawPlacesArea() {
 	Font font("resources/fonts/FreeSans.ttf", 14);
 	font.setColor(Color(255, 255, 255));
 
-	Area area(Point(410, 370), Dimension(340, 40));
-	bgSurfaceCopy->drawSurface(backupSurf, Point(410, 370));
-
 	for (int i = 0; i < 4; i++) {
 		if (i == currentOption) {
-			Text::drawString(buttons[i]->getLabel(), buttons[i]->getPosition() - Point(-5, 30), &font, bgSurfaceCopy);
-			bgSurfaceCopy->drawSurface(buttons[i]->getImage(), buttons[i]->getPosition());
-		} else {
-			bgSurfaceCopy->drawSurface(buttons[i]->getImage(), buttons[i]->getPosition());
+			Text optionLabel(buttons[i]->getLabel(), &font);
+			renderer.drawText(&optionLabel, buttons[i]->getPosition() - Point(-5, 30));
+			renderer.drawTexture(buttons[i]->getImageOver(), buttons[i]->getPosition());
+		}
+		else {
+			renderer.drawTexture(buttons[i]->getImage(), buttons[i]->getPosition());
 		}
 	}
-
-	window->drawSurface(bgSurfaceCopy);
-	window->flip();
 }
 
 void Game::quitGame() {
@@ -96,7 +78,7 @@ void Game::quitGame() {
 }
 
 void Game::update() {
-	updateOption();
+	drawScene();
 }
 
 bool Game::isPlaying() const {
@@ -111,27 +93,22 @@ Window *Game::getWindow() {
 	return window;
 }
 
-void Game::updateTime() {
-	timeControllerSurf->drawSurface(timeSurfBackup);
-
+void Game::drawTimeArea() {
+	Point basePosition(120, 20);
 	Text dayLine(playerCase->currentDate->getDayOfWeekName(), &timeFont);
 	Text hourLine(playerCase->currentDate->toString("%H:%M"), &timeFont);
 
-	dayLine.draw(dateTimePosition, timeControllerSurf);
-	hourLine.draw(dateTimePosition + Point(0, timeFont.getLineSkip()),
-		timeControllerSurf);
+	renderer.drawText(&dayLine, basePosition + dateTimePosition);
+	renderer.drawText(&hourLine, basePosition + dateTimePosition + Point(0, timeFont.getLineSkip()));
 
-	bgSurfaceCopy->drawSurface(timeControllerSurf, Point(120, 20));
-	bgSurfaceCopy->updateArea(Area(Point(120, 20), Dimension(320, 60)));
-
-	clock->draw(*(playerCase->currentDate), bgSurfaceCopy);
+	clock->draw(*(playerCase->currentDate), &renderer);
 }
 
 void Game::increaseTime(int hours) {
 	for (unsigned char i = 0; i < hours; i++) {
 		playerCase->currentDate->increase(1, DateTime::Hour);
 
-		updateTime();
+		drawScene();
 
 		MediaManager::getInstance().playSound("time.wav");
 		SDL_Delay(450);
@@ -140,33 +117,29 @@ void Game::increaseTime(int hours) {
 
 void Game::enterOption() {
 	switch (currentOption) {
-		case 0:
-			optionTravel();
-			break;
-		case 1:
-			optionProfile();
-			break;
-		case 2:
-			optionPlaces();
-			break;
-		case 3:
-			quitGame();
-			break;
+	case 0:
+		optionTravel();
+		break;
+	case 1:
+		optionProfile();
+		break;
+	case 2:
+		optionPlaces();
+		break;
+	case 3:
+		quitGame();
+		break;
 	}
 }
 
 void Game::optionTravel() {
-	Surface *backup = bgSurfaceCopy->getArea(Point::Origin, bgSurfaceCopy->getDimension());
 	Country &from = playerCase->getCurrentCountry();
 
-	Map map(window, &from, playerCase->nextCountries);
+	Map map(&renderer, &from, playerCase->nextCountries);
 	int selected = map.getSelection();
 
 	// If the user pressed ESCAPE or RIGHT_BUTTON, then the re-draw must be ignored.
 	if (selected != -1) {
-		window->drawSurface(&bgSurface);
-		window->flip();
-
 		Country nextCountry = playerCase->nextCountry();
 		Country newCountry = playerCase->nextCountries[selected];
 
@@ -175,32 +148,25 @@ void Game::optionTravel() {
 			playerCase->setCurrentPosition(nextPos);
 		}
 
-		int hoursWasted = 3; // TODO calculateHours(*from, (*(playerCase->nextCountries + selected)));
+		int hoursWasted = calculateHours(from, (*(playerCase->nextCountries + selected)));
 		increaseTime(hoursWasted);
 
 		playerCase->setCurrentCountry(newCountry);
 		playerCase->updateCountries();
 		playerCase->updateClues();
-
-		showCountry(bgSurfaceCopy, newCountry);
-	} else {
-		window->drawSurface(backup);
-		window->flip();
 	}
 
-	delete backup;
+	drawScene();
 }
 
 void Game::optionPlaces() {
 	Surface windowSurface(window->getSurface());
-	Surface *backup = bgSurfaceCopy->getArea(Point::Origin, bgSurfaceCopy->getDimension());
 
 	vector<Place> randomPlaces = PlacesManager::findRandom(3);
-	PlaceSelector placeSelector(window, bgSurfaceCopy, randomPlaces);
+	PlaceSelector placeSelector(&renderer, NULL, randomPlaces);
 	int selected = placeSelector.showAndReturn();
-	window->drawSurface(backup);
 	window->drawSurface(&windowSurface);
-	window->flip();
+
 	if (selected == -1) {
 		return;
 	}
@@ -213,70 +179,65 @@ void Game::optionPlaces() {
 	if (secondsCurrent >= secondsEnd) {
 		state = GameState::LostTimeout;
 		return;
-	} else
-		if ((secondsEnd - secondsCurrent) / 3600 <= 3) {
-		Font *fontWarn = FontManager::getFont("FreeSansBold", 35);
-		fontWarn->setColor(Color(0xff, 0, 0));
-		Text warn("Only 3 hours left!", fontWarn);
-		warn.draw(Point(440, 15), bgSurfaceCopy);
-	} else
-		if (playerCase->currentPosition == 6) {
-		state = playerCase->captureOrderExecuted ? GameState::Won : GameState::LostEscaped;
-		return;
 	}
-	Place place = randomPlaces[ selected ];
+	else {
+		if ((secondsEnd - secondsCurrent) / 3600 <= 3) {
+			Font *fontWarn = FontManager::getFont("FreeSansBold", 35);
+			fontWarn->setColor(Color(0xff, 0, 0));
+			Text warn("Only 3 hours left!", fontWarn);
+			renderer.drawText(&warn, Point(440, 15));
+		}
+		else
+			if (playerCase->currentPosition == 6) {
+				state = playerCase->captureOrderExecuted ? GameState::Won : GameState::LostEscaped;
+				return;
+			}
+	}
+	place = randomPlaces[selected];
 
-	Surface backup2("resources/images/mainwindow_bg.png");
-	Surface *b = backup2.getArea(Area(Point(310, 145), Dimension(450, 220)));
-	bgSurfaceCopy->drawSurface(b, Point(310, 145));
-
-	Surface *character = place.getCharacterSurface();
-	Point characterPosition = Point(318, 250);
-	Dimension characterDim = character->getDimension();
-	Surface *area = bgSurfaceCopy->getArea(characterPosition, characterDim);
-	bgSurfaceCopy->drawSurface(character, characterPosition);
-	Clue *clue = NULL;
 	Country country = playerCase->getCurrentCountry();
 	if (country.getID() != playerCase->getLastCountry().getID()) {
 		clue = new Clue(_("I don't have any clues! (you are in the wrong country!)"));
-	} else {
+	}
+	else {
 		clue = playerCase->clues[selected];
 	}
-
-	Surface ballonSurf("resources/images/ballon.png");
-	bgSurfaceCopy->drawSurface(&ballonSurf, Point(395, 194));
-
-	// Clue drawing
-	Font *hintFont = FontManager::getFont("FreeSansBold", 14);
-	hintFont->setColor(Color(211, 186, 164)); // #D3BAA4	
-
-	Text description(clue->getMessage(), hintFont);
-	description.drawLines(Point(440, 220), Dimension(285, 115), bgSurfaceCopy);
-
-	bgSurfaceCopy->updateArea(Point(395, 194), ballonSurf.getDimension());
-	window->drawSurface(bgSurfaceCopy);
-	window->flip();
-
-	delete area;
-	delete character;
-
-	delete backup;
 }
 
 void Game::optionProfile() {
-	Surface *backup = bgSurfaceCopy->getArea(Point::Origin, window->getDimension());
-
-	ProfileScreen profileScreen(window, playerCase);
+	ProfileScreen profileScreen(&renderer, playerCase);
 	profileScreen.run();
 
-	window->drawSurface(backup);
-	window->flip();
-
-	delete backup;
+	drawScene();
 }
 
 int Game::calculateHours(Country &from, Country &to) {
 	vector<Point> path = MathUtil::calculatePath(from.getLatitudeLongitude(), to.getLatitudeLongitude());
-	return int(path.size() / 30);
+	int hours = int(path.size() / 30);
+	return hours > 0 ? hours : 1;
 }
 
+void Game::drawScene() {
+	renderer.drawTexture(&backgroundTexture);
+
+	drawTimeArea();
+	drawCountry(&renderer, playerCase->getCurrentCountry());
+	if (clue != nullptr) {
+		Texture ballonSurf(renderer.internal, "resources/images/ballon.png");
+		renderer.drawTexture(&ballonSurf, Point(395, 194));
+
+		Texture characterTexture(renderer.internal, "resources/images/places/" + place.getName() + "_character.png");
+		Point characterPosition = Point(318, 250);
+		renderer.drawTexture(&characterTexture, characterPosition);
+
+		// Clue drawing
+		Font *hintFont = FontManager::getFont("FreeSansBold", 14);
+		hintFont->setColor(Color(211, 186, 164)); // #D3BAA4	
+
+		Text description(clue->getMessage(), hintFont);
+		//description.drawLines(Point(440, 220), Dimension(285, 115), bgSurfaceCopy);
+	}
+	drawPlacesArea();
+
+	renderer.present();
+}

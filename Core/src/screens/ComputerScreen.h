@@ -1,5 +1,4 @@
-#ifndef COMPUTERSCREEN_H_
-#define COMPUTERSCREEN_H_
+#pragma once
 
 #include <string>
 using std::string;
@@ -12,25 +11,28 @@ using std::vector;
 #include <Font.h>
 #include <Surface.h>
 #include <Window.h>
+#include <Renderer.h>
+#include <Texture.h>
+
+using Kangaroo::Renderer;
+using Kangaroo::Texture;
 
 class ComputerScreen {
 
-private:
 	vector<string> lines;
 	
 	unsigned int currentLine;
 
 	Font *font;
 		
-
 protected:
-	Window* window;
-	Surface *bgSurf;
+	Renderer* renderer;
+	Texture backgroundTexture;
 	
 	int readKey();
 	
 public:
-	ComputerScreen(Window *window_);
+	ComputerScreen(Renderer* renderer);
 	virtual ~ComputerScreen();
 	
 	void clear();	
@@ -39,6 +41,3 @@ public:
 	
 	void waitKey();
 };
-
-#endif
-

@@ -1,27 +1,28 @@
-#ifndef HALLOFFAME_H
-#define HALLOFFAME_H
+#pragma once
 
 #include <EventHandler.h>
 #include <Window.h>
 
 #include <SDL.h>
 
+#include <Renderer.h>
+
+using Kangaroo::Renderer;
+
 class HallOfFameScreen : public EventHandler {
-private:
-	Window *screen;
+
+	Renderer* renderer;
 	bool quit;
-	
+
 public:
-	HallOfFameScreen(Window *screen);
+	HallOfFameScreen(Renderer* renderer);
 	void show();
-	
+
 private:
 	void onKeyDown(SDL_KeyboardEvent key);
 	void onKeyUp(SDL_KeyboardEvent key);
 	void onMouseButtonDown(SDL_MouseButtonEvent button);
 	void onMouseButtonUp(SDL_MouseButtonEvent button);
-	void onMouseMotion(SDL_MouseMotionEvent motion);	
+	void onMouseMotion(SDL_MouseMotionEvent motion);
 };
-
-#endif
 

@@ -1,11 +1,10 @@
-#ifndef COUNTRY_DRAWING_H
-#define COUNTRY_DRAWING_H
+#pragma once
 
 #include <Surface.h>
+#include <Renderer.h>
+
+using Kangaroo::Renderer;
 
 #include "entities/Country.h"
 
-void showCountry(Surface *window, const Country &country);
-
-#endif
-
+void drawCountry(Renderer* renderer, const Country &country);

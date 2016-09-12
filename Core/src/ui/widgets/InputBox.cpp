@@ -3,15 +3,12 @@
 InputBox::InputBox() {
 }
 
-InputBox::InputBox(Surface *dialog_, Font *font_, const Point &point_,
+InputBox::InputBox(Font *font_, const Point &point_,
 	const Dimension &dimension_) :
-window(dialog_), font(font_), point(point_), dimension(dimension_) {
+	font(font_), point(point_), dimension(dimension_) {
 	background = Color(255, 255, 255);
 
 	line = Text("", font);
-
-	backup = window->getArea(point, dimension);
-	area = window->getArea(point, dimension);
 
 	//	SDL_EnableUNICODE(1);
 	//	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
@@ -51,10 +48,6 @@ void InputBox::handleEvent(SDL_Event & e) {
 }
 
 void InputBox::update() {
-	area->drawSurface(backup);
-	line.draw(Point::Origin, area);
-	window->drawSurface(area, point);
-	window->updateArea(point, dimension);
 }
 
 void InputBox::setMaxChars(unsigned short maxChars) {
@@ -71,11 +64,11 @@ string InputBox::get() {
 	while (!quit) {
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
-				case SDL_KEYDOWN:
-					if (event.key.keysym.sym == SDLK_RETURN) {
-						quit = true;
-					}
-					break;
+			case SDL_KEYDOWN:
+				if (event.key.keysym.sym == SDLK_RETURN) {
+					quit = true;
+				}
+				break;
 			}
 			handleEvent(event);
 			line.setText(text.c_str());
@@ -95,7 +88,8 @@ void InputBox::putChar(SDL_Keycode key) {
 	if (text.size() < maxChars && ((key >= SDLK_a && key <= SDLK_z) || (key
 		>= SDLK_0 && key <= SDLK_9) || key == SDLK_SPACE)) {
 		text += key;
-	} else if (key == SDLK_BACKSPACE) {
+	}
+	else if (key == SDLK_BACKSPACE) {
 		text = text.substr(0, text.size() - 1);
 	}
 }

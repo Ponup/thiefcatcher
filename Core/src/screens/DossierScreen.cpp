@@ -1,7 +1,11 @@
 #include "DossierScreen.h"
 
+#include <sstream>
+using std::ostringstream;
+
 #include <string>
 using std::string;
+
 
 #include <Text.h>
 #include <FontManager.h>
@@ -11,11 +15,17 @@ using std::string;
 #include "entities/CriminalsManager.h"
 #include "entities/format/CriminalFormatter.h"
 
-DossierScreen::DossierScreen(Window *window_) : window(window_) {
+#include <Renderer.h>
+
+using Kangaroo::Renderer;
+
+DossierScreen::DossierScreen(Window *window_) :
+	window(window_),
+	backgroundTexture(window_->renderer, 800, 600) {
 	criminals = CriminalsManager::findAll();
 
 	sensAreas.addArea(Area(Point(28, 511), Dimension(61, 61)));
-	
+
 	index = 0;
 	quit = false;
 
@@ -24,32 +34,36 @@ DossierScreen::DossierScreen(Window *window_) : window(window_) {
 
 	font.load("resources/fonts/FreeSansBold.ttf", 18);
 
-	backgroundSurf = new Surface("resources/images/dossiers/background.png");
+	Renderer renderer(window_->renderer);
+
+	backgroundTexture.selectAsRenderingTarget(window_->renderer);
+
+	Texture t(window->renderer, "resources/images/dossiers/background.png");
+	renderer.drawTexture(&t);
 
 	Font headerFont("resources/fonts/gtw.ttf", 45);
 	headerFont.setColor(Color(255, 220, 220));
 	Text headerText(_("Thief Catcher"), &headerFont);
-	headerText.draw(Point(30, 10), backgroundSurf);
+	renderer.drawText(&headerText, Point(30, 10));
 
 	Text text1(_("Genre"), &font);
-	text1.draw(Point(300 - text1.getDimension().w, 250), backgroundSurf);
+	renderer.drawText(&text1, Point(300 - text1.getDimension().w, 250));
 
 	Text text3(_("Hobby"), &font);
-	text3.draw(Point(300 - text3.getDimension().w, 300), backgroundSurf);
+	renderer.drawText(&text3, Point(300 - text3.getDimension().w, 300));
 
 	Text text5(_("Hair"), &font);
-	text5.draw(Point(300 - text5.getDimension().w, 345), backgroundSurf);
+	renderer.drawText(&text5, Point(300 - text5.getDimension().w, 345));
 
 	Text text7(_("Feature"), &font);
-	text7.draw(Point(300 - text7.getDimension().w, 390), backgroundSurf);
-	
+	renderer.drawText(&text7, Point(300 - text7.getDimension().w, 390));
+
+	backgroundTexture.unselectAsRenderingTarget(window_->renderer);
+
 	updateScreen(false);
-	
-	window->flip();
 }
 
 DossierScreen::~DossierScreen() {
-	delete backgroundSurf;
 }
 
 void DossierScreen::show() {
@@ -69,34 +83,32 @@ void DossierScreen::updateScreen(bool update) {
 	}
 	Criminal &criminal = criminals->at(index);
 
-	char path[50];
-	memset(path, '\0', 50);
-	sprintf(path, "data/criminals/%d.jpg", criminal.getID());
+	ostringstream pathStream;
+	pathStream << "data/criminals/" << criminal.getID() << ".jpg";
 
-	Surface *canvas = new Surface( backgroundSurf->toSDL() );
+	Renderer renderer(window->renderer);
 
-	Surface avatar(path, false);
-	canvas->drawSurface(&avatar, Point(460, 90));
+	renderer.drawTexture(&backgroundTexture);
+
+	Texture avatarTexture(window->renderer, pathStream.str());
+	renderer.drawTexture(&avatarTexture, Point(460, 90));
 
 	Text text0(criminal.getName(), &fontName);
-	text0.draw(Point(140, 140), canvas);
+	renderer.drawText(&text0, Point(140, 140));
 
 	Text text2( CriminalFormatter::formatGenre( criminal ), &font);
-	text2.draw(Point(320, 250), canvas);
+	renderer.drawText(&text2, Point(320, 250));
 
 	Text text4(criminal.getHobby(), &font);
-	text4.draw(Point(320, 300), canvas);
+	renderer.drawText(&text4, Point(320, 300));
 
 	Text text6(criminal.getHair(), &font);
-	text6.draw(Point(320, 345), canvas);
+	renderer.drawText(&text6, Point(320, 345));
 
 	Text text8(criminal.getFeature(), &font);
-	text8.draw(Point(320, 390), canvas);
+	renderer.drawText(&text8, Point(320, 390));
 
-	window->drawSurface(canvas);
-	delete canvas;
-
-	window->flip();
+	renderer.present();
 }
 
 void DossierScreen::onQuit(SDL_QuitEvent e) {
