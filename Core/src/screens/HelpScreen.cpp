@@ -11,9 +11,9 @@ HelpScreen::HelpScreen(Renderer* renderer) : renderer(renderer) {
 }
 
 void HelpScreen::show() {
-	Texture backgroundSurf(renderer->internal, "resources/images/menu/background.png");
+	Texture backgroundTexture(renderer->internal, "resources/images/menu/background.png");
 
-	renderer->drawTexture(&backgroundSurf);
+	renderer->drawTexture(&backgroundTexture);
 
 	Font headerFont("resources/fonts/gtw.ttf", 45);
 	headerFont.setColor(Color(255, 220, 220));

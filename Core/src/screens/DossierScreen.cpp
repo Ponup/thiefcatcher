@@ -6,7 +6,6 @@ using std::ostringstream;
 #include <string>
 using std::string;
 
-
 #include <Text.h>
 #include <FontManager.h>
 #include <FrameRegulator.h>
@@ -21,7 +20,10 @@ using Kangaroo::Renderer;
 
 DossierScreen::DossierScreen(Window *window_) :
 	window(window_),
-	backgroundTexture(window_->renderer, 800, 600) {
+	backgroundTexture(window_->renderer, 800, 600),
+	normalCursor(SDL_SYSTEM_CURSOR_ARROW),
+	handCursor(SDL_SYSTEM_CURSOR_HAND)
+{
 	criminals = CriminalsManager::findAll();
 
 	sensAreas.addArea(Area(Point(28, 511), Dimension(61, 61)));
@@ -78,7 +80,7 @@ void DossierScreen::show() {
 }
 
 void DossierScreen::updateScreen(bool update) {
-	if( !update ) {
+	if (!update) {
 		return;
 	}
 	Criminal &criminal = criminals->at(index);
@@ -96,7 +98,7 @@ void DossierScreen::updateScreen(bool update) {
 	Text text0(criminal.getName(), &fontName);
 	renderer.drawText(&text0, Point(140, 140));
 
-	Text text2( CriminalFormatter::formatGenre( criminal ), &font);
+	Text text2(CriminalFormatter::formatGenre(criminal), &font);
 	renderer.drawText(&text2, Point(320, 250));
 
 	Text text4(criminal.getHobby(), &font);
@@ -116,11 +118,14 @@ void DossierScreen::onQuit(SDL_QuitEvent e) {
 }
 
 void DossierScreen::onMouseMotion(SDL_MouseMotionEvent e) {
-
+	if (sensAreas.resolve(e.x, e.y) == -1)
+		normalCursor.applyToWindow();
+	else
+		handCursor.applyToWindow();
 }
 
 void DossierScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
-	if(sensAreas.resolve(e.x, e.y) != -1) {
+	if (sensAreas.resolve(e.x, e.y) != -1) {
 		quit = true;
 	}
 	if (e.button == SDL_BUTTON_RIGHT) {

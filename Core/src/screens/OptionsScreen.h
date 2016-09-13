@@ -15,6 +15,9 @@ using Kangaroo::Texture;
 #include "utilities/Translator.h"
 #include "utilities/Configurator.h"
 
+#include <MouseCursor.h>
+using Kangaroo::MouseCursor;
+
 class OptionsScreen : public EventHandler {
 
 	Renderer* renderer;
@@ -32,6 +35,8 @@ class OptionsScreen : public EventHandler {
 	Text *soundsValue;
 	Text *languageValue;
 	Text *fullscreenValue;
+
+	MouseCursor normalCursor, handCursor;
 
 public:
 	OptionsScreen(Renderer* renderer);

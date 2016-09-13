@@ -14,47 +14,51 @@ using std::vector;
 
 #include "MenuItem.h"
 
-#include "Texture.h"
-
+#include <Texture.h>
 using Kangaroo::Texture;
 
+#include <MouseCursor.h>
+using Kangaroo::MouseCursor;
+
 class Menu : public EventHandler {
-	private:
-		short selectedItem;
-		
-		vector<MenuItem> items;
-		
-		SensitiveAreas sensAreas;
-		short currentItem;
-		
-		Font headerFont;
-		Font font;
 
-		Window *window;
-		Texture backgroundTexture;
-		Texture smokingPipeTexture;
+	short selectedItem;
 
-		MediaSound sound;
-		
-		int lastY;
+	vector<MenuItem> items;
 
-		void update();
-		
-	public:
-		Menu(Window *window);
-		virtual ~Menu();
+	SensitiveAreas sensAreas;
+	short currentItem;
 
-		void setSelectedItem(short selectedItem);
-		short addItem(string item);
-		short getSelectedItem();
-		
-		void reset();
-		
-	private:
-		void onQuit(SDL_QuitEvent e);
-		void onKeyDown(SDL_KeyboardEvent e);
-		void onKeyUp(SDL_KeyboardEvent e);
-		void onMouseButtonDown(SDL_MouseButtonEvent e);
-		void onMouseButtonUp(SDL_MouseButtonEvent e);
-		void onMouseMotion(SDL_MouseMotionEvent e);
+	Font headerFont;
+	Font font;
+
+	Window *window;
+	Texture backgroundTexture;
+	Texture smokingPipeTexture;
+
+	MediaSound sound;
+
+	int lastY;
+
+	MouseCursor normalCursor, handCursor;
+
+	void update();
+
+public:
+	Menu(Window *window);
+	virtual ~Menu();
+
+	void setSelectedItem(short selectedItem);
+	short addItem(string item);
+	short getSelectedItem();
+
+	void reset();
+
+private:
+	void onQuit(SDL_QuitEvent e);
+	void onKeyDown(SDL_KeyboardEvent e);
+	void onKeyUp(SDL_KeyboardEvent e);
+	void onMouseButtonDown(SDL_MouseButtonEvent e);
+	void onMouseButtonUp(SDL_MouseButtonEvent e);
+	void onMouseMotion(SDL_MouseMotionEvent e);
 };

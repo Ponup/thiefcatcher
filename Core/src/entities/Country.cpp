@@ -2,8 +2,6 @@
 
 #include <Dimension.h>
 
-#include <fstream>
-
 #include <string>
 using std::string;
 
@@ -81,7 +79,8 @@ void Country::setDescription(const string &description) {
 }
 
 string Country::getDescription() const {
-	return description;
+	return "Country is a great country. is nice, people are nice. food is good, weather is excellent, job are great, and is all free for you!, job are great, and is all free for you!, job are great, and is all free for you!";
+	//return description;
 }
 
 void Country::setFlagDescription(const string &flagDesc) {
@@ -146,16 +145,6 @@ double Country::getLongitude() const {
 
 pair<double, double> Country::getLatitudeLongitude() const {
 	return pair<double, double>(latitude, longitude);
-}
-
-bool fileExists(const std::string& name) {
-	std::ifstream f(name.c_str());
-	return f.is_open();
-}
-
-Surface* Country::getPhoto() const {
-	string path = "data/countries/" + isoCode + "/postal.png";
-	return new Surface(fileExists(path.c_str()) ? path.c_str() : "resources/images/notebook.png");
 }
 
 string Country::toString() const {

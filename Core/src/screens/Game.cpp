@@ -3,6 +3,8 @@
 #include <Random.h>
 #include <MediaManager.h>
 #include <MathUtil.h>
+#include <TextUtils.h>
+using Kangaroo::TextUtils;
 
 #include "Vars.h" 
 
@@ -24,7 +26,9 @@ Game::Game(Window* window, PlayerCase* playerCase) :
 	renderer(window->renderer),
 	backgroundTexture(window->renderer, "resources/images/mainwindow_bg.png"),
 	playerCase(playerCase),
-	clue(nullptr)
+	clue(nullptr),
+	normalCursor(SDL_SYSTEM_CURSOR_ARROW),
+	handCursor(SDL_SYSTEM_CURSOR_HAND)
 {
 
 	clock = new Clock(window);
@@ -160,13 +164,9 @@ void Game::optionTravel() {
 }
 
 void Game::optionPlaces() {
-	Surface windowSurface(window->getSurface());
-
 	vector<Place> randomPlaces = PlacesManager::findRandom(3);
 	PlaceSelector placeSelector(&renderer, NULL, randomPlaces);
 	int selected = placeSelector.showAndReturn();
-	window->drawSurface(&windowSurface);
-
 	if (selected == -1) {
 		return;
 	}
@@ -218,11 +218,13 @@ int Game::calculateHours(Country &from, Country &to) {
 }
 
 void Game::drawScene() {
+	bool hasClue = clue != nullptr;
+
 	renderer.drawTexture(&backgroundTexture);
 
 	drawTimeArea();
-	drawCountry(&renderer, playerCase->getCurrentCountry());
-	if (clue != nullptr) {
+	drawCountry(&renderer, playerCase->getCurrentCountry(), !hasClue);
+	if (hasClue) {
 		Texture ballonSurf(renderer.internal, "resources/images/ballon.png");
 		renderer.drawTexture(&ballonSurf, Point(395, 194));
 
@@ -235,7 +237,8 @@ void Game::drawScene() {
 		hintFont->setColor(Color(211, 186, 164)); // #D3BAA4	
 
 		Text description(clue->getMessage(), hintFont);
-		//description.drawLines(Point(440, 220), Dimension(285, 115), bgSurfaceCopy);
+		TextUtils textUtils;
+		textUtils.drawLines(&renderer, description, Point(440, 220), Dimension(285, 115));
 	}
 	drawPlacesArea();
 

@@ -4,15 +4,15 @@ void MenuItem::setArea(const Area &area) {
 	this->area = area;
 }
 
-void MenuItem::setText(Text *text) {
+void MenuItem::setText(const Text& text) {
 	this->text = text;
 }
 
-Text *MenuItem::getText() const {
+Text MenuItem::getText() const {
 	return text;
 }
 
-void MenuItem::setPosition(Point position) {
+void MenuItem::setPosition(const Point& position) {
 	this->position = position;
 }
 

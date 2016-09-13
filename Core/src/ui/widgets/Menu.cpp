@@ -16,8 +16,10 @@ Menu::Menu(Window * window_) :
 	selectedItem(0),
 	window(window_),
 	backgroundTexture(window_->renderer, "resources/images/menu/background.png"),
-	smokingPipeTexture(window_->renderer, "resources/images/menu/pipe.png")
-	{
+	smokingPipeTexture(window_->renderer, "resources/images/menu/pipe.png"),
+	normalCursor(SDL_SYSTEM_CURSOR_ARROW),
+	handCursor(SDL_SYSTEM_CURSOR_HAND)
+{
 	lastY = 150;
 	currentItem = -2;
 
@@ -42,8 +44,8 @@ void Menu::setSelectedItem(short selectedItem) {
 }
 
 short Menu::addItem(string item) {
-	Text *text = new Text(item, &font);
-	Dimension dim = text->getDimension();
+	Text text(item, &font);
+	Dimension dim = text.getDimension();
 	Point position(400 - (dim.w >> 1), lastY);
 
 	sensAreas.addArea(Area(position, dim));
@@ -70,6 +72,8 @@ short Menu::getSelectedItem() {
 		fr.regulate();
 	}
 
+	normalCursor.applyToWindow();
+
 	return selectedItem;
 }
 
@@ -87,15 +91,16 @@ void Menu::update() {
 
 	for (unsigned int i = 0; i < items.size(); i++) {
 		MenuItem item = items.at(i);
-		Text *text = item.getText();
-		if ((short) i == selectedItem) {
+		Text text = item.getText();
+		if ((short)i == selectedItem) {
 			renderer.drawTexture(&smokingPipeTexture, Point(185, item.getPosition().y));
 			font.setColor(colorSelected);
-		} else {
+		}
+		else {
 			font.setColor(colorNotSelected);
 		}
-		text->setFont(&font);
-		renderer.drawText(text, item.getPosition());
+		text.setFont(&font);
+		renderer.drawText(&text, item.getPosition());
 	}
 
 	renderer.present();
@@ -107,26 +112,26 @@ void Menu::onQuit(SDL_QuitEvent e) {
 
 void Menu::onKeyDown(SDL_KeyboardEvent key) {
 	switch (key.keysym.sym) {
-		case SDLK_UP:
-			if (selectedItem > 0) {
-				selectedItem--;
-				//			sound.play();
-			}
-			break;
-		case SDLK_DOWN:
-			if (selectedItem < (int) items.size() - 1) {
-				selectedItem++;
-				//			sound.play();
-			}
-			break;
-		case SDLK_RETURN:
-			currentItem = selectedItem;
-			break;
-		case SDLK_ESCAPE:
-			currentItem = selectedItem = 5;
-			break;
-		default:
-			break;
+	case SDLK_UP:
+		if (selectedItem > 0) {
+			selectedItem--;
+			//			sound.play();
+		}
+		break;
+	case SDLK_DOWN:
+		if (selectedItem < (int)items.size() - 1) {
+			selectedItem++;
+			//			sound.play();
+		}
+		break;
+	case SDLK_RETURN:
+		currentItem = selectedItem;
+		break;
+	case SDLK_ESCAPE:
+		currentItem = selectedItem = 5;
+		break;
+	default:
+		break;
 	}
 }
 
@@ -149,6 +154,10 @@ void Menu::onMouseButtonUp(SDL_MouseButtonEvent e) {
 
 void Menu::onMouseMotion(SDL_MouseMotionEvent motion) {
 	int resolved = sensAreas.resolve(motion.x, motion.y);
+	if (resolved == -1)
+		normalCursor.applyToWindow();
+	else
+		handCursor.applyToWindow();
 	if (resolved != -1 && resolved != selectedItem) {
 		sound.play();
 		selectedItem = resolved;

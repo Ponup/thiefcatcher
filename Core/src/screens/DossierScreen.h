@@ -10,14 +10,15 @@ using std::vector;
 #include <Surface.h>
 
 #include <Texture.h>
+using Kangaroo::Texture;
 
 #include "entities/Criminal.h"
 
-using Kangaroo::Texture;
+#include <MouseCursor.h>
+using Kangaroo::MouseCursor;
 
 class DossierScreen : public EventHandler {
 
-private:
 	Window *window;
 
 	vector<Criminal> *criminals;
@@ -26,11 +27,13 @@ private:
 	bool quit;
 
 	SensitiveAreas sensAreas;
-	
+
 	Font fontName;
 	Font font;
-	
+
 	Texture backgroundTexture;
+
+	MouseCursor normalCursor, handCursor;
 
 	void updateScreen(bool update);
 

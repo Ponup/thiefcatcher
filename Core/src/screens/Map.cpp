@@ -161,7 +161,7 @@ void Map::drawDirectedAirplane()
 	directedAirplane->transform(angle);
 	Texture* airplaneTexture = new Texture(renderer->internal, directedAirplane->toSDL());
 
-//	airplanePosition = latlong2point(sourceCountry->getLatitudeLongitude()) - Point(15, 15) + mapOffset - bulletRadius + offsetFix;
+	airplanePosition = latlong2point(sourceCountry->getLatitudeLongitude()) - Point(15, 15) + mapOffset - bulletRadius + offsetFix;
 	renderer->drawTexture(airplaneTexture, airplanePosition);
 }
 
@@ -188,7 +188,7 @@ void Map::gotoTarget() {
 			}
 		}
 
-		airplanePosition = airplanePosition + (*it);
+		airplanePosition =  (*it);//airplanePosition +
 
 		Texture* texture = new Texture(renderer->internal, directedAirplane->toSDL());
 
@@ -221,11 +221,13 @@ void Map::onKeyDown(SDL_KeyboardEvent key) {
 		break;
 	case SDLK_RETURN:
 		quit = true;
+		updateScreen(true);
 		break;
 	case SDLK_UP:
 		selected--;
 		if (selected == -1)
 			selected = 2;
+		updateScreen(true);
 		break;
 	case SDLK_DOWN:
 		selected++;
@@ -261,6 +263,7 @@ void Map::onMouseMotion(SDL_MouseMotionEvent motion) {
 	if (resolved != -1) {
 		updatePending = true;
 		selected = resolved;
+		updateScreen(true);
 	}
 }
 

@@ -13,7 +13,10 @@ const char LANGUAGES[NUM_LANGUAGES][20] = { "Spanish", "English", "Catalan" };
 
 OptionsScreen::OptionsScreen(Renderer* renderer) :
 	renderer(renderer),
-	backgroundTexture(renderer->internal, "resources/images/menu/background.png") {
+	backgroundTexture(renderer->internal, "resources/images/menu/background.png"),
+	normalCursor(SDL_SYSTEM_CURSOR_ARROW),
+	handCursor(SDL_SYSTEM_CURSOR_HAND)
+	{
 	quit = false;
 
 	configurator = Configurator::getInstance();
@@ -32,7 +35,7 @@ OptionsScreen::OptionsScreen(Renderer* renderer) :
 	soundsValue->setFont(fontValue);
 	fullscreenValue = new Text();
 	fullscreenValue->setFont(fontValue);
-	
+
 	updateValues();
 
 	sensAreas.addArea(Point(480, 130), languageValue->getDimension());
@@ -69,7 +72,7 @@ void OptionsScreen::updateValues() {
 }
 
 void OptionsScreen::updateScreen(bool update) {
-	if( !update ) {
+	if (!update) {
 		return;
 	}
 
@@ -102,7 +105,7 @@ void OptionsScreen::updateScreen(bool update) {
 	renderer->drawText(musicValue, Point(480, 160));
 	renderer->drawText(soundsValue, Point(480, 190));
 	renderer->drawText(fullscreenValue, Point(480, 220));
-	
+
 	renderer->present();
 }
 
@@ -111,20 +114,26 @@ void OptionsScreen::onQuit(SDL_QuitEvent e) {
 }
 
 void OptionsScreen::onMouseMotion(SDL_MouseMotionEvent e) {
-
+	int resolved = sensAreas.resolve(e.x, e.y);
+	if (resolved == -1)
+		normalCursor.applyToWindow();
+	else
+		handCursor.applyToWindow();
 }
 
 void OptionsScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
 	if (e.button == SDL_BUTTON_RIGHT) {
 		quit = true;
-	} else {
+	}
+	else {
 		int resolved = sensAreas.resolve(e.x, e.y);
 		if (resolved != -1) {
 			switch (resolved) {
 			case 0: {
 				if (languageIndex + 1 < NUM_LANGUAGES) {
 					languageIndex++;
-				} else {
+				}
+				else {
 					languageIndex = 0;
 				}
 				const char *language = NULL;
@@ -141,7 +150,7 @@ void OptionsScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
 				}
 				configurator.setLanguage(language);
 			}
-				break;
+					break;
 			case 1:
 				configurator.setPlayMusic(!configurator.isPlayMusic());
 				break;

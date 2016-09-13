@@ -13,7 +13,7 @@ using std::pair;
 #include <Point.h>
 
 class Country {
-private:
+
     unsigned char id;
     string isoCode;
     string code;
@@ -61,8 +61,6 @@ public:
     void setLongitude(double longitude);
     double getLongitude() const;
     pair<double, double> getLatitudeLongitude() const;
-
-    Surface* getPhoto() const;
 
     string toString() const;
 };

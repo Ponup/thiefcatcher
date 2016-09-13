@@ -11,10 +11,13 @@
 #include "ui/widgets/SquareButton.h"
 
 #include <Texture.h>
-#include <Renderer.h>
-
 using Kangaroo::Texture;
+
+#include <Renderer.h>
 using Kangaroo::Renderer;
+
+#include <MouseCursor.h>
+using Kangaroo::MouseCursor;
 
 enum class GameState {
     Playing,
@@ -26,9 +29,7 @@ enum class GameState {
 
 class Game {
 
-	SensitiveAreas sensAreas;
-
-    Window *window;
+	Window *window;
 	Renderer renderer;
 	Texture backgroundTexture;
 	
@@ -38,7 +39,6 @@ class Game {
     SDL_Surface *fontSurface;
 
     SDL_Surface *optionBackup;
-    SDL_Rect lastRect;
 
     SquareButton *buttons[4];
 
@@ -49,6 +49,8 @@ class Game {
     GameState state;
 
     Clock *clock;
+
+	MouseCursor normalCursor, handCursor;
 
 	void drawScene();
 
