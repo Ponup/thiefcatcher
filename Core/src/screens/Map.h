@@ -11,10 +11,13 @@
 #include "entities/Country.h"
 
 #include <Renderer.h>
-#include <Texture.h>
-
-using Kangaroo::Texture;
 using Kangaroo::Renderer;
+
+#include <Texture.h>
+using Kangaroo::Texture;
+
+#include <MouseCursor.h>
+using Kangaroo::MouseCursor;
 
 class Map : public EventHandler {
 
@@ -28,14 +31,12 @@ class Map : public EventHandler {
 	Country* targetCountry;
 
 	Window* window;
-	Texture* textureSurface;
-
-	Surface *directedAirplane;
+	Texture backgroundTexture;
 
 	Font font;
 
 	Dimension airplaneDim;
-	Point airplanePosition;
+	Point airplanePosition, originalAirplanePosition;
 
 	Point mapOffset;
 	Point offsetFix;
@@ -47,9 +48,11 @@ class Map : public EventHandler {
 
 	Point points[3];
 
+	MouseCursor normalCursor, handCursor;
+
 	void addSensibleAreas();
-	void drawAllCountries();
-	void createStaticBackground();
+	void drawCountriesLabels();
+	void drawBackgroundElements();
 	void drawOptions();
 	void drawDirectedAirplane();
 	void updateScreen(bool update);

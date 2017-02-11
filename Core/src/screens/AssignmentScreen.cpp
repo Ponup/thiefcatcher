@@ -50,7 +50,6 @@ PlayerCase *AssignmentScreen::show() {
 
 		// readKey() locks the user input
 		int key = readKey();
-
 		if (key == SDLK_y || key == SDLK_s) {
 			if ((player = PlayersManager::create(name))) {
 				break;

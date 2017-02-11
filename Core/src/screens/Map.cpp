@@ -21,11 +21,11 @@ Map::Map(Renderer* renderer, Country *sourceCountry_, Country *targetCountry_) :
 	selected(0), quit(false), updatePending(true),
 	sourceCountry(sourceCountry_), targetCountry(targetCountry_),
 	bulletSurface(renderer->internal, "resources/images/map/flight_target.gif"),
-	bulletOverSurface(renderer->internal, "resources/images/map/flight_target_over.gif")
-	{
-
-	directedAirplane = nullptr;
-
+	bulletOverSurface(renderer->internal, "resources/images/map/flight_target_over.gif"),
+	normalCursor(SDL_SYSTEM_CURSOR_ARROW),
+	handCursor(SDL_SYSTEM_CURSOR_HAND),
+	backgroundTexture(renderer->internal, "resources/images/empty_background.jpg")
+{
 	mapOffset = Point(50, 80);
 	// This point fixes the position of the bullets on the map.
 	offsetFix = Point::Origin;
@@ -36,6 +36,9 @@ Map::Map(Renderer* renderer, Country *sourceCountry_, Country *targetCountry_) :
 	font.setColor(Color(0x8e, 0x60, 0x3e));
 
 	addSensibleAreas();
+
+	airplanePosition = latlong2point(sourceCountry->getLatitudeLongitude()) - Point(15, 15) + mapOffset - bulletRadius + offsetFix;
+	originalAirplanePosition = latlong2point(sourceCountry->getLatitudeLongitude()) - Point(15, 15) + mapOffset - bulletRadius + offsetFix;
 
 	updateScreen(true);
 
@@ -52,11 +55,9 @@ Map::Map(Renderer* renderer, Country *sourceCountry_, Country *targetCountry_) :
 }
 
 Map::~Map() {
-	if (directedAirplane != nullptr)
-		delete directedAirplane;
 }
 
-void Map::drawAllCountries()
+void Map::drawCountriesLabels()
 {
 	vector<Country> countries = CountriesManager::findAll();
 	for (unsigned int i = 0; i < countries.size(); i++)
@@ -79,16 +80,11 @@ void Map::addSensibleAreas()
 }
 
 void Map::updateScreen(bool update) {
-
-	createStaticBackground();
-	drawAllCountries();
-
+	drawBackgroundElements();
+	drawCountriesLabels();
 	drawOptions();
 	drawDirectedAirplane();
-
-	if (update) {
-		renderer->present();
-	}
+	renderer->present();
 
 	updatePending = false;
 }
@@ -127,10 +123,9 @@ void Map::drawOptions()
 	}
 }
 
-void Map::createStaticBackground()
+void Map::drawBackgroundElements()
 {
-	textureSurface = new Texture(renderer->internal, "resources/images/empty_background.jpg");
-	renderer->drawTexture(textureSurface);
+	renderer->drawTexture(&backgroundTexture);
 
 	Texture mapSurface(renderer->internal, "resources/images/map/mercator-map-small.png");
 	renderer->drawTexture(&mapSurface, mapOffset);
@@ -155,14 +150,11 @@ void Map::drawDirectedAirplane()
 	double angle = MathUtil::radian2degree(atan2(deltax, deltay));
 	angle += 45; // because the airplane is rotated already.
 
-	if (directedAirplane != nullptr)
-		delete directedAirplane;
-	directedAirplane = new Surface("resources/images/map/airplane-30.png", true);
-	directedAirplane->transform(angle);
-	Texture* airplaneTexture = new Texture(renderer->internal, directedAirplane->toSDL());
+	Surface directedAirplane("resources/images/map/airplane-30.png", true);
+	directedAirplane.transform(angle);
+	Texture airplaneTexture(renderer->internal, directedAirplane.toSDL());
 
-	airplanePosition = latlong2point(sourceCountry->getLatitudeLongitude()) - Point(15, 15) + mapOffset - bulletRadius + offsetFix;
-	renderer->drawTexture(airplaneTexture, airplanePosition);
+	renderer->drawTexture(&airplaneTexture, airplanePosition);
 }
 
 void Map::gotoTarget() {
@@ -188,15 +180,19 @@ void Map::gotoTarget() {
 			}
 		}
 
-		airplanePosition =  (*it);//airplanePosition +
+		airplanePosition = originalAirplanePosition + (*it);
 
-		Texture* texture = new Texture(renderer->internal, directedAirplane->toSDL());
+		double deltay = latlong2point(sourceCountry->getLatitudeLongitude()).y - latlong2point(targetCountry[selected].getLatitudeLongitude()).y;
+		double deltax = latlong2point(sourceCountry->getLatitudeLongitude()).x - latlong2point(targetCountry[selected].getLatitudeLongitude()).x;
+		double angle = MathUtil::radian2degree(atan2(deltax, deltay));
+		angle += 45; // because the airplane is rotated already.
 
-		//renderer->drawTexture(texture, airplanePosition);
+		Surface directedAirplane("resources/images/map/airplane-30.png", true);
+		directedAirplane.transform(angle);
+		Texture airplaneTexture(renderer->internal, directedAirplane.toSDL());
+
 		updateScreen(true);
-
-		delete texture;
-
+		
 		it++;
 
 		if (it == path.end()) {
@@ -233,6 +229,7 @@ void Map::onKeyDown(SDL_KeyboardEvent key) {
 		selected++;
 		if (selected > 2)
 			selected = 0;
+		updateScreen(true);
 		break;
 	}
 }
@@ -261,9 +258,13 @@ void Map::onMouseButtonUp(SDL_MouseButtonEvent e) {
 void Map::onMouseMotion(SDL_MouseMotionEvent motion) {
 	int resolved = sensAreas.resolve(motion.x, motion.y);
 	if (resolved != -1) {
+		handCursor.applyToWindow();
 		updatePending = true;
 		selected = resolved;
 		updateScreen(true);
+	}
+	else {
+		normalCursor.applyToWindow();
 	}
 }
 

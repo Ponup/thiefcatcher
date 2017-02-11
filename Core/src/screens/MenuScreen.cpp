@@ -4,8 +4,6 @@
 #include "components/ConfirmationDialog.h"
 #include "entities/PlayersManager.h"
 
-#include "ui/widgets/Menu.h"
-
 #include "screens/Game.h"
 #include "screens/handlers/GameEventHandler.h"
 #include "screens/ComputerScreen.h"
@@ -15,13 +13,17 @@
 #include "screens/OptionsScreen.h"
 #include "screens/DossierScreen.h"
 #include "screens/HallOfFameScreen.h"
+#include "screens/GameOverScreen.h"
 
 #include <Renderer.h>
 
 using Kangaroo::Renderer;
 
-void MenuScreen::show() {
-	Menu menu(window);
+MenuScreen::MenuScreen(Window *window, const Configurator *configurator) :
+	window(window),
+	configurator(configurator),
+	menu(window) {
+
 	menu.setSelectedItem(0);
 	menu.addItem(_("New game"));
 	menu.addItem(_("Dossiers"));
@@ -29,7 +31,9 @@ void MenuScreen::show() {
 	menu.addItem(_("Options"));
 	menu.addItem(_("Help"));
 	menu.addItem(_("Quit"));
+}
 
+void MenuScreen::show() {
 	Renderer renderer(window->renderer);
 
 	MediaMusic music("resources/sounds/weird_loop.wav");
@@ -46,7 +50,7 @@ void MenuScreen::show() {
 		case 0: {
 			AssignmentScreen assigScreen(&renderer);
 			PlayerCase *playerCase = assigScreen.show();
-			if (playerCase == NULL) continue;
+			if (playerCase == nullptr) continue;
 
 			Game game(window, playerCase);
 			GameEventHandler gameEventHandler(&game);
@@ -55,28 +59,8 @@ void MenuScreen::show() {
 				game.update();
 			}
 
-			Player player = playerCase->getPlayer();
-
-			ComputerScreen screen(&renderer);
-			switch (game.getGameState()) {
-			case GameState::Won:
-				PlayersManager::updatePlayer(player);
-				screen.addLine(_("Congratulations, you have won the case and promoted!"));
-				break;
-			case GameState::Abort:
-				screen.addLine(_("The mission has been aborted, fortunately was all a hoax."));
-				break;
-			case GameState::LostTimeout:
-				screen.addLine(_("You took a long time and the robber has escaped. Try again with another case."));
-				break;
-			case GameState::LostEscaped:
-				screen.addLine(_("What a shame! You had cornered the thief but escaped because they had no warrant. Try with another case."));
-				break;
-			default:
-				screen.addLine(_("Internal error. Oopss."));
-			}
-			screen.showLines();
-			screen.waitKey();
+			GameOverScreen gameOverScreen(&renderer, &game, playerCase);
+			gameOverScreen.show();
 		} break;
 		case 1: {
 			DossierScreen dossierScreen(window);

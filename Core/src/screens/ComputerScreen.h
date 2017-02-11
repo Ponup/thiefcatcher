@@ -20,24 +20,24 @@ using Kangaroo::Texture;
 class ComputerScreen {
 
 	vector<string> lines;
-	
+
 	unsigned int currentLine;
 
 	Font *font;
-		
+
 protected:
 	Renderer* renderer;
 	Texture backgroundTexture;
-	
+
 	int readKey();
-	
+
 public:
 	ComputerScreen(Renderer* renderer);
 	virtual ~ComputerScreen();
-	
-	void clear();	
-	void addLine(string line);
+
+	void clear();
+	void addLine(const string& line);
 	void showLines();
-	
-	void waitKey();
+
+	void waitForInput();
 };

@@ -150,10 +150,11 @@ void PlayerCase::updateClues() {
 	} else {
 		Criminal criminal = getCriminal();
 		Country next = nextCountry();
+		ClueManager clueManager;
 
-		clues[0] = ClueManager::create(criminal, next);
-		clues[1] = ClueManager::create(criminal, next);
-		clues[2] = ClueManager::create(criminal, next);
+		clues[0] = clueManager.create(criminal, next);
+		clues[1] = clueManager.create(criminal, next);
+		clues[2] = clueManager.create(criminal, next);
 	}
 }
 

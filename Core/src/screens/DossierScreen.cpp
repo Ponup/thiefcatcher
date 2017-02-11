@@ -100,13 +100,13 @@ void DossierScreen::updateScreen(bool update) {
 
 	Text text2(CriminalFormatter::formatGenre(criminal), &font);
 	renderer.drawText(&text2, Point(320, 250));
-
+	/*
 	Text text4(criminal.getHobby(), &font);
 	renderer.drawText(&text4, Point(320, 300));
 
 	Text text6(criminal.getHair(), &font);
 	renderer.drawText(&text6, Point(320, 345));
-
+	*/
 	Text text8(criminal.getFeature(), &font);
 	renderer.drawText(&text8, Point(320, 390));
 

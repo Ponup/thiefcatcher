@@ -42,7 +42,7 @@ void drawCountry(Renderer* canvas, const Country &country, bool drawDescription)
 
 		Text description(country.getDescription(), &descFont);
 		TextUtils textUtils;
-		textUtils.drawLines(canvas, description, Point(358, 150), Dimension(330, 340));
+		textUtils.drawLines(canvas, description, Point(358, 150), Dimension(360, 340));
 	}
 }
 

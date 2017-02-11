@@ -27,8 +27,8 @@ void IntroScreen::run() {
 	font.setColor(Color(255, 220, 220));
 	font.setStyle(FontStyle::BLENDED);
 
-	Text textLine(_("Thief Catcher"));
-	textLine.setFont(&font);
+	Text gameNameText(_("Thief Catcher"));
+	gameNameText.setFont(&font);
 
 	MediaSound sound("resources/sounds/gunshot.wav");
 	sound.play();
@@ -37,8 +37,8 @@ void IntroScreen::run() {
 	Texture backgroundTexture(screen->renderer, "resources/images/empty_background.jpg");
 	Texture bulletTexture(screen->renderer, "resources/images/bullet.png");
 
-	Point textPos(400 - (textLine.getDimension().w >> 1), 200);
-	Point glassPos(textPos.x + textLine.getDimension().w - 40, 200);
+	Point textPos(400 - (gameNameText.getDimension().w >> 1), 200);
+	Point glassPos(textPos.x + gameNameText.getDimension().w - 40, 200);
 
 	int bulletX = 0;
 	float alpha = SDL_ALPHA_TRANSPARENT;
@@ -55,10 +55,10 @@ void IntroScreen::run() {
 	bool quit = false;
 	while (!quit) {
 		Point position(cos(angle) * radius, sin(angle) * radius);
-		textLine.setAlpha(alpha);
+		gameNameText.setAlpha(alpha);
 
 		renderer.drawTexture(&backgroundTexture);
-		renderer.drawText(&textLine, textPos);
+		renderer.drawText(&gameNameText, textPos);
 		renderer.drawTexture(&bulletTexture, Point(bulletX, 230));
 		renderer.drawTexture(&magnifierTexture, glassPos + position);
 		renderer.present();

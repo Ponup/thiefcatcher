@@ -3,7 +3,7 @@
 #include "entities/format/CriminalFormatter.h"
 
 #include <sstream>
-using std::stringstream;
+using std::ostringstream;
 
 Criminal::Criminal() {
 	id = -1;
@@ -28,7 +28,7 @@ string Criminal::getName() const {
 	return name;
 }
 
-void Criminal::setGenre( Genre genre ) {
+void Criminal::setGenre(Genre genre) {
 	this->genre = genre;
 }
 
@@ -36,20 +36,36 @@ Genre Criminal::getGenre() const {
 	return genre;
 }
 
-void Criminal::setHobby(const string &hobby) {
-	this->hobby = hobby;
+void Criminal::setHairColor(const string &hairColor) {
+	this->hairColor = hairColor;
 }
 
-string Criminal::getHobby() const {
-	return hobby;
+string Criminal::getHairColor() const {
+	return hairColor;
 }
 
-void Criminal::setHair(const string &hair) {
-	this->hair = hair;
+void Criminal::setHairLength(const string &hairLength) {
+	this->hairLength = hairLength;
 }
 
-string Criminal::getHair() const {
-	return hair;
+string Criminal::getHairLength() const {
+	return hairLength;
+}
+
+void Criminal::setBuild(const string& build) {
+	this->build = build;
+}
+
+string Criminal::getBuild() const {
+	return build;
+}
+
+void Criminal::setEyesColor(const string& eyesColor) {
+	this->eyesColor = eyesColor;
+}
+
+string Criminal::getEyesColor() const {
+	return eyesColor;
 }
 
 void Criminal::setFeature(const string &feature) {
@@ -60,9 +76,17 @@ string Criminal::getFeature() const {
 	return feature;
 }
 
+void Criminal::setComplexion(const string& complexion) {
+	this->complexion = complexion;
+}
+
+string Criminal::getComplexion() const {
+	return complexion;
+}
+
 string Criminal::toString() const {
-	stringstream text;
-	text << "name: " << name << ", genre: " << CriminalFormatter::formatGenre( genre ) << ", hobby: " << hobby << ", hair: " << hair << ", feature: " << feature;
+	ostringstream text;
+//	text << "name: " << name << ", genre: " << CriminalFormatter::formatGenre(genre) << ", hobby: " << hobby << ", hair: " << hair << ", feature: " << feature;
 
 	return text.str();
 }

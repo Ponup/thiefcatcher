@@ -72,13 +72,13 @@ int main(int argc, char** argv) {
 		return EXIT_FAILURE;
 	}
 
-#ifndef TC_SKIP_INTRO
-	IntroScreen intro(&window);
-	intro.run();
-#endif
+	{
+		IntroScreen intro(&window);
+		intro.run();
 
-	MenuScreen menuScreen(&window, &configurator);
-	menuScreen.show();
+		MenuScreen menuScreen(&window, &configurator);
+		menuScreen.show();
+	}
 
 	services.destroy();
 

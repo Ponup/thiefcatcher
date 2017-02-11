@@ -115,13 +115,13 @@ void Menu::onKeyDown(SDL_KeyboardEvent key) {
 	case SDLK_UP:
 		if (selectedItem > 0) {
 			selectedItem--;
-			//			sound.play();
+			sound.play();
 		}
 		break;
 	case SDLK_DOWN:
 		if (selectedItem < (int)items.size() - 1) {
 			selectedItem++;
-			//			sound.play();
+			sound.play();
 		}
 		break;
 	case SDLK_RETURN:

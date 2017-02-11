@@ -28,8 +28,8 @@ vector<Criminal>* CriminalsManager::findAll() {
 		criminal.setID( ++criminalId );
 		criminal.setGenre( strncasecmp( "male", criminalNode->Attribute( "genre" ), 4 ) == 0 ? Genre::Male : Genre::Female );
 		criminal.setName( criminalNode->FirstChildElement( "name" )->GetText() );
-		criminal.setHobby( criminalNode->FirstChildElement( "trait" )->GetText() );
-		criminal.setHair( criminalNode->FirstChildElement( "hair" )->GetText() );
+//		criminal.setHobby( criminalNode->FirstChildElement( "trait" )->GetText() );
+//		criminal.setHair( criminalNode->FirstChildElement( "hair" )->GetText() );
 		criminal.setFeature( criminalNode->FirstChildElement( "body" )->GetText() );
 		criminals->push_back( criminal );
 	}
@@ -43,7 +43,7 @@ vector<string> &CriminalsManager::findAllHairs() {
 	vector<Criminal> *criminals = findAll();
 	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
 		Criminal criminal = *it;
-		list->push_back( criminal.getHair() );
+		//list->push_back( criminal.getHair() );
 	}
 
 	return *list;		
@@ -55,7 +55,7 @@ vector<string> & CriminalsManager::findAllHobbies() {
 	vector<Criminal> *criminals = findAll();
 	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
 		Criminal criminal = *it;
-		list->push_back( criminal.getHobby() );
+		//list->push_back( criminal.getHobby() );
 	}
 
 	return *list;			
@@ -77,7 +77,7 @@ Criminal *CriminalsManager::findByFeatures( Genre genre, const string &hobby, co
 	vector<Criminal> *criminals = findAll();
 	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
 		Criminal criminal = *it;
-		if( genre == criminal.getGenre() && criminal.getHobby() == hobby && criminal.getHair() == hair ) {
+		if( false) { //genre == criminal.getGenre() && criminal.getHobby() == hobby && criminal.getHair() == hair ) {
 			return new Criminal( criminal );
 		}
 	}

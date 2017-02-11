@@ -2,14 +2,16 @@
 
 #include "Window.h"
 #include "utilities/Configurator.h"
+#include "ui/widgets/Menu.h"
 
-class MenuScreen
-{
-	private:
-		Window *window;
-		const Configurator *configurator;
+class MenuScreen {
 
-	public:
-		MenuScreen( Window *window_, const Configurator *configurator_ ) : window( window_ ), configurator( configurator_ ) {};
-		void show();
+	Window *window;
+	const Configurator *configurator;
+	Menu menu;
+
+public:
+	MenuScreen(Window *window, const Configurator *configurator);
+
+	void show();
 };

@@ -14,7 +14,7 @@ using std::reverse;
 ComputerScreen::ComputerScreen(Renderer* renderer) :
 	renderer(renderer),
 	backgroundTexture(renderer->internal, "resources/images/notebook_background.png")
-	{
+{
 	currentLine = 0;
 
 	font = FontManager::getFont("NotCourierSans-Bold", 14);
@@ -38,7 +38,7 @@ vector<string> &split(const string &s, char delim, vector<string> &elems) {
 	return elems;
 }
 
-void ComputerScreen::addLine(string line) {
+void ComputerScreen::addLine(const string& line) {
 	vector<string> tokens;
 	split(line, ' ', tokens);
 	reverse(tokens.begin(), tokens.end());
@@ -48,7 +48,8 @@ void ComputerScreen::addLine(string line) {
 		string nextWord = (nextLine.empty() ? tokens.back() : string(" ") + tokens.back());
 		if (Text((nextLine + nextWord).c_str(), font).getDimension().w < 550) {
 			nextLine.append(nextWord);
-		} else {
+		}
+		else {
 			lines.push_back(nextLine);
 			nextLine = tokens.back();
 		}
@@ -99,7 +100,15 @@ int ComputerScreen::readKey() {
 	return key;
 }
 
-void ComputerScreen::waitKey() {
-	readKey();
+void ComputerScreen::waitForInput() {
+	bool quit = false;
+	SDL_Event ev;
+
+	while (!quit) {
+		SDL_Delay(80);
+		while (SDL_PollEvent(&ev)) {
+			quit = ev.type == SDL_KEYDOWN || ev.type == SDL_MOUSEBUTTONDOWN;
+		}
+	}
 }
 
