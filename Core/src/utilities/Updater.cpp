@@ -29,9 +29,8 @@ int writeData(char *buffer, size_t size, size_t nmemb, string *content) {
 bool Updater::existsNewVersion(const char *currentVersion) {
 	bool newVersion = false;
 
-	float clientVersion = 0.0f;
+	float clientVersion = std::stof(currentVersion);
 	float serverVersion = 0.0f;
-	sscanf(currentVersion, "%f", &clientVersion);
 
 	curl_global_init(CURL_GLOBAL_ALL);
 	handle = curl_easy_init();
@@ -56,10 +55,9 @@ bool Updater::existsNewVersion(const char *currentVersion) {
 		newVersion = false;
 	} else {
 		int respCode;
-		if (CURLE_OK
-				== curl_easy_getinfo(handle, CURLINFO_HTTP_CODE, &respCode) ) {
+		if (CURLE_OK == curl_easy_getinfo(handle, CURLINFO_HTTP_CODE, &respCode) ) {
 			if (respCode == 200) {
-				sscanf(content.c_str(), "%f", &serverVersion);
+				serverVersion = std::stof(content.c_str());
 				newVersion = serverVersion > clientVersion;
 			}
 		}

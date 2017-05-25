@@ -19,7 +19,7 @@ PlayerCase::PlayerCase(const PlayerCase &playerCase) {
 	startDate = playerCase.startDate;
 	currentDate = playerCase.currentDate;
 	endDate = playerCase.endDate;
-	player = playerCase.getPlayer();
+//	player = playerCase.getPlayer();
 	criminal = playerCase.getCriminal();
 	currentPosition = playerCase.getCurrentPosition();
 	itinerary = playerCase.getItinerary();
@@ -31,7 +31,7 @@ PlayerCase PlayerCase::operator=(const PlayerCase &playerCase) {
 	startDate = playerCase.startDate;
 	currentDate = playerCase.currentDate;
 	endDate = playerCase.endDate;
-	player = playerCase.getPlayer();
+//	player = playerCase.getPlayer();
 	criminal = playerCase.getCriminal();	
 	currentPosition = playerCase.getCurrentPosition();
 	itinerary = playerCase.getItinerary();
@@ -62,7 +62,7 @@ void PlayerCase::setPlayer( const Player &player ) {
 	this->player = player;
 }
 
-Player PlayerCase::getPlayer() const {
+Player& PlayerCase::getPlayer() {
 	return player;
 }
 

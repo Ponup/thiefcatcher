@@ -48,7 +48,7 @@ public:
 	Country &getLastCountry();
 
 	void setPlayer( const Player &player );
-	Player getPlayer() const;
+	Player& getPlayer();
 	void setCriminal( const Criminal &criminal );
 	Criminal getCriminal() const;
 	void setCurrentPosition(int currentPosition);

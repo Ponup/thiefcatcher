@@ -17,8 +17,8 @@ class Clock {
 
 private:
 	Point position;
-	Texture surface;
 	Window *window;
+	Texture surface;
 
 public:
 

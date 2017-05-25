@@ -1,8 +1,7 @@
 #include "PlaceSelector.h"
 
 PlaceSelector::PlaceSelector(Renderer* renderer, Surface* bgSxurface, vector<Place> randomPlaces) :
-	renderer(renderer),
-	screen(screen)
+	renderer(renderer)
 	{
 
 	dialogPosition = Point(415, 466);
@@ -107,7 +106,7 @@ void PlaceSelector::onMouseButtonDown(SDL_MouseButtonEvent event) {
 void PlaceSelector::drawIcons() {
 	if (selectedIndex < 3) {
 		Font *font = FontManager::getFont("FreeSansBold", 14);
-		font->setColor(Color(0xff, 0xff0, 0xff));
+		font->setColor(Color(0xff, 0xff, 0xff));
 		Text text(places[selectedIndex].getName(), font);
 		renderer->drawText(&text, dialogPosition + Point((dialogDimension.w >> 1) - (text.getDimension().w >> 1), 110));
 	}

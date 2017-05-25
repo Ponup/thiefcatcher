@@ -20,9 +20,9 @@
 #include "entities/format/CriminalFormatter.h"
 
 ProfileScreen::ProfileScreen(Renderer* renderer, PlayerCase *playerCase_) :
-	renderer(renderer),
-	backgroundTexture(renderer->internal, "resources/images/notebook_background.png"),
-	playerCase(playerCase_) {
+	renderer(renderer),	
+	playerCase(playerCase_),
+	backgroundTexture(renderer->internal, "resources/images/notebook_background.png") {
 
 	option = 0;
 

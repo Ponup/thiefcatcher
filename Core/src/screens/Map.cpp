@@ -20,11 +20,11 @@ Map::Map(Renderer* renderer, Country *sourceCountry_, Country *targetCountry_) :
 	renderer(renderer),
 	selected(0), quit(false), updatePending(true),
 	sourceCountry(sourceCountry_), targetCountry(targetCountry_),
+	backgroundTexture(renderer->internal, "resources/images/empty_background.jpg"),
 	bulletSurface(renderer->internal, "resources/images/map/flight_target.gif"),
 	bulletOverSurface(renderer->internal, "resources/images/map/flight_target_over.gif"),
 	normalCursor(SDL_SYSTEM_CURSOR_ARROW),
-	handCursor(SDL_SYSTEM_CURSOR_HAND),
-	backgroundTexture(renderer->internal, "resources/images/empty_background.jpg")
+	handCursor(SDL_SYSTEM_CURSOR_HAND)
 {
 	mapOffset = Point(50, 80);
 	// This point fixes the position of the bullets on the map.

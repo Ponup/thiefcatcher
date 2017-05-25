@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
 
 	signal(SIGINT, onInterrupt);
 
-	if (Updater::existsNewVersion(GAME_VERSION)) {
+	if (true){//Updater::existsNewVersion(GAME_VERSION)) {
 		cout << _("A new version of 'Thief Catcher' is available for download!") << endl;
 	}
 

@@ -3,9 +3,10 @@
 #include "entities/PlayersManager.h"
 
 GameOverScreen::GameOverScreen(Renderer* renderer, Game* game, PlayerCase* playerCase) :
+	ComputerScreen(renderer),
 	game(game),
-	playerCase(playerCase),
-	ComputerScreen(renderer) {
+	playerCase(playerCase)
+	{
 
 }
 void GameOverScreen::show() {
