@@ -18,16 +18,15 @@ using std::string;
 #endif
 
 class CriminalsManager {
-
 public:
-	static vector<Criminal>* findAll();
-	static vector<int> findAllPrimaryKeys();
-	
-	static vector<string> &findAllHairs();
-	static vector<string> &findAllHobbies();
-	static vector<string> &findAllFeatures();
-	
-	static Criminal* findByPrimaryKey( unsigned int id );
-	static Criminal* findByFeatures( Genre genre, const string &hobby, const string &hair );
+    static vector<Criminal>& findAll();
+    static vector<int> findAllPrimaryKeys();
+
+    static vector<string> &findAllHairs();
+    static vector<string> &findAllHobbies();
+    static vector<string> &findAllFeatures();
+
+    static Criminal* findByPrimaryKey(unsigned int id);
+    static Criminal* findByFeatures(Genre genre, const string &hobby, const string &hair);
 };
 

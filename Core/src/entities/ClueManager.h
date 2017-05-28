@@ -11,13 +11,12 @@ using std::string;
 #include "entities/Country.h"
 
 class ClueManager {
-
-	vector<string> negativeAnswers;
+    vector<string> negativeAnswers;
 
 public:
-	ClueManager();
-	~ClueManager();
+    ClueManager();
+    ~ClueManager();
 
-	Clue *create(const Criminal &criminal, const Country &country);
+    Clue *create(const Criminal &criminal, const Country &country);
 };
 

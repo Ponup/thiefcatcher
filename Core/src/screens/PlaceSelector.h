@@ -22,14 +22,13 @@
 using Kangaroo::Renderer;
 
 class PlaceSelector : public EventHandler {
-
-	SensitiveAreas sensAreas;
+    SensitiveAreas sensAreas;
 
     bool quit;
 
     Place places[3];
 
-	Renderer* renderer;
+    Renderer* renderer;
 
     Window *screen;
 
@@ -42,8 +41,8 @@ class PlaceSelector : public EventHandler {
     int selectedIndex;
     int returnCode;
 
-	void drawIcons();
-	void draw();
+    void drawIcons();
+    void draw();
 
 public:
     PlaceSelector(Renderer* renderer, Surface* canvas, vector<Place> randomPlaces);

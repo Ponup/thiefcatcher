@@ -6,88 +6,88 @@
 using std::ostringstream;
 
 Criminal::Criminal() {
-	id = -1;
+    id = -1;
 }
 
 Criminal::~Criminal() {
 }
 
 void Criminal::setID(int id) {
-	this->id = id;
+    this->id = id;
 }
 
 int Criminal::getID() const {
-	return id;
+    return id;
 }
 
 void Criminal::setName(const string &name) {
-	this->name = name;
+    this->name = name;
 }
 
 string Criminal::getName() const {
-	return name;
+    return name;
 }
 
 void Criminal::setGenre(Genre genre) {
-	this->genre = genre;
+    this->genre = genre;
 }
 
 Genre Criminal::getGenre() const {
-	return genre;
+    return genre;
 }
 
 void Criminal::setHairColor(const string &hairColor) {
-	this->hairColor = hairColor;
+    this->hairColor = hairColor;
 }
 
 string Criminal::getHairColor() const {
-	return hairColor;
+    return hairColor;
 }
 
 void Criminal::setHairLength(const string &hairLength) {
-	this->hairLength = hairLength;
+    this->hairLength = hairLength;
 }
 
 string Criminal::getHairLength() const {
-	return hairLength;
+    return hairLength;
 }
 
 void Criminal::setBuild(const string& build) {
-	this->build = build;
+    this->build = build;
 }
 
 string Criminal::getBuild() const {
-	return build;
+    return build;
 }
 
 void Criminal::setEyesColor(const string& eyesColor) {
-	this->eyesColor = eyesColor;
+    this->eyesColor = eyesColor;
 }
 
 string Criminal::getEyesColor() const {
-	return eyesColor;
+    return eyesColor;
 }
 
 void Criminal::setFeature(const string &feature) {
-	this->feature = feature;
+    this->feature = feature;
 }
 
 string Criminal::getFeature() const {
-	return feature;
+    return feature;
 }
 
 void Criminal::setComplexion(const string& complexion) {
-	this->complexion = complexion;
+    this->complexion = complexion;
 }
 
 string Criminal::getComplexion() const {
-	return complexion;
+    return complexion;
 }
 
 string Criminal::toString() const {
-	ostringstream text;
-//	text << "name: " << name << ", genre: " << CriminalFormatter::formatGenre(genre) << ", hobby: " << hobby << ", hair: " << hair << ", feature: " << feature;
+    ostringstream text;
+    text << "name: " << name << ", genre: " << CriminalFormatter::formatGenre(genre) << ", build: " << build << ", hair: " << hairColor << ", feature: " << feature;
 
-	return text.str();
+    return text.str();
 }
 

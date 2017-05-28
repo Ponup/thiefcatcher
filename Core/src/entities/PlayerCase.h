@@ -14,60 +14,59 @@ using std::vector;
 #include "entities/Clue.h"
 
 class PlayerCase {
-	
 public:
-	DateTime *startDate;
-	DateTime *currentDate;
-	DateTime *endDate;
+    DateTime *startDate;
+    DateTime *currentDate;
+    DateTime *endDate;
 
-	unsigned int currentPosition;
-	Criminal criminal;
-	Player player;
+    unsigned int currentPosition;
+    Criminal criminal;
+    Player player;
 
-	Country currentCountry;
-	Country nextCountries[3];
+    Country currentCountry;
+    Country nextCountries[3];
 
-	Clue *clues[3];
+    Clue *clues[3];
 
-	string stolenObject;
-	bool captureOrderExecuted;
+    string stolenObject;
+    bool captureOrderExecuted;
 
 public:
-	vector<Country> itinerary;
+    vector<Country> itinerary;
 
-	PlayerCase();
-	PlayerCase( const PlayerCase &playerCase );
-	~PlayerCase();
+    PlayerCase();
+    PlayerCase(const PlayerCase &playerCase);
+    ~PlayerCase();
 
-	PlayerCase operator=( const PlayerCase &playerCase );
+    PlayerCase operator=(const PlayerCase &playerCase);
 
-	bool rightCountry();
-	Country &nextCountry();
-	Country &getCurrentCountry();
-	Country &previousCountry();
-	Country &getLastCountry();
+    bool rightCountry();
+    Country &nextCountry();
+    Country &getCurrentCountry();
+    Country &previousCountry();
+    Country &getLastCountry();
 
-	void setPlayer( const Player &player );
-	Player& getPlayer();
-	void setCriminal( const Criminal &criminal );
-	Criminal getCriminal() const;
-	void setCurrentPosition(int currentPosition);
-	int getCurrentPosition() const;
+    void setPlayer(const Player &player);
+    Player& getPlayer();
+    void setCriminal(const Criminal &criminal);
+    Criminal getCriminal() const;
+    void setCurrentPosition(int currentPosition);
+    int getCurrentPosition() const;
 
-	void setStolenObject( const string &stolenObject );
-	string getStolenObject() const;
+    void setStolenObject(const string &stolenObject);
+    string getStolenObject() const;
 
-	bool isCaptureOrderExecuted() const;
-	void setCaptureOrderExecuted(bool captureOrderExecuted);
+    bool isCaptureOrderExecuted() const;
+    void setCaptureOrderExecuted(bool captureOrderExecuted);
 
-	void setItinerary(vector<Country> itinerary);
-	vector<Country> getItinerary() const;
+    void setItinerary(vector<Country> itinerary);
+    vector<Country> getItinerary() const;
 
-	void setCurrentCountry( const Country &country );
+    void setCurrentCountry(const Country &country);
 
-	void updateCountries();
-	void updateClues();
+    void updateCountries();
+    void updateClues();
 
-	const char *toString() const;
+    const char *toString() const;
 };
 

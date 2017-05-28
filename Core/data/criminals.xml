@@ -5,29 +5,39 @@
 		<hair>Black</hair>
 		<body>White skin</body>
 		<trait>Smoker</trait>
+		<build>Medium</build>
+		<complexion>Brown</complexion>
 	</criminal>
 	<criminal genre="female">
 		<name>Bullet riddled Lupe</name>
 		<hair>Brown</hair>
 		<body>Thin and tall</body>
 		<trait>Jewerly shopping addict</trait>
+		<build>Medium</build>
+		<complexion>Brown</complexion>
 	</criminal>
 	<criminal genre="male">
 		<name>Hot Knife Santi</name>
 		<hair>Black</hair>
 		<body>Tattooed</body>
 		<trait>Technology gadgets</trait>
+		<build>Medium</build>
+		<complexion>Brown</complexion>
 	</criminal>
 	<criminal genre="male">
 		<name>Pablo Scarface</name>
 		<hair>Black</hair>
 		<body>Tall</body>
 		<trait>Bearded</trait>
+		<build>Medium</build>
+		<complexion>Brown</complexion>
 	</criminal>
 	<criminal genre="female">
 		<name>Bad Breath Cele</name>
 		<hair>Brown</hair>
 		<body>Atlhetic</body>
 		<trait>Dancer</trait>
+		<build>Medium</build>
+		<complexion>Brown</complexion>
 	</criminal>
 </criminals>

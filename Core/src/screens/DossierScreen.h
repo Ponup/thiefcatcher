@@ -18,36 +18,35 @@ using Kangaroo::Texture;
 using Kangaroo::MouseCursor;
 
 class DossierScreen : public EventHandler {
+    Window *window;
 
-	Window *window;
+    vector<Criminal> criminals;
 
-	vector<Criminal> *criminals;
+    unsigned char index;
+    bool quit;
 
-	unsigned char index;
-	bool quit;
+    SensitiveAreas sensAreas;
 
-	SensitiveAreas sensAreas;
+    Font fontName;
+    Font font;
 
-	Font fontName;
-	Font font;
+    Texture backgroundTexture;
 
-	Texture backgroundTexture;
+    MouseCursor normalCursor, handCursor;
 
-	MouseCursor normalCursor, handCursor;
-
-	void updateScreen(bool update);
+    void updateScreen(bool update);
 
 public:
-	DossierScreen(Window *window);
-	virtual ~DossierScreen();
+    DossierScreen(Window *window);
+    virtual ~DossierScreen();
 
-	void show();
+    void show();
 
-	void onQuit(SDL_QuitEvent);
-	void onMouseMotion(SDL_MouseMotionEvent);
-	void onMouseButtonDown(SDL_MouseButtonEvent);
-	void onMouseButtonUp(SDL_MouseButtonEvent);
-	void onKeyDown(SDL_KeyboardEvent);
-	void onKeyUp(SDL_KeyboardEvent);
+    void onQuit(SDL_QuitEvent);
+    void onMouseMotion(SDL_MouseMotionEvent);
+    void onMouseButtonDown(SDL_MouseButtonEvent);
+    void onMouseButtonUp(SDL_MouseButtonEvent);
+    void onKeyDown(SDL_KeyboardEvent);
+    void onKeyUp(SDL_KeyboardEvent);
 
 };

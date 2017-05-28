@@ -28,11 +28,10 @@ enum class GameState {
 };
 
 class Game {
+    Window *window;
+    Renderer renderer;
+    Texture backgroundTexture;
 
-	Window *window;
-	Renderer renderer;
-	Texture backgroundTexture;
-	
     Font timeFont;
     Point dateTimePosition;
 
@@ -43,16 +42,16 @@ class Game {
     SquareButton *buttons[4];
 
     PlayerCase *playerCase;
-	Clue* clue;
-	Place place;
+    Clue* clue;
+    Place place;
 
     GameState state;
 
     Clock *clock;
 
-	MouseCursor normalCursor, handCursor;
+    MouseCursor normalCursor, handCursor;
 
-	void drawScene();
+    void drawScene();
 
     void optionTravel();
     void optionPlaces();
@@ -61,8 +60,8 @@ class Game {
     int calculateHours(Country &from, Country &to);
 public:
 
-	static const int Width = 800;
-	static const int Height = 600;
+    static const int Width = 800;
+    static const int Height = 600;
 
     int currentOption;
 

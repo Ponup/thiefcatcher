@@ -4,53 +4,52 @@
 using std::string;
 
 enum class Genre {
-	Female = 0,
-	Male
+    Female = 0,
+    Male
 };
 
 class Criminal {
-
-	int id;
-	string name;
-	Genre genre;
-	string hairColor;
-	string hairLength;
-	string build;
-	string eyesColor;
-	string feature;
-	string complexion; // Appearance of person's skin
+    int id;
+    string name;
+    Genre genre;
+    string hairColor;
+    string hairLength;
+    string build;
+    string eyesColor;
+    string feature;
+    string complexion; // Appearance of person's skin
 
 public:
-	Criminal();
-	~Criminal();
+    Criminal();
+    ~Criminal();
 
-	void setID(int id);
-	int getID() const;
+    void setID(int id);
+    int getID() const;
 
-	void setName(const string &name);
-	string getName() const;
+    void setName(const string &name);
+    string getName() const;
 
-	void setGenre(Genre genre);
-	Genre getGenre() const;
+    void setGenre(Genre genre);
+    Genre getGenre() const;
 
-	void setHairColor(const string &hair);
-	string getHairColor() const;
+    void setHairColor(const string &hair);
+    string getHairColor() const;
 
-	void setHairLength(const string &hairLength);
-	string getHairLength() const;
+    void setHairLength(const string &hairLength);
+    string getHairLength() const;
 
-	void setBuild(const string& build);
-	string getBuild() const;
+    void setBuild(const string& build);
+    string getBuild() const;
 
-	void setEyesColor(const string& eyesColor);
-	string getEyesColor() const;
+    void setEyesColor(const string& eyesColor);
+    string getEyesColor() const;
 
-	void setFeature(const string &feature);
-	string getFeature() const;
+    void setFeature(const string &feature);
+    string getFeature() const;
 
-	void setComplexion(const string& complexion);
-	string getComplexion() const;
+    void setComplexion(const string& complexion);
+    string getComplexion() const;
 
-	string toString() const;
+    string toString() const;
 };
 

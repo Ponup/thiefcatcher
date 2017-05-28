@@ -4,101 +4,103 @@
 
 using tinyxml2::XMLDocument;
 using tinyxml2::XMLElement;
+using tinyxml2::XMLError;
 
-vector<Criminal>* CriminalsManager::findAll() {
-	static vector<Criminal> *criminals = NULL;
+#include <iostream>
+using std::cerr;
+using std::endl;
 
-	if( NULL != criminals ) {
-		return criminals;
-	}
+vector<Criminal>& CriminalsManager::findAll() {
+    static vector<Criminal> criminals;
+    if (!criminals.empty()) {
+        return criminals;
+    }
 
-	criminals = new vector<Criminal>;
+    XMLDocument doc;
+    XMLError errorCode = doc.LoadFile("data/criminals.xml");
+    if (errorCode != tinyxml2::XML_NO_ERROR) {
+        cerr << "XML error code: " << errorCode << endl;
+        return criminals;
+    }
 
-	XMLDocument doc;
-	int errorCode = doc.LoadFile( "data/criminals.xml" );
-	if( errorCode != tinyxml2::XML_NO_ERROR ) {
-		// @todo Log the error.
-		return criminals;
-	}
+    unsigned int criminalId = 0;
+    XMLElement *rootNode = doc.RootElement();
+    for (XMLElement *criminalNode = rootNode->FirstChildElement("criminal"); nullptr != criminalNode; criminalNode = criminalNode->NextSiblingElement("criminal")) {
+        Criminal criminal;
+        criminal.setID(++criminalId);
+        criminal.setGenre(strncasecmp("male", criminalNode->Attribute("genre"), 4) == 0 ? Genre::Male : Genre::Female);
+        criminal.setName(criminalNode->FirstChildElement("name")->GetText());
+        criminal.setBuild(criminalNode->FirstChildElement("build")->GetText());
+        criminal.setHairColor(criminalNode->FirstChildElement("hair")->GetText());
+        criminal.setFeature(criminalNode->FirstChildElement("body")->GetText());
+        criminals.push_back(criminal);
+    }
 
-	unsigned int criminalId = 0;
-	XMLElement *rootNode = doc.RootElement();
-	for( XMLElement *criminalNode = rootNode->FirstChildElement( "criminal" ); NULL != criminalNode; criminalNode = criminalNode->NextSiblingElement( "criminal" ) ) {
-		Criminal criminal;
-		criminal.setID( ++criminalId );
-		criminal.setGenre( strncasecmp( "male", criminalNode->Attribute( "genre" ), 4 ) == 0 ? Genre::Male : Genre::Female );
-		criminal.setName( criminalNode->FirstChildElement( "name" )->GetText() );
-//		criminal.setHobby( criminalNode->FirstChildElement( "trait" )->GetText() );
-//		criminal.setHair( criminalNode->FirstChildElement( "hair" )->GetText() );
-		criminal.setFeature( criminalNode->FirstChildElement( "body" )->GetText() );
-		criminals->push_back( criminal );
-	}
-
-	return criminals;	
+    return criminals;
 }
 
 vector<string> &CriminalsManager::findAllHairs() {
-	vector<string> *list = new vector<string>;
+    vector<string> *list = new vector<string>;
 
-	vector<Criminal> *criminals = findAll();
-	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
-		Criminal criminal = *it;
-		//list->push_back( criminal.getHair() );
-	}
+    vector<Criminal> criminals = findAll();
+    for (vector<Criminal>::iterator it = criminals.begin(); it != criminals.end(); ++it) {
+        Criminal criminal = *it;
+        list->push_back(criminal.getHairColor());
+    }
 
-	return *list;		
+    return *list;
 }
 
 vector<string> & CriminalsManager::findAllHobbies() {
-	vector<string> *list = new vector<string>;
+    vector<string> *list = new vector<string>;
 
-	vector<Criminal> *criminals = findAll();
-	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
-		Criminal criminal = *it;
-		//list->push_back( criminal.getHobby() );
-	}
+    vector<Criminal> criminals = findAll();
+    for (vector<Criminal>::iterator it = criminals.begin(); it != criminals.end(); ++it) {
+        Criminal criminal = *it;
+        list->push_back(criminal.getBuild());
+    }
 
-	return *list;			
+    return *list;
 }
 
-vector<string> &CriminalsManager::findAllFeatures() {	
-	vector<string> *list = new vector<string>;
+vector<string> &CriminalsManager::findAllFeatures() {
+    vector<string> *list = new vector<string>;
 
-	vector<Criminal> *criminals = findAll();
-	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
-		Criminal criminal = *it;
-		list->push_back( criminal.getFeature() );
-	}
+    vector<Criminal> criminals = findAll();
+    for (vector<Criminal>::iterator it = criminals.begin(); it != criminals.end(); ++it) {
+        Criminal criminal = *it;
+        list->push_back(criminal.getFeature());
+    }
 
-	return *list;
+    return *list;
 }
 
-Criminal *CriminalsManager::findByFeatures( Genre genre, const string &hobby, const string &hair ) {
-	vector<Criminal> *criminals = findAll();
-	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
-		Criminal criminal = *it;
-		if( false) { //genre == criminal.getGenre() && criminal.getHobby() == hobby && criminal.getHair() == hair ) {
-			return new Criminal( criminal );
-		}
-	}
+Criminal *CriminalsManager::findByFeatures(Genre genre, const string &build, const string &hairColor) {
+    vector<Criminal> criminals = findAll();
+    for (vector<Criminal>::iterator it = criminals.begin(); it != criminals.end(); ++it) {
+        Criminal criminal = *it;
+        if (genre == criminal.getGenre() && criminal.getBuild() == build && criminal.getHairColor() == hairColor) {
+            return new Criminal(criminal);
+        }
+    }
 
-	return NULL;
+    return nullptr;
 }
 
 vector<int> CriminalsManager::findAllPrimaryKeys() {
-	vector<int> primaryKeys;
+    vector<int> primaryKeys;
 
-	vector<Criminal> *criminals = findAll();
-	for( vector<Criminal>::iterator it = criminals->begin(); it != criminals->end(); ++it ) {
-		Criminal criminal = *it;
-		primaryKeys.push_back( criminal.getID() );
-	}
+    vector<Criminal> criminals = findAll();
+    for (vector<Criminal>::iterator it = criminals.begin(); it != criminals.end(); ++it) {
+        Criminal criminal = *it;
+        primaryKeys.push_back(criminal.getID());
+    }
 
-	return primaryKeys;	
+    return primaryKeys;
 }
 
-Criminal *CriminalsManager::findByPrimaryKey( unsigned int id ) {
-	vector<Criminal> *criminals = findAll();
-	return ( id - 1 < criminals->size() ? new Criminal( criminals->at( id - 1 ) ) : NULL );
+Criminal *CriminalsManager::findByPrimaryKey(unsigned int id) {
+    vector<Criminal> criminals = findAll();
+    return ( id - 1 < criminals.size() ? new Criminal(criminals.at(id - 1)) : nullptr);
 }
 
