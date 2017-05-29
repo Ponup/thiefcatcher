@@ -33,6 +33,7 @@ vector<Criminal>& CriminalsManager::findAll() {
         criminal.setBuild(criminalNode->FirstChildElement("build")->GetText());
         criminal.setHairColor(criminalNode->FirstChildElement("hair")->GetText());
         criminal.setFeature(criminalNode->FirstChildElement("body")->GetText());
+        criminal.setComplexion(criminalNode->FirstChildElement("complexion")->GetText());
         criminals.push_back(criminal);
     }
 

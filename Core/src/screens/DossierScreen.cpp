@@ -47,18 +47,6 @@ handCursor(SDL_SYSTEM_CURSOR_HAND) {
     Text headerText(_("Thief Catcher"), &headerFont);
     renderer.drawText(&headerText, Point(30, 10));
 
-    Text text1(_("Genre"), &font);
-    renderer.drawText(&text1, Point(300 - text1.getDimension().w, 250));
-
-    Text text3(_("Hobby"), &font);
-    renderer.drawText(&text3, Point(300 - text3.getDimension().w, 300));
-
-    Text text5(_("Hair"), &font);
-    renderer.drawText(&text5, Point(300 - text5.getDimension().w, 345));
-
-    Text text7(_("Feature"), &font);
-    renderer.drawText(&text7, Point(300 - text7.getDimension().w, 390));
-
     backgroundTexture.unselectAsRenderingTarget(window_->renderer);
 
     updateScreen(false);
@@ -94,20 +82,33 @@ void DossierScreen::updateScreen(bool update) {
     Texture avatarTexture(window->renderer, pathStream.str());
     renderer.drawTexture(&avatarTexture, Point(460, 90));
 
-    Text text0(criminal.getName(), &fontName);
-    renderer.drawText(&text0, Point(140, 140));
+    Text nameText(criminal.getName(), &fontName);
+    renderer.drawText(&nameText, Point(140, 140));
 
-    Text text2(CriminalFormatter::formatGenre(criminal), &font);
-    renderer.drawText(&text2, Point(320, 250));
-    /*
-    Text text4(criminal.getHobby(), &font);
-    renderer.drawText(&text4, Point(320, 300));
+    const struct CriminalTrait traits[] = {
+        {_("Genre"), CriminalFormatter::formatGenre(criminal)},
+        {_("Build"), criminal.getBuild()},
+        {_("Hair"), criminal.getHairColor()},
+        {_("Feature"), criminal.getFeature()},
+        {_("Complexion"), criminal.getComplexion()},
+    };
+    const size_t numTraits = sizeof (traits) / sizeof (traits[0]);
 
-    Text text6(criminal.getHair(), &font);
-    renderer.drawText(&text6, Point(320, 345));
-     */
-    Text text8(criminal.getFeature(), &font);
-    renderer.drawText(&text8, Point(320, 390));
+    int y = 250;
+    for (size_t i = 0; i < numTraits; i++) {
+        struct CriminalTrait trait = traits[i];
+
+        Text labelText(trait.label, &font);
+        font.setColor(Color(0, 0, 0));
+
+        renderer.drawText(&labelText, Point(300 - labelText.getDimension().w, y));
+
+        Text valueText(trait.value, &font);
+        font.setColor(Color(200, 160, 60));
+        renderer.drawText(&valueText, Point(320, y));
+
+        y += labelText.getDimension().h + (labelText.getDimension().h >> 1);
+    }
 
     renderer.present();
 }

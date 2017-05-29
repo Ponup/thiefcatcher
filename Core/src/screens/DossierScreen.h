@@ -34,6 +34,11 @@ class DossierScreen : public EventHandler {
 
     MouseCursor normalCursor, handCursor;
 
+    struct CriminalTrait {
+        string label;
+        string value;
+    };
+
     void updateScreen(bool update);
 
 public:
