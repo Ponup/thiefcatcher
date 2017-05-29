@@ -170,7 +170,7 @@ const char *PlayerCase::toString() const {
     stringStream << "Start date: " << startDate->toString("%m %A %d, %H:%M") << endl;
     stringStream << "End date: " << endDate->toString("%m %A %d, %H:%M") << endl;
     stringStream << "StolenObject: " << itinerary[0].getTreasure() << endl;
-    for(size_t i = 0; i < itinerary.size(); i++) {
+    for (size_t i = 0; i < itinerary.size(); i++) {
         stringStream << "- " << itinerary[i].toString() << endl;
     }
 

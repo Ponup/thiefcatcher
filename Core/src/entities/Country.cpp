@@ -9,145 +9,144 @@ Country::Country() {
 }
 
 Country::Country(const Country &country) {
-	this->id = country.getID();
-	this->isoCode = country.getIsoCode();
-	this->code = country.getCode();
-	this->name = country.getName();
-	this->description = country.getDescription();
-	this->treasure = country.getTreasure();
-	this->flagDesc = country.getFlagDescription();
-	this->capital = country.getCapital();
-	this->languages = country.getLanguages();
-	this->currencies = country.getCurrencies();
-	this->latitude = country.getLatitude();
-	this->longitude = country.getLongitude();
+    this->id = country.getID();
+    this->isoCode = country.getIsoCode();
+    this->code = country.getCode();
+    this->name = country.getName();
+    this->description = country.getDescription();
+    this->treasure = country.getTreasure();
+    this->flagDesc = country.getFlagDescription();
+    this->capital = country.getCapital();
+    this->languages = country.getLanguages();
+    this->currencies = country.getCurrencies();
+    this->latitude = country.getLatitude();
+    this->longitude = country.getLongitude();
 }
 
 Country& Country::operator=(const Country &country) {
-	this->id = country.getID();
-	this->code = country.getCode();
-	this->isoCode = country.getIsoCode();
-	this->name = country.getName();
-	this->description = country.getDescription();
-	this->treasure = country.getTreasure();
-	this->flagDesc = country.getFlagDescription();
-	this->capital = country.getCapital();
-	this->languages = country.getLanguages();
-	this->currencies = country.getCurrencies();
-	this->latitude = country.getLatitude();
-	this->longitude = country.getLongitude();
-	return *this;
+    this->id = country.getID();
+    this->code = country.getCode();
+    this->isoCode = country.getIsoCode();
+    this->name = country.getName();
+    this->description = country.getDescription();
+    this->treasure = country.getTreasure();
+    this->flagDesc = country.getFlagDescription();
+    this->capital = country.getCapital();
+    this->languages = country.getLanguages();
+    this->currencies = country.getCurrencies();
+    this->latitude = country.getLatitude();
+    this->longitude = country.getLongitude();
+    return *this;
 }
 
 void Country::setIsoCode(const string &isoCode) {
-	this->isoCode = isoCode;
+    this->isoCode = isoCode;
 }
 
 string Country::getIsoCode() const {
-	return isoCode;
+    return isoCode;
 }
 
 void Country::setCode(const string &code) {
-	this->code = code;
+    this->code = code;
 }
 
 string Country::getCode() const {
-	return code;
+    return code;
 }
 
 Country::~Country() {
 }
 
 void Country::setID(unsigned char id) {
-	this->id = id;
+    this->id = id;
 }
 
 unsigned char Country::getID() const {
-	return id;
+    return id;
 }
 
 void Country::setName(const string &name) {
-	this->name = name;
+    this->name = name;
 }
 
 string Country::getName() const {
-	return name;
+    return name;
 }
 
 void Country::setDescription(const string &description) {
-	this->description = description;
+    this->description = description;
 }
 
 string Country::getDescription() const {
-	return "Country is a great country. is nice, people are nice. food is good, weather is excellent, job are great, and is all free for you!, job are great, and is all free for you!, job are great, and is all free for you!";
-	//return description;
+    return description;
 }
 
 void Country::setFlagDescription(const string &flagDesc) {
-	this->flagDesc = flagDesc;
+    this->flagDesc = flagDesc;
 }
 
 string Country::getFlagDescription() const {
-	return flagDesc;
+    return flagDesc;
 }
 
 void Country::setTreasure(const string &treasure) {
-	this->treasure = treasure;
+    this->treasure = treasure;
 }
 
 string Country::getTreasure() const {
-	return treasure;
+    return treasure;
 }
 
 void Country::setLanguages(const vector<string> &languages) {
-	this->languages = languages;
+    this->languages = languages;
 }
 
 const vector<string> Country::getLanguages() const {
-	return languages;
+    return languages;
 }
 
 void Country::setCurrencies(const vector<string> &currencies) {
-	this->currencies = currencies;
+    this->currencies = currencies;
 }
 
 const vector<string> Country::getCurrencies() const {
-	return currencies;
+    return currencies;
 }
 
 string Country::getFirstCurrency(void) const {
-	return currencies.size() > 0 ? currencies.at(0) : "unknown";
+    return currencies.size() > 0 ? currencies.at(0) : "unknown";
 }
 
 void Country::setCapital(const string &capital) {
-	this->capital = capital;
+    this->capital = capital;
 }
 
 string Country::getCapital() const {
-	return capital;
+    return capital;
 }
 
 void Country::setLatitude(double latitude) {
-	this->latitude = latitude;
+    this->latitude = latitude;
 }
 
 double Country::getLatitude() const {
-	return latitude;
+    return latitude;
 }
 
 void Country::setLongitude(double longitude) {
-	this->longitude = longitude;
+    this->longitude = longitude;
 }
 
 double Country::getLongitude() const {
-	return longitude;
+    return longitude;
 }
 
 pair<double, double> Country::getLatitudeLongitude() const {
-	return pair<double, double>(latitude, longitude);
+    return pair<double, double>(latitude, longitude);
 }
 
 string Country::toString() const {
-	return name;
+    return name;
 }
 

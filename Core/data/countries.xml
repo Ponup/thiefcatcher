@@ -447,7 +447,7 @@
 			<currency>CFP Franc</currency>
 		</currencies>
 	</country>
-	<country isocode="ar" code="argentina" continent="sa">
+	<country isocode="ar" code="argentina" continent="sa" enabled="true">
 		<name>Argentina</name>
 		<capital>Buenos Aires</capital>
 		<area-km2>2766890.00</area-km2>
@@ -461,8 +461,12 @@
 			<language>Spanish</language>
 		</languages>
 		<currencies>
-			<currency>Peso</currency>
+			<currency >Peso</currency>
 		</currencies>
+		<flag>
+			<colors>light blue and white</colors>
+			<features>triband</features>
+		</flag>
 	</country>
 	<country isocode="sv" code="el_salvador" continent="na">
 		<name>El Salvador</name>

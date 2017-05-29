@@ -55,6 +55,6 @@ public:
 
     time_t toSeconds() const;
 
-    char *toString() const;
-    char *toString(const char *format) const;
+    string toString() const;
+    string toString(const char *format) const;
 };

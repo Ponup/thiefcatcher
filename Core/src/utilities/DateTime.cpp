@@ -122,15 +122,14 @@ time_t DateTime::toSeconds() const {
     return secondsFrom;
 }
 
-char *DateTime::toString() const {
-    return ctime(&secondsFrom);
+string DateTime::toString() const {
+    char* internal = ctime(&secondsFrom);
+    return string(internal);
 }
 
-char *DateTime::toString(const char *format) const {
-    char *string = (char *) malloc(sizeof (char) * 100);
-    memset(string, '\0', 100);
-    strftime(string, 100, format, currentDate);
-
-    return string;
+string DateTime::toString(const char *format) const {
+    char buffer[100];
+    strftime(buffer, sizeof (buffer), format, currentDate);
+    return string(buffer);
 }
 

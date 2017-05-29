@@ -8,17 +8,16 @@
 #include "entities/PlayerCase.h"
 
 class AssignmentScreen : public ComputerScreen {
+    InputBox *input;
 
-	InputBox *input;
+    Font fontInput;
 
-	Font fontInput;
-
-	string askName(bool &quitted);
+    string askName(bool &quitted);
 
 public:
-	AssignmentScreen(Renderer* renderer);
-	virtual ~AssignmentScreen();
+    AssignmentScreen(Renderer* renderer);
+    virtual ~AssignmentScreen();
 
-	PlayerCase *show();
+    PlayerCase *show();
 };
 

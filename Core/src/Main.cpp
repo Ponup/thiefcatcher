@@ -31,56 +31,54 @@ using Kangaroo::Database;
 #include "utilities/Configurator.h"
 
 void onInterrupt(int code) {
-	cout << "Game interrupted by the user (code: " << code << "). Exiting." << endl;
-	exit(EXIT_FAILURE);
+    cout << "Game interrupted by the user (code: " << code << "). Exiting." << endl;
+    exit(EXIT_FAILURE);
 }
 
 int main(int argc, char** argv) {
 
-	signal(SIGINT, onInterrupt);
+    signal(SIGINT, onInterrupt);
 
-	if (true){//Updater::existsNewVersion(GAME_VERSION)) {
-		cout << _("A new version of 'Thief Catcher' is available for download!") << endl;
-	}
+    if (true) {//Updater::existsNewVersion(GAME_VERSION)) {
+        cout << _("A new version of 'Thief Catcher' is available for download!") << endl;
+    }
 
-	Kangaroo::Services services;
-	services.addService(new CoreService(SDL_INIT_VIDEO));
-	services.addService(new MixerService(44100, 2));
-	services.addService(new FontService());
-	services.init();
+    Kangaroo::Services services;
+    services.addService(new CoreService(SDL_INIT_VIDEO));
+    services.addService(new MixerService(44100, 2));
+    services.addService(new FontService());
+    services.init();
 
-	Configurator configurator = Configurator::getInstance();
+    Configurator configurator = Configurator::getInstance();
 
-	try {
-		configurator.init();
-	}
-	catch (const std::runtime_error &error) {
-		cerr << "An error has occurred: " << error.what() << endl;
-		return EXIT_FAILURE;
-	}
+    try {
+        configurator.init();
+    } catch (const std::runtime_error &error) {
+        cerr << "An error has occurred: " << error.what() << endl;
+        return EXIT_FAILURE;
+    }
 
-	Translator::init(configurator.getLanguage());
+    Translator::init(configurator.getLanguage());
 
-	Window window(_("Thief Catcher"), GAME_WINDOW_W, GAME_WINDOW_H, "resources/logo/thief_256.png", configurator.isFullScreen());
+    Window window(_("Thief Catcher"), GAME_WINDOW_W, GAME_WINDOW_H, "resources/logo/thief_256.png", configurator.isFullScreen());
 
-	try {
-		Database::getInstance().init("data/game.db");
-		Vars::init();
-	}
-	catch (const std::runtime_error &error) {
-		cerr << "An error has occurred: " << error.what() << endl;
-		return EXIT_FAILURE;
-	}
+    try {
+        Database::getInstance().init("data/game.db");
+        Vars::init();
+    } catch (const std::runtime_error &error) {
+        cerr << "An error has occurred: " << error.what() << endl;
+        return EXIT_FAILURE;
+    }
 
-	{
-		IntroScreen intro(&window);
-		intro.run();
+    {
+        IntroScreen intro(&window);
+        intro.run();
 
-		MenuScreen menuScreen(&window, &configurator);
-		menuScreen.show();
-	}
+        MenuScreen menuScreen(&window, &configurator);
+        menuScreen.show();
+    }
 
-	services.destroy();
+    services.destroy();
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
