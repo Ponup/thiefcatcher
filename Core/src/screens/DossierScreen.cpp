@@ -8,15 +8,38 @@ using std::string;
 
 #include <Text.h>
 #include <FontManager.h>
-#include <FrameRegulator.h>
 
 #include "utilities/Translator.h"
 #include "entities/CriminalsManager.h"
 #include "entities/format/CriminalFormatter.h"
+#include <GameObject.h>
 
-#include <Renderer.h>
+class ArrowKeysMessage : public Kangaroo::GameObject {
+public:
 
-using Kangaroo::Renderer;
+    const int seconds = 4;
+
+    Uint8 alpha = 255;
+    
+public:
+    ArrowKeysMessage(Renderer& renderer) :
+    GameObject(renderer) {
+        
+    }
+
+    virtual void update(double time) override {
+        alpha = (Uint8) (time > seconds ? 0 : 255 - (255 / seconds) * time);
+    }
+
+    virtual void render() override {
+        Font headerFont("resources/fonts/gtw.ttf", 18);
+        headerFont.setColor(Color(0xff, 0xff, 0xff));
+        Text headerText(_("Use the arrow keys to find more criminals"), &headerFont);
+        headerText.setAlpha(alpha);
+
+        renderer.drawText(&headerText, Point(140, 500));
+    }
+};
 
 DossierScreen::DossierScreen(Window *window_) :
 window(window_),
@@ -48,34 +71,32 @@ handCursor(SDL_SYSTEM_CURSOR_HAND) {
     renderer.drawText(&headerText, Point(30, 10));
 
     backgroundTexture.unselectAsRenderingTarget(window_->renderer);
-
-    updateScreen(false);
 }
 
 DossierScreen::~DossierScreen() {
 }
 
 void DossierScreen::show() {
-    FrameRegulator fr(120);
-    fr.setUp();
+    init();
+
+    Renderer renderer(window->renderer);
+    ArrowKeysMessage arrowKeysMessageGameObject(renderer);
+    gameObjects.push_back(&arrowKeysMessageGameObject);
 
     while (!quit) {
         captureEvents();
-        updateScreen(true);
-        fr.regulate();
+        updateObjects();
+        renderStaticElements(renderer);
+        renderObjects(renderer);
+        renderer.present();
     }
 }
 
-void DossierScreen::updateScreen(bool update) {
-    if (!update) {
-        return;
-    }
+void DossierScreen::renderStaticElements(Renderer& renderer) {
     Criminal &criminal = criminals.at(index);
 
     ostringstream pathStream;
     pathStream << "data/criminals/" << criminal.getID() << ".jpg";
-
-    Renderer renderer(window->renderer);
 
     renderer.drawTexture(&backgroundTexture);
 
@@ -109,12 +130,6 @@ void DossierScreen::updateScreen(bool update) {
 
         y += labelText.getDimension().h + (labelText.getDimension().h >> 1);
     }
-
-    renderer.present();
-}
-
-void DossierScreen::onQuit(SDL_QuitEvent e) {
-
 }
 
 void DossierScreen::onMouseMotion(SDL_MouseMotionEvent e) {
@@ -131,10 +146,6 @@ void DossierScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
     if (e.button == SDL_BUTTON_RIGHT) {
         quit = true;
     }
-}
-
-void DossierScreen::onMouseButtonUp(SDL_MouseButtonEvent e) {
-
 }
 
 void DossierScreen::onKeyDown(SDL_KeyboardEvent e) {
@@ -155,8 +166,4 @@ void DossierScreen::onKeyDown(SDL_KeyboardEvent e) {
         default:
             break;
     }
-}
-
-void DossierScreen::onKeyUp(SDL_KeyboardEvent e) {
-
 }

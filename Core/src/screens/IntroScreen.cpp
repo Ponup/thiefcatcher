@@ -16,6 +16,56 @@ using Kangaroo::Renderer;
 
 #include "utilities/Translator.h"
 
+#include <GameObject.h>
+using Kangaroo::GameObject;
+
+class Magnifier : public GameObject {
+    Texture texture;
+    int radius = 200;
+    float angle = 0;
+
+public:
+
+    Magnifier(Renderer& renderer) :
+    GameObject(renderer),
+    texture(renderer.internal, "resources/images/magn_glass.png") {
+    }
+
+    void update(double time) override {
+        radius -= 0.25;
+        angle += 0.05;
+
+    }
+
+    void render() override {
+        Point glassPos(600, 200);
+        Point position(cos(angle) * radius, sin(angle) * radius);
+        renderer.drawTexture(&texture, glassPos + position);
+    }
+
+};
+
+class Bullet : public GameObject {
+    int bulletX = 0;
+    Texture texture;
+
+public:
+
+    Bullet(Renderer& renderer) :
+    GameObject(renderer),
+    texture(renderer.internal, "resources/images/bullet.png") {
+    }
+
+    void update(double time) override {
+        bulletX += 18;
+    }
+
+    void render() override {
+        renderer.drawTexture(&texture, Point(bulletX, 230));
+    }
+
+};
+
 IntroScreen::IntroScreen(Window* screen) : screen(screen) {
 }
 
@@ -23,56 +73,51 @@ IntroScreen::~IntroScreen() {
 }
 
 void IntroScreen::run() {
-	Font font("resources/fonts/gtw.ttf", 75);
-	font.setColor(Color(255, 220, 220));
-	font.setStyle(FontStyle::BLENDED);
+    Font font("resources/fonts/gtw.ttf", 75);
+    font.setColor(Color(255, 220, 220));
+    font.setStyle(FontStyle::BLENDED);
 
-	Text gameNameText(_("Thief Catcher"));
-	gameNameText.setFont(&font);
+    Text gameNameText(_("Thief Catcher"));
+    gameNameText.setFont(&font);
 
-	MediaSound sound("resources/sounds/gunshot.wav");
-	sound.play();
+    MediaSound sound("resources/sounds/gunshot.wav");
+    sound.play();
 
-	Texture magnifierTexture(screen->renderer, "resources/images/magn_glass.png");
-	Texture backgroundTexture(screen->renderer, "resources/images/empty_background.jpg");
-	Texture bulletTexture(screen->renderer, "resources/images/bullet.png");
+    Texture backgroundTexture(screen->renderer, "resources/images/empty_background.jpg");
 
-	Point textPos(400 - (gameNameText.getDimension().w >> 1), 200);
-	Point glassPos(textPos.x + gameNameText.getDimension().w - 40, 200);
+    Point textPos(400 - (gameNameText.getDimension().w >> 1), 200);
 
-	int bulletX = 0;
-	float alpha = SDL_ALPHA_TRANSPARENT;
-	int radius = 200;
-	float angle = 0;
+    float alpha = SDL_ALPHA_TRANSPARENT;
 
-	FrameRegulator fr(150);
-	fr.setUp();
+    FrameRegulator fr(150);
+    fr.setUp();
 
-	SDL_Event e;
+    SDL_Event e;
 
-	Renderer renderer(screen->renderer);
+    Renderer renderer(screen->renderer);
 
-	bool quit = false;
-	while (!quit) {
-		Point position(cos(angle) * radius, sin(angle) * radius);
-		gameNameText.setAlpha(alpha);
+    Magnifier magnifier(renderer);
+    Bullet bullet(renderer);
+    gameObjects.push_back(&magnifier);
+    gameObjects.push_back(&bullet);
 
-		renderer.drawTexture(&backgroundTexture);
-		renderer.drawText(&gameNameText, textPos);
-		renderer.drawTexture(&bulletTexture, Point(bulletX, 230));
-		renderer.drawTexture(&magnifierTexture, glassPos + position);
-		renderer.present();
-		fr.regulate();
+    init();
 
-		bulletX += 18;
+    bool quit = false;
+    while (!quit) {
+        gameNameText.setAlpha(alpha);
 
-		if (alpha < 255) alpha += 3;
+        updateObjects();
+        renderer.drawTexture(&backgroundTexture);
+        renderer.drawText(&gameNameText, textPos);
+        renderObjects(renderer);
+        renderer.present();
+        fr.regulate();
 
-		radius -= 0.25;
-		angle += 0.05;
+        if (alpha < 255) alpha += 3;
 
-		while (SDL_PollEvent(&e))
-			quit = (e.type == SDL_QUIT || e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_KEYDOWN);
-	}
+        while (SDL_PollEvent(&e))
+            quit = (e.type == SDL_QUIT || e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_KEYDOWN);
+    }
 }
 

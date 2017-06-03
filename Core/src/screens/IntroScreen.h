@@ -2,13 +2,15 @@
 
 #include <Window.h>
 
-class IntroScreen {
+#include <Scene.h>
+using Kangaroo::Scene;
 
-	Window* screen;
+class IntroScreen : public Scene {
+    Window* screen;
 
 public:
-	IntroScreen(Window* screen);
-	virtual ~IntroScreen();
+    IntroScreen(Window* screen);
+    virtual ~IntroScreen();
 
-	void run();
+    void run();
 };

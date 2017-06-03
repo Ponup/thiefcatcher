@@ -9,6 +9,9 @@ using std::vector;
 #include <Font.h>
 #include <Surface.h>
 
+#include <Renderer.h>
+using Kangaroo::Renderer;
+
 #include <Texture.h>
 using Kangaroo::Texture;
 
@@ -17,7 +20,10 @@ using Kangaroo::Texture;
 #include <MouseCursor.h>
 using Kangaroo::MouseCursor;
 
-class DossierScreen : public EventHandler {
+#include <Scene.h>
+using Kangaroo::Scene;
+
+class DossierScreen : public Kangaroo::Scene {
     Window *window;
 
     vector<Criminal> criminals;
@@ -39,7 +45,7 @@ class DossierScreen : public EventHandler {
         string value;
     };
 
-    void updateScreen(bool update);
+    void renderStaticElements(Renderer& renderer);
 
 public:
     DossierScreen(Window *window);
@@ -47,11 +53,8 @@ public:
 
     void show();
 
-    void onQuit(SDL_QuitEvent);
     void onMouseMotion(SDL_MouseMotionEvent);
     void onMouseButtonDown(SDL_MouseButtonEvent);
-    void onMouseButtonUp(SDL_MouseButtonEvent);
     void onKeyDown(SDL_KeyboardEvent);
-    void onKeyUp(SDL_KeyboardEvent);
 
 };
