@@ -1,6 +1,6 @@
 #include "DateTime.h"
 
-#include <malloc.h>
+#include <memory.h>
 #include <stdio.h>
 #include <string.h>
 

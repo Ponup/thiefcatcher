@@ -30,7 +30,6 @@ class Map : public EventHandler {
 	Country* sourceCountry;
 	Country* targetCountry;
 
-	Window* window;
 	Texture backgroundTexture;
 
 	Font font;

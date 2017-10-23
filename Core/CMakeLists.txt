@@ -1,79 +1,70 @@
 
-# FIND_PACKAGE(CURL REQUIRED)
-# FIND_PACKAGE(TINYXML2 REQUIRED)
-# FIND_PACKAGE(sqlite3)
+if(UNIX)
+	execute_process(COMMAND "sdl2-config" "--cflags" OUTPUT_VARIABLE SDLCONFIG_FLAGS)
 
-INCLUDE_DIRECTORIES(
-	${KANGAROO_INCLUDE_DIR}
-	src/
-	vendor/
-)
+	add_definitions(-std=c++11 -Wall -Werror ${SDLCONFIG_FLAGS})
+else()
+	add_definitions(-Wall)
+endif()
 
-IF(UNIX)
-	#ADD_DEFINITIONS(-std=c++11 -pedantic -pedantic-errors -Wall -Werror `sdl2-config --cflags` -g)
-	ADD_DEFINITIONS(-std=c++11 -Wall -Werror `sdl2-config --cflags` -g)
-ELSE()
-	ADD_DEFINITIONS(-Wall)
-ENDIF()
+cmake_policy(SET CMP0003 NEW)
 
-SET(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS 1)
+message(STATUS "Compiling under ${CMAKE_SYSTEM_NAME}")
 
-CMAKE_POLICY(SET CMP0003 NEW)
+find_package(CURL REQUIRED)
+find_package(TINYXML2 REQUIRED)
+find_package(SQLITE3 REQUIRED)
+find_package(INTL REQUIRED)
 
-MESSAGE(STATUS "Compiling under ${CMAKE_SYSTEM_NAME}")
+file(GLOB_RECURSE GAME_SOURCES "src/*.cpp" )
+file(GLOB_RECURSE VENDOR_SOURCES "vendor/*.cpp" "vendor/*.cc" )
+list(APPEND GAME_SOURCES ${VENDOR_SOURCES})
+add_executable(ThiefCatcher WIN32 MACOSX_BUNDLE ${GAME_SOURCES})
 
-IF(WIN32)
-	LINK_LIBRARIES(${KANGAROO_LIB} sqlite3 curl SDL2main SDL2 SDL2_image SDL2_gfx SDL2_mixer SDL2_ttf tinyxml2 libintl)
-ENDIF()
+target_include_directories(ThiefCatcher PRIVATE "src/" "vendor/" "/usr/local/include/")
 
-IF(UNIX)
-	EXEC_PROGRAM("sdl2-config" ARGS "--libs" OUTPUT_VARIABLE SDLCONFIG_LIBS)
-	LINK_LIBRARIES(${KANGAROO_LIB} ${SDLCONFIG_LIBS} sqlite3 curl SDL2_image SDL2_gfx SDL2_mixer SDL2_ttf tinyxml2)
-ENDIF()
+if(WIN32)
+	target_link_libraries(ThiefCatcher PUBLIC kangaroo PRIVATE sqlite3 curl SDL2main SDL2 SDL2_image SDL2_gfx SDL2_mixer SDL2_ttf tinyxml2 libintl)
+endif()
 
-FILE(GLOB_RECURSE GAME_SOURCES "src/*.cpp" )
-FILE(GLOB_RECURSE VENDOR_SOURCES "vendor/*.cpp" "vendor/*.cc" )
-LIST(APPEND GAME_SOURCES ${VENDOR_SOURCES})
+if(UNIX)
+	execute_process(COMMAND "sdl2-config" "--libs" OUTPUT_VARIABLE SDLCONFIG_LIBS)
+	string(STRIP ${SDLCONFIG_LIBS} SDLCONFIG_LIBS) 
+	target_link_libraries(ThiefCatcher PUBLIC kangaroo PRIVATE ${SDLCONFIG_LIBS} sqlite3 curl SDL2_image SDL2_gfx SDL2_mixer SDL2_ttf tinyxml2 intl)
+endif()
 
-ADD_EXECUTABLE(
-	ThiefCatcher
-	WIN32
-	MACOSX_BUNDLE
-	${GAME_SOURCES}
-)
+#set_target_properties(ThiefCatcher PROPERTIES OUTPUT_NAME "ThiefCatcher")
 
-#SET_TARGET_PROPERTIES(ThiefCatcher PROPERTIES OUTPUT_NAME "ThiefCatcher")
+set(INSTALL_FOLDER ".")
 
-SET(INSTALL_FOLDER ".")
+#file(GLOB dataFiles "${CMAKE_CURRENT_SOURCE_DIR}/data/**/*")
+set(CPACK_SOURCE_IGNORE_FILES "/\\\\\\\\.git/;\\\\\\\\.swp$;")
 
-#FILE(GLOB dataFiles "${CMAKE_CURRENT_SOURCE_DIR}/data/**/*")
-SET(CPACK_SOURCE_IGNORE_FILES "/\\\\\\\\.git/;\\\\\\\\.swp$;")
-
-INSTALL(
+install(
 	DIRECTORY data resources DESTINATION "${INSTALL_FOLDER}"
 	PATTERN ".git" EXCLUDE
 )
-INSTALL(FILES config.ini License.txt README.txt CREDITS.txt DESTINATION "${INSTALL_FOLDER}")
+install(FILES config.ini License.txt README.txt CREDITS.txt DESTINATION "${INSTALL_FOLDER}")
 
-INSTALL(
+install(
 	TARGETS ThiefCatcher
 	RUNTIME DESTINATION "${INSTALL_FOLDER}"
 	BUNDLE DESTINATION "${INSTALL_FOLDER}"
 )
 
-SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Thief Catcher")
-SET(CPACK_PACKAGE_VENDOR "Ponup Games")
-SET(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README.txt")
-SET(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
-SET(CPACK_PACKAGE_EXECUTABLES "ThiefCatcher;Thief Catcher")
-SET(CPACK_PACKAGE_VERSION_MAJOR ${WTHIM_VERSION_MAJOR})
-SET(CPACK_PACKAGE_VERSION_MINOR ${WTHIM_VERSION_MINOR})
-SET(CPACK_PACKAGE_VERSION_PATCH ${WTHIM_VERSION_PATCH})
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Thief Catcher")
+set(CPACK_PACKAGE_VENDOR "Ponup Games")
+set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README.txt")
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
+set(CPACK_PACKAGE_EXECUTABLES "ThiefCatcher;Thief Catcher")
+set(CPACK_PACKAGE_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
+set(CPACK_PACKAGE_VERSION_MINOR ${PROJECT_VERSION_MINOR})
+set(CPACK_PACKAGE_VERSION_PATCH ${PROJECT_VERSION_PATCH})
 
-SET(CPACK_NSIS_HELP_LINK "http://ponup.com/thief-catcher.html")
-SET(CPACK_NSIS_URL_INFO_ABOUT "http://ponup.com/thief-catcher.html")
-SET(CPACK_NSIS_CONTACT "https://docs.google.com/forms/d/1MnEaBXmTZvtJsE-efQpxuSsYSxfHJLLjKVlil7Jb7P8/viewform?c=0&w=1")
-SET(CPACK_NSIS_MODIFY_PATH ON)
+set(CPACK_NSIS_HELP_LINK "http://ponup.com/thief-catcher.html")
+set(CPACK_NSIS_URL_INFO_ABOUT "http://ponup.com/thief-catcher.html")
+set(CPACK_NSIS_CONTACT "https://docs.google.com/forms/d/1MnEaBXmTZvtJsE-efQpxuSsYSxfHJLLjKVlil7Jb7P8/viewform?c=0&w=1")
+set(CPACK_NSIS_MODIFY_PATH ON)
 
-INCLUDE(CPack)
+include(CPack)
 

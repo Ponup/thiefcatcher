@@ -14,7 +14,6 @@ class InputBox {
 	Color background;
 	Color foreground;
 
-	Surface *window;
 	Font *font;
 	Point point;
 	Dimension dimension;

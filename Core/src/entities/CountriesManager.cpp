@@ -25,7 +25,7 @@ vector<Country> CountriesManager::findAll() {
 
     XMLDocument xmlDoc;
     XMLError errorCode = xmlDoc.LoadFile("data/countries.xml");
-    if (tinyxml2::XML_NO_ERROR != errorCode) {
+    if (tinyxml2::XML_SUCCESS != errorCode) {
         return countries;
     }
 

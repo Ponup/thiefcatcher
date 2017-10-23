@@ -26,7 +26,7 @@ void Clock::draw(const DateTime &dateTime, Renderer* renderer) {
 	
 	float rad = ((angle - 90) * M_PI) / 180;
 
-	int radio = 42.5;
+	int radio = 42;
 
 	int x = cos(-rad) * radio;
 	int y = sin(-rad) * radio;

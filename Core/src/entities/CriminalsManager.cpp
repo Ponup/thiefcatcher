@@ -18,7 +18,7 @@ vector<Criminal>& CriminalsManager::findAll() {
 
     XMLDocument doc;
     XMLError errorCode = doc.LoadFile("data/criminals.xml");
-    if (errorCode != tinyxml2::XML_NO_ERROR) {
+    if (errorCode != tinyxml2::XML_SUCCESS) {
         cerr << "XML error code: " << errorCode << endl;
         return criminals;
     }

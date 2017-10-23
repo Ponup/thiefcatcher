@@ -30,8 +30,6 @@ class PlaceSelector : public EventHandler {
 
     Renderer* renderer;
 
-    Window *screen;
-
     Point dialogPosition;
     Dimension dialogDimension;
 

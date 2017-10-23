@@ -9,7 +9,7 @@
 #include <string>
 using std::string;
 
-#include <cppformat/format.h>
+#include <fmt/format.h>
 
 ClueManager::ClueManager() {
     negativeAnswers = {

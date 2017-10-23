@@ -35,10 +35,6 @@ class Game {
     Font timeFont;
     Point dateTimePosition;
 
-    SDL_Surface *fontSurface;
-
-    SDL_Surface *optionBackup;
-
     SquareButton *buttons[4];
 
     PlayerCase *playerCase;
