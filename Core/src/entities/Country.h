@@ -61,6 +61,4 @@ public:
     void setLongitude(double longitude);
     double getLongitude() const;
     pair<double, double> getLatitudeLongitude() const;
-
-    string toString() const;
 };

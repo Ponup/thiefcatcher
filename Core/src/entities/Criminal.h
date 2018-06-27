@@ -49,7 +49,5 @@ public:
 
     void setComplexion(const string& complexion);
     string getComplexion() const;
-
-    string toString() const;
 };
 

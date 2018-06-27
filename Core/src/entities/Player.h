@@ -1,5 +1,4 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#pragma once
 
 #include <string>
 using std::string;
@@ -25,9 +24,5 @@ class Player {
 		string getRank() const;
 		void setResolved(unsigned int resolved);
 		unsigned int getResolved() const;
-
-		const char *toString() const;
 };
-
-#endif
 

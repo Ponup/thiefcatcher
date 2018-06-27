@@ -66,7 +66,5 @@ public:
 
     void updateCountries();
     void updateClues();
-
-    const char *toString() const;
 };
 

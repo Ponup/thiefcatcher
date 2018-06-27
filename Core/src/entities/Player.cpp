@@ -1,9 +1,5 @@
 #include "Player.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 Player::Player() {
 	id = 0;
 	resolved = 0;
@@ -57,16 +53,5 @@ void Player::setResolved(unsigned int resolved) {
 
 unsigned int Player::getResolved() const {
 	return resolved;
-}
-
-const char *Player::toString() const {
-	char *text = (char *)calloc(100, sizeof(char));
-	if(!text) return NULL;
-
-	sprintf(text, "Player [ id: %d, name: %s, rank: %s, resolved: %d ]",
-		id, name.c_str(), rank.c_str(), resolved
-	);
-
-	return text;
 }
 

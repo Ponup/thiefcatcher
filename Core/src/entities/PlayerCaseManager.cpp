@@ -44,8 +44,6 @@ PlayerCase *PlayerCaseManager::createRandomCase( const Player &player ) {
 	playerCase->updateCountries();
 	playerCase->updateClues();
 	
-	printf("%s\n", playerCase->toString());
-	
 	return playerCase;
 }
 

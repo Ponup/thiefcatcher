@@ -146,7 +146,3 @@ pair<double, double> Country::getLatitudeLongitude() const {
     return pair<double, double>(latitude, longitude);
 }
 
-string Country::toString() const {
-    return name;
-}
-

@@ -162,17 +162,3 @@ void PlayerCase::updateClues() {
     }
 }
 
-const char *PlayerCase::toString() const {
-    ostringstream stringStream;
-
-    stringStream << "Player: " << player.toString() << endl;
-    stringStream << "Criminal: " << criminal.toString() << endl;
-    stringStream << "Start date: " << startDate->toString("%m %A %d, %H:%M") << endl;
-    stringStream << "End date: " << endDate->toString("%m %A %d, %H:%M") << endl;
-    stringStream << "StolenObject: " << itinerary[0].getTreasure() << endl;
-    for (size_t i = 0; i < itinerary.size(); i++) {
-        stringStream << "- " << itinerary[i].toString() << endl;
-    }
-
-    return stringStream.str().c_str();
-}

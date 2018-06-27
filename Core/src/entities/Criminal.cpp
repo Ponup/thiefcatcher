@@ -84,10 +84,3 @@ string Criminal::getComplexion() const {
     return complexion;
 }
 
-string Criminal::toString() const {
-    ostringstream text;
-    text << "name: " << name << ", genre: " << CriminalFormatter::formatGenre(genre) << ", build: " << build << ", hair: " << hairColor << ", feature: " << feature;
-
-    return text.str();
-}
-
