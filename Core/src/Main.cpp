@@ -30,6 +30,9 @@ using Kangaroo::Database;
 
 #include "utilities/Configurator.h"
 
+#include <optional>
+using std::optional;
+
 void onInterrupt(int code) {
     cout << "Game interrupted by the user (code: " << code << "). Exiting." << endl;
     exit(EXIT_FAILURE);
@@ -39,7 +42,8 @@ int main(int argc, char** argv) {
 
     signal(SIGINT, onInterrupt);
 
-    if (true) {//Updater::existsNewVersion(GAME_VERSION)) {
+    optional<float> newVersionAvailable = Updater::fetchNewVersionAvailable(GAME_VERSION);
+    if(newVersionAvailable.has_value()) {
         cout << _("A new version of 'Thief Catcher' is available for download!") << endl;
     }
 
