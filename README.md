@@ -1,5 +1,6 @@
 
 Dependencies:
+* C++17
 * SDL2
 * SDL2 mixer
 * SDL2 image
