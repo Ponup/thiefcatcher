@@ -23,3 +23,5 @@ nbproject
 .vs 
 Core/ThiefCatcher.app/
 CMakeScripts
+.vscode
+build
