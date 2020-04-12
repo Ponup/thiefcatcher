@@ -9,13 +9,7 @@ using std::string;
 
 CURL * Updater::handle= NULL;
 
-Updater::Updater() {
-}
-
-Updater::~Updater() {
-}
-
-int writeData(char *buffer, size_t size, size_t nmemb, string *content) {
+static int writeData(char *buffer, size_t size, size_t nmemb, string *content) {
 	int length = 0;
 
 	if (content != NULL) {
@@ -26,10 +20,10 @@ int writeData(char *buffer, size_t size, size_t nmemb, string *content) {
 	return length;
 }
 
-bool Updater::existsNewVersion(const char *currentVersion) {
-	bool newVersion = false;
+optional<float> Updater::fetchNewVersionAvailable(const char *currentVersion) {
+	optional<float> newVersion;
 
-	float clientVersion = std::stof(currentVersion);
+	const float clientVersion = std::stof(currentVersion);
 	float serverVersion = 0.0f;
 
 	curl_global_init(CURL_GLOBAL_ALL);
@@ -52,13 +46,14 @@ bool Updater::existsNewVersion(const char *currentVersion) {
 	CURLcode returnCode = curl_easy_perform(handle);
 	if (returnCode != CURLE_OK) {
 		fprintf(stderr, "Error: %s\n", curl_easy_strerror(returnCode));
-		newVersion = false;
 	} else {
-		int respCode;
-		if (CURLE_OK == curl_easy_getinfo(handle, CURLINFO_HTTP_CODE, &respCode) ) {
-			if (respCode == 200) {
+		long httpResponseCode;
+		if (CURLE_OK == curl_easy_getinfo(handle, CURLINFO_HTTP_CODE, &httpResponseCode) ) {
+			if (httpResponseCode == 200) {
 				serverVersion = std::stof(content.c_str());
-				newVersion = serverVersion > clientVersion;
+				if(serverVersion > clientVersion) {
+					newVersion = serverVersion;
+				}
 			}
 		}
 	}
@@ -68,4 +63,3 @@ bool Updater::existsNewVersion(const char *currentVersion) {
 
 	return newVersion;
 }
-

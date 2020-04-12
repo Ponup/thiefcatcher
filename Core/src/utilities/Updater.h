@@ -1,7 +1,9 @@
-#ifndef UPDATER_H_
-#define UPDATER_H_
+#pragma once
 
 #include <curl/curl.h>
+
+#include <optional>
+using std::optional;
 
 class Updater {
 
@@ -9,11 +11,5 @@ private:
 	static CURL *handle;
 	
 public:
-	Updater();
-	virtual ~Updater();
-
-	static bool existsNewVersion(const char *currentVersion);
+	static optional<float> fetchNewVersionAvailable(const char *currentVersion);
 };
-
-#endif
-
