@@ -12,9 +12,11 @@ using std::pair;
 #include <Surface.h>
 #include <Point.h>
 
+typedef unsigned char CountryId;
+
 class Country {
 
-    unsigned char id;
+    CountryId id;
     string isoCode;
     string code;
     string name;
@@ -38,8 +40,8 @@ public:
     string getIsoCode() const;
     void setCode(const string &code);
     string getCode() const;
-    void setID(unsigned char id);
-    unsigned char getID() const;
+    void setID(CountryId id);
+    CountryId getID() const;
     void setName(const string &name);
     string getName() const;
     void setDescription(const string &description);
@@ -62,3 +64,5 @@ public:
     double getLongitude() const;
     pair<double, double> getLatitudeLongitude() const;
 };
+
+bool operator==(const Country& leftHandCountry, const Country& rightHandCountry);

@@ -145,7 +145,7 @@ void Game::optionTravel() {
         Country nextCountry = playerCase->nextCountry();
         Country newCountry = playerCase->nextCountries[selected];
 
-        if (newCountry.getID() == nextCountry.getID()) {
+        if (newCountry == nextCountry) {
             int nextPos = playerCase->getCurrentPosition() + 1;
             playerCase->setCurrentPosition(nextPos);
         }

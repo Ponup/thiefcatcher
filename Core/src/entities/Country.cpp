@@ -58,11 +58,11 @@ string Country::getCode() const {
 Country::~Country() {
 }
 
-void Country::setID(unsigned char id) {
+void Country::setID(CountryId id) {
     this->id = id;
 }
 
-unsigned char Country::getID() const {
+CountryId Country::getID() const {
     return id;
 }
 
@@ -146,3 +146,6 @@ pair<double, double> Country::getLatitudeLongitude() const {
     return pair<double, double>(latitude, longitude);
 }
 
+bool operator==(const Country& leftHandCountry, const Country& rightHandCountry) {
+    return leftHandCountry.getID() == rightHandCountry.getID();
+}
