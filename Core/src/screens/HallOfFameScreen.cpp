@@ -72,7 +72,7 @@ void HallOfFameScreen::show() {
 
 	renderer->present();
 
-	MediaMusic sound("resources/sounds/fireworks.aif");
+	MediaMusic sound("resources/sounds/applauses.mp3");
 	sound.play();
 
 	FrameRegulator fr(120);
@@ -81,13 +81,12 @@ void HallOfFameScreen::show() {
 	while (!quit) {
 		captureEvents();
 
-		if (sound.isPlaying()) sound.fadeOut();
-
 		fr.regulate();
 	}
 
-	if (sound.isPlaying())
-		sound.stop();
+	if (sound.isPlaying()) {
+		sound.fadeOut(1);
+	}
 }
 
 void HallOfFameScreen::onKeyDown(SDL_KeyboardEvent e) {
