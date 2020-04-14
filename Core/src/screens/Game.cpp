@@ -26,7 +26,7 @@ window(window),
 renderer(window->renderer),
 backgroundTexture(window->renderer, "resources/images/mainwindow_bg.png"),
 playerCase(playerCase),
-clue(nullptr),
+activeClue(nullptr),
 normalCursor(SDL_SYSTEM_CURSOR_ARROW),
 handCursor(SDL_SYSTEM_CURSOR_HAND) {
 
@@ -156,6 +156,8 @@ void Game::optionTravel() {
         playerCase->setCurrentCountry(newCountry);
         playerCase->updateCountries();
         playerCase->updateClues();
+
+        activeClue = nullptr;
     }
 
     drawScene();
@@ -193,9 +195,9 @@ void Game::optionPlaces() {
 
     Country country = playerCase->getCurrentCountry();
     if (country.getID() != playerCase->getLastCountry().getID()) {
-        clue = new Clue(_("I don't have any clues! (you are in the wrong country!)"));
+        activeClue = new Clue(_("I don't have any clues! (you are in the wrong country!)"));
     } else {
-        clue = playerCase->clues[selected];
+        activeClue = playerCase->clues[selected];
     }
 }
 
@@ -213,7 +215,7 @@ int Game::calculateHours(Country &from, Country &to) {
 }
 
 void Game::drawScene() {
-    bool hasClue = clue != nullptr;
+    bool hasClue = activeClue != nullptr;
 
     renderer.drawTexture(&backgroundTexture);
 
@@ -231,7 +233,7 @@ void Game::drawScene() {
         Font *hintFont = FontManager::getFont("FreeSansBold", 14);
         hintFont->setColor(Color(211, 186, 164)); // #D3BAA4	
 
-        Text description(clue->getMessage(), hintFont);
+        Text description(activeClue->getMessage(), hintFont);
         TextUtils textUtils;
         textUtils.drawLines(&renderer, description, Point(440, 220), Dimension(285, 115));
     }

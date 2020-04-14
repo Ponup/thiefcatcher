@@ -38,7 +38,7 @@ class Game {
     SquareButton *buttons[4];
 
     PlayerCase *playerCase;
-    Clue* clue;
+    Clue* activeClue;
     Place place;
 
     GameState state;
