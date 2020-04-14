@@ -21,6 +21,8 @@ public:
 
     unsigned int currentPosition;
     Criminal criminal;
+    Criminal suspect;
+    
     Player player;
 
     Country currentCountry;

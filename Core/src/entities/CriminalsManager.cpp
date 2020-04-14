@@ -31,8 +31,8 @@ vector<Criminal>& CriminalsManager::findAll() {
         criminal.setGenre(strncasecmp("male", criminalNode->Attribute("genre"), 4) == 0 ? Genre::Male : Genre::Female);
         criminal.setName(criminalNode->FirstChildElement("name")->GetText());
         criminal.setBuild(criminalNode->FirstChildElement("build")->GetText());
-        criminal.setHairColor(criminalNode->FirstChildElement("hair")->GetText());
-        criminal.setFeature(criminalNode->FirstChildElement("body")->GetText());
+        criminal.setHair(criminalNode->FirstChildElement("hair")->GetText());
+        criminal.setFeature(criminalNode->FirstChildElement("feature")->GetText());
         criminal.setComplexion(criminalNode->FirstChildElement("complexion")->GetText());
         criminals.push_back(criminal);
     }
@@ -46,7 +46,7 @@ vector<string> &CriminalsManager::findAllHairs() {
     vector<Criminal> criminals = findAll();
     for (vector<Criminal>::iterator it = criminals.begin(); it != criminals.end(); ++it) {
         Criminal criminal = *it;
-        list->push_back(criminal.getHairColor());
+        list->push_back(criminal.getHair());
     }
 
     return *list;
@@ -80,7 +80,7 @@ Criminal *CriminalsManager::findByFeatures(Genre genre, const string &build, con
     vector<Criminal> criminals = findAll();
     for (vector<Criminal>::iterator it = criminals.begin(); it != criminals.end(); ++it) {
         Criminal criminal = *it;
-        if (genre == criminal.getGenre() && criminal.getBuild() == build && criminal.getHairColor() == hairColor) {
+        if (genre == criminal.getGenre() && criminal.getBuild() == build && criminal.getHair() == hairColor) {
             return new Criminal(criminal);
         }
     }

@@ -12,10 +12,8 @@ class Criminal {
     int id;
     string name;
     Genre genre;
-    string hairColor;
-    string hairLength;
     string build;
-    string eyesColor;
+    string hair;
     string feature;
     string complexion; // Appearance of person's skin
 
@@ -32,17 +30,11 @@ public:
     void setGenre(Genre genre);
     Genre getGenre() const;
 
-    void setHairColor(const string &hair);
-    string getHairColor() const;
-
-    void setHairLength(const string &hairLength);
-    string getHairLength() const;
-
     void setBuild(const string& build);
     string getBuild() const;
 
-    void setEyesColor(const string& eyesColor);
-    string getEyesColor() const;
+    void setHair(const string &hair);
+    string getHair() const;
 
     void setFeature(const string &feature);
     string getFeature() const;
@@ -50,4 +42,3 @@ public:
     void setComplexion(const string& complexion);
     string getComplexion() const;
 };
-

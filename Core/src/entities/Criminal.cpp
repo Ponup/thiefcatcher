@@ -7,6 +7,7 @@ using std::ostringstream;
 
 Criminal::Criminal() {
     id = -1;
+    genre = Genre::Female;
 }
 
 Criminal::~Criminal() {
@@ -36,20 +37,12 @@ Genre Criminal::getGenre() const {
     return genre;
 }
 
-void Criminal::setHairColor(const string &hairColor) {
-    this->hairColor = hairColor;
+void Criminal::setHair(const string &hair) {
+    this->hair = hair;
 }
 
-string Criminal::getHairColor() const {
-    return hairColor;
-}
-
-void Criminal::setHairLength(const string &hairLength) {
-    this->hairLength = hairLength;
-}
-
-string Criminal::getHairLength() const {
-    return hairLength;
+string Criminal::getHair() const {
+    return hair;
 }
 
 void Criminal::setBuild(const string& build) {
@@ -58,14 +51,6 @@ void Criminal::setBuild(const string& build) {
 
 string Criminal::getBuild() const {
     return build;
-}
-
-void Criminal::setEyesColor(const string& eyesColor) {
-    this->eyesColor = eyesColor;
-}
-
-string Criminal::getEyesColor() const {
-    return eyesColor;
 }
 
 void Criminal::setFeature(const string &feature) {

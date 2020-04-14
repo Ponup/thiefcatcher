@@ -109,7 +109,7 @@ void DossierScreen::renderStaticElements(Renderer& renderer) {
     const struct CriminalTrait traits[] = {
         {_("Genre"), CriminalFormatter::formatGenre(criminal)},
         {_("Build"), criminal.getBuild()},
-        {_("Hair"), criminal.getHairColor()},
+        {_("Hair"), criminal.getHair()},
         {_("Feature"), criminal.getFeature()},
         {_("Complexion"), criminal.getComplexion()},
     };

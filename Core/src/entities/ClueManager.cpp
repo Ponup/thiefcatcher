@@ -44,7 +44,7 @@ Clue *ClueManager::create(const Criminal &criminal, const Country &country) {
         case 3:
             message = fmt::format(_("{0} had {1} hair"),
                     CriminalFormatter::formatGenreArticle(criminal, true),
-                    criminal.getHairColor());
+                    criminal.getHair());
             break;
         case 4:
             message = fmt::format(_("{0} build was {1}"),

@@ -20,6 +20,9 @@ using std::vector;
 using Kangaroo::Renderer;
 using Kangaroo::Texture;
 
+#include <optional>
+using std::optional;
+
 class ProfileScreen : public EventHandler {
     Window *screen;
     Renderer* renderer;
@@ -35,15 +38,15 @@ class ProfileScreen : public EventHandler {
     Font fontOptions;
     Font fontButtons;
 
-    unsigned char genreIndex;
+    size_t genreIndex;
 
-    unsigned char hairIndex;
+    size_t hairIndex;
     vector<string> hairsList;
 
-    unsigned char hobbyIndex;
+    size_t buildIndex;
     vector<string> builds;
 
-    unsigned char featureIndex;
+    size_t featureIndex;
     vector<string> featuresList;
 
     int returnCode;

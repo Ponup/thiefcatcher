@@ -19,6 +19,21 @@
 #include "entities/CriminalsManager.h"
 #include "entities/format/CriminalFormatter.h"
 
+#include <algorithm>
+#include <iterator>
+
+template<typename T>
+optional<int> findInVector(const std::vector<T>& elements, const T& element) {
+	optional<int> result;
+ 
+	auto it = std::find(elements.begin(), elements.end(), element); 
+	if (it != elements.end()) {
+		result = distance(elements.begin(), it);
+	}
+ 
+	return result;
+}
+
 ProfileScreen::ProfileScreen(Renderer* renderer, PlayerCase *playerCase_) :
 renderer(renderer),
 playerCase(playerCase_),
@@ -26,7 +41,17 @@ backgroundTexture(renderer->internal, "resources/images/notebook_background.png"
 
     option = 0;
 
-    genreIndex = hairIndex = hobbyIndex = featureIndex = 0;
+    hairsList = CriminalsManager::findAllHairs();
+    builds = CriminalsManager::findAllHobbies();
+    featuresList = CriminalsManager::findAllFeatures();
+
+    genreIndex = static_cast<int>(playerCase->suspect.getGenre());
+    optional<int> optionalHairIndex = findInVector<string>(hairsList, playerCase->suspect.getHair());
+    hairIndex = optionalHairIndex.has_value() ? optionalHairIndex.value() : 0;
+    optional<int> optionalBuildIndex = findInVector<string>(builds, playerCase->suspect.getBuild());
+    buildIndex = optionalBuildIndex.has_value() ? optionalBuildIndex.value() : 0;
+    optional<int> optionalFeatureIndex = findInVector<string>(featuresList, playerCase->suspect.getFeature());
+    featureIndex = optionalFeatureIndex.has_value() ? optionalFeatureIndex.value() : 0;
 
     fontHeader.load("resources/fonts/FreeSansBold.ttf", 20);
     fontHeader.setColor(Color(255, 255, 255));
@@ -36,10 +61,6 @@ backgroundTexture(renderer->internal, "resources/images/notebook_background.png"
 
     fontButtons.load("resources/fonts/FreeSansBold.ttf", 16);
     fontButtons.setColor(Color(95, 175, 230));
-
-    hairsList = CriminalsManager::findAllHairs();
-    builds = CriminalsManager::findAllHobbies();
-    featuresList = CriminalsManager::findAllFeatures();
 
     quit = false;
 
@@ -106,7 +127,7 @@ void ProfileScreen::drawElements() {
         text.setText("Build");
         renderer->drawText(&text, Point(marginLeft, marginTop));
 
-        text.setText(builds.at(hobbyIndex).c_str());
+        text.setText(builds.at(buildIndex).c_str());
         renderer->drawText(&text, Point(230, marginTop));
         sensAreas.addArea(Point(230, marginTop), text.getDimension()); // Hobby: 2
 
@@ -159,8 +180,8 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
                 }
                 break;
             case 2:
-                if (++hobbyIndex >= builds.size()) {
-                    hobbyIndex = 0;
+                if (++buildIndex >= builds.size()) {
+                    buildIndex = 0;
                 }
                 break;
             case 3:
@@ -199,7 +220,7 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
 
                 Criminal *criminal = CriminalsManager::findByFeatures(
                         static_cast<Genre> (genreIndex),
-                        builds[hobbyIndex].c_str(),
+                        builds[buildIndex].c_str(),
                         hairsList[hairIndex].c_str());
                 if (!criminal) {
                     InformationDialog infoDialog(screen, _("The combination does not match with an existent thief profile."));
@@ -218,6 +239,11 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
                 break;
             }
             case 5:
+                // Save suspect properties
+                playerCase->suspect.setGenre(static_cast<Genre>(genreIndex));
+                playerCase->suspect.setFeature(featuresList[featureIndex]);
+                playerCase->suspect.setBuild(builds[buildIndex]);
+                playerCase->suspect.setHair(hairsList[hairIndex]);
                 quit = true;
         }
     }
