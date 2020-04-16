@@ -38,6 +38,8 @@ PlayerCase *AssignmentScreen::show() {
     showLines();
 
     bool quitted = false;
+    addLine("<type your name>");
+    showLines();
     string name = askName(quitted);
     if (quitted) {
         return nullptr;
@@ -45,7 +47,7 @@ PlayerCase *AssignmentScreen::show() {
 
     Player *player = PlayersManager::findByName(name);
     while (!player) {
-        addLine(_("Your name does not appear in the files of Interpol. Are you new here? (Y/N):"));
+        addLine(_("Your name does not appear in the files of Interpol. Are you new here? (N/Y):"));
         showLines();
 
         // readKey() locks the user input
@@ -57,6 +59,7 @@ PlayerCase *AssignmentScreen::show() {
         }
 
         addLine(_("Please, type your name as it is known at the Interpol:"));
+        addLine("<type your name>");
         showLines();
 
         input->clear();
@@ -65,7 +68,6 @@ PlayerCase *AssignmentScreen::show() {
         if (quitted) {
             return nullptr;
         }
-        addLine(name);
 
         player = PlayersManager::findByName(name);
     }
@@ -141,6 +143,7 @@ string AssignmentScreen::askName(bool &quitted) {
 
     SDL_Event ev;
     bool keepLooping = false;
+    setRefreshDelays(25);
 
     while (!keepLooping) {
         if (SDL_PollEvent(&ev)) {
@@ -152,10 +155,9 @@ string AssignmentScreen::askName(bool &quitted) {
                     keepLooping = quitted = true;
                 } else if (keyCode == SDLK_RETURN) {
                     name = input->getText();
-                    addLine(name);
 
                     if (!isValidName(name)) {
-                        addLine(_("Your name is not valid. Please type a name with at least two characters:"));
+                        addLine(_("Your name is not valid. Please type a name with at least 3 characters:"));
                         input->clear();
                     } else {
                         keepLooping = true;
@@ -164,11 +166,19 @@ string AssignmentScreen::askName(bool &quitted) {
                     showLines();
                 } else {
                     input->putChar(keyCode);
+                    if(input->getText().empty()) {
+                        editLine("<type your name>");
+                    } else {
+                        editLine(input->getText());
+                    }
+                    showLines();
                 }
             }
         }
-        SDL_Delay(30);
+        SDL_Delay(10);
     }
+
+    setRefreshDelays(250);
 
     return name;
 }

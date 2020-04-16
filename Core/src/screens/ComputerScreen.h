@@ -22,6 +22,7 @@ class ComputerScreen {
 	vector<string> lines;
 
 	unsigned int currentLine;
+	int refreshDelays;
 
 	Font *font;
 
@@ -37,7 +38,9 @@ public:
 
 	void clear();
 	void addLine(const string& line);
+	void editLine(const string& line);
 	void showLines();
+	void setRefreshDelays(int refreshDelays);
 
 	void waitForInput();
 };

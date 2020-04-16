@@ -12,6 +12,7 @@ using std::reverse;
 #include <FontManager.h>
 
 ComputerScreen::ComputerScreen(Renderer* renderer) :
+	refreshDelays{250},
 	renderer(renderer),
 	backgroundTexture(renderer->internal, "resources/images/notebook_background.png")
 {
@@ -59,6 +60,12 @@ void ComputerScreen::addLine(const string& line) {
 	lines.push_back(nextLine);
 }
 
+void ComputerScreen::editLine(const string& line) {
+	currentLine--;
+	lines.pop_back();
+	lines.push_back(line);
+}
+
 void ComputerScreen::showLines() {
 	vector<string>::size_type numLines = lines.size();
 	for (; currentLine < numLines; currentLine++) {
@@ -77,7 +84,7 @@ void ComputerScreen::showLines() {
 		}
 
 		renderer->present();
-		SDL_Delay(250);
+		SDL_Delay(refreshDelays);
 	}
 }
 
@@ -94,7 +101,7 @@ int ComputerScreen::readKey() {
 				quit = true;
 			}
 		}
-		SDL_Delay(80);
+		SDL_Delay(20);
 	}
 
 	return key;
@@ -112,3 +119,6 @@ void ComputerScreen::waitForInput() {
 	}
 }
 
+void ComputerScreen::setRefreshDelays(int refreshDelays) {
+	this->refreshDelays = refreshDelays;
+}
