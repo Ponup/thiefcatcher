@@ -14,9 +14,7 @@ using std::endl;
 
 #include "utilities/Translator.h"
 
-PlayerCase::PlayerCase() {
-    currentPosition = 0;
-    captureOrderExecuted = false;
+PlayerCase::PlayerCase() : currentPosition{0}, captureOrderExecuted{false}, lastMinuteCaptureOrderUsed{false} {
 }
 
 PlayerCase::PlayerCase(const PlayerCase &playerCase) {
@@ -27,6 +25,7 @@ PlayerCase::PlayerCase(const PlayerCase &playerCase) {
     currentPosition = playerCase.getCurrentPosition();
     itinerary = playerCase.getItinerary();
     captureOrderExecuted = playerCase.isCaptureOrderExecuted();
+    lastMinuteCaptureOrderUsed = playerCase.lastMinuteCaptureOrderUsed;
     stolenObject = playerCase.getStolenObject();
 }
 
@@ -38,6 +37,7 @@ PlayerCase PlayerCase::operator=(const PlayerCase &playerCase) {
     currentPosition = playerCase.getCurrentPosition();
     itinerary = playerCase.getItinerary();
     captureOrderExecuted = playerCase.isCaptureOrderExecuted();
+    lastMinuteCaptureOrderUsed = playerCase.lastMinuteCaptureOrderUsed;
     stolenObject = playerCase.getStolenObject();
     return *this;
 }
@@ -158,3 +158,10 @@ void PlayerCase::updateClues() {
     }
 }
 
+bool PlayerCase::hasUsedLastMinuteCaptureOrder() const {
+    return lastMinuteCaptureOrderUsed;
+}
+
+void PlayerCase::useLastMinuteCaptureOrder() {
+    lastMinuteCaptureOrderUsed = true;
+}

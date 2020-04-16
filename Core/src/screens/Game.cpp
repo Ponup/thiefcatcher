@@ -178,6 +178,8 @@ void Game::optionPlaces() {
     time_t secondsCurrent = playerCase->currentDate->toSeconds();
     time_t secondsEnd = playerCase->endDate->toSeconds();
 
+    ClueFactory clueFactory;
+
     if (secondsCurrent >= secondsEnd) {
         state = GameState::LostTimeout;
         return;
@@ -187,9 +189,17 @@ void Game::optionPlaces() {
             fontWarn->setColor(Color(0xff, 0, 0));
             Text warn("Only 3 hours left!", fontWarn);
             renderer.drawText(&warn, Point(440, 15));
-        } else
-            if (playerCase->currentPosition == playerCase->itinerary.size() - 1) {
-            state = playerCase->captureOrderExecuted ? GameState::Won : GameState::LostEscaped;
+        } else if (playerCase->currentPosition == playerCase->itinerary.size() - 1) {
+            if(playerCase->captureOrderExecuted) {
+                state = GameState::Won;
+            } else {
+                if(playerCase->hasUsedLastMinuteCaptureOrder()) {
+                    state =  GameState::LostEscaped;
+                } else {
+                    playerCase->useLastMinuteCaptureOrder();
+                    activeClue = clueFactory.createLastMinuteCaptureOrderClue();
+                }
+            }
             return;
         }
     }
@@ -197,7 +207,6 @@ void Game::optionPlaces() {
 
     Country country = playerCase->getCurrentCountry();
     if (country.getID() != playerCase->getLastCountry().getID()) {
-        ClueFactory clueFactory;
         activeClue = clueFactory.createWrongCountryClue();
     } else {
         activeClue = playerCase->clues[selected];

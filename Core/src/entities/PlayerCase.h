@@ -32,6 +32,7 @@ public:
 
     string stolenObject;
     bool captureOrderExecuted;
+    bool lastMinuteCaptureOrderUsed;
 
 public:
     vector<Country> itinerary;
@@ -68,5 +69,8 @@ public:
 
     void updateCountries();
     void updateClues();
+
+    bool hasUsedLastMinuteCaptureOrder() const;
+    void useLastMinuteCaptureOrder();
 };
 

@@ -32,4 +32,5 @@ public:
     Clue* createSameCountryClue() const;
     Clue* createCriminalClue(PlayerCase& playerCase) const;
     Clue* createNegativeClue() const;
+    Clue* createLastMinuteCaptureOrderClue() const;
 };

@@ -97,3 +97,7 @@ Clue* ClueFactory::createNegativeClue() const {
     string message = negativeAnswers.at(randomAnswerIndex);
     return new Clue{message};
 }
+
+Clue* ClueFactory::createLastMinuteCaptureOrderClue() const {
+    return new Clue{"Issue a capture order right now or the thief will get away!"};
+}
