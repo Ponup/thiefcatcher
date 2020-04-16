@@ -13,14 +13,13 @@ Country::Country(const Country &country) {
     this->isoCode = country.getIsoCode();
     this->code = country.getCode();
     this->name = country.getName();
-    this->description = country.getDescription();
-    this->treasure = country.getTreasure();
-    this->flagDesc = country.getFlagDescription();
+    this->flag = country.getFlag();
+    this->continent = country.getContinent();
     this->capital = country.getCapital();
+    this->popularThings = country.getPopularThings();
     this->languages = country.getLanguages();
     this->currencies = country.getCurrencies();
-    this->latitude = country.getLatitude();
-    this->longitude = country.getLongitude();
+    this->coordinates = country.getCoordinates();
 }
 
 Country& Country::operator=(const Country &country) {
@@ -28,15 +27,17 @@ Country& Country::operator=(const Country &country) {
     this->code = country.getCode();
     this->isoCode = country.getIsoCode();
     this->name = country.getName();
-    this->description = country.getDescription();
-    this->treasure = country.getTreasure();
-    this->flagDesc = country.getFlagDescription();
+    this->flag = country.getFlag();
+    this->continent = country.getContinent();
     this->capital = country.getCapital();
+    this->popularThings = country.getPopularThings();
     this->languages = country.getLanguages();
     this->currencies = country.getCurrencies();
-    this->latitude = country.getLatitude();
-    this->longitude = country.getLongitude();
+    this->coordinates = country.getCoordinates();
     return *this;
+}
+
+Country::~Country() {
 }
 
 void Country::setIsoCode(const string &isoCode) {
@@ -55,7 +56,12 @@ string Country::getCode() const {
     return code;
 }
 
-Country::~Country() {
+void Country::setContinent(const string &continent) {
+    this->continent = continent;
+}
+
+string Country::getContinent() const {
+    return continent;
 }
 
 void Country::setID(CountryId id) {
@@ -74,28 +80,20 @@ string Country::getName() const {
     return name;
 }
 
-void Country::setDescription(const string &description) {
-    this->description = description;
+void Country::setFlag(const string &flag) {
+    this->flag = flag;
 }
 
-string Country::getDescription() const {
-    return description;
+string Country::getFlag() const {
+    return flag;
 }
 
-void Country::setFlagDescription(const string &flagDesc) {
-    this->flagDesc = flagDesc;
+void Country::setPopularThings(const vector<string> &popularThings) {
+    this->popularThings = popularThings;
 }
 
-string Country::getFlagDescription() const {
-    return flagDesc;
-}
-
-void Country::setTreasure(const string &treasure) {
-    this->treasure = treasure;
-}
-
-string Country::getTreasure() const {
-    return treasure;
+const vector<string> Country::getPopularThings() const {
+    return popularThings;
 }
 
 void Country::setLanguages(const vector<string> &languages) {
@@ -126,24 +124,12 @@ string Country::getCapital() const {
     return capital;
 }
 
-void Country::setLatitude(double latitude) {
-    this->latitude = latitude;
+void Country::setCoordinates(const GeoCoordinates& coordinates) {
+    this->coordinates = coordinates;
 }
 
-double Country::getLatitude() const {
-    return latitude;
-}
-
-void Country::setLongitude(double longitude) {
-    this->longitude = longitude;
-}
-
-double Country::getLongitude() const {
-    return longitude;
-}
-
-pair<double, double> Country::getLatitudeLongitude() const {
-    return pair<double, double>(latitude, longitude);
+GeoCoordinates Country::getCoordinates() const {
+    return coordinates;
 }
 
 bool operator==(const Country& leftHandCountry, const Country& rightHandCountry) {

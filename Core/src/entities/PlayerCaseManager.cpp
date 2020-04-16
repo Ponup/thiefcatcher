@@ -28,8 +28,8 @@ PlayerCase *PlayerCaseManager::createRandomCase( const Player &player ) {
 	delete criminalsPKrandom;
 	playerCase->setCriminal(*criminal);
 	
-	vector<Country> itinerary = CountriesManager::findRandom( 7 );
-	string stolenObject = itinerary[0].getTreasure();
+	vector<Country> itinerary = CountriesManager::findRandom(3);
+	string stolenObject = itinerary[0].getPopularThings()[0];
 	playerCase->setStolenObject( stolenObject );
 	
 	playerCase->itinerary = itinerary;

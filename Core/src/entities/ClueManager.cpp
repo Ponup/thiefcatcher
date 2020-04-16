@@ -33,7 +33,7 @@ Clue *ClueManager::create(const Criminal &criminal, const Country &country) {
     int kind = Random::nextInt(1, 7);
     switch (kind) {
         case 1:
-            message = fmt::format(_("I think {0} had a map with a country flag with {1}"), CriminalFormatter::formatGenreArticle(criminal, false), country.getFlagDescription());
+            message = fmt::format(_("I think {0} had a map with a country flag with {1}"), CriminalFormatter::formatGenreArticle(criminal, false), country.getFlag());
             break;
         case 2:
             message = fmt::format(_("My sources told me {0} changed {1} money to {2}."),

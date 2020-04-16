@@ -38,14 +38,21 @@ vector<Country> CountriesManager::findAll() {
         country.setIsoCode(countryNode->Attribute("isocode"));
         country.setName(countryNode->FirstChildElement("name")->GetText());
         country.setCapital(countryNode->FirstChildElement("capital")->GetText());
-        country.setTreasure(countryNode->FirstChildElement("treasure")->GetText());
-        country.setDescription(countryNode->FirstChildElement("description")->GetText());
-        country.setFlagDescription(countryNode->FirstChildElement("flag-description")->GetText());
+        country.setContinent(countryNode->FirstChildElement("continent")->GetText());
+        country.setFlag(countryNode->FirstChildElement("flag")->GetText());
 
-        double latitude = atof(countryNode->FirstChildElement("coord-lat")->GetText());
-        country.setLatitude(latitude);
-        double longitude = atof(countryNode->FirstChildElement("coord-long")->GetText());
-        country.setLongitude(longitude);
+        GeoCoordinates coordinates = {
+            atof(countryNode->FirstChildElement("coordinates")->Attribute("lat")),
+            atof(countryNode->FirstChildElement("coordinates")->Attribute("long"))
+        };
+        country.setCoordinates(coordinates);
+
+        vector<string> popularThings;
+        XMLElement *popularThingsNodes = countryNode->FirstChildElement("popular-things");
+        for (XMLElement *thingNode = popularThingsNodes->FirstChildElement("thing"); thingNode != nullptr; thingNode = thingNode->NextSiblingElement("thing")) {
+            popularThings.push_back(thingNode->GetText());
+        }
+        country.setPopularThings(popularThings);
 
         vector<string> languages;
         XMLElement *languagesNode = countryNode->FirstChildElement("languages");

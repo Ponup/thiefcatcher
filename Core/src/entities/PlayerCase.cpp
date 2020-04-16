@@ -148,9 +148,9 @@ void PlayerCase::updateCountries() {
 
 void PlayerCase::updateClues() {
     if (currentPosition + 1 == itinerary.size()) {
-        Clue clue(_("You are close to catch him!"));
+        Clue *clue = new Clue(_("You are close to catch him!"));
 
-        clues[0] = clues[1] = clues[2] = &clue;
+        clues[0] = clues[1] = clues[2] = clue;
     } else {
         Criminal criminal = getCriminal();
         Country next = nextCountry();

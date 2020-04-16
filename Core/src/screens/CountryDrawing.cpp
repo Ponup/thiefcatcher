@@ -6,6 +6,8 @@
 #include <FileUtils.h>
 #include <Surface.h>
 
+#include "entities/format/CountryDescriptionGenerator.h"
+
 using Kangaroo::TextUtils;
 
 void drawCountry(Renderer* canvas, const Country &country, bool drawDescription) {
@@ -40,7 +42,8 @@ void drawCountry(Renderer* canvas, const Country &country, bool drawDescription)
         Font descFont("resources/fonts/FreeSansBold.ttf", 14);
         descFont.setColor(Color(0xd3, 0xba, 0xa4));
 
-        Text description(country.getDescription(), &descFont);
+        CountryDescriptionGenerator countryDescriptionGenerator;
+        Text description(countryDescriptionGenerator.generateDescription(country), &descFont);
         TextUtils textUtils;
         textUtils.drawLines(canvas, description, Point(358, 150), Dimension(360, 340));
     }

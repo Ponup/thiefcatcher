@@ -6,13 +6,30 @@ using std::vector;
 #include <string>
 using std::string;
 
-#include <utility>
-using std::pair;
-
 #include <Surface.h>
 #include <Point.h>
 
 typedef unsigned char CountryId;
+
+#include <utility>
+using std::pair;
+
+struct GeoCoordinates {
+    double latitude, longitude;
+
+    pair<double, double> toPair() {
+        return {latitude, longitude};
+    }
+
+    Point toScreenCoordinates() {
+        // y = ((-1 * lat) + 90) * (MAP_HEIGHT / 180);
+        // x = ( lon + 180) * (MAP_WIDTH / 360);
+        Point point;
+        point.y = (int)(((-1 * latitude) + 90) * 2.6);
+        point.x = (int)((longitude + 180) * (720 / 360));
+        return point;
+    }
+};
 
 class Country {
 
@@ -20,13 +37,11 @@ class Country {
     string isoCode;
     string code;
     string name;
-    string description;
-    string treasure;
-    string flagDesc;
+    string continent;
     string capital;
-
-    double latitude, longitude;
-
+    string flag;
+    vector<string> popularThings;
+    GeoCoordinates coordinates;
     vector<string> languages;
     vector<string> currencies;
 
@@ -44,25 +59,21 @@ public:
     CountryId getID() const;
     void setName(const string &name);
     string getName() const;
-    void setDescription(const string &description);
-    string getDescription() const;
-    void setTreasure(const string &treasure);
-    string getTreasure() const;
-    void setFlagDescription(const string &flagDesc);
-    string getFlagDescription() const;
+    void setContinent(const string &description);
+    string getContinent() const;
+    void setCapital(const string &treasure);
+    string getCapital() const;
+    void setFlag(const string &flag);
+    string getFlag() const;
+    void setPopularThings(const vector<string> &popularThings);
+    const vector<string> getPopularThings() const;
     void setLanguages(const vector<string> &languages);
     const vector<string> getLanguages() const;
     void setCurrencies(const vector<string> &currencies);
     const vector<string> getCurrencies() const;
     string getFirstCurrency(void) const;
-    void setCapital(const string &capital);
-    string getCapital() const;
-
-    void setLatitude(double latitude);
-    double getLatitude() const;
-    void setLongitude(double longitude);
-    double getLongitude() const;
-    pair<double, double> getLatitudeLongitude() const;
+    void setCoordinates(const GeoCoordinates& coordinates);
+    GeoCoordinates getCoordinates() const;
 };
 
 bool operator==(const Country& leftHandCountry, const Country& rightHandCountry);

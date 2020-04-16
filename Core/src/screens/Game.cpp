@@ -186,7 +186,7 @@ void Game::optionPlaces() {
             Text warn("Only 3 hours left!", fontWarn);
             renderer.drawText(&warn, Point(440, 15));
         } else
-            if (playerCase->currentPosition == 6) {
+            if (playerCase->currentPosition == playerCase->itinerary.size() - 1) {
             state = playerCase->captureOrderExecuted ? GameState::Won : GameState::LostEscaped;
             return;
         }
@@ -209,7 +209,7 @@ void Game::optionProfile() {
 }
 
 int Game::calculateHours(Country &from, Country &to) {
-    vector<Point> path = MathUtil::calculatePath(from.getLatitudeLongitude(), to.getLatitudeLongitude());
+    vector<Point> path = MathUtil::calculatePath(from.getCoordinates().toPair(), to.getCoordinates().toPair());
     int hours = int(path.size() / 30);
     return hours > 0 ? hours : 1;
 }

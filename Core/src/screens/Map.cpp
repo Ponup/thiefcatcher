@@ -6,16 +6,6 @@
 #include "utilities/Translator.h"
 #include "entities/CountriesManager.h"
 
-Point latlong2point(pair<double, double> latlong)
-{
-	// y = ((-1 * lat) + 90) * (MAP_HEIGHT / 180);
-	// x = ( lon + 180) * (MAP_WIDTH / 360);
-	Point point;
-	point.y = (int)(((-1 * latlong.first) + 90) * 2.6);
-	point.x = (int)((latlong.second + 180) * (720 / 360));
-	return point;
-}
-
 Map::Map(Renderer* renderer, Country *sourceCountry_, Country *targetCountry_) :
 	renderer(renderer),
 	selected(0), quit(false), updatePending(true),
@@ -37,8 +27,8 @@ Map::Map(Renderer* renderer, Country *sourceCountry_, Country *targetCountry_) :
 
 	addSensibleAreas();
 
-	airplanePosition = latlong2point(sourceCountry->getLatitudeLongitude()) - Point(15, 15) + mapOffset - bulletRadius + offsetFix;
-	originalAirplanePosition = latlong2point(sourceCountry->getLatitudeLongitude()) - Point(15, 15) + mapOffset - bulletRadius + offsetFix;
+	airplanePosition = sourceCountry->getCoordinates().toScreenCoordinates() - Point(15, 15) + mapOffset - bulletRadius + offsetFix;
+	originalAirplanePosition = sourceCountry->getCoordinates().toScreenCoordinates() - Point(15, 15) + mapOffset - bulletRadius + offsetFix;
 
 	updateScreen(true);
 
@@ -63,7 +53,7 @@ void Map::drawCountriesLabels()
 	for (unsigned int i = 0; i < countries.size(); i++)
 	{
 		Text text(countries[i].getIsoCode(), &font);
-		renderer->drawText(&text, latlong2point(countries[i].getLatitudeLongitude()) + mapOffset - bulletRadius);
+		renderer->drawText(&text, countries[i].getCoordinates().toScreenCoordinates() + mapOffset - bulletRadius);
 	}
 }
 
@@ -73,7 +63,7 @@ void Map::addSensibleAreas()
 
 	for (int i = 0; i < 3; i++)
 	{
-		Point p = latlong2point(targetCountry[i].getLatitudeLongitude());
+		Point p = targetCountry[i].getCoordinates().toScreenCoordinates();
 		points[i] = p + mapOffset - bulletRadius + offsetFix;
 		sensAreas.addArea(Area(points[i], bulletDimension));
 	}
@@ -145,8 +135,8 @@ void Map::drawBackgroundElements()
 
 void Map::drawDirectedAirplane()
 {
-	double deltay = latlong2point(sourceCountry->getLatitudeLongitude()).y - latlong2point(targetCountry[selected].getLatitudeLongitude()).y;
-	double deltax = latlong2point(sourceCountry->getLatitudeLongitude()).x - latlong2point(targetCountry[selected].getLatitudeLongitude()).x;
+	double deltay = sourceCountry->getCoordinates().toScreenCoordinates().y - targetCountry[selected].getCoordinates().toScreenCoordinates().y;
+	double deltax = sourceCountry->getCoordinates().toScreenCoordinates().x - targetCountry[selected].getCoordinates().toScreenCoordinates().x;
 	double angle = MathUtil::radian2degree(atan2(deltax, deltay));
 	angle += 45; // because the airplane is rotated already.
 
@@ -182,8 +172,8 @@ void Map::gotoTarget() {
 
 		airplanePosition = originalAirplanePosition + (*it);
 
-		double deltay = latlong2point(sourceCountry->getLatitudeLongitude()).y - latlong2point(targetCountry[selected].getLatitudeLongitude()).y;
-		double deltax = latlong2point(sourceCountry->getLatitudeLongitude()).x - latlong2point(targetCountry[selected].getLatitudeLongitude()).x;
+		double deltay = sourceCountry->getCoordinates().toScreenCoordinates().y - targetCountry[selected].getCoordinates().toScreenCoordinates().y;
+		double deltax = sourceCountry->getCoordinates().toScreenCoordinates().x - targetCountry[selected].getCoordinates().toScreenCoordinates().x;
 		double angle = MathUtil::radian2degree(atan2(deltax, deltay));
 		angle += 45; // because the airplane is rotated already.
 
