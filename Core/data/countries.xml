@@ -33,6 +33,7 @@
 		<coordinates lat="40.4637" long="3.7492" />
 		<languages>
 			<language>Spanish</language>
+			<language>Catalan</language>
 		</languages>
 		<currencies>
 			<currency>Euro (EUR)</currency>
@@ -73,4 +74,45 @@
 			<currency>Euro (EUR)</currency>
 		</currencies>
 	</country>
+
+	<country isocode="gb" code="greatbritain">
+		<name>United Kingdom</name>
+		<continent>Europe</continent>
+		<capital>London</capital>
+		<flag>the union jack</flag>
+		<popular-things>
+			<thing>Big Ben</thing>
+			<thing>fish and chips</thing>
+			<thing>the Beatles</thing>
+		</popular-things>
+		<coordinates lat="55.3781" long="3.4360" />
+		<languages>
+			<language>English</language>
+			<language>Scottish</language>
+			<language>Welsh</language>
+			<language>Irish</language>
+		</languages>
+		<currencies>
+			<currency>Pound Sterling (GBP)</currency>
+		</currencies>
+	</country>
+
+	<country isocode="cn" code="china">
+		<name>China</name>
+		<continent>Asia</continent>
+		<capital>Beijing</capital>
+		<flag>solid red with four small yellow stars and one bigger star in the upper left corner</flag>
+		<popular-things>
+			<thing>Great Wall</thing>
+			<thing>kung fu</thing>
+			<thing>giant panda</thing>
+		</popular-things>
+		<coordinates lat="35.8617" long="104.1954" />
+		<languages>
+			<language>Chinese</language>
+		</languages>
+		<currencies>
+			<currency>Yuan (CNY)</currency>
+		</currencies>
+	</country>	
 </countries>
