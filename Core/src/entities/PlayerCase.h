@@ -28,7 +28,7 @@ public:
     Country currentCountry;
     Country nextCountries[3];
 
-    Clue *clues[3];
+    Clue **clues;
 
     string stolenObject;
     bool captureOrderExecuted;

@@ -2,37 +2,37 @@
 <criminals>
 	<criminal genre="female">
 		<name>Ale Sleepswithfishes</name>
-		<hair>Long</hair>
-		<feature>Smoker</feature>
-		<build>Atlhetic</build>
+		<hair>long</hair>
+		<feature>tattoo</feature>
+		<build>atlhetic</build>
 		<complexion>Rosy</complexion>
 	</criminal>
 	<criminal genre="female">
 		<name>Bullet riddled Lupe</name>
-		<hair>Brown</hair>
-		<feature>Jewerly shopping addict</feature>
-		<build>Medium</build>
-		<complexion>Pale</complexion>
+		<hair>brown</hair>
+		<feature>scar</feature>
+		<build>medium</build>
+		<complexion>pale</complexion>
 	</criminal>
 	<criminal genre="male">
 		<name>Hot Knife Santi</name>
 		<hair>Curly</hair>
-		<feature>Technology gadgets</feature>
-		<build>Skinny</build>
-		<complexion>Brown</complexion>
+		<feature>eyepatch</feature>
+		<build>skinny</build>
+		<complexion>brown</complexion>
 	</criminal>
 	<criminal genre="male">
 		<name>Pablo Scarface</name>
-		<hair>Bald</hair>
-		<feature>Bearded</feature>
-		<build>Medium</build>
-		<complexion>Brown</complexion>
+		<hair>bald</hair>
+		<feature>earring</feature>
+		<build>medium</build>
+		<complexion>brown</complexion>
 	</criminal>
 	<criminal genre="female">
 		<name>Bad Breath Cele</name>
-		<hair>Short</hair>
-		<feature>Dancer</feature>
-		<build>Overweight</build>
-		<complexion>Fair</complexion>
+		<hair>short</hair>
+		<feature>piercing</feature>
+		<build>overweight</build>
+		<complexion>fair</complexion>
 	</criminal>
 </criminals>

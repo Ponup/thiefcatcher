@@ -18,6 +18,8 @@ using Kangaroo::TextUtils;
 #include "screens/CountryDrawing.h"
 #include "screens/ProfileScreen.h"
 
+#include "entities/ClueFactory.h"
+
 #include <utility>
 using std::pair;
 
@@ -195,7 +197,8 @@ void Game::optionPlaces() {
 
     Country country = playerCase->getCurrentCountry();
     if (country.getID() != playerCase->getLastCountry().getID()) {
-        activeClue = new Clue(_("I don't have any clues! (you are in the wrong country!)"));
+        ClueFactory clueFactory;
+        activeClue = clueFactory.createWrongCountryClue();
     } else {
         activeClue = playerCase->clues[selected];
     }

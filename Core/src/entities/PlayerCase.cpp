@@ -9,8 +9,8 @@ using std::endl;
 
 #include <Random.h>
 
-#include "entities/ClueManager.h"
 #include "entities/CountriesManager.h"
+#include "entities/ClueFactory.h"
 
 #include "utilities/Translator.h"
 
@@ -23,7 +23,6 @@ PlayerCase::PlayerCase(const PlayerCase &playerCase) {
     startDate = playerCase.startDate;
     currentDate = playerCase.currentDate;
     endDate = playerCase.endDate;
-    //	player = playerCase.getPlayer();
     criminal = playerCase.getCriminal();
     currentPosition = playerCase.getCurrentPosition();
     itinerary = playerCase.getItinerary();
@@ -35,7 +34,6 @@ PlayerCase PlayerCase::operator=(const PlayerCase &playerCase) {
     startDate = playerCase.startDate;
     currentDate = playerCase.currentDate;
     endDate = playerCase.endDate;
-    //	player = playerCase.getPlayer();
     criminal = playerCase.getCriminal();
     currentPosition = playerCase.getCurrentPosition();
     itinerary = playerCase.getItinerary();
@@ -148,17 +146,15 @@ void PlayerCase::updateCountries() {
 
 void PlayerCase::updateClues() {
     if (currentPosition + 1 == itinerary.size()) {
-        Clue *clue = new Clue(_("You are close to catch him!"));
+        ClueFactory clueFactory;
+        Clue* clue = clueFactory.createSameCountryClue();
 
         clues[0] = clues[1] = clues[2] = clue;
     } else {
         Criminal criminal = getCriminal();
         Country next = nextCountry();
-        ClueManager clueManager;
-
-        clues[0] = clueManager.create(criminal, next);
-        clues[1] = clueManager.create(criminal, next);
-        clues[2] = clueManager.create(criminal, next);
+        ClueFactory clueFactory;
+        clues = clueFactory.createNRandomClues(*this, 3);
     }
 }
 
