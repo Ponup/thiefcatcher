@@ -16,7 +16,7 @@
 			<language>Spanish</language>
 		</languages>
 		<currencies>
-			<currency>Peso (ARS)</currency>
+			<currency code="ARS">Peso</currency>
 		</currencies>
 	</country>		
 
@@ -36,7 +36,7 @@
 			<language>Catalan</language>
 		</languages>
 		<currencies>
-			<currency>Euro (EUR)</currency>
+			<currency code="EUR">Euro</currency>
 		</currencies>
 	</country>		
 
@@ -54,7 +54,7 @@
 			<language>Italian</language>
 		</languages>
 		<currencies>
-			<currency>Euro (EUR)</currency>
+			<currency code="EUR">Euro</currency>
 		</currencies>
 	</country>
 
@@ -71,7 +71,7 @@
 			<language>German</language>
 		</languages>
 		<currencies>
-			<currency>Euro (EUR)</currency>
+			<currency code="EUR">Euro</currency>
 		</currencies>
 	</country>
 
@@ -93,7 +93,7 @@
 			<language>Irish</language>
 		</languages>
 		<currencies>
-			<currency>Pound Sterling (GBP)</currency>
+			<currency code="GBP">Pound Sterling</currency>
 		</currencies>
 	</country>
 
@@ -112,7 +112,26 @@
 			<language>Chinese</language>
 		</languages>
 		<currencies>
-			<currency>Yuan (CNY)</currency>
+			<currency code="CNY">Yuan</currency>
+		</currencies>
+	</country>	
+
+	<country isocode="br" code="brazil">
+		<name>Brazil</name>
+		<continent>South America</continent>
+		<capital>Brasilia</capital>
+		<flag>bright green with a yellow diamond in the center filled with a blue globe</flag>
+		<popular-things>
+			<thing>caipirinhas</thing>
+			<thing>carnival</thing>
+			<thing>the Amazon</thing>
+		</popular-things>
+		<coordinates lat="14.2350" long="51.9253" />
+		<languages>
+			<language>Portuguese</language>
+		</languages>
+		<currencies>
+			<currency code="BRL">Real</currency>
 		</currencies>
 	</country>	
 </countries>
