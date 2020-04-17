@@ -134,4 +134,62 @@
 			<currency code="BRL">Real</currency>
 		</currencies>
 	</country>	
+
+	<country isocode="fr" code="france">
+		<name>France</name>
+		<continent>Europe</continent>
+		<capital>Paris</capital>
+		<flag>tricolour flag featuring three vertical bands coloured blue (hoist side), white, and red</flag>
+		<popular-things>
+			<thing>Eiffel Tower</thing>
+			<thing>Notre-Dame</thing>
+		</popular-things>
+		<coordinates lat="46.2276" long="2.2137" />
+		<languages>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency code="EUR">Euro</currency>
+		</currencies>
+	</country>	
+
+	<country isocode="ca" code="canada">
+		<name>Canada</name>
+		<continent>North America</continent>
+		<capital>Ottawa</capital>
+		<flag>red field with a white square at its centre, in the middle of which is featured a stylized, red, maple leaf</flag>
+		<popular-things>
+			<thing>Niagara Falls</thing>
+			<thing>hockey</thing>
+		</popular-things>
+		<coordinates lat="56.1304" long="106.3468" />
+		<languages>
+			<language>English</language>
+			<language>French</language>
+		</languages>
+		<currencies>
+			<currency code="CAD">Dollar</currency>
+		</currencies>
+	</country>	
+
+	<country isocode="us" code="unitedstates">
+		<name>United States</name>
+		<continent>North America</continent>
+		<capital>Washington, D.C.</capital>
+		<flag>50 stars and 13 stripes</flag>
+		<popular-things>
+			<thing>the Grand Canyon</thing>
+			<thing>Baseball</thing>
+			<thing>Times Square</thing>
+		</popular-things>
+		<coordinates lat="37.0902" long="95.7129" />
+		<languages>
+			<language>English</language>
+			<language>Spanish</language>
+		</languages>
+		<currencies>
+			<currency code="USD">Dollar</currency>
+		</currencies>
+	</country>	
+
 </countries>

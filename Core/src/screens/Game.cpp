@@ -6,7 +6,7 @@
 #include <TextUtils.h>
 using Kangaroo::TextUtils;
 
-#include "Vars.h" 
+#include "Vars.h"
 
 #include "entities/Place.h"
 
@@ -23,17 +23,16 @@ using Kangaroo::TextUtils;
 #include <utility>
 using std::pair;
 
-Game::Game(Window* window, PlayerCase* playerCase) :
-window(window),
-renderer(window->renderer),
-backgroundTexture(window->renderer, "resources/images/mainwindow_bg.png"),
-playerCase(playerCase),
-activeClue(nullptr),
-normalCursor(SDL_SYSTEM_CURSOR_ARROW),
-handCursor(SDL_SYSTEM_CURSOR_HAND) {
+Game::Game(Window *window, PlayerCase *playerCase) : window(window),
+                                                     renderer(window->renderer),
+                                                     backgroundTexture(window->renderer, "resources/images/mainwindow_bg.png"),
+                                                     playerCase(playerCase),
+                                                     activeClue(nullptr),
+                                                     normalCursor(SDL_SYSTEM_CURSOR_ARROW),
+                                                     handCursor(SDL_SYSTEM_CURSOR_HAND)
+{
 
-    clock = new Clock(window);
-    clock->setPosition(Point(20, 7));
+    clock = new Clock(&renderer, Point(20, 7));
 
     timeFont.load("resources/fonts/FreeSansBold.ttf", 22);
     timeFont.setColor(Color(252, 244, 221)); // #FCF4DD
@@ -52,52 +51,66 @@ handCursor(SDL_SYSTEM_CURSOR_HAND) {
     drawScene();
 }
 
-Game::~Game() {
-    for (int i = 0; i < 4; i++) {
+Game::~Game()
+{
+    for (int i = 0; i < 4; i++)
+    {
         delete buttons[i];
     }
 }
 
-void Game::drawPlacesArea() {
+void Game::drawPlacesArea()
+{
     Font font("resources/fonts/FreeSans.ttf", 14);
     font.setColor(Color(255, 255, 255));
 
-    for (int i = 0; i < 4; i++) {
-        if (i == currentOption) {
+    for (int i = 0; i < 4; i++)
+    {
+        if (i == currentOption)
+        {
             Text optionLabel(buttons[i]->getLabel(), &font);
             renderer.drawText(&optionLabel, buttons[i]->getPosition() - Point(-5, 30));
             renderer.drawTexture(buttons[i]->getImageOver(), buttons[i]->getPosition());
-        } else {
+        }
+        else
+        {
             renderer.drawTexture(buttons[i]->getImage(), buttons[i]->getPosition());
         }
     }
 }
 
-void Game::quitGame() {
+void Game::quitGame()
+{
     ConfirmationDialog dialog(window, _("Are you sure you want to abort this case?"));
     int selected = dialog.showGetSelected();
-    if (selected == ConfirmationDialog::DIALOG_YES) {
+    if (selected == ConfirmationDialog::DIALOG_YES)
+    {
         state = GameState::Abort;
     }
 }
 
-void Game::update() {
+void Game::update()
+{
     drawScene();
 }
 
-bool Game::isPlaying() const {
+bool Game::isPlaying() const
+{
     return state == GameState::Playing;
 }
 
-GameState Game::getGameState() const {
+GameState Game::getGameState() const
+{
     return state;
 }
 
-Window *Game::getWindow() {
+Window *Game::getWindow()
+{
     return window;
 }
 
-void Game::drawTimeArea() {
+void Game::drawTimeArea()
+{
     Point basePosition(120, 20);
     Text dayLine(playerCase->currentDate->getDayOfWeekName(), &timeFont);
     Text hourLine(playerCase->currentDate->toString("%H:%M"), &timeFont);
@@ -105,11 +118,15 @@ void Game::drawTimeArea() {
     renderer.drawText(&dayLine, basePosition + dateTimePosition);
     renderer.drawText(&hourLine, basePosition + dateTimePosition + Point(0, timeFont.getLineSkip()));
 
-    clock->draw(*(playerCase->currentDate), &renderer);
+    (*(playerCase->currentDate)).update();
+
+    clock->draw(*(playerCase->currentDate));
 }
 
-void Game::increaseTime(int hours) {
-    for (unsigned char i = 0; i < hours; i++) {
+void Game::increaseTime(int hours)
+{
+    for (unsigned char i = 0; i < hours; i++)
+    {
         playerCase->currentDate->increase(1, DateTime::Hour);
 
         drawScene();
@@ -119,35 +136,40 @@ void Game::increaseTime(int hours) {
     }
 }
 
-void Game::enterOption() {
-    switch (currentOption) {
-        case 0:
-            optionTravel();
-            break;
-        case 1:
-            optionProfile();
-            break;
-        case 2:
-            optionPlaces();
-            break;
-        case 3:
-            quitGame();
-            break;
+void Game::enterOption()
+{
+    switch (currentOption)
+    {
+    case 0:
+        optionTravel();
+        break;
+    case 1:
+        optionProfile();
+        break;
+    case 2:
+        optionPlaces();
+        break;
+    case 3:
+        quitGame();
+        break;
     }
 }
 
-void Game::optionTravel() {
+void Game::optionTravel()
+{
     Country &from = playerCase->getCurrentCountry();
 
     Map map(&renderer, &from, playerCase->nextCountries);
     int selected = map.getSelection();
 
     // If the user pressed ESCAPE or RIGHT_BUTTON, then the re-draw must be ignored.
-    if (selected != -1) {
+    if (selected != -1)
+    {
         Country nextCountry = playerCase->nextCountry();
         Country newCountry = playerCase->nextCountries[selected];
 
-        if (newCountry == nextCountry) {
+        if (newCountry == nextCountry)
+        {
             int nextPos = playerCase->getCurrentPosition() + 1;
             playerCase->setCurrentPosition(nextPos);
         }
@@ -165,11 +187,13 @@ void Game::optionTravel() {
     drawScene();
 }
 
-void Game::optionPlaces() {
+void Game::optionPlaces()
+{
     vector<Place> randomPlaces = PlacesManager::findRandom(3);
     PlaceSelector placeSelector(&renderer, NULL, randomPlaces);
     int selected = placeSelector.showAndReturn();
-    if (selected == -1) {
+    if (selected == -1)
+    {
         return;
     }
 
@@ -180,22 +204,34 @@ void Game::optionPlaces() {
 
     ClueFactory clueFactory;
 
-    if (secondsCurrent >= secondsEnd) {
+    if (secondsCurrent >= secondsEnd)
+    {
         state = GameState::LostTimeout;
         return;
-    } else {
-        if ((secondsEnd - secondsCurrent) / 3600 <= 3) {
+    }
+    else
+    {
+        if ((secondsEnd - secondsCurrent) / 3600 <= 3)
+        {
             Font *fontWarn = FontManager::getFont("FreeSansBold", 35);
             fontWarn->setColor(Color(0xff, 0, 0));
             Text warn("Only 3 hours left!", fontWarn);
             renderer.drawText(&warn, Point(440, 15));
-        } else if (playerCase->currentPosition == playerCase->itinerary.size() - 1) {
-            if(playerCase->captureOrderExecuted) {
+        }
+        else if (playerCase->currentPosition == playerCase->itinerary.size() - 1)
+        {
+            if (playerCase->captureOrderExecuted)
+            {
                 state = GameState::Won;
-            } else {
-                if(playerCase->hasUsedLastMinuteCaptureOrder()) {
-                    state =  GameState::LostEscaped;
-                } else {
+            }
+            else
+            {
+                if (playerCase->hasUsedLastMinuteCaptureOrder())
+                {
+                    state = GameState::LostEscaped;
+                }
+                else
+                {
                     playerCase->useLastMinuteCaptureOrder();
                     activeClue = clueFactory.createLastMinuteCaptureOrderClue();
                 }
@@ -206,34 +242,41 @@ void Game::optionPlaces() {
     place = randomPlaces[selected];
 
     Country country = playerCase->getCurrentCountry();
-    if (country.getID() != playerCase->getLastCountry().getID()) {
+    if (country.getID() != playerCase->getLastCountry().getID())
+    {
         activeClue = clueFactory.createWrongCountryClue();
-    } else {
+    }
+    else
+    {
         activeClue = playerCase->clues[selected];
     }
 }
 
-void Game::optionProfile() {
+void Game::optionProfile()
+{
     ProfileScreen profileScreen(&renderer, playerCase);
     profileScreen.run();
 
     drawScene();
 }
 
-int Game::calculateHours(Country &from, Country &to) {
+int Game::calculateHours(Country &from, Country &to)
+{
     vector<Point> path = MathUtil::calculatePath(from.getCoordinates().toPair(), to.getCoordinates().toPair());
     int hours = int(path.size() / 30);
     return hours > 0 ? hours : 1;
 }
 
-void Game::drawScene() {
+void Game::drawScene()
+{
     bool hasClue = activeClue != nullptr;
 
     renderer.drawTexture(&backgroundTexture);
 
     drawTimeArea();
     drawCountry(&renderer, playerCase->getCurrentCountry(), !hasClue);
-    if (hasClue) {
+    if (hasClue)
+    {
         Texture ballonSurf(renderer.internal, "resources/images/ballon.png");
         renderer.drawTexture(&ballonSurf, Point(395, 194));
 
@@ -243,7 +286,7 @@ void Game::drawScene() {
 
         // Clue drawing
         Font *hintFont = FontManager::getFont("FreeSansBold", 14);
-        hintFont->setColor(Color(211, 186, 164)); // #D3BAA4	
+        hintFont->setColor(Color(211, 186, 164)); // #D3BAA4
 
         Text description(activeClue->getMessage(), hintFont);
         TextUtils textUtils;

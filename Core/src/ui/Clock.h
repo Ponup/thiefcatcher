@@ -1,30 +1,26 @@
 #pragma once
 
-#include <Point.h>
-#include <Window.h>
-
 #include "utilities/DateTime.h"
 
-#include <Texture.h>
-
-using Kangaroo::Texture;
-
 #include <Renderer.h>
-
 using Kangaroo::Renderer;
 
-class Clock {
+#include <Texture.h>
+using Kangaroo::Texture;
 
-private:
+#include <Point.h>
+
+class Clock
+{
+	Renderer *renderer;
+	Texture faceTexture;
 	Point position;
-	Window *window;
-	Texture surface;
+
+	void drawHand(int angle, int radio, const Color &color);
 
 public:
-
-	Clock(Window *window);
+	Clock(Renderer *renderer, const Point &position);
 	~Clock();
 
-	void setPosition(const Point &position);
-	void draw(const DateTime &dateTime, Renderer* renderer);
+	void draw(const DateTime &dateTime);
 };

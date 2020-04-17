@@ -8,6 +8,9 @@
 
 #include "utilities/Translator.h"
 
+#include <algorithm>
+using std::random_shuffle;
+
 ClueFactory::ClueFactory() {
     negativeAnswers = {
         _("Hello there, I'm afraid I haven't seen anything suspicious."),
@@ -16,14 +19,27 @@ ClueFactory::ClueFactory() {
         _("Not now, sorry. I'm busy."),
         _("I am too old to remember."),
         _("I would love to help out but I just arrived to this place."),
+        _("I'd rather not say."),
     };
 }
 
 Clue** ClueFactory::createNRandomClues(PlayerCase& playerCase, size_t numClues) const {
-    Clue** clues = new Clue*[3];
-    clues[0] = createCriminalClue(playerCase);
-    clues[1] = createNextCountryClue(playerCase);
-    clues[2] = createNegativeClue();
+    vector<ClueType> clueTypes{ClueType::Country, ClueType::Country, ClueType::Criminal, ClueType::Criminal, ClueType::Negative};
+    random_shuffle(clueTypes.begin(), clueTypes.end());
+    
+    Clue** clues = new Clue*[numClues];
+    for(size_t i = 0; i < numClues; i++) {
+        if(clueTypes[i] == ClueType::Country) {
+            clues[i] = createNextCountryClue(playerCase);
+        }
+        else if(clueTypes[i] == ClueType::Criminal) {
+            clues[i] = createCriminalClue(playerCase);
+        }
+        else {
+            clues[i] = createNegativeClue();
+        }
+    }
+    
     return clues;
 }
 
@@ -38,26 +54,22 @@ Clue* ClueFactory::createSameCountryClue() const {
 Clue* ClueFactory::createCriminalClue(PlayerCase& playerCase) const {
     string message;
 
-    int kind = Random::nextInt(0, 3);
+    int kind = Random::nextInt(0, 2);
     switch (kind) {
         case 0:
-            message = fmt::format(_("{0} had {1} hair."),
-                    CriminalFormatter::formatGenreArticle(playerCase.criminal, true),
+            message = fmt::format(_("I think {0} had {1} hair."),
+                    CriminalFormatter::formatGenreArticle(playerCase.criminal),
                     playerCase.criminal.getHair());
             break;
         case 1:
-            message = fmt::format(_("{0} had {1} build."),
-                    CriminalFormatter::formatGenreArticle(playerCase.criminal, true),
+            message = fmt::format(_("If I am not mistaken, {0} had {1} build."),
+                    CriminalFormatter::formatGenreArticle(playerCase.criminal),
                     playerCase.criminal.getBuild());
             break;
         case 2:
             message = fmt::format(_("There was something peculiar about the thief... oh yes, {0} {1}."),
                     CriminalFormatter::formatGenrePossessive(playerCase.criminal),
                     playerCase.criminal.getFeature());
-            break;
-        case 3:
-            int randomAnswerIndex = Random::nextInt(0, negativeAnswers.size() - 1);
-            message = negativeAnswers.at(randomAnswerIndex);
             break;
     }
 
@@ -70,22 +82,22 @@ Clue* ClueFactory::createNextCountryClue(PlayerCase& playerCase) const {
     int kind = Random::nextInt(0, 3);
     switch (kind) {
         case 0:
-            message = fmt::format(_("I think {0} had a map with a country flag with {1}"), CriminalFormatter::formatGenreArticle(playerCase.criminal, false), playerCase.nextCountry().getFlag());
+            message = fmt::format(_("I think {0} had a map with a country flag with {1}"), CriminalFormatter::formatGenreArticle(playerCase.criminal), playerCase.nextCountry().getFlag());
             break;
         case 1:
             message = fmt::format(_("My sources told me {0} changed {1} money to {2}."),
-                    CriminalFormatter::formatGenreArticle(playerCase.criminal, false),
+                    CriminalFormatter::formatGenreArticle(playerCase.criminal),
                     CriminalFormatter::formatGenrePossessive(playerCase.criminal),
                     playerCase.nextCountry().getFirstCurrency());
             break;
         case 2:
             message = fmt::format(_("The next country {0} was planning to visit is {1}."),
-                    CriminalFormatter::formatGenreArticle(playerCase.criminal, true),
+                    CriminalFormatter::formatGenreArticle(playerCase.criminal),
                     playerCase.nextCountry().getName());
             break;
         case 3:
-            int randomAnswerIndex = Random::nextInt(0, negativeAnswers.size() - 1);
-            message = negativeAnswers.at(randomAnswerIndex);
+            message = fmt::format(_("Sources told me the thief was planning to travel to {0} next. I can't remember which country is that city though. Can you?"),
+                    playerCase.nextCountry().getCapital());
             break;
     }
 

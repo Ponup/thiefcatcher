@@ -35,6 +35,8 @@ public:
     DateTime(const DateTime &dateTime);
     ~DateTime();
 
+    void update();
+
     int getYear() const;
     int getMonth() const;
     int getDay() const;

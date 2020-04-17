@@ -22,6 +22,9 @@
 #include <algorithm>
 #include <iterator>
 
+#include <sstream>
+using std::ostringstream;
+
 template<typename T>
 optional<int> findInVector(const std::vector<T>& elements, const T& element) {
 	optional<int> result;
@@ -100,7 +103,12 @@ void ProfileScreen::drawElements() {
         sprintf(message, _("You capture order was executed against '%s'").c_str(), playerCase->getCriminal().getName().c_str());
         text.setFont(&fontOptions);
         text.setText(message);
-        renderer->drawText(&text, Point(120, 200));
+        renderer->drawText(&text, Point(200, 150));
+
+        ostringstream pathStream;
+        pathStream << "data/criminals/" << playerCase->getCriminal().getID() << ".jpg";
+        Texture avatarTexture(renderer->internal, pathStream.str());
+        renderer->drawTexture(&avatarTexture, Point(200, 300));
     } else {
         text.setFont(&fontHeader);
         text.setText("Capture order");

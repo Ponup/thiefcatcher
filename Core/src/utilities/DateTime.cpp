@@ -15,10 +15,7 @@ struct tm *convertDate(time_t *secs) {
 }
 
 DateTime::DateTime() {
-    // Number of seconds since the epoch (January 1st, 1970 00:00 GMT)
-    time(&secondsFrom);
-    // Convert the time_t (int) value to a more interesting structure (struct tm)
-    currentDate = convertDate(&secondsFrom);
+    update();
 }
 
 DateTime::DateTime(const DateTime &dateTime) {
@@ -29,6 +26,13 @@ DateTime::DateTime(const DateTime &dateTime) {
 DateTime::~DateTime() {
     if (currentDate) free(currentDate);
     currentDate = nullptr;
+}
+
+void DateTime::update() {
+    // Number of seconds since the epoch (January 1st, 1970 00:00 GMT)
+    time(&secondsFrom);
+    // Convert the time_t (int) value to a more interesting structure (struct tm)
+    currentDate = convertDate(&secondsFrom);
 }
 
 int DateTime::getYear() const {

@@ -107,10 +107,16 @@ void Map::drawOptions()
 		}
 
 		Text text(targetCountry[i].getName(), &font);
+		Area area;
+		area.setPoint(countryNamePosition);
+		area.setDimension(text.getDimension());
+		sensAreas.addArea(area);
 		renderer->drawText(&text, countryNamePosition);
 
 		posy += lineHeight;
 	}
+
+	font.setColor(colorHighlight);
 }
 
 void Map::drawBackgroundElements()
@@ -235,6 +241,9 @@ void Map::onMouseButtonDown(SDL_MouseButtonEvent e) {
 	case SDL_BUTTON_LEFT:
 		int resolved = sensAreas.resolve(e.x, e.y);
 		if (resolved != -1) {
+			if(resolved > 2) {
+				resolved -= 3;
+			}
 			selected = resolved;
 			quit = true;
 		}
@@ -248,6 +257,9 @@ void Map::onMouseButtonUp(SDL_MouseButtonEvent e) {
 void Map::onMouseMotion(SDL_MouseMotionEvent motion) {
 	int resolved = sensAreas.resolve(motion.x, motion.y);
 	if (resolved != -1) {
+		if(resolved > 2) {
+			resolved -= 3;
+		}
 		handCursor.applyToWindow();
 		updatePending = true;
 		selected = resolved;
