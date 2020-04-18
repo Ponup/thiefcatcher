@@ -2,7 +2,7 @@
 
 #include <fmt/format.h>
 
-#include "entities/format/CriminalFormatter.h"
+#include "entities/format/GenreFormatter.h"
 
 #include <Random.h>
 
@@ -58,17 +58,17 @@ Clue* ClueFactory::createCriminalClue(PlayerCase& playerCase) const {
     switch (kind) {
         case 0:
             message = fmt::format(_("I think {0} had {1} hair."),
-                    CriminalFormatter::formatGenreArticle(playerCase.criminal),
+                    GenreFormatter::formatSubjectPronoun(playerCase.criminal.getGenre()),
                     playerCase.criminal.getHair());
             break;
         case 1:
             message = fmt::format(_("If I am not mistaken, {0} had {1} build."),
-                    CriminalFormatter::formatGenreArticle(playerCase.criminal),
+                    GenreFormatter::formatSubjectPronoun(playerCase.criminal.getGenre()),
                     playerCase.criminal.getBuild());
             break;
         case 2:
             message = fmt::format(_("There was something peculiar about the thief... oh yes, {0} {1}."),
-                    CriminalFormatter::formatGenrePossessive(playerCase.criminal),
+                    GenreFormatter::formatPossessiveAdjective(playerCase.criminal.getGenre()),
                     playerCase.criminal.getFeature());
             break;
     }
@@ -82,17 +82,17 @@ Clue* ClueFactory::createNextCountryClue(PlayerCase& playerCase) const {
     int kind = Random::nextInt(0, 3);
     switch (kind) {
         case 0:
-            message = fmt::format(_("I think {0} had a map with a country flag with {1}"), CriminalFormatter::formatGenreArticle(playerCase.criminal), playerCase.nextCountry().getFlag());
+            message = fmt::format(_("I think {0} had a map with a country flag with {1}"), GenreFormatter::formatSubjectPronoun(playerCase.criminal.getGenre()), playerCase.nextCountry().getFlag());
             break;
         case 1:
             message = fmt::format(_("My sources told me {0} changed {1} money to {2}."),
-                    CriminalFormatter::formatGenreArticle(playerCase.criminal),
-                    CriminalFormatter::formatGenrePossessive(playerCase.criminal),
+                    GenreFormatter::formatSubjectPronoun(playerCase.criminal.getGenre()),
+                    GenreFormatter::formatPossessiveAdjective(playerCase.criminal.getGenre()),
                     playerCase.nextCountry().getFirstCurrency());
             break;
         case 2:
             message = fmt::format(_("The next country {0} was planning to visit is {1}."),
-                    CriminalFormatter::formatGenreArticle(playerCase.criminal),
+                    GenreFormatter::formatSubjectPronoun(playerCase.criminal.getGenre()),
                     playerCase.nextCountry().getName());
             break;
         case 3:

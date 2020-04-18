@@ -17,7 +17,7 @@
 #include "utilities/Translator.h"
 
 #include "entities/CriminalsManager.h"
-#include "entities/format/CriminalFormatter.h"
+#include "entities/format/GenreFormatter.h"
 
 #include <algorithm>
 #include <iterator>
@@ -122,7 +122,7 @@ void ProfileScreen::drawElements() {
         text.setText(_("Genre"));
         renderer->drawText(&text, Point(marginLeft, marginTop));
 
-        text.setText(CriminalFormatter::formatGenre(static_cast<Genre> (genreIndex)));
+        text.setText(GenreFormatter::format(static_cast<Genre> (genreIndex)));
         renderer->drawText(&text, Point(230, marginTop));
         sensAreas.addArea(Point(230, marginTop), text.getDimension()); // Genre: 0
 

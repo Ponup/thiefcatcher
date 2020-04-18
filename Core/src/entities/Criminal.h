@@ -3,12 +3,7 @@
 #include <string>
 using std::string;
 
-enum class Genre {
-    _Unset = 0,
-    Female,
-    Male,
-    _Count
-};
+#include "entities/Genre.h"
 
 class Criminal {
     int id;

@@ -11,7 +11,7 @@ using std::string;
 
 #include "utilities/Translator.h"
 #include "entities/CriminalsManager.h"
-#include "entities/format/CriminalFormatter.h"
+#include "entities/format/GenreFormatter.h"
 #include <GameObject.h>
 
 class ArrowKeysMessage : public Kangaroo::GameObject {
@@ -107,7 +107,7 @@ void DossierScreen::renderStaticElements(Renderer& renderer) {
     renderer.drawText(&nameText, Point(140, 140));
 
     const struct CriminalTrait traits[] = {
-        {_("Genre"), CriminalFormatter::formatGenre(criminal)},
+        {_("Genre"), GenreFormatter::format(criminal.getGenre())},
         {_("Build"), criminal.getBuild()},
         {_("Hair"), criminal.getHair()},
         {_("Feature"), criminal.getFeature()},

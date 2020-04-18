@@ -13,16 +13,16 @@ void GameOverScreen::show() {
     switch (game->getGameState()) {
         case GameState::Won:
             PlayersManager::updatePlayer(playerCase->getPlayer());
-            addLine(_("Congratulations, you have won the case and promoted!"));
+            addLine(_("Congratulations, you have captured the thief and promoted!"));
             break;
         case GameState::Abort:
-            addLine(_("The mission has been aborted, fortunately was all a hoax."));
+            addLine(_("You have aborted the mission but somebody else has taken the case and captured the thief."));
             break;
         case GameState::LostTimeout:
-            addLine(_("You took a long time and the robber has escaped. Try again with another case."));
+            addLine(_("You took a very long time and let the robber escape. Better luck next time."));
             break;
         case GameState::LostEscaped:
-            addLine(_("What a shame! You had cornered the thief but escaped because they had no warrant. Try with another case."));
+            addLine(_("You had cornered the thief but escaped on the last minute because they had no warrant. Try with another case."));
             break;
         default:
             addLine(_("Internal error. Oops."));

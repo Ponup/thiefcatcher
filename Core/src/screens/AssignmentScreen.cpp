@@ -14,7 +14,7 @@ using std::vector;
 #include "entities/Player.h"
 #include "entities/PlayersManager.h"
 #include "entities/PlayerCaseManager.h"
-#include "entities/format/CriminalFormatter.h"
+#include "entities/format/GenreFormatter.h"
 
 #include "utilities/Translator.h"
 
@@ -103,14 +103,16 @@ PlayerCase *AssignmentScreen::show() {
 
     memset(line, '\0', 500);
     sprintf(line, _("A %s suspect was seen at the crime scene.").c_str(),
-            CriminalFormatter::formatGenre(playerCase->getCriminal()).c_str());
+            GenreFormatter::format(playerCase->getCriminal().getGenre()).c_str());
     addLine(line);
 
     memset(line, '\0', 500);
     sprintf(
             line,
-            _("Your mission: To pursue the thief from %s to its hideout and arrest him!").c_str(),
-            playerCase->currentCountry.getName().c_str());
+            _("Your mission is to pursue the thief from %s to its hideout and arrest %s!").c_str(),
+            playerCase->currentCountry.getName().c_str(),
+            GenreFormatter::formatObjectPronoun(playerCase->getCriminal().getGenre()).c_str()
+            );
     addLine(line);
 
     memset(line, '\0', 500);

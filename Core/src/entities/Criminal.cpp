@@ -1,6 +1,6 @@
 #include "Criminal.h"
 
-#include "entities/format/CriminalFormatter.h"
+#include "entities/format/GenreFormatter.h"
 
 #include <sstream>
 using std::ostringstream;
