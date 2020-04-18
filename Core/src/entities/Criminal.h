@@ -4,8 +4,10 @@
 using std::string;
 
 enum class Genre {
-    Female = 0,
-    Male
+    _Unset = 0,
+    Female,
+    Male,
+    _Count
 };
 
 class Criminal {

@@ -5,7 +5,8 @@
 
 Clock::Clock(Renderer *renderer, const Point &position) : renderer{renderer},
 								   faceTexture{renderer->internal, "resources/images/game/clock_small.png"},
-								   position{position}
+								   position{position},
+								   drawSecondHand{false}
 {
 }
 
@@ -19,8 +20,10 @@ void Clock::draw(const DateTime &dateTime)
 
 	// Hour hand
 	drawHand(dateTime.getHour() * 30, 40, Color(0, 0 ,0));
-	// Seconds hand
-	drawHand(dateTime.getSeconds() * 6, 25, Color(0xff, 0 ,0));
+	if(drawSecondHand) {
+		// Seconds hand
+		drawHand(dateTime.getSeconds() * 6, 25, Color(0xff, 0 ,0));
+	}
 }
 
 void Clock::drawHand(int angle, int radio, const Color &color) {

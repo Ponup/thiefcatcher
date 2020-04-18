@@ -42,6 +42,7 @@ PlayerCase *PlayerCaseManager::createRandomCase( const Player &player ) {
 	playerCase->endDate->increase( 7, DateTime::Day );
 	
 	playerCase->updateCountries();
+	playerCase->updateCountryPlaces();
 	playerCase->updateClues();
 	
 	return playerCase;

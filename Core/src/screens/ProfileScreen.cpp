@@ -45,8 +45,11 @@ backgroundTexture(renderer->internal, "resources/images/notebook_background.png"
     option = 0;
 
     hairsList = CriminalsManager::findAllHairs();
+    hairsList.insert(hairsList.begin(), _("unset"));
     builds = CriminalsManager::findAllHobbies();
+    builds.insert(builds.begin(), _("unset"));
     featuresList = CriminalsManager::findAllFeatures();
+    featuresList.insert(featuresList.begin(), _("unset"));
 
     genreIndex = static_cast<int>(playerCase->suspect.getGenre());
     optional<int> optionalHairIndex = findInVector<string>(hairsList, playerCase->suspect.getHair());
@@ -178,7 +181,7 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
             case -1:
                 break;
             case 0:
-                if (++genreIndex == 2) {
+                if (++genreIndex == static_cast<int>(Genre::_Count)) {
                     genreIndex = 0;
                 }
                 break;

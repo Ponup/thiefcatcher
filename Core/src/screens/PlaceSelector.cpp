@@ -1,7 +1,7 @@
 #include "PlaceSelector.h"
 
-PlaceSelector::PlaceSelector(Renderer* renderer, Surface* bgSxurface, vector<Place> randomPlaces) :
-renderer(renderer) {
+PlaceSelector::PlaceSelector(Renderer *renderer, Surface *bgSurface, vector<Place> randomPlaces) : renderer(renderer)
+{
 
     dialogPosition = Point(415, 466);
     dialogDimension = Dimension(348, 130);
@@ -36,98 +36,111 @@ renderer(renderer) {
     draw();
 }
 
-PlaceSelector::~PlaceSelector() {
+PlaceSelector::~PlaceSelector()
+{
     delete images[0];
     delete images[1];
     delete images[2];
 }
 
-int PlaceSelector::showAndReturn() {
+int PlaceSelector::showAndReturn()
+{
     draw();
 
-    while (!quit) {
+    while (!quit)
+    {
         captureEvents();
     }
 
     return returnCode;
 }
 
-void PlaceSelector::onKeyDown(SDL_KeyboardEvent event) {
-    switch (event.keysym.sym) {
-        case SDLK_ESCAPE:
-            returnCode = -1;
-            quit = true;
-            break;
-        case SDLK_RETURN:
-            returnCode = selectedIndex;
-            quit = true;
-            break;
-        case SDLK_LEFT:
-            if (selectedIndex == 0)
-                selectedIndex = 2;
-            else
-                selectedIndex--;
-            draw();
-            break;
-        case SDLK_RIGHT:
-            if (selectedIndex == 2)
-                selectedIndex = 0;
-            else
-                selectedIndex++;
-            draw();
-            break;
-        default:
-            break;
+void PlaceSelector::onKeyDown(SDL_KeyboardEvent event)
+{
+    switch (event.keysym.sym)
+    {
+    case SDLK_ESCAPE:
+        returnCode = -1;
+        quit = true;
+        break;
+    case SDLK_RETURN:
+        returnCode = selectedIndex;
+        quit = true;
+        break;
+    case SDLK_LEFT:
+        if (selectedIndex == 0)
+            selectedIndex = 2;
+        else
+            selectedIndex--;
+        draw();
+        break;
+    case SDLK_RIGHT:
+        if (selectedIndex == 2)
+            selectedIndex = 0;
+        else
+            selectedIndex++;
+        draw();
+        break;
+    default:
+        break;
     }
 }
 
-void PlaceSelector::onMouseMotion(SDL_MouseMotionEvent motion) {
+void PlaceSelector::onMouseMotion(SDL_MouseMotionEvent motion)
+{
     int resolved = sensAreas.resolve(motion.x, motion.y);
-    if (resolved != -1) {
+    if (resolved != -1)
+    {
         selectedIndex = resolved;
         draw();
     }
 }
 
-void PlaceSelector::onMouseButtonDown(SDL_MouseButtonEvent event) {
-    if (event.button == SDL_BUTTON_RIGHT) {
+void PlaceSelector::onMouseButtonDown(SDL_MouseButtonEvent event)
+{
+    if (event.button == SDL_BUTTON_RIGHT)
+    {
         returnCode = -1;
         quit = true;
-    } else {
+    }
+    else
+    {
         int resolved = sensAreas.resolve(event.x, event.y);
-        if (resolved != -1 && event.button == SDL_BUTTON_LEFT) {
+        if (resolved != -1 && event.button == SDL_BUTTON_LEFT)
+        {
             returnCode = selectedIndex = resolved;
             quit = true;
         }
     }
 }
 
-void PlaceSelector::drawIcons() {
-    if (selectedIndex < 3) {
+void PlaceSelector::drawIcons()
+{
+    if (selectedIndex < 3)
+    {
         Font *font = FontManager::getFont("FreeSansBold", 14);
         font->setColor(Color(0xff, 0xff, 0xff));
         Text text(places[selectedIndex].getName(), font);
         renderer->drawText(&text, dialogPosition + Point((dialogDimension.w >> 1) - (text.getDimension().w >> 1), 110));
     }
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++)
+    {
         Point point(areas[i].x, areas[i].y);
+        images[i]->setAlphaMod(places[i].visited ? 150 : 255);
         renderer->drawTexture(images[i], point);
-    }
-
-    for (int i = 0; i < 3; i++) {
-        Point point(areas[i].x, areas[i].y);
-        if (selectedIndex == i) {
+        if (selectedIndex == i)
+        {
             aacircleRGBA(renderer->internal, point.x + 40, point.y + 40, 40, 0xff, 0xfc, 0x7b, 255);
             aacircleRGBA(renderer->internal, point.x + 40, point.y + 40, 39, 0xff, 0xfc, 0x7b, 255);
         }
     }
 }
 
-void PlaceSelector::draw() {
+void PlaceSelector::draw()
+{
     Texture balloonTexture(renderer->internal, "resources/images/places/dialog.png");
     renderer->drawTexture(&balloonTexture, Point(415, 466));
     drawIcons();
     renderer->present();
 }
-

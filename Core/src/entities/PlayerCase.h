@@ -11,6 +11,7 @@ using std::vector;
 #include "entities/Criminal.h"
 #include "entities/Player.h"
 #include "entities/Country.h"
+#include "entities/Place.h"
 #include "entities/Clue.h"
 
 class PlayerCase {
@@ -27,6 +28,8 @@ public:
 
     Country currentCountry;
     Country nextCountries[3];
+
+    vector<Place> countryPlaces;
 
     Clue **clues;
 
@@ -68,6 +71,7 @@ public:
     void setCurrentCountry(const Country &country);
 
     void updateCountries();
+    void updateCountryPlaces();
     void updateClues();
 
     bool hasUsedLastMinuteCaptureOrder() const;

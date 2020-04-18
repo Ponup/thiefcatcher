@@ -15,6 +15,7 @@ class Clock
 	Renderer *renderer;
 	Texture faceTexture;
 	Point position;
+	bool drawSecondHand;
 
 	void drawHand(int angle, int radio, const Color &color);
 

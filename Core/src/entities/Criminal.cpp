@@ -5,9 +5,7 @@
 #include <sstream>
 using std::ostringstream;
 
-Criminal::Criminal() {
-    id = -1;
-    genre = Genre::Female;
+Criminal::Criminal() : id{0}, genre{Genre::_Unset}  {
 }
 
 Criminal::~Criminal() {

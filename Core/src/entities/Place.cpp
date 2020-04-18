@@ -1,6 +1,6 @@
 #include "Place.h"
 
-Place::Place() {
+Place::Place() : visited{false} {
 }
 
 Place::~Place() {

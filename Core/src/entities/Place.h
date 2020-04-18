@@ -7,8 +7,10 @@ class Place {
 
     unsigned char id;
     string name;
+    
 
 public:
+bool visited;
     Place();
     ~Place();
 

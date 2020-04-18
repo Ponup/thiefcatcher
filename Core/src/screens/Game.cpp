@@ -179,6 +179,7 @@ void Game::optionTravel()
 
         playerCase->setCurrentCountry(newCountry);
         playerCase->updateCountries();
+        playerCase->updateCountryPlaces();
         playerCase->updateClues();
 
         activeClue = nullptr;
@@ -189,8 +190,7 @@ void Game::optionTravel()
 
 void Game::optionPlaces()
 {
-    vector<Place> randomPlaces = PlacesManager::findRandom(3);
-    PlaceSelector placeSelector(&renderer, NULL, randomPlaces);
+    PlaceSelector placeSelector(&renderer, NULL, playerCase->countryPlaces);
     int selected = placeSelector.showAndReturn();
     if (selected == -1)
     {
@@ -239,7 +239,8 @@ void Game::optionPlaces()
             return;
         }
     }
-    place = randomPlaces[selected];
+    place = playerCase->countryPlaces[selected];
+    playerCase->countryPlaces[selected].visited = true;
 
     Country country = playerCase->getCurrentCountry();
     if (country.getID() != playerCase->getLastCountry().getID())
