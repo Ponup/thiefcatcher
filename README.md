@@ -5,7 +5,9 @@ Dependencies:
 * SDL2 mixer
 * SDL2 image
 * SDL2 ttf
+* SDL2 gfx 
 * sqlite
+* TinyXML2
 * curl
 
 Cloning the code:
