@@ -7,10 +7,11 @@ using tinyxml2::XMLElement;
 using tinyxml2::XMLError;
 
 #include <iostream>
+
 using std::cerr;
 using std::endl;
 
-vector<Criminal>& CriminalsManager::findAll() {
+vector<Criminal> &CriminalsManager::findAll() {
     static vector<Criminal> criminals;
     if (!criminals.empty()) {
         return criminals;
@@ -25,7 +26,8 @@ vector<Criminal>& CriminalsManager::findAll() {
 
     unsigned int criminalId = 0;
     XMLElement *rootNode = doc.RootElement();
-    for (XMLElement *criminalNode = rootNode->FirstChildElement("criminal"); nullptr != criminalNode; criminalNode = criminalNode->NextSiblingElement("criminal")) {
+    for (XMLElement *criminalNode = rootNode->FirstChildElement("criminal");
+         nullptr != criminalNode; criminalNode = criminalNode->NextSiblingElement("criminal")) {
         Criminal criminal;
         criminal.setID(++criminalId);
         criminal.setGenre(strncasecmp("male", criminalNode->Attribute("genre"), 4) == 0 ? Genre::Male : Genre::Female);
@@ -52,7 +54,7 @@ vector<string> &CriminalsManager::findAllHairs() {
     return *list;
 }
 
-vector<string> & CriminalsManager::findAllHobbies() {
+vector<string> &CriminalsManager::findAllHobbies() {
     vector<string> *list = new vector<string>;
 
     vector<Criminal> criminals = findAll();
@@ -102,6 +104,6 @@ vector<int> CriminalsManager::findAllPrimaryKeys() {
 
 Criminal *CriminalsManager::findByPrimaryKey(unsigned int id) {
     vector<Criminal> criminals = findAll();
-    return ( id - 1 < criminals.size() ? new Criminal(criminals.at(id - 1)) : nullptr);
+    return (id - 1 < criminals.size() ? new Criminal(criminals.at(id - 1)) : nullptr);
 }
 

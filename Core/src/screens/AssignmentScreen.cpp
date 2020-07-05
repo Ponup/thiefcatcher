@@ -83,7 +83,8 @@ PlayerCase *AssignmentScreen::show() {
 
     addLine(l);
 
-    PlayerCase *playerCase = PlayerCaseManager::createRandomCase(*player);
+    PlayerCaseManager caseManager;
+    PlayerCase *playerCase = caseManager.createRandomCase(*player);
 
     addLine(" ");
     addLine(_("*** NEWS ***"));

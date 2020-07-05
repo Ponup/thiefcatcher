@@ -16,7 +16,6 @@ using std::endl;
 using Kangaroo::Database;
 
 #include "Constants.h"
-#include "Vars.h"
 
 #include "entities/PlayersManager.h"
 
@@ -68,7 +67,6 @@ int main(int argc, char** argv) {
 
     try {
         Database::getInstance().init("data/game.db");
-        Vars::init();
     } catch (const std::runtime_error &error) {
         cerr << "An error has occurred: " << error.what() << endl;
         return EXIT_FAILURE;

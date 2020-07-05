@@ -6,8 +6,6 @@
 #include <TextUtils.h>
 using Kangaroo::TextUtils;
 
-#include "Vars.h"
-
 #include "entities/Place.h"
 
 #include "utilities/Translator.h"

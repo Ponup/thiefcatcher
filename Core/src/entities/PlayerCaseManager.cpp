@@ -5,14 +5,13 @@ using Kangaroo::Database;
 
 #include <Random.h>
 
-#include "Vars.h"
-
 #include "entities/PlayersManager.h"
 #include "entities/CriminalsManager.h"
 #include "entities/CountriesManager.h"
 
 PlayerCaseManager::PlayerCaseManager()
 {
+    this->criminalIds = CriminalsManager::findAllPrimaryKeys();
 }
 
 PlayerCaseManager::~PlayerCaseManager()
@@ -23,7 +22,7 @@ PlayerCase *PlayerCaseManager::createRandomCase( const Player &player ) {
 	PlayerCase *playerCase = new PlayerCase;
 	playerCase->setPlayer(player);
 	
-	int *criminalsPKrandom = Random::nextArray(Vars::listCriminalsPK(), 1);
+	int *criminalsPKrandom = Random::nextArray(criminalIds, 1);
 	Criminal *criminal = CriminalsManager::findByPrimaryKey(criminalsPKrandom[0]);
 	delete criminalsPKrandom;
 	playerCase->setCriminal(*criminal);
