@@ -1,39 +1,40 @@
 #include "Sprite.h"
 
-Sprite::Sprite(const char *fileName, const int numFrames_, const Dimension &frameDim_)
-	: numFrames(numFrames_), frameDim(frameDim_) {
-	currentFrame = 0;
-	position = Point::Origin;
-	
-	frames = new Surface*[numFrames];
+Sprite::Sprite(const char *fileName, const int numFrames_, const Dimension &frameDim_, Renderer *renderer)
+        : numFrames(numFrames_), frameDim(frameDim_) {
+    currentFrame = 0;
+    position = Point::Origin;
 
-	//Surface *surface = new Surface(fileName);
-	for(int i = 0; i <= numFrames; i++) {
-		char path[100];
-		memset(path, '\0', 100);
-		sprintf(path, fileName, i);
-		//frames[i] = surface->getArea(Point(i * frameDim.getWidth(), 0), frameDim);
-		frames[i] = new Surface(path);
-	}	
-	//delete surface;
+    frames = new Texture *[numFrames];
+
+    for (int i = 0; i <= numFrames; i++) {
+        char path[100];
+        memset(path, '\0', 100);
+        sprintf(path, fileName, i);
+        frames[i] = new Texture(renderer->internal, path);
+    }
 }
 
 Sprite::~Sprite() {
-	delete *frames;
+    delete *frames;
 }
 
 void Sprite::setPosition(const Point &position_) {
-	position = position_;
+    position = position_;
 }
 
-void Sprite::update(Surface *screen) {
-	screen->updateArea(position, frameDim);
+void Sprite::clipRenderer(Renderer *renderer) {
+    SDL_Rect rect = {position.x, position.y, frameDim.w, frameDim.h};
+    SDL_RenderSetClipRect(renderer->internal, &rect);
 }
 
-void Sprite::draw(Surface *screen) {
-	screen->drawSurface(frames[currentFrame], position);
+void Sprite::unclipRenderer(Renderer *renderer) {
+    SDL_RenderSetClipRect(renderer->internal, nullptr);
+}
 
-	currentFrame++;
-	if(currentFrame > numFrames) currentFrame = 0;
+void Sprite::draw(Renderer *screen) {
+    screen->drawTexture(frames[currentFrame], position);
+    currentFrame++;
+    if (currentFrame > numFrames) currentFrame = 0;
 }
 

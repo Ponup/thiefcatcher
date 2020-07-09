@@ -1,26 +1,27 @@
-#ifndef SPRITE_H_
-#define SPRITE_H_
+#pragma once
 
-#include <Surface.h>
+#include <Renderer.h>
+#include <Texture.h>
+
+using Kangaroo::Renderer;
+using Kangaroo::Texture;
 
 class Sprite {
 private:
-	int currentFrame;
+    int currentFrame;
 
-	Surface **frames;
-	int numFrames;
-	Dimension frameDim;
-	Point position;
-	
+    Texture **frames;
+    int numFrames;
+    Dimension frameDim;
+    Point position;
+
 public:
-			Sprite(const char *fileName, const int numFrames,
-					const Dimension &frameDim);
-	~Sprite();
+    Sprite(const char *fileName, const int numFrames,
+           const Dimension &frameDim, Renderer *renderer);
+    ~Sprite();
 
-	void setPosition(const Point &position);
-	
-	void update(Surface *screen);
-	void draw(Surface *screen);
+    void setPosition(const Point &position);
+    void clipRenderer(Renderer *renderer);
+    void unclipRenderer(Renderer *renderer);
+    void draw(Renderer *screen);
 };
-
-#endif

@@ -23,24 +23,25 @@
 #include <iterator>
 
 #include <sstream>
+
 using std::ostringstream;
 
 template<typename T>
-optional<int> findInVector(const std::vector<T>& elements, const T& element) {
-	optional<int> result;
- 
-	auto it = std::find(elements.begin(), elements.end(), element); 
-	if (it != elements.end()) {
-		result = distance(elements.begin(), it);
-	}
- 
-	return result;
+optional<int> findInVector(const std::vector<T> &elements, const T &element) {
+    optional<int> result;
+
+    auto it = std::find(elements.begin(), elements.end(), element);
+    if (it != elements.end()) {
+        result = distance(elements.begin(), it);
+    }
+
+    return result;
 }
 
-ProfileScreen::ProfileScreen(Renderer* renderer, PlayerCase *playerCase_) :
-renderer(renderer),
-playerCase(playerCase_),
-backgroundTexture(renderer->internal, "resources/images/notebook_background.png") {
+ProfileScreen::ProfileScreen(Renderer *renderer, PlayerCase *playerCase_) :
+        renderer(renderer),
+        playerCase(playerCase_),
+        backgroundTexture(renderer->internal, "resources/images/notebook_background.png") {
 
     option = 0;
 
@@ -103,7 +104,8 @@ void ProfileScreen::drawElements() {
 
     if (playerCase->captureOrderExecuted) {
         char message[100];
-        sprintf(message, _("You capture order was executed against '%s'").c_str(), playerCase->getCriminal().getName().c_str());
+        sprintf(message, _("You capture order was executed against '%s'").c_str(),
+                playerCase->getCriminal().getName().c_str());
         text.setFont(&fontOptions);
         text.setText(message);
         renderer->drawText(&text, Point(200, 150));
@@ -200,8 +202,7 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
                     featureIndex = 0;
                 }
                 break;
-            case 4:
-            {
+            case 4: {
                 renderer->drawTexture(&backgroundTexture);
 
                 Dimension spriteDim(128, 15);
@@ -213,38 +214,42 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
 
                 renderer->present();
 
-                Sprite sprite("resources/images/sprites/frame%d.png", 12, spriteDim);
+                Sprite sprite("resources/images/sprites/frame%d.png", 12, spriteDim, renderer);
                 sprite.setPosition(Point(400 - 64, 280));
 
                 MediaSound computerSound("resources/sounds/computer.wav");
                 computerSound.play();
 
                 int milliSeconds = 0;
+                sprite.clipRenderer(renderer);
                 while (milliSeconds < 4000) {
-                    //sprite.draw(renderer);
-                    //sprite.update(renderer);
+                    sprite.draw(renderer);
                     renderer->present();
                     milliSeconds += 30;
 
                     SDL_Delay(30);
                 }
+                sprite.unclipRenderer(renderer);
 
                 Criminal *criminal = CriminalsManager::findByFeatures(
                         static_cast<Genre> (genreIndex),
                         builds[buildIndex].c_str(),
                         hairsList[hairIndex].c_str());
                 if (!criminal) {
-                    InformationDialog infoDialog(screen, _("The combination does not match with an existent thief profile."));
+                    InformationDialog infoDialog(screen,
+                                                 _("The combination does not match with an existent thief profile."));
                     infoDialog.show();
                 } else if (criminal->getID() == playerCase->getCriminal().getID()) {
                     char message[100];
-                    sprintf(message, _("Your capture order was successfully executed against '%s'!").c_str(), criminal->getName().c_str());
+                    sprintf(message, _("Your capture order was successfully executed against '%s'!").c_str(),
+                            criminal->getName().c_str());
                     InformationDialog infoDialog(screen, message);
                     infoDialog.show();
                     playerCase->captureOrderExecuted = true;
                     quit = true;
                 } else {
-                    InformationDialog infoDialog(screen, _("You committed a capture order against the wrong criminal!"));
+                    InformationDialog infoDialog(screen,
+                                                 _("You committed a capture order against the wrong criminal!"));
                     infoDialog.show();
                 }
                 break;
