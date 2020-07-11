@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-#include "Constants.h"
-
 #include <string.h>
 using std::string;
 

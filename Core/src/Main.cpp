@@ -15,8 +15,6 @@ using std::endl;
 #include <Database.h>
 using Kangaroo::Database;
 
-#include "Constants.h"
-
 #include "entities/PlayersManager.h"
 
 #include "utilities/Updater.h"
@@ -31,6 +29,8 @@ using Kangaroo::Database;
 
 #include <optional>
 using std::optional;
+
+#define GAME_VERSION "1.0"
 
 void onInterrupt(int code) {
     cout << "Game interrupted by the user (code: " << code << "). Exiting." << endl;
@@ -63,7 +63,7 @@ int main(int argc, char** argv) {
 
     Translator::init(configurator.getLanguage());
 
-    Window window(_("Thief Catcher"), GAME_WINDOW_W, GAME_WINDOW_H, "resources/logo/thief_256.png", configurator.isFullScreen());
+    Window window(_("Thief Catcher"), Dimension{800, 600}, "resources/logo/thief_256.png", configurator.isFullScreen());
 
     try {
         Database::getInstance().init("data/game.db");
