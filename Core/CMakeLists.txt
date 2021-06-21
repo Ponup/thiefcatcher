@@ -20,6 +20,9 @@ find_package(SDL2_image REQUIRED)
 find_package(SDL2_gfx REQUIRED)
 find_package(SDL2_ttf REQUIRED)
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
 file(GLOB_RECURSE GAME_SOURCES "src/*.cpp" )
 file(GLOB_RECURSE VENDOR_SOURCES "vendor/*.cpp" "vendor/*.cc" )
 list(APPEND GAME_SOURCES ${VENDOR_SOURCES})

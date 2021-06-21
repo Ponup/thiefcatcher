@@ -1,0 +1,32 @@
+{
+ "graph_lock": {
+  "nodes": {
+   "0": {
+    "path": "conanfile.txt", 
+    "requires": [
+     "1", 
+     "2"
+    ], 
+    "options": "fmt:fPIC=True\nfmt:header_only=False\nfmt:shared=False\nfmt:with_fmt_alias=False", 
+    "context": "host"
+   }, 
+   "1": {
+    "package_id": "82ef5eac51c38971dea2fd342dd55ddf2ddfbbc3", 
+    "prev": "0", 
+    "ref": "fmt/7.1.3", 
+    "options": "fPIC=True\nheader_only=False\nshared=False\nwith_fmt_alias=False", 
+    "context": "host"
+   }, 
+   "2": {
+    "package_id": "5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9", 
+    "prev": "0", 
+    "ref": "rapidjson/1.1.0", 
+    "options": "", 
+    "context": "host"
+   }
+  }, 
+  "revisions_enabled": false
+ }, 
+ "version": "0.4", 
+ "profile_host": "[settings]\narch=x86_64\narch_build=x86_64\nbuild_type=Release\ncompiler=gcc\ncompiler.libcxx=libstdc++\ncompiler.version=10\ncppstd=17\nos=Linux\nos_build=Linux\n[options]\n[build_requires]\n[env]\n"
+}

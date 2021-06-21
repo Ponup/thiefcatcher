@@ -26,3 +26,7 @@ CMakeScripts
 .vscode
 build
 .idea
+conanbuildinfo.cmake
+conanbuildinfo.txt
+graph_info.json
+conaninfo.txt
