@@ -1,5 +1,7 @@
 
 Dependencies:
+* CMake
+* conan
 * C++17
 * SDL2
 * SDL2 mixer
