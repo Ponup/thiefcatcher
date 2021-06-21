@@ -12,7 +12,7 @@ cmake_policy(SET CMP0003 NEW)
 message(STATUS "Compiling under ${CMAKE_SYSTEM_NAME}")
 
 find_package(CURL REQUIRED)
-find_package(TINYXML2 REQUIRED)
+find_package(TinyXML2 REQUIRED)
 find_package(SQLITE3 REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(SDL2_mixer REQUIRED)
