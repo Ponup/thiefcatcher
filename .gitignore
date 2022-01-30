@@ -30,3 +30,5 @@ conanbuildinfo.cmake
 conanbuildinfo.txt
 graph_info.json
 conaninfo.txt
+tags
+Core/bin/

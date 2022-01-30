@@ -18,15 +18,17 @@ git clone git@github.com:Ponup/thiefcatcher.git
 git submodule update --init
 ```
 
-How to build on Windows:
+## How to build
 
-```
+### ...on Windows:
+
+```shell
 cmake -G "Visual Studio 14 2015" .
 ```
 
-How to build on Linux/Macos:
+### ...on Linux/Macos:
 
-```
+```shell
 cmake .
 make
 ```
@@ -36,3 +38,10 @@ If you want to build with debug symbols use:
 cmake -DCMAKE_BUILD_TYPE=debug
 ```
 
+## How to run
+
+```shell
+cd Core
+pushd dev && ./create_db.sh && cp game.db ../data/ && popd
+bin/ThiefCatcher
+```
