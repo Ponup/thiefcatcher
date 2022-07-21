@@ -27,7 +27,7 @@ file(GLOB_RECURSE GAME_SOURCES "src/*.cpp" )
 file(GLOB_RECURSE VENDOR_SOURCES "vendor/*.cpp" "vendor/*.cc" )
 list(APPEND GAME_SOURCES ${VENDOR_SOURCES})
 add_executable(ThiefCatcher WIN32 MACOSX_BUNDLE ${GAME_SOURCES})
-set_property(TARGET ThiefCatcher PROPERTY CXX_STANDARD 17)
+set_property(TARGET ThiefCatcher PROPERTY CXX_STANDARD 20)
 
 target_include_directories(ThiefCatcher PRIVATE "src/" "vendor/" "/usr/local/include/")
 

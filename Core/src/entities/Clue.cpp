@@ -1,10 +1,8 @@
 #include "Clue.h"
 
-Clue::Clue() {
-}
+Clue::Clue() = default;
 
-Clue::~Clue() {
-}
+Clue::~Clue() = default;
 
 Clue::Clue( const string &message ) {
 	setMessage(message);

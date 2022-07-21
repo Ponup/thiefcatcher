@@ -86,5 +86,3 @@ PlayerCase &PlayerCaseManager::load( int idPlayer ) {
 		
 	return *playerCase;
 }
-
-

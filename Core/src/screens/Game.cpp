@@ -188,7 +188,7 @@ void Game::optionTravel()
 
 void Game::optionPlaces()
 {
-    PlaceSelector placeSelector(&renderer, NULL, playerCase->countryPlaces);
+    PlaceSelector placeSelector(&renderer, nullptr, playerCase->countryPlaces);
     int selected = placeSelector.showAndReturn();
     if (selected == -1)
     {

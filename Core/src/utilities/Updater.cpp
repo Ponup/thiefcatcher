@@ -12,7 +12,7 @@ CURL * Updater::handle = nullptr;
 static int writeData(char *buffer, size_t size, size_t nmemb, string *content) {
 	int length = 0;
 
-	if (content != NULL) {
+	if (content != nullptr) {
 		length = size * nmemb;
 		content->append(buffer, length);
 	}

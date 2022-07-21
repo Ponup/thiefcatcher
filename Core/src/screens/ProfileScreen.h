@@ -61,10 +61,10 @@ public:
 
     int run();
 
-    void onQuit(SDL_QuitEvent);
-    void onMouseMotion(SDL_MouseMotionEvent);
-    void onMouseButtonDown(SDL_MouseButtonEvent);
-    void onMouseButtonUp(SDL_MouseButtonEvent);
-    void onKeyDown(SDL_KeyboardEvent);
-    void onKeyUp(SDL_KeyboardEvent);
+    void onQuit(SDL_QuitEvent) override;
+    void onMouseMotion(SDL_MouseMotionEvent) override;
+    void onMouseButtonDown(SDL_MouseButtonEvent) override;
+    void onMouseButtonUp(SDL_MouseButtonEvent) override;
+    void onKeyDown(SDL_KeyboardEvent) override;
+    void onKeyUp(SDL_KeyboardEvent) override;
 };
