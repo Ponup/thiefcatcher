@@ -8,7 +8,7 @@ Dependencies:
 * SDL2 image
 * SDL2 ttf
 * SDL2 gfx 
-* sqlite
+* sqlite3
 * TinyXML2
 * curl
 
@@ -36,13 +36,12 @@ make
 
 If you want to build with debug symbols use:
 ```
-cmake -DCMAKE_BUILD_TYPE=debug
+cmake -DCMAKE_BUILD_TYPE=debug .
 ```
 
 ## How to run
 
 ```shell
 cd Core
-pushd dev && ./create_db.sh && cp game.db ../data/ && popd
 bin/ThiefCatcher
 ```

@@ -29,6 +29,9 @@ using Kangaroo::Database;
 #include <optional>
 using std::optional;
 
+#include <filesystem>
+namespace fs = std::filesystem;
+
 #define GAME_VERSION "1.0"
 
 void onInterrupt(int code) {
@@ -65,7 +68,12 @@ int main(int argc, char** argv) {
     Window window(_("Thief Catcher"), Dimension{800, 600}, "resources/logo/thief_256.png", configurator.isFullScreen());
 
     try {
-        Database::getInstance().init("data/game.db");
+        const string dbPath{"data/game.db"};
+        if(!fs::exists("data/game.db")) {
+            cout << "Initializing game database..." << endl;
+            fs::copy("data/default-game.db", dbPath);
+        }
+        Database::getInstance().init(dbPath);
     } catch (const std::runtime_error &error) {
         cerr << "An error has occurred: " << error.what() << endl;
         return EXIT_FAILURE;
