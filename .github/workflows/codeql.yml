@@ -41,6 +41,7 @@ jobs:
 
 
     - run: |
+        apt-get install libcurl4-gnutls-dev libtinyxml2-dev libsqlite3-dev libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-gfx-dev libsdl2-mixer-dev 
         pushd Core && conan install . && popd
         cmake .
         make
