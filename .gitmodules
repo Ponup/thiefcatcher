@@ -1,6 +1,6 @@
 [submodule "Core/vendor/ponup-api"]
 	path = Core/vendor/ponup-api
-	url = https://github.com/Ponup/api-cpp-client.git
+	url = ../api-cpp-client.git
 [submodule "Kangaroo"]
 	path = Kangaroo
-	url = https://github.com/Ponup/engine-desktop.git
+	url = ../engine-desktop.git # Relative to Thiefcatcher git URL (SSH or HTTPS)
