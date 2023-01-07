@@ -1,8 +1,8 @@
 
 Dependencies:
-* CMake
-* conan
-* C++17
+* CMake (3.18 or greater)
+* conan (1.56 or greater)
+* C++ 17
 * SDL2
 * SDL2 mixer
 * SDL2 image
@@ -29,6 +29,7 @@ cmake -G "Visual Studio 14 2015" .
 ### ...on Linux/Macos:
 
 ```shell
+pushd Core && conan install . && popd
 cmake .
 make
 ```
