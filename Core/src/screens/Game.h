@@ -72,7 +72,7 @@ public:
     GameState getGameState() const;
 
     void drawTimeArea();
-    void increaseTime(int hours);
+    void increaseTime(uint8_t hours);
 
     bool isPlaying() const;
     void update();

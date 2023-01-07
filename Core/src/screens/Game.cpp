@@ -121,9 +121,9 @@ void Game::drawTimeArea()
     clock->draw(*(playerCase->currentDate));
 }
 
-void Game::increaseTime(int hours)
+void Game::increaseTime(uint8_t hours)
 {
-    for (unsigned char i = 0; i < hours; i++)
+    for (uint8_t i = 0; i < hours; i++)
     {
         playerCase->currentDate->increase(1, DateTime::Hour);
 
