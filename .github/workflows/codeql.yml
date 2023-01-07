@@ -41,9 +41,9 @@ jobs:
 
 
     - run: |
-      pushd Core && conan install . && popd
-      cmake .
-      make
+        pushd Core && conan install . && popd
+        cmake .
+        make
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
