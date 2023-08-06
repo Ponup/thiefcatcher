@@ -3,5 +3,6 @@ fmt/7.1.3
 rapidjson/cci.20211112
 
 [generators]
-cmake
+CMakeDeps
+CMakeToolchain
 

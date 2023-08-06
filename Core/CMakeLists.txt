@@ -20,8 +20,7 @@ find_package(SDL2_image REQUIRED)
 find_package(SDL2_gfx REQUIRED)
 find_package(SDL2_ttf REQUIRED)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
+include(${CMAKE_CURRENT_SOURCE_DIR}/conan_toolchain.cmake)
 
 file(GLOB_RECURSE GAME_SOURCES "src/*.cpp" )
 file(GLOB_RECURSE VENDOR_SOURCES "vendor/*.cpp" "vendor/*.cc" )
@@ -29,7 +28,7 @@ list(APPEND GAME_SOURCES ${VENDOR_SOURCES})
 add_executable(ThiefCatcher WIN32 MACOSX_BUNDLE ${GAME_SOURCES})
 set_property(TARGET ThiefCatcher PROPERTY CXX_STANDARD 20)
 
-target_include_directories(ThiefCatcher PRIVATE "src/" "vendor/" "/usr/local/include/")
+target_include_directories(ThiefCatcher PRIVATE "src/" "vendor/" "/usr/local/include/" ${CMAKE_INCLUDE_PATH})
 
 if(WIN32)
 	target_link_libraries(ThiefCatcher PUBLIC kangaroo PRIVATE sqlite3 curl SDL2main SDL2 SDL2_image SDL2_gfx SDL2_mixer SDL2_ttf tinyxml2 libintl)
