@@ -1,7 +1,7 @@
 [requires]
-fmt/7.1.3
+fmt/10.0.0
 rapidjson/cci.20211112
 
 [generators]
-cmake
+CMakeToolchain
 

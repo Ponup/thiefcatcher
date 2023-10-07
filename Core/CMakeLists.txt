@@ -2,7 +2,7 @@
 if(UNIX)
 	execute_process(COMMAND "sdl2-config" "--cflags" OUTPUT_VARIABLE SDLCONFIG_FLAGS)
 
-	add_definitions(-Wall -Werror ${SDLCONFIG_FLAGS})
+	add_definitions(-pedantic -pedantic-errors -Wall -Werror -Wextra ${SDLCONFIG_FLAGS})
 else()
 	add_definitions(-Wall)
 endif()
@@ -20,7 +20,7 @@ find_package(SDL2_image REQUIRED)
 find_package(SDL2_gfx REQUIRED)
 find_package(SDL2_ttf REQUIRED)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/conanbuildinfo.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/conan_toolchain.cmake)
 conan_basic_setup()
 
 file(GLOB_RECURSE GAME_SOURCES "src/*.cpp" )
