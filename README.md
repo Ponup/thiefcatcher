@@ -1,7 +1,7 @@
 
 Dependencies:
 * CMake (3.18 or greater)
-* conan (1.56 or greater)
+* conan (2.0.9 or greater)
 * C++ 17
 * SDL2
 * SDL2 mixer
