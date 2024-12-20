@@ -107,6 +107,7 @@ void Menu::update() {
 }
 
 void Menu::onQuit(SDL_QuitEvent e) {
+	(void)e;
 	currentItem = selectedItem = 5;
 }
 
@@ -136,7 +137,7 @@ void Menu::onKeyDown(SDL_KeyboardEvent key) {
 }
 
 void Menu::onKeyUp(SDL_KeyboardEvent e) {
-
+	(void)e;
 }
 
 void Menu::onMouseButtonDown(SDL_MouseButtonEvent button) {
@@ -149,7 +150,7 @@ void Menu::onMouseButtonDown(SDL_MouseButtonEvent button) {
 }
 
 void Menu::onMouseButtonUp(SDL_MouseButtonEvent e) {
-
+	(void)e;
 }
 
 void Menu::onMouseMotion(SDL_MouseMotionEvent motion) {

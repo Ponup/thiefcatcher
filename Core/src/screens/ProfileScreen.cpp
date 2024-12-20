@@ -166,11 +166,13 @@ void ProfileScreen::drawElements() {
 }
 
 void ProfileScreen::onQuit(SDL_QuitEvent e) {
+    (void)e;
     quit = true;
     returnCode = -1;
 }
 
-void ProfileScreen::onMouseMotion(SDL_MouseMotionEvent event) {
+void ProfileScreen::onMouseMotion(SDL_MouseMotionEvent e) {
+    (void)e;
 }
 
 void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
@@ -265,7 +267,8 @@ void ProfileScreen::onMouseButtonDown(SDL_MouseButtonEvent event) {
     }
 }
 
-void ProfileScreen::onMouseButtonUp(SDL_MouseButtonEvent event) {
+void ProfileScreen::onMouseButtonUp(SDL_MouseButtonEvent e) {
+    (void)e;
 }
 
 void ProfileScreen::onKeyDown(SDL_KeyboardEvent event) {
@@ -291,7 +294,6 @@ void ProfileScreen::onKeyDown(SDL_KeyboardEvent event) {
         case SDLK_RETURN:
             switch (option) {
                 case 4:
-                    quit = true;
                 case 5:
                     quit = true;
                     break;
@@ -302,5 +304,6 @@ void ProfileScreen::onKeyDown(SDL_KeyboardEvent event) {
     }
 }
 
-void ProfileScreen::onKeyUp(SDL_KeyboardEvent event) {
+void ProfileScreen::onKeyUp(SDL_KeyboardEvent e) {
+    (void)e;
 }

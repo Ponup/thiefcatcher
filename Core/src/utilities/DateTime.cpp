@@ -89,14 +89,19 @@ void DateTime::increase(int quantity, DateTimeComponent component) {
     switch (component) {
         case DateTime::Year:
             quantity *= 365;
+            [[fallthrough]];
         case DateTime::Month:
             quantity *= 30;
+            [[fallthrough]];
         case DateTime::Day:
             quantity *= 24;
+            [[fallthrough]];
         case DateTime::Hour:
             quantity *= 60;
+            [[fallthrough]];
         case DateTime::Minutes:
             quantity *= 60;
+            [[fallthrough]];
         case DateTime::Seconds:
             seconds = quantity;
             break;

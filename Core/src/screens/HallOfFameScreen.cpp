@@ -89,22 +89,24 @@ void HallOfFameScreen::show() {
 }
 
 void HallOfFameScreen::onKeyDown(SDL_KeyboardEvent e) {
+	(void)e;
 	quit = true;
 }
 
 void HallOfFameScreen::onKeyUp(SDL_KeyboardEvent e) {
-
+	(void)e;
 }
 
 void HallOfFameScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
+	(void)e;
 	quit = true;
 }
 
 void HallOfFameScreen::onMouseButtonUp(SDL_MouseButtonEvent e) {
-
+	(void)e;
 }
 
 void HallOfFameScreen::onMouseMotion(SDL_MouseMotionEvent e) {
-
+	(void)e;
 }
 

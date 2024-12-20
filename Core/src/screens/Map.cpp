@@ -70,6 +70,8 @@ void Map::addSensibleAreas()
 }
 
 void Map::updateScreen(bool update) {
+	(void)update;
+	
 	drawBackgroundElements();
 	drawCountriesLabels();
 	drawOptions();
@@ -231,6 +233,7 @@ void Map::onKeyDown(SDL_KeyboardEvent key) {
 }
 
 void Map::onKeyUp(SDL_KeyboardEvent e) {
+	(void)e;
 }
 
 void Map::onMouseButtonDown(SDL_MouseButtonEvent e) {
@@ -252,6 +255,7 @@ void Map::onMouseButtonDown(SDL_MouseButtonEvent e) {
 }
 
 void Map::onMouseButtonUp(SDL_MouseButtonEvent e) {
+	(void)e;
 }
 
 void Map::onMouseMotion(SDL_MouseMotionEvent motion) {

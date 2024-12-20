@@ -32,6 +32,7 @@ public:
     }
 
     void update(double time) override {
+        (void)time;
         radius -= 0.25;
         angle += 0.05;
 
@@ -57,6 +58,7 @@ public:
     }
 
     void update(double time) override {
+        (void)time;
         bulletX += 18;
     }
 

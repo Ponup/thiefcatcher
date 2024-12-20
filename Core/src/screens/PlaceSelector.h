@@ -47,18 +47,18 @@ public:
     ~PlaceSelector();
 
     void onQuit(SDL_QuitEvent event) {
-
+        (void)event;
     }
     void onMouseMotion(SDL_MouseMotionEvent event);
     void onMouseButtonDown(SDL_MouseButtonEvent event);
 
     void onMouseButtonUp(SDL_MouseButtonEvent event) {
-
+        (void)event;
     }
     void onKeyDown(SDL_KeyboardEvent event);
 
     void onKeyUp(SDL_KeyboardEvent event) {
-
+        (void)event;
     }
 
     int showAndReturn();

@@ -40,6 +40,8 @@ void onInterrupt(int code) {
 }
 
 int main(int argc, char** argv) {
+	(void)argc;
+	(void)argv;
 
     signal(SIGINT, onInterrupt);
 

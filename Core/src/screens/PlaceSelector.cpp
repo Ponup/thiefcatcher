@@ -2,6 +2,7 @@
 
 PlaceSelector::PlaceSelector(Renderer *renderer, Surface *bgSurface, vector<Place> randomPlaces) : renderer(renderer)
 {
+    (void)bgSurface;
 
     dialogPosition = Point(415, 466);
     dialogDimension = Dimension(348, 130);

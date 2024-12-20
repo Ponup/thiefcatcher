@@ -1,5 +1,5 @@
 [requires]
-fmt/10.0.0
+fmt/11.0.2
 rapidjson/cci.20211112
 
 [generators]

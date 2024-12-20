@@ -1,7 +1,8 @@
 #include "PlayerCase.h"
 
 #include <algorithm>
-using std::random_shuffle;
+using std::shuffle;
+#include <random>
 
 #include <sstream>
 using std::endl;
@@ -168,7 +169,8 @@ void PlayerCase::updateCountries()
         pos++;
     }
 
-    random_shuffle(nextCountries, nextCountries + 3);
+    std::mt19937 rng(std::time(nullptr));
+    shuffle(nextCountries, nextCountries + 3, rng);
 }
 
 void PlayerCase::updateCountryPlaces()

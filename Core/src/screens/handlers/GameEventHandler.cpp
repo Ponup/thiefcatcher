@@ -33,6 +33,7 @@ void GameEventHandler::onMouseButtonDown(SDL_MouseButtonEvent button) {
 }
 
 void GameEventHandler::onMouseButtonUp(SDL_MouseButtonEvent button) {
+	(void)button;
 }
 
 void GameEventHandler::onKeyDown(SDL_KeyboardEvent key) {
@@ -67,8 +68,10 @@ void GameEventHandler::onKeyDown(SDL_KeyboardEvent key) {
 }
 
 void GameEventHandler::onKeyUp(SDL_KeyboardEvent key) {
+	(void)key;
 }
 
 void GameEventHandler::onQuit(SDL_QuitEvent quit) {
+	(void)quit;
 	game->quitGame();
 }

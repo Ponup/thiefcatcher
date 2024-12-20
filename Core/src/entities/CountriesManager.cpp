@@ -14,7 +14,8 @@ using std::string;
 #include <stdlib.h>
 
 #include <algorithm>
-using std::random_shuffle;
+using std::shuffle;
+#include <random>
 
 vector<Country> CountriesManager::findAll() {
     static vector<Country> countries;
@@ -81,6 +82,7 @@ Country CountriesManager::findByPrimaryKey(unsigned int id) {
 
 vector<Country> CountriesManager::findRandom(int limit) {
     vector<Country> countries = findAll();
-    random_shuffle(countries.begin(), countries.end());
+    std::mt19937 rng(std::time(nullptr));
+    shuffle(countries.begin(), countries.end(), rng);
     return vector<Country>(countries.begin(), countries.begin() + limit);
 }

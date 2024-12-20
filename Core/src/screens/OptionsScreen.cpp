@@ -110,7 +110,7 @@ void OptionsScreen::updateScreen(bool update) {
 }
 
 void OptionsScreen::onQuit(SDL_QuitEvent e) {
-
+	(void)e;
 }
 
 void OptionsScreen::onMouseMotion(SDL_MouseMotionEvent e) {
@@ -167,7 +167,7 @@ void OptionsScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
 }
 
 void OptionsScreen::onMouseButtonUp(SDL_MouseButtonEvent e) {
-
+	(void)e;
 }
 
 void OptionsScreen::onKeyDown(SDL_KeyboardEvent e) {
@@ -177,5 +177,5 @@ void OptionsScreen::onKeyDown(SDL_KeyboardEvent e) {
 }
 
 void OptionsScreen::onKeyUp(SDL_KeyboardEvent e) {
-
+	(void)e;
 }
