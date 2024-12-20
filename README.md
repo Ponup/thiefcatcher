@@ -1,8 +1,8 @@
 
 Dependencies:
-* CMake (3.18 or greater)
-* conan (2.0.9 or greater)
-* C++ 17
+* CMake (3.25 or greater)
+* conan (2.11.0 or greater)
+* C++ 23
 * SDL2
 * SDL2 mixer
 * SDL2 image
@@ -23,7 +23,7 @@ git submodule update --init
 ### ...on Windows:
 
 ```shell
-cmake -G "Visual Studio 14 2015" .
+cmake -G "Visual Studio 17 2022" .
 ```
 
 ### ...on Linux/Macos:
