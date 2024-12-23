@@ -1,4 +1,0 @@
-[submodule "Core/vendor/ponup-api"]
-	path = Core/vendor/ponup-api
-	url = ../api-cpp-client.git
-

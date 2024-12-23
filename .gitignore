@@ -35,3 +35,4 @@ Core/bin/
 Testing
 .cmake/
 build.ninja
+.ninja*

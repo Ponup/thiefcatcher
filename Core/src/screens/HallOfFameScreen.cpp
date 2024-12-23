@@ -8,9 +8,6 @@
 #include "utilities/Translator.h"
 #include "entities/PlayersManager.h"
 
-#include "ponup-api/Api.h"
-using namespace Ponup;
-
 HallOfFameScreen::HallOfFameScreen(Renderer* renderer) : renderer(renderer), quit(false) {
 }
 
@@ -42,19 +39,18 @@ void HallOfFameScreen::show() {
 
 	playerFont.setColor(Color(255, 255, 255));
 
-	vector<Score> scores = Ponup::Api::getScores("thiefcatcher");
+	vector<Player> top10Players = PlayersManager::findTop10();
 
-	for (unsigned int i = 0; i < scores.size(); i++) {
-		Score score = scores.at(i);
+	for (unsigned int i = 0; i < top10Players.size(); i++) {
+		Player score = top10Players.at(i);
 
-		char experience[30];
-		memset(experience, 0, 30);
-		sprintf(experience, "%d case(s)", score.getGameLevelNumber());
+		char experience[30] = {};
+		sprintf(experience, "%d case(s)", score.getResolved());
 
 		string playerValues[] = {
 			std::to_string(i + 1),
-			score.getPlayerName(),
-			score.getGameLevel(),
+			score.getName(),
+			std::to_string(score.getResolved()),
 			experience
 		};
 

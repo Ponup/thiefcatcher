@@ -24,7 +24,6 @@ optional<float> Updater::fetchNewVersionAvailable(const char *currentVersion) {
 	optional<float> newVersion;
 
 	const float clientVersion = std::stof(currentVersion);
-	float serverVersion = 0.0f;
 
 	curl_global_init(CURL_GLOBAL_ALL);
 	handle = curl_easy_init();
@@ -50,6 +49,7 @@ optional<float> Updater::fetchNewVersionAvailable(const char *currentVersion) {
 		long httpResponseCode;
 		if (CURLE_OK == curl_easy_getinfo(handle, CURLINFO_HTTP_CODE, &httpResponseCode) ) {
 			if (httpResponseCode == 200) {
+				float serverVersion = 0.0f;
 				serverVersion = std::stof(content.c_str());
 				if(serverVersion > clientVersion) {
 					newVersion = serverVersion;

@@ -58,6 +58,6 @@ SDL_Window* Window::toSDL() {
     return window;
 }
 
-SDL_Surface* Window::getSurface(void) {
+SDL_Surface* Window::getSurface() {
     return SDL_GetWindowSurface(window);
 }

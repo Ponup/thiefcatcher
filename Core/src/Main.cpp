@@ -3,14 +3,13 @@ using std::cout;
 using std::cerr;
 using std::endl;
 
-#include <signal.h>
+#include <csignal>
 
 #include <Services.h>
 
 #include <CoreService.h>
 #include <MixerService.h>
 #include <FontService.h>
-#include <MediaMusic.h>
 #include <Database.h>
 using Kangaroo::Database;
 
