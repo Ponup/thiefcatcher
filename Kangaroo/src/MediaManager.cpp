@@ -3,7 +3,7 @@
 #include <string>
 using std::string;
 
-MediaManager * MediaManager::singleton = NULL;
+MediaManager * MediaManager::singleton = nullptr;
 map<const char *, MediaSound *> MediaManager::sounds;
 
 MediaManager &MediaManager::getInstance() {

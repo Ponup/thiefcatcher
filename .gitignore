@@ -33,3 +33,5 @@ conaninfo.txt
 tags
 Core/bin/
 Testing
+.cmake/
+build.ninja

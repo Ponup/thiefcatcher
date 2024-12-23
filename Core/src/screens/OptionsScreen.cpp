@@ -136,7 +136,7 @@ void OptionsScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
 				else {
 					languageIndex = 0;
 				}
-				const char *language = NULL;
+				const char *language = nullptr;
 				switch (languageIndex) {
 				case LANG_ENGLISH:
 					language = "en.utf8";

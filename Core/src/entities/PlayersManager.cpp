@@ -40,7 +40,7 @@ vector<int> PlayersManager::findAllPrimaryKeys() {
 }
 
 Player *PlayersManager::findByPrimaryKey(int id) {
-	Player *player = NULL;
+	Player *player = nullptr;
 
 	ResultSet &rs = Database::getInstance().execute("SELECT id, name, num_resolved_cases FROM player WHERE id = %d", id);
 	if (rs.hasNext()) {

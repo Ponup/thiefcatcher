@@ -28,7 +28,7 @@ optional<float> Updater::fetchNewVersionAvailable(const char *currentVersion) {
 
 	curl_global_init(CURL_GLOBAL_ALL);
 	handle = curl_easy_init();
-	if (handle == NULL) {
+	if (handle == nullptr) {
 		return false;
 	}
 

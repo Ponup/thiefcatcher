@@ -23,7 +23,7 @@ Kangaroo::Texture::~Texture() {
 }
 
 void Kangaroo::Texture::init() {
-    if (SDL_QueryTexture(internal, NULL, NULL, &width, &height) != 0) {
+    if (SDL_QueryTexture(internal, nullptr, nullptr, &width, &height) != 0) {
         // Log warning
     }
 }
@@ -37,7 +37,7 @@ void Kangaroo::Texture::selectAsRenderingTarget(SDL_Renderer* renderer) {
 }
 
 void Kangaroo::Texture::unselectAsRenderingTarget(SDL_Renderer* renderer) {
-    SDL_SetRenderTarget(renderer, NULL);
+    SDL_SetRenderTarget(renderer, nullptr);
 }
 
 int Kangaroo::Texture::getWidth() const {
