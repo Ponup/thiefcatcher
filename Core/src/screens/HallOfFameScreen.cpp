@@ -50,7 +50,7 @@ void HallOfFameScreen::show() {
 		string playerValues[] = {
 			std::to_string(i + 1),
 			score.getName(),
-			std::to_string(score.getResolved()),
+			score.getRank(),
 			experience
 		};
 

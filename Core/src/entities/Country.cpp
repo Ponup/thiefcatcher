@@ -112,7 +112,7 @@ const vector<string> Country::getCurrencies() const {
     return currencies;
 }
 
-string Country::getFirstCurrency(void) const {
+string Country::getFirstCurrency() const {
     return currencies.size() > 0 ? currencies.at(0) : "unknown";
 }
 

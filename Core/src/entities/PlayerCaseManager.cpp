@@ -19,7 +19,7 @@ PlayerCaseManager::~PlayerCaseManager()
 }
 
 PlayerCase *PlayerCaseManager::createRandomCase( const Player &player ) {
-	PlayerCase *playerCase = new PlayerCase;
+	auto *playerCase = new PlayerCase;
 	playerCase->setPlayer(player);
 	
 	int *criminalsPKrandom = Random::nextArray(criminalIds, 1);
@@ -60,7 +60,7 @@ void PlayerCaseManager::save( const PlayerCase &playerCase) {
 }
 
 PlayerCase &PlayerCaseManager::load( int idPlayer ) {
-	PlayerCase *playerCase = new PlayerCase();
+	auto *playerCase = new PlayerCase();
 	
 	Database &db = Database::getInstance();
 	

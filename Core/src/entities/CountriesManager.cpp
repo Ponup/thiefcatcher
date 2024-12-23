@@ -83,6 +83,6 @@ Country CountriesManager::findByPrimaryKey(unsigned int id) {
 vector<Country> CountriesManager::findRandom(int limit) {
     vector<Country> countries = findAll();
     std::mt19937 rng(std::time(nullptr));
-    shuffle(countries.begin(), countries.end(), rng);
+    std::ranges::shuffle(countries, rng);
     return vector<Country>(countries.begin(), countries.begin() + limit);
 }

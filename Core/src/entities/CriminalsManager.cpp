@@ -43,11 +43,10 @@ vector<Criminal> &CriminalsManager::findAll() {
 }
 
 vector<string> &CriminalsManager::findAllHairs() {
-    vector<string> *list = new vector<string>;
+    auto *list = new vector<string>;
 
     vector<Criminal> criminals = findAll();
-    for (vector<Criminal>::iterator it = criminals.begin(); it != criminals.end(); ++it) {
-        Criminal criminal = *it;
+    for (const auto& criminal : criminals) {
         list->push_back(criminal.getHair());
     }
 
@@ -55,11 +54,10 @@ vector<string> &CriminalsManager::findAllHairs() {
 }
 
 vector<string> &CriminalsManager::findAllHobbies() {
-    vector<string> *list = new vector<string>;
+    auto *list = new vector<string>;
 
     vector<Criminal> criminals = findAll();
-    for (vector<Criminal>::iterator it = criminals.begin(); it != criminals.end(); ++it) {
-        Criminal criminal = *it;
+    for (const auto& criminal : criminals) {
         list->push_back(criminal.getBuild());
     }
 

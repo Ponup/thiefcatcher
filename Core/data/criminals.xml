@@ -7,7 +7,6 @@
 		<build>atlhetic</build>
 		<complexion>rosy</complexion>
 	</criminal>
-	<!--
 	<criminal genre="female">
 		<name>Bullet riddled Lupe</name>
 		<hair>brown</hair>
@@ -36,5 +35,4 @@
 		<build>overweight</build>
 		<complexion>fair</complexion>
 	</criminal>
-	-->
 </criminals>

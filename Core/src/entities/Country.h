@@ -53,7 +53,7 @@ public:
     const vector<string> getLanguages() const;
     void setCurrencies(const vector<string> &currencies);
     const vector<string> getCurrencies() const;
-    string getFirstCurrency(void) const;
+    string getFirstCurrency() const;
     void setCoordinates(const GeoCoordinates& coordinates);
     GeoCoordinates getCoordinates() const;
 };
