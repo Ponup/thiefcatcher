@@ -71,13 +71,11 @@ void Properties::save( const string* fileName ) {
 }
 
 string Properties::getProperty( const string& propertyName ) const {
-	StringsMap::const_iterator it;
-	it = properties.find(propertyName);
+	auto it = properties.find(propertyName);
 	if(it == properties.end()) {
-		return nullptr;
-	} else {
-		return it->second;
+		return "";
 	}
+	return it->second;
 }
 
 void Properties::setProperty( const string& propertyName, const string& propertyValue ) {

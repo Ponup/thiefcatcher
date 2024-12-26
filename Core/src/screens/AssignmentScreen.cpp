@@ -5,11 +5,7 @@ using std::vector;
 
 #include <string.h>
 
-#include <FontManager.h>
-#include <Text.h>
-
 #include "screens/Game.h"
-#include "screens/handlers/GameEventHandler.h"
 
 #include "entities/Player.h"
 #include "entities/PlayersManager.h"
@@ -72,9 +68,8 @@ PlayerCase *AssignmentScreen::show() {
         player = PlayersManager::findByName(name);
     }
 
-    char l[100];
+    char l[100] = {};
 
-    memset(l, '\0', 100);
     sprintf(l, _("You has been identified, %s.").c_str(), player->getName().c_str());
     addLine(l);
 
@@ -90,9 +85,8 @@ PlayerCase *AssignmentScreen::show() {
     addLine(_("*** NEWS ***"));
     addLine(" ");
 
-    char line[500];
+    char line[500] = {};
 
-    memset(line, '\0', 500);
     sprintf(line, _("National treasure stolen in %s.").c_str(),
             playerCase->currentCountry.getName().c_str());
     addLine(line);

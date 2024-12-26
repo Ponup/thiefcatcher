@@ -1,11 +1,10 @@
 #include "StringUtil.h"
 
-#include <stdlib.h>
 #include <string.h>
 
 char* StringUtil::trim(char *string) {
-	size_t len = sizeof(char) * (strlen(string) + 1);
-	char *newString = (char *)malloc(len);
+	const size_t len = sizeof(char) * (strlen(string) + 1);
+	char *newString = static_cast<char *>(malloc(len));
 	memset(newString, '\0', len);
 
 	int newStringIndex = 0;

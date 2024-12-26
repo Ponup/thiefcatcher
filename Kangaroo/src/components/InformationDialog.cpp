@@ -9,7 +9,7 @@ InformationDialog::InformationDialog(Window *screen_, const string& message_) : 
 InformationDialog::~InformationDialog() {}
 
 void InformationDialog::show() {
-	const SDL_MessageBoxButtonData buttons[] = {
+	constexpr SDL_MessageBoxButtonData buttons[] = {
 		{ SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT, DIALOG_YES, "Ok" },
 	};
 	const SDL_MessageBoxData messageboxdata = {

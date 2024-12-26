@@ -5,11 +5,10 @@
 enum {
 	LANG_ENGLISH = 0,
 	LANG_SPANISH,
-	LANG_CATALAN,
 	NUM_LANGUAGES
 };
 
-const char LANGUAGES[NUM_LANGUAGES][20] = { "Spanish", "English", "Catalan" };
+constexpr char LANGUAGES[NUM_LANGUAGES][20] = { "English", "Spanish" };
 
 OptionsScreen::OptionsScreen(Renderer* renderer) :
 	renderer(renderer),
@@ -138,14 +137,11 @@ void OptionsScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
 				}
 				const char *language = nullptr;
 				switch (languageIndex) {
-				case LANG_ENGLISH:
-					language = "en.utf8";
+					case LANG_ENGLISH:
+						language = "en.utf8";
 					break;
-				case LANG_SPANISH:
-					language = "es.utf8";
-					break;
-				case LANG_CATALAN:
-					language = "ca.utf8";
+					case LANG_SPANISH:
+						language = "es.utf8";
 					break;
 				}
 				configurator.setLanguage(language);
@@ -159,7 +155,6 @@ void OptionsScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
 				break;
 			case 3:
 				configurator.setFullScreen(!configurator.isFullScreen());
-				//window->toggleFullScreen();
 				break;
 			}
 		}

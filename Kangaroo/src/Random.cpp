@@ -1,9 +1,5 @@
 #include "Random.h"
 
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-
 #include <algorithm>
 #include <random>
 #include <ctime>
@@ -12,7 +8,7 @@ bool Random::started = false;
 
 int Random::nextInt(int min, int max) {
     if (started == false) {
-        srand(time(0));
+        srand(time(nullptr));
         started = true;
     }
 

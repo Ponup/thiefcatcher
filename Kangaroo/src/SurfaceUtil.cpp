@@ -7,7 +7,7 @@ Point SurfaceUtil::drawCentered(Surface *surface, Surface *parent) {
 	rect.x = (parentSDL->w >> 1) - (surfaceSDL->w >> 1);
 	rect.y = (parentSDL->h >> 1) - (surfaceSDL->h >> 1);
 
-	SDL_BlitSurface(surfaceSDL, 0, parentSDL, &rect);
+	SDL_BlitSurface(surfaceSDL, nullptr, parentSDL, &rect);
 	
 	return Point(rect.x, rect.y);
 }

@@ -15,11 +15,10 @@ MediaManager &MediaManager::getInstance() {
 }
 		
 void MediaManager::playSound(const char *name) {
-	SoundsMap::const_iterator it;
-	it = sounds.find(name);
+	SoundsMap::const_iterator it = sounds.find(name);
 	if(it == sounds.end()) {
 		string mediaPath = "resources/sounds/" + string( name );
-		MediaSound *mediaSound = new MediaSound( mediaPath.c_str() );
+		auto *mediaSound = new MediaSound( mediaPath.c_str() );
 		mediaSound->play();
 
 		sounds[name] = mediaSound;

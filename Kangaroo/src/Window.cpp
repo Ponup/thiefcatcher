@@ -30,7 +30,7 @@ void Window::toggleFullScreen() {
 }
 
 void Window::defineSurface() {
-    int flags = (fullScreen ? Window::FLAGS_FULLSCREEN : Window::FLAGS_WINDOW);
+    int flags = (fullScreen ? FLAGS_FULLSCREEN : FLAGS_WINDOW);
 
     window = SDL_CreateWindow(title.c_str(),
             SDL_WINDOWPOS_UNDEFINED,

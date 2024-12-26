@@ -4,6 +4,8 @@
 #include <FontManager.h>
 #include <MediaMusic.h>
 #include <Text.h>
+#include <fmt/base.h>
+#include <fmt/format.h>
 
 #include "utilities/Translator.h"
 #include "entities/PlayersManager.h"
@@ -39,27 +41,24 @@ void HallOfFameScreen::show() {
 
 	playerFont.setColor(Color(255, 255, 255));
 
-	vector<Player> top10Players = PlayersManager::findTop10();
+	const vector<Player> top10Players = PlayersManager::findTop10();
 
 	for (unsigned int i = 0; i < top10Players.size(); i++) {
-		Player score = top10Players.at(i);
+		const Player& score = top10Players.at(i);
 
-		char experience[30] = {};
-		sprintf(experience, "%d case(s)", score.getResolved());
-
-		string playerValues[] = {
+		const string playerValues[] = {
 			std::to_string(i + 1),
 			score.getName(),
 			score.getRank(),
-			experience
+			format(fmt::runtime(_("{} case(s)")), score.getResolved()),
 		};
 
 		Texture icon(renderer->internal, "resources/icons/award_star_gold_1.png");
 		renderer->drawTexture(&icon, Point(210, playerY));
 
-		for (int i = 0; i < 4; i++) {
-			Text value(playerValues[i].c_str(), &playerFont);
-			renderer->drawText(&value, Point(columnPos[i], playerY));
+		for (int r = 0; r < 4; r++) {
+			Text value(playerValues[r], &playerFont);
+			renderer->drawText(&value, Point(columnPos[r], playerY));
 		}
 
 		playerY += playerFont.getLineSkip();

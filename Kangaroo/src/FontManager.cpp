@@ -5,13 +5,13 @@ FontMap FontManager::fontMap = FontMap();
 Font* FontManager::getFont(const string& name, unsigned int size) {
 	string fontKey = name + "_" + std::to_string(size);
 
-	FontMap::iterator it = fontMap.find(fontKey.c_str());
+	auto it = fontMap.find(fontKey);
 	if (it != fontMap.end()) {
 		return (*it).second;
 	}
 
-	string fontPath = "resources/fonts/" + name + ".ttf";
-	Font *font = new Font(fontPath.c_str(), size);
+	const string fontPath = "resources/fonts/" + name + ".ttf";
+	auto font = new Font(fontPath.c_str(), size);
 
 	fontMap.insert(FontMap::value_type(fontKey, font));
 

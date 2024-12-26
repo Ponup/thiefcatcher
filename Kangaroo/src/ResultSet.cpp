@@ -3,12 +3,9 @@
 #include <stdexcept>
 using std::runtime_error;
 
-#include <stdio.h>
-#include <string.h>
-
 ResultSet::ResultSet( sqlite3 *dbHandle, const char *sql ) {
 	const char *errorMessage = nullptr;
-	int rc = sqlite3_prepare_v2(dbHandle, sql, -1, &handle, &errorMessage);
+	const int rc = sqlite3_prepare_v2(dbHandle, sql, -1, &handle, &errorMessage);
 	if (rc != SQLITE_OK) {
 		throw runtime_error(errorMessage);
 	}

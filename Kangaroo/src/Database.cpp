@@ -1,10 +1,5 @@
 #include "Database.h"
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdarg.h>
-
 namespace Kangaroo {
 
 	Database& Database::getInstance() {
@@ -46,15 +41,14 @@ namespace Kangaroo {
 	}
 
 	ResultSet& Database::execute(const char *sql, ...) {
-		char query[0x400];
-		memset(query, '\0', 0x400);
+		char query[0x400] = {};
 
 		va_list params;
 		va_start(params, sql);
 		vsprintf(query, sql, params);
 		va_end(params);
 
-		ResultSet *rs = new ResultSet(handle, query);
+		auto *rs = new ResultSet(handle, query);
 		return *rs;
 	}
 }

@@ -19,12 +19,10 @@ Dimension Area::getDimension() const {
 }
 
 bool Area::contains( short x_, short y_ ) const {
-	return (
-		x_ >= x &&
-		x_ <= x + w &&
-		y_ >= y &&
-		y_ <= y + h
-	);
+	return x_ >= x &&
+	       x_ <= x + w &&
+	       y_ >= y &&
+	       y_ <= y + h;
 }
 
 ostream& operator<<(ostream& stream, const Area& area) {

@@ -10,7 +10,7 @@ HttpClient::HttpClient( const string &url ) : url( url ) {
 HttpClient::~HttpClient() {}
 
 size_t HttpClient::writeCallback( char* buf, size_t size, size_t nmemb, void* cbdata ) {
-	string *data = (string *)cbdata;
+	auto *data = static_cast<string *>(cbdata);
 	for ( unsigned int c = 0; c < size * nmemb; c++ ) {
 		data->push_back( buf[ c ] );
 	}

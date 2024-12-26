@@ -8,8 +8,7 @@ Sprite::Sprite(const char *fileName, const int numFrames_, const Dimension &fram
     frames = new Texture *[numFrames];
 
     for (int i = 0; i <= numFrames; i++) {
-        char path[100];
-        memset(path, '\0', 100);
+        char path[100] = {};
         sprintf(path, fileName, i);
         frames[i] = new Texture(renderer->internal, path);
     }
