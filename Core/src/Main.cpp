@@ -31,7 +31,7 @@ using std::optional;
 #include <filesystem>
 namespace fs = std::filesystem;
 
-#define GAME_VERSION "1.0"
+#include "Version.hpp"
 
 void onInterrupt(int code) {
     cout << "Game interrupted by the user (code: " << code << "). Exiting." << endl;
