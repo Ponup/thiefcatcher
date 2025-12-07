@@ -1,7 +1,7 @@
 
 Dependencies:
-* CMake (3.25 or greater)
-* conan (2.11.0 or greater)
+* CMake (3.28 or greater)
+* conan (2.23 or greater)
 * C++ 23
 * SDL2
 * SDL2 mixer
@@ -15,7 +15,6 @@ Dependencies:
 Cloning the code:
 ```
 git clone git@github.com:Ponup/thiefcatcher.git
-git submodule update --init
 ```
 
 ## How to build
@@ -43,5 +42,5 @@ cmake -DCMAKE_BUILD_TYPE=debug .
 
 ```shell
 cd Core
-bin/ThiefCatcher
+./ThiefCatcher
 ```

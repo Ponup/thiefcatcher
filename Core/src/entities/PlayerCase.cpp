@@ -8,6 +8,8 @@ using std::shuffle;
 using std::endl;
 using std::ostringstream;
 
+#include <ctime>
+
 #include <Random.h>
 
 #include "entities/CountriesManager.h"

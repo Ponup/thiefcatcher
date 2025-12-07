@@ -17,22 +17,28 @@ using std::string;
 using std::shuffle;
 #include <random>
 
-vector<Country> CountriesManager::findAll() {
+#include <ctime>
+
+vector<Country> CountriesManager::findAll()
+{
     static vector<Country> countries;
 
-    if (!countries.empty()) {
+    if (!countries.empty())
+    {
         return countries;
     }
 
     XMLDocument xmlDoc;
     XMLError errorCode = xmlDoc.LoadFile("data/countries.xml");
-    if (tinyxml2::XML_SUCCESS != errorCode) {
+    if (tinyxml2::XML_SUCCESS != errorCode)
+    {
         return countries;
     }
 
     unsigned int id = 0;
     XMLElement *rootNode = xmlDoc.RootElement();
-    for (XMLElement *countryNode = rootNode->FirstChildElement("country"); nullptr != countryNode; countryNode = countryNode->NextSiblingElement("country")) {
+    for (XMLElement *countryNode = rootNode->FirstChildElement("country"); nullptr != countryNode; countryNode = countryNode->NextSiblingElement("country"))
+    {
         Country country;
         country.setID(++id);
         country.setCode(countryNode->Attribute("code"));
@@ -44,27 +50,29 @@ vector<Country> CountriesManager::findAll() {
 
         GeoCoordinates coordinates = {
             atof(countryNode->FirstChildElement("coordinates")->Attribute("lat")),
-            atof(countryNode->FirstChildElement("coordinates")->Attribute("long"))
-        };
+            atof(countryNode->FirstChildElement("coordinates")->Attribute("long"))};
         country.setCoordinates(coordinates);
 
         vector<string> popularThings;
         XMLElement *popularThingsNodes = countryNode->FirstChildElement("popular-things");
-        for (XMLElement *thingNode = popularThingsNodes->FirstChildElement("thing"); thingNode != nullptr; thingNode = thingNode->NextSiblingElement("thing")) {
+        for (XMLElement *thingNode = popularThingsNodes->FirstChildElement("thing"); thingNode != nullptr; thingNode = thingNode->NextSiblingElement("thing"))
+        {
             popularThings.push_back(thingNode->GetText());
         }
         country.setPopularThings(popularThings);
 
         vector<string> languages;
         XMLElement *languagesNode = countryNode->FirstChildElement("languages");
-        for (XMLElement *languageNode = languagesNode->FirstChildElement("language"); languageNode != nullptr; languageNode = languageNode->NextSiblingElement("language")) {
+        for (XMLElement *languageNode = languagesNode->FirstChildElement("language"); languageNode != nullptr; languageNode = languageNode->NextSiblingElement("language"))
+        {
             languages.push_back(languageNode->GetText());
         }
         country.setLanguages(languages);
 
         vector<string> currencies;
         XMLElement *currenciesNode = countryNode->FirstChildElement("currencies");
-        for (XMLElement *currencyNode = currenciesNode->FirstChildElement("currency"); currencyNode != nullptr; currencyNode = currencyNode->NextSiblingElement("currency")) {
+        for (XMLElement *currencyNode = currenciesNode->FirstChildElement("currency"); currencyNode != nullptr; currencyNode = currencyNode->NextSiblingElement("currency"))
+        {
             currencies.push_back(currencyNode->GetText());
         }
         country.setCurrencies(currencies);
@@ -75,12 +83,14 @@ vector<Country> CountriesManager::findAll() {
     return countries;
 }
 
-Country CountriesManager::findByPrimaryKey(unsigned int id) {
+Country CountriesManager::findByPrimaryKey(unsigned int id)
+{
     vector<Country> countries = findAll();
     return countries.at(id - 1);
 }
 
-vector<Country> CountriesManager::findRandom(int limit) {
+vector<Country> CountriesManager::findRandom(int limit)
+{
     vector<Country> countries = findAll();
     std::mt19937 rng(std::time(nullptr));
     std::ranges::shuffle(countries, rng);
