@@ -6,15 +6,14 @@
 #include "utilities/Translator.h"
 #include "entities/CountriesManager.h"
 
-Map::Map(Renderer* renderer, Country *sourceCountry_, Country *targetCountry_) :
-	renderer(renderer),
-	selected(0), quit(false), updatePending(true),
-	sourceCountry(sourceCountry_), targetCountry(targetCountry_),
-	backgroundTexture(renderer->internal, "resources/images/empty_background.jpg"),
-	bulletSurface(renderer->internal, "resources/images/map/flight_target.gif"),
-	bulletOverSurface(renderer->internal, "resources/images/map/flight_target_over.gif"),
-	normalCursor(SDL_SYSTEM_CURSOR_ARROW),
-	handCursor(SDL_SYSTEM_CURSOR_HAND)
+Map::Map(Renderer *renderer, Country *sourceCountry_, Country *targetCountry_) : renderer(renderer),
+																				 selected(0), quit(false), updatePending(true),
+																				 sourceCountry(sourceCountry_), targetCountry(targetCountry_),
+																				 backgroundTexture(renderer->internal, "resources/images/empty_background.jpg"),
+																				 bulletSurface(renderer->internal, "resources/images/map/flight_target.gif"),
+																				 bulletOverSurface(renderer->internal, "resources/images/map/flight_target_over.gif"),
+																				 normalCursor(SDL_SYSTEM_CURSOR_ARROW),
+																				 handCursor(SDL_SYSTEM_CURSOR_HAND)
 {
 	mapOffset = Point(50, 80);
 	// This point fixes the position of the bullets on the map.
@@ -32,10 +31,12 @@ Map::Map(Renderer* renderer, Country *sourceCountry_, Country *targetCountry_) :
 
 	updateScreen(true);
 
-	while (!quit) {
+	while (!quit)
+	{
 		captureEvents();
 
-		if (updatePending) updateScreen(true);
+		if (updatePending)
+			updateScreen(true);
 
 		SDL_Delay(30);
 	}
@@ -44,7 +45,8 @@ Map::Map(Renderer* renderer, Country *sourceCountry_, Country *targetCountry_) :
 		gotoTarget();
 }
 
-Map::~Map() {
+Map::~Map()
+{
 }
 
 void Map::drawCountriesLabels()
@@ -69,9 +71,10 @@ void Map::addSensibleAreas()
 	}
 }
 
-void Map::updateScreen(bool update) {
+void Map::updateScreen(bool update)
+{
 	(void)update;
-	
+
 	drawBackgroundElements();
 	drawCountriesLabels();
 	drawOptions();
@@ -95,15 +98,18 @@ void Map::drawOptions()
 
 	Texture tickSurf(renderer->internal, "resources/images/game/tick.png");
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 3; i++)
+	{
 		Point countryNamePosition(posx, posy);
 
-		if (i == selected) {
+		if (i == selected)
+		{
 			renderer->drawTexture(&tickSurf, Point(210, posy));
 			font.setColor(colorNormal);
 			renderer->drawTexture(&bulletOverSurface, points[i]);
 		}
-		else {
+		else
+		{
 			font.setColor(colorHighlight);
 			renderer->drawTexture(&bulletSurface, points[i]);
 		}
@@ -148,13 +154,14 @@ void Map::drawDirectedAirplane()
 	angle += 45; // because the airplane is rotated already.
 
 	Surface directedAirplane("resources/images/map/airplane-30.png", true);
-	directedAirplane.transform(angle);
+	directedAirplane.transform(renderer->internal, angle);
 	Texture airplaneTexture(renderer->internal, directedAirplane.toSDL());
 
 	renderer->drawTexture(&airplaneTexture, airplanePosition);
 }
 
-void Map::gotoTarget() {
+void Map::gotoTarget()
+{
 	quit = true;
 
 	Point sourcePoint = airplanePosition;
@@ -169,9 +176,12 @@ void Map::gotoTarget() {
 	SDL_Event ev;
 
 	bool stopAnimation = false;
-	while (!stopAnimation) {
-		while (SDL_PollEvent(&ev)) {
-			if (ev.type == SDL_QUIT || ev.type == SDL_KEYDOWN || ev.type == SDL_MOUSEBUTTONDOWN) {
+	while (!stopAnimation)
+	{
+		while (SDL_PollEvent(&ev))
+		{
+			if (ev.type == SDL_QUIT || ev.type == SDL_KEYDOWN || ev.type == SDL_MOUSEBUTTONDOWN)
+			{
 				stopAnimation = true;
 			}
 		}
@@ -184,14 +194,15 @@ void Map::gotoTarget() {
 		angle += 45; // because the airplane is rotated already.
 
 		Surface directedAirplane("resources/images/map/airplane-30.png", true);
-		directedAirplane.transform(angle);
+		directedAirplane.transform(renderer->internal, angle);
 		Texture airplaneTexture(renderer->internal, directedAirplane.toSDL());
 
 		updateScreen(true);
-		
+
 		it++;
 
-		if (it == path.end()) {
+		if (it == path.end())
+		{
 			break; // the outer loop
 		}
 
@@ -201,13 +212,16 @@ void Map::gotoTarget() {
 	SDL_Delay(600);
 }
 
-char Map::getSelection() {
+char Map::getSelection()
+{
 	return selected;
 }
 
-void Map::onKeyDown(SDL_KeyboardEvent key) {
+void Map::onKeyDown(SDL_KeyboardEvent key)
+{
 	updatePending = true;
-	switch (key.keysym.sym) {
+	switch (key.keysym.sym)
+	{
 	case SDLK_ESCAPE:
 		cancelScene();
 		break;
@@ -230,19 +244,24 @@ void Map::onKeyDown(SDL_KeyboardEvent key) {
 	}
 }
 
-void Map::onKeyUp(SDL_KeyboardEvent e) {
+void Map::onKeyUp(SDL_KeyboardEvent e)
+{
 	(void)e;
 }
 
-void Map::onMouseButtonDown(SDL_MouseButtonEvent e) {
-	switch (e.button) {
+void Map::onMouseButtonDown(SDL_MouseButtonEvent e)
+{
+	switch (e.button)
+	{
 	case SDL_BUTTON_RIGHT:
 		cancelScene();
 		break;
 	case SDL_BUTTON_LEFT:
 		int resolved = sensAreas.resolve(e.x, e.y);
-		if (resolved != -1) {
-			if(resolved > 2) {
+		if (resolved != -1)
+		{
+			if (resolved > 2)
+			{
 				resolved -= 3;
 			}
 			selected = resolved;
@@ -252,14 +271,18 @@ void Map::onMouseButtonDown(SDL_MouseButtonEvent e) {
 	}
 }
 
-void Map::onMouseButtonUp(SDL_MouseButtonEvent e) {
+void Map::onMouseButtonUp(SDL_MouseButtonEvent e)
+{
 	(void)e;
 }
 
-void Map::onMouseMotion(SDL_MouseMotionEvent motion) {
+void Map::onMouseMotion(SDL_MouseMotionEvent motion)
+{
 	int resolved = sensAreas.resolve(motion.x, motion.y);
-	if (resolved != -1) {
-		if(resolved > 2) {
+	if (resolved != -1)
+	{
+		if (resolved > 2)
+		{
 			resolved -= 3;
 		}
 		handCursor.applyToWindow();
@@ -267,13 +290,14 @@ void Map::onMouseMotion(SDL_MouseMotionEvent motion) {
 		selected = resolved;
 		updateScreen(true);
 	}
-	else {
+	else
+	{
 		normalCursor.applyToWindow();
 	}
 }
 
-void Map::cancelScene() {
+void Map::cancelScene()
+{
 	selected = -1;
 	quit = true;
 }
-

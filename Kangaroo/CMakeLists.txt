@@ -1,8 +1,4 @@
 
-cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
-
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMakeModules)
-
 set(KANGAROO_LIB_NAME kangaroo)
 
 project(${KANGAROO_LIB_NAME} VERSION 0.9.9 LANGUAGES CXX)

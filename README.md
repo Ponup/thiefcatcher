@@ -7,7 +7,6 @@ Dependencies:
 * SDL2 mixer
 * SDL2 image
 * SDL2 ttf
-* SDL2 gfx 
 * sqlite3
 * TinyXML2
 * curl

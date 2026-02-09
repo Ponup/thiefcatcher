@@ -132,8 +132,9 @@ void PlaceSelector::drawIcons()
         renderer->drawTexture(images[i], point);
         if (selectedIndex == i)
         {
-            aacircleRGBA(renderer->internal, point.x + 40, point.y + 40, 40, 0xff, 0xfc, 0x7b, 255);
-            aacircleRGBA(renderer->internal, point.x + 40, point.y + 40, 39, 0xff, 0xfc, 0x7b, 255);
+            // @todo replace with shader
+            // aacircleRGBA(renderer->internal, point.x + 40, point.y + 40, 40, 0xff, 0xfc, 0x7b, 255);
+            // aacircleRGBA(renderer->internal, point.x + 40, point.y + 40, 39, 0xff, 0xfc, 0x7b, 255);
         }
     }
 }

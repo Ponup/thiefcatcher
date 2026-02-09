@@ -1,6 +1,6 @@
 #include <iostream>
-using std::cout;
 using std::cerr;
+using std::cout;
 using std::endl;
 
 #include <csignal>
@@ -33,19 +33,22 @@ namespace fs = std::filesystem;
 
 #include "Version.hpp"
 
-void onInterrupt(int code) {
+void onInterrupt(int code)
+{
     cout << "Game interrupted by the user (code: " << code << "). Exiting." << endl;
     exit(EXIT_FAILURE);
 }
 
-int main(int argc, char** argv) {
-	(void)argc;
-	(void)argv;
+int main(int argc, char **argv)
+{
+    (void)argc;
+    (void)argv;
 
     signal(SIGINT, onInterrupt);
 
     optional<float> newVersionAvailable = Updater::fetchNewVersionAvailable(GAME_VERSION);
-    if(newVersionAvailable.has_value()) {
+    if (newVersionAvailable.has_value())
+    {
         cout << _("A new version of 'Thief Catcher' is available for download!") << endl;
     }
 
@@ -57,9 +60,12 @@ int main(int argc, char** argv) {
 
     Configurator configurator = Configurator::getInstance();
 
-    try {
+    try
+    {
         configurator.init();
-    } catch (const std::runtime_error &error) {
+    }
+    catch (const std::runtime_error &error)
+    {
         cerr << "An error has occurred: " << error.what() << endl;
         return EXIT_FAILURE;
     }
@@ -68,14 +74,18 @@ int main(int argc, char** argv) {
 
     Window window(_("Thief Catcher"), Dimension{800, 600}, "resources/logo/thief_256.png", configurator.isFullScreen());
 
-    try {
+    try
+    {
         const string dbPath{"data/game.db"};
-        if(!fs::exists("data/game.db")) {
+        if (!fs::exists("data/game.db"))
+        {
             cout << "Initializing game database..." << endl;
             fs::copy("data/default-game.db", dbPath);
         }
         Database::getInstance().init(dbPath);
-    } catch (const std::runtime_error &error) {
+    }
+    catch (const std::runtime_error &error)
+    {
         cerr << "An error has occurred: " << error.what() << endl;
         return EXIT_FAILURE;
     }

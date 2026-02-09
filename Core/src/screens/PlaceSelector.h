@@ -1,7 +1,5 @@
 #pragma once
 
-#include <SDL2_gfxPrimitives.h>
-
 #include <Surface.h>
 #include <Window.h>
 #include <SurfaceUtil.h>
@@ -21,14 +19,15 @@
 
 using Kangaroo::Renderer;
 
-class PlaceSelector : public EventHandler {
+class PlaceSelector : public EventHandler
+{
     SensitiveAreas sensAreas;
 
     bool quit;
 
     Place places[3];
 
-    Renderer* renderer;
+    Renderer *renderer;
 
     Point dialogPosition;
     Dimension dialogDimension;
@@ -43,21 +42,24 @@ class PlaceSelector : public EventHandler {
     void draw();
 
 public:
-    PlaceSelector(Renderer* renderer, Surface* canvas, vector<Place> randomPlaces);
+    PlaceSelector(Renderer *renderer, Surface *canvas, vector<Place> randomPlaces);
     ~PlaceSelector();
 
-    void onQuit(SDL_QuitEvent event) {
+    void onQuit(SDL_QuitEvent event)
+    {
         (void)event;
     }
     void onMouseMotion(SDL_MouseMotionEvent event);
     void onMouseButtonDown(SDL_MouseButtonEvent event);
 
-    void onMouseButtonUp(SDL_MouseButtonEvent event) {
+    void onMouseButtonUp(SDL_MouseButtonEvent event)
+    {
         (void)event;
     }
     void onKeyDown(SDL_KeyboardEvent event);
 
-    void onKeyUp(SDL_KeyboardEvent event) {
+    void onKeyUp(SDL_KeyboardEvent event)
+    {
         (void)event;
     }
 
