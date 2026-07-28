@@ -1,10 +1,3 @@
-
-if(UNIX)
-	add_definitions(-pedantic -pedantic-errors -Wall -Werror -Wextra)
-else()
-	add_definitions(-Wall)
-endif()
-
 cmake_policy(SET CMP0003 NEW)
 
 message(STATUS "Compiling under ${CMAKE_SYSTEM_NAME}")
@@ -17,41 +10,55 @@ find_package(SDL3_mixer REQUIRED)
 find_package(SDL3_image REQUIRED)
 find_package(SDL3_ttf REQUIRED)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/conan_toolchain.cmake)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/conan_toolchain.cmake")
+	include("${CMAKE_CURRENT_SOURCE_DIR}/conan_toolchain.cmake")
+endif()
 
-file(GLOB_RECURSE GAME_SOURCES "src/*.cpp" )
-file(GLOB_RECURSE VENDOR_SOURCES "vendor/*.cpp" "vendor/*.cc" )
-list(APPEND GAME_SOURCES ${VENDOR_SOURCES})
+file(GLOB_RECURSE GAME_SOURCES CONFIGURE_DEPENDS "src/*.cpp" "vendor/*.cpp" "vendor/*.cc")
 
 configure_file(
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/Version.hpp.in"
-	"${CMAKE_CURRENT_SOURCE_DIR}/src/Version.hpp"
+	"${CMAKE_CURRENT_BINARY_DIR}/generated/Version.hpp"
 )
 
 add_executable(ThiefCatcher WIN32 MACOSX_BUNDLE ${GAME_SOURCES})
-set_property(TARGET ThiefCatcher PROPERTY CXX_STANDARD 23)
 
-target_include_directories(ThiefCatcher PRIVATE "src/" "vendor/" "/usr/local/include/" ${CMAKE_INCLUDE_PATH})
+target_compile_features(ThiefCatcher PRIVATE cxx_std_23)
 
-if(WIN32)
-	target_link_libraries(ThiefCatcher PUBLIC kangaroo PRIVATE sqlite3 curl SDL3::SDL3 SDL3_image::SDL3_image SDL3_mixer::SDL3_mixer SDL3_ttf::SDL3_ttf tinyxml2 libintl)
-elseif(UNIX)
-	target_link_libraries(ThiefCatcher PUBLIC kangaroo PRIVATE SDL3::SDL3 sqlite3 curl SDL3_image::SDL3_image SDL3_mixer::SDL3_mixer SDL3_ttf::SDL3_ttf tinyxml2)
-elseif(APPLE)
-	target_link_libraries(ThiefCatcher PUBLIC kangaroo PRIVATE SDL3::SDL3 sqlite3 curl SDL3_image::SDL3_image SDL3_mixer::SDL3_mixer SDL3_ttf::SDL3_ttf tinyxml2 intl)
-endif()
+target_include_directories(ThiefCatcher PRIVATE
+	"${CMAKE_CURRENT_SOURCE_DIR}/src"
+	"${CMAKE_CURRENT_SOURCE_DIR}/vendor"
+	"${CMAKE_CURRENT_BINARY_DIR}/generated"
+)
 
-#set_target_properties(ThiefCatcher PROPERTIES OUTPUT_NAME "ThiefCatcher")
+target_compile_options(ThiefCatcher PRIVATE
+	$<$<CXX_COMPILER_ID:GNU,Clang>:-Wall -Wextra -Werror -pedantic -pedantic-errors>
+	$<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
+)
+
+target_link_libraries(ThiefCatcher
+	PUBLIC
+		kangaroo
+	PRIVATE
+		SDL3::SDL3
+		SDL3_image::SDL3_image
+		SDL3_mixer::SDL3_mixer
+		SDL3_ttf::SDL3_ttf
+		CURL::libcurl
+		SQLite::SQLite3
+		TinyXML2::TinyXML2
+		$<$<PLATFORM_ID:Windows>:libintl>
+		$<$<PLATFORM_ID:Darwin>:intl>
+)
 
 set(INSTALL_FOLDER ".")
-
-#file(GLOB dataFiles "${CMAKE_CURRENT_SOURCE_DIR}/data/**/*")
-set(CPACK_SOURCE_IGNORE_FILES "/\\\\\\\\.git/;\\\\\\\\.swp$;")
+set(CPACK_SOURCE_IGNORE_FILES "/\\.git/;\\.swp$;")
 
 install(
 	DIRECTORY data resources DESTINATION "${INSTALL_FOLDER}"
 	PATTERN ".git" EXCLUDE
 )
+
 install(FILES config.ini ../LICENSE ../README.md ../CREDITS DESTINATION "${INSTALL_FOLDER}")
 
 install(
@@ -60,14 +67,13 @@ install(
 	BUNDLE DESTINATION "${INSTALL_FOLDER}"
 )
 
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Thief Catcher")
+set(CPACK_PACKAGE_NAME "ThiefCatcher")
 set(CPACK_PACKAGE_VENDOR "Ponup Games")
-set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/../README.md")
-set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/../LICENSE")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Thief Catcher")
+set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_SOURCE_DIR}/README.md")
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE")
 set(CPACK_PACKAGE_EXECUTABLES "ThiefCatcher;Thief Catcher")
-set(CPACK_PACKAGE_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
-set(CPACK_PACKAGE_VERSION_MINOR ${PROJECT_VERSION_MINOR})
-set(CPACK_PACKAGE_VERSION_PATCH ${PROJECT_VERSION_PATCH})
+set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
 
 set(CPACK_NSIS_HELP_LINK "http://ponup.com/thief-catcher.html")
 set(CPACK_NSIS_URL_INFO_ABOUT "http://ponup.com/thief-catcher.html")
@@ -75,4 +81,3 @@ set(CPACK_NSIS_CONTACT "https://docs.google.com/forms/d/1MnEaBXmTZvtJsE-efQpxuSs
 set(CPACK_NSIS_MODIFY_PATH ON)
 
 include(CPack)
-

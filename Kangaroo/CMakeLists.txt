@@ -1,27 +1,33 @@
 
-set(KANGAROO_LIB_NAME kangaroo)
-
-project(${KANGAROO_LIB_NAME} VERSION 0.9.9 LANGUAGES CXX)
-
 find_package(SDL3 REQUIRED)
 find_package(SDL3_ttf REQUIRED)
 find_package(SDL3_image REQUIRED)
 find_package(SDL3_mixer REQUIRED)
 
-file(GLOB_RECURSE KANGAROO_SOURCES "src/*.cpp")
-add_library(${KANGAROO_LIB_NAME} STATIC ${KANGAROO_SOURCES})
+file(GLOB_RECURSE KANGAROO_SOURCES CONFIGURE_DEPENDS "src/*.cpp")
 
-target_include_directories(
-	${KANGAROO_LIB_NAME}
-	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
+add_library(kangaroo STATIC ${KANGAROO_SOURCES})
+
+target_compile_features(kangaroo PUBLIC cxx_std_23)
+
+target_include_directories(kangaroo
+	PUBLIC
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+		$<INSTALL_INTERFACE:include>
 )
-target_link_libraries(${KANGAROO_LIB_NAME} PRIVATE SDL3::SDL3 SDL3_ttf::SDL3_ttf SDL3_image::SDL3_image SDL3_mixer::SDL3_mixer)
-set_property(TARGET ${KANGAROO_LIB_NAME} PROPERTY CXX_STANDARD 17)
 
-if(UNIX)
-	add_definitions(-pedantic -pedantic-errors -Wall -Werror)
-else()
-	add_definitions(-Wall)
-endif()
+target_link_libraries(kangaroo
+	PRIVATE
+		SDL3::SDL3
+		SDL3_ttf::SDL3_ttf
+		SDL3_image::SDL3_image
+		SDL3_mixer::SDL3_mixer
+)
+
+target_compile_options(kangaroo PRIVATE
+	$<$<CXX_COMPILER_ID:GNU,Clang>:-Wall -Wextra -Werror -pedantic -pedantic-errors>
+	$<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
+)
+
 
 
