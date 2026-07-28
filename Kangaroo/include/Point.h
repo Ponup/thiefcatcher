@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL_rect.h>
+#include <SDL3/SDL_rect.h>
 
 #include <iostream>
 using std::ostream;

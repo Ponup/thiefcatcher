@@ -3,7 +3,7 @@
 #include <EventHandler.h>
 #include <Window.h>
 
-#include <SDL.h>
+#include <SDL3/SDL.h>
 
 #include <Renderer.h>
 

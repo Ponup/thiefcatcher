@@ -13,8 +13,8 @@ constexpr char LANGUAGES[NUM_LANGUAGES][20] = { "English", "Spanish" };
 OptionsScreen::OptionsScreen(Renderer* renderer) :
 	renderer(renderer),
 	backgroundTexture(renderer->internal, "resources/images/menu/background.png"),
-	normalCursor(SDL_SYSTEM_CURSOR_ARROW),
-	handCursor(SDL_SYSTEM_CURSOR_HAND)
+	normalCursor(SDL_SYSTEM_CURSOR_DEFAULT),
+	handCursor(SDL_SYSTEM_CURSOR_POINTER)
 	{
 	quit = false;
 
@@ -166,7 +166,7 @@ void OptionsScreen::onMouseButtonUp(SDL_MouseButtonEvent e) {
 }
 
 void OptionsScreen::onKeyDown(SDL_KeyboardEvent e) {
-	if (e.keysym.sym == SDLK_ESCAPE) {
+	if (e.key == SDLK_ESCAPE) {
 		quit = true;
 	}
 }

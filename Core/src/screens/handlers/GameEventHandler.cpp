@@ -2,8 +2,8 @@
 
 GameEventHandler::GameEventHandler(Game * game_) :
 	game(game_),
-	normalCursor(SDL_SYSTEM_CURSOR_ARROW),
-	handCursor(SDL_SYSTEM_CURSOR_HAND)
+	normalCursor(SDL_SYSTEM_CURSOR_DEFAULT),
+	handCursor(SDL_SYSTEM_CURSOR_POINTER)
 {
 	sensAreas.addArea(Area(416, 402, 62, 62));
 	sensAreas.addArea(Area(554, 402, 62, 62));
@@ -37,12 +37,12 @@ void GameEventHandler::onMouseButtonUp(SDL_MouseButtonEvent button) {
 }
 
 void GameEventHandler::onKeyDown(SDL_KeyboardEvent key) {
-	switch (key.keysym.sym) {
+	switch (key.key) {
 	case SDLK_ESCAPE:
 		game->quitGame();
 		break;
-	case SDLK_q:
-		if (key.keysym.mod & KMOD_CTRL) {
+	case SDLK_Q:
+		if (key.mod & SDL_KMOD_CTRL) {
 			game->quitGame();
 		}
 		break;

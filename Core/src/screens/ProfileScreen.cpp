@@ -273,7 +273,7 @@ void ProfileScreen::onMouseButtonUp(SDL_MouseButtonEvent e) {
 
 void ProfileScreen::onKeyDown(SDL_KeyboardEvent event) {
     // 0: sex, 1: hair, 2: hobby, 3: features, 4: capture, 5: cancel
-    switch (event.keysym.sym) {
+    switch (event.key) {
         case SDLK_ESCAPE:
             quit = true;
             break;

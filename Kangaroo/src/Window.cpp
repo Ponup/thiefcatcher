@@ -1,17 +1,17 @@
 #include "Window.h"
 
 #include <stdio.h>
-#include <SDL.h>
-#include <SDL_image.h>
+#include <SDL3/SDL.h>
+#include <SDL3_image/SDL_image.h>
 
-const int Window::FLAGS_WINDOW = SDL_WINDOW_SHOWN;
-const int Window::FLAGS_FULLSCREEN = SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN;
+const int Window::FLAGS_WINDOW = 0;
+const int Window::FLAGS_FULLSCREEN = SDL_WINDOW_FULLSCREEN;
 
 SDL_Renderer* Window::renderer = nullptr;
 SDL_Texture* Window::texture = nullptr;
 
 Window::Window(const string& title, const Dimension &dimension) {
-    *this = Window(title, dimension, nullptr, false);
+    *this = Window(title, dimension, "", false);
 }
 
 Window::Window(const string& title_, const Dimension &dimension, const string& iconPath_, bool fullScreen_) :
@@ -26,15 +26,13 @@ Window::~Window() {
 
 void Window::toggleFullScreen() {
     fullScreen = !fullScreen;
-    SDL_SetWindowFullscreen(window, fullScreen ? SDL_WINDOW_FULLSCREEN : 0);
+    SDL_SetWindowFullscreen(window, fullScreen);
 }
 
 void Window::defineSurface() {
-    int flags = (fullScreen ? FLAGS_FULLSCREEN : FLAGS_WINDOW);
+    Uint32 flags = (fullScreen ? FLAGS_FULLSCREEN : FLAGS_WINDOW);
 
     window = SDL_CreateWindow(title.c_str(),
-            SDL_WINDOWPOS_UNDEFINED,
-            SDL_WINDOWPOS_UNDEFINED,
             dimension.w,
             dimension.h,
             flags);
@@ -43,11 +41,11 @@ void Window::defineSurface() {
         SDL_Surface *icon = IMG_Load(iconPath.c_str());
         if (icon != nullptr) {
             SDL_SetWindowIcon(window, icon);
-            SDL_FreeSurface(icon);
+            SDL_DestroySurface(icon);
         }
     }
 
-    renderer = SDL_CreateRenderer(window, -1, 0);
+    renderer = SDL_CreateRenderer(window, nullptr);
 }
 
 Dimension Window::getDimension() const {

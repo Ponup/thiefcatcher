@@ -91,19 +91,18 @@ void ComputerScreen::showLines() {
 int ComputerScreen::readKey() {
 	int key = SDLK_ESCAPE;
 
-	bool quit = false;
+	bool done = false;
 	SDL_Event e;
 
-	while (!quit) {
+	while (!done) {
 		while (SDL_PollEvent(&e)) {
-			if (e.type == SDL_KEYDOWN) {
-				key = e.key.keysym.sym;
-				quit = true;
+			if (e.type == SDL_EVENT_KEY_DOWN) {
+				key = e.key.key;
+				done = true;
 			}
 		}
 		SDL_Delay(20);
 	}
-
 	return key;
 }
 
@@ -114,7 +113,7 @@ void ComputerScreen::waitForInput() {
 	while (!quit) {
 		SDL_Delay(80);
 		while (SDL_PollEvent(&ev)) {
-			quit = ev.type == SDL_KEYDOWN || ev.type == SDL_MOUSEBUTTONDOWN;
+			quit = ev.type == SDL_EVENT_KEY_DOWN || ev.type == SDL_EVENT_MOUSE_BUTTON_DOWN;
 		}
 	}
 }

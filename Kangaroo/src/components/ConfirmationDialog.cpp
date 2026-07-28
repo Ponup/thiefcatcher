@@ -21,7 +21,7 @@ int ConfirmationDialog::showGetSelected() {
     };
     
     int buttonid;
-    if (SDL_ShowMessageBox(&messageboxdata, &buttonid) < 0) {
+    if (!SDL_ShowMessageBox(&messageboxdata, &buttonid)) {
         return DIALOG_YES;
     }
     

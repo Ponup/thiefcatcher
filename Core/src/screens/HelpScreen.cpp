@@ -73,7 +73,7 @@ void HelpScreen::show() {
 	bool quit = false;
 	while(!quit) {
 		while(SDL_PollEvent(&event)) {
-			quit = (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_KEYDOWN || event.type == SDL_QUIT);
+			quit = (event.type == SDL_EVENT_MOUSE_BUTTON_DOWN || event.type == SDL_EVENT_KEY_DOWN || event.type == SDL_EVENT_QUIT);
 		}
 		SDL_Delay(10);		
 	}

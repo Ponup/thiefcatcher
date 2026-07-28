@@ -3,7 +3,7 @@
 #include <stdexcept>
 using std::runtime_error;
 
-#include <SDL_image.h>
+#include <SDL3_image/SDL_image.h>
 
 #include "StringUtil.h"
 
@@ -20,15 +20,13 @@ Surface::Surface(SDL_Surface *surface)
     {
         throw std::runtime_error("surface is null");
     }
-    SDL_Surface *convertedSurface = SDL_ConvertSurface(surface, surface->format, SDL_SWSURFACE);
+    SDL_Surface *convertedSurface = SDL_ConvertSurface(surface, surface->format);
     this->surface = (nullptr == convertedSurface ? surface : convertedSurface);
 }
 
 Surface::Surface(Surface *surface, const Dimension &dimension)
 {
-    SDL_Surface *x = surface->toSDL();
-    this->surface = SDL_CreateRGBSurface((x)->flags /*| SDL_SRCALPHA*/, dimension.w,
-                                         dimension.h, (x)->format->BitsPerPixel, (x)->format->Rmask, (x)->format->Gmask, (x)->format->Bmask, (x)->format->Amask);
+    this->surface = SDL_CreateSurface(dimension.w, dimension.h, surface->toSDL()->format);
 }
 
 Surface::Surface(const string &path, bool hasAlphaChannel)
@@ -40,7 +38,7 @@ void Surface::load(const string &path, bool hasAlphaChannel)
 {
     SDL_Surface *normal = IMG_Load(path.c_str());
     if (nullptr == normal)
-        throw runtime_error(IMG_GetError());
+        throw runtime_error(SDL_GetError());
 
     surface = normal;
 }
@@ -49,7 +47,7 @@ Surface::~Surface()
 {
     if (surface != nullptr)
     {
-        SDL_FreeSurface(surface);
+        SDL_DestroySurface(surface);
         surface = nullptr;
     }
 }
@@ -65,14 +63,14 @@ Dimension Surface::getDimension() const
 
 void Surface::clean()
 {
-    Uint32 a = SDL_MapRGB(surface->format, 200, 200, 200);
-    SDL_FillRect(surface, nullptr, a);
+    Uint32 a = SDL_MapRGB(SDL_GetPixelFormatDetails(surface->format), nullptr, 200, 200, 200);
+    SDL_FillSurfaceRect(surface, nullptr, a);
 }
 
 void Surface::clean(const Color &color)
 {
-    Uint32 a = SDL_MapRGB(surface->format, color.r, color.g, color.b);
-    SDL_FillRect(surface, nullptr, a);
+    Uint32 a = SDL_MapRGB(SDL_GetPixelFormatDetails(surface->format), nullptr, color.r, color.g, color.b);
+    SDL_FillSurfaceRect(surface, nullptr, a);
 }
 
 void Surface::setTransparentColor(const Color &color)
@@ -113,8 +111,7 @@ void Surface::updateArea(const Area &area)
 
 Surface *Surface::getArea(const Point &point, const Dimension &dimension)
 {
-    SDL_Surface *area = SDL_CreateRGBSurface((surface)->flags /*| SDL_SRCALPHA*/, (dimension.w),
-                                             (dimension.h), (surface)->format->BitsPerPixel, (surface)->format->Rmask, (surface)->format->Gmask, (surface)->format->Bmask, (surface)->format->Amask);
+    SDL_Surface *area = SDL_CreateSurface(dimension.w, dimension.h, surface->format);
     SDL_Rect rect = {point.x, point.y, dimension.w, dimension.h};
     SDL_BlitSurface(surface, &rect, area, nullptr);
 
@@ -123,8 +120,7 @@ Surface *Surface::getArea(const Point &point, const Dimension &dimension)
 
 Surface *Surface::getArea(const Area &areap)
 {
-    SDL_Surface *area = SDL_CreateRGBSurface((surface)->flags /*| SDL_SRCALPHA*/, (areap.w),
-                                             (areap.h), (surface)->format->BitsPerPixel, (surface)->format->Rmask, (surface)->format->Gmask, (surface)->format->Bmask, (surface)->format->Amask);
+    SDL_Surface *area = SDL_CreateSurface(areap.w, areap.h, surface->format);
     SDL_Rect rect = areap;
     SDL_BlitSurface(surface, &rect, area, nullptr);
 
@@ -144,7 +140,7 @@ void Surface::transform(SDL_Renderer *renderer, double angle, double zoom, int s
     SDL_Surface *rotatedSurface = nullptr; // SDL_RenderTextureRotated(renderer, surface, nullptr, nullptr, angle, zoom, SDL_FLIP_NONE);
     if (nullptr != rotatedSurface)
     {
-        SDL_FreeSurface(surface);
+        SDL_DestroySurface(surface);
         surface = rotatedSurface;
     }
 }

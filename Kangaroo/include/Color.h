@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL.h>
+#include <SDL3/SDL.h>
 
 /**
  * Color definition, taking four parameters (r, g, b and a channel)

@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-#include <SDL.h>
+#include <SDL3/SDL.h>
 
 MediaSound::MediaSound() {
 	sound = nullptr;
@@ -14,28 +14,27 @@ MediaSound::MediaSound(const char *name) {
 
 MediaSound::~MediaSound() {
 	if(sound)
-		Mix_FreeChunk(sound);
+		MIX_DestroyAudio(sound);
 }
 
 void MediaSound::load(const char *name) {
-	sound = Mix_LoadWAV(name);
+	sound = MIX_LoadAudio(nullptr, name, true);
 	if(!sound) {
-		throw std::runtime_error(Mix_GetError());
+		throw std::runtime_error(SDL_GetError());
 	}
 }
 
 void MediaSound::play() {
-	if(Mix_PlayChannel(-1, sound, 0) == -1) {
-		throw std::runtime_error(Mix_GetError());
+	if (sound) {
+		MIX_PlayAudio(nullptr, sound);
 	}
 }
 
 void MediaSound::setVolume(int volume) {
-	// MIX_MAX_VOLUME
-	Mix_VolumeChunk(sound, volume);
+	(void)volume;
 }
 
-Mix_Chunk *MediaSound::toSDL() {
+MIX_Audio *MediaSound::toSDL() {
 	return sound;
 }
 

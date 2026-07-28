@@ -119,7 +119,7 @@ void IntroScreen::run() {
         if (alpha < 255) alpha += 3;
 
         while (SDL_PollEvent(&e))
-            quit = (e.type == SDL_QUIT || e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_KEYDOWN);
+            quit = (e.type == SDL_EVENT_QUIT || e.type == SDL_EVENT_MOUSE_BUTTON_DOWN || e.type == SDL_EVENT_KEY_DOWN);
     }
 }
 

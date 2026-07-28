@@ -44,8 +44,8 @@ public:
 DossierScreen::DossierScreen(Window *window_) :
 window(window_),
 backgroundTexture(window_->renderer, 800, 600),
-normalCursor(SDL_SYSTEM_CURSOR_ARROW),
-handCursor(SDL_SYSTEM_CURSOR_HAND) {
+normalCursor(SDL_SYSTEM_CURSOR_DEFAULT),
+handCursor(SDL_SYSTEM_CURSOR_POINTER) {
     criminals = CriminalsManager::findAll();
 
     sensAreas.addArea(Area(Point(28, 511), Dimension(61, 61)));
@@ -149,7 +149,7 @@ void DossierScreen::onMouseButtonDown(SDL_MouseButtonEvent e) {
 }
 
 void DossierScreen::onKeyDown(SDL_KeyboardEvent e) {
-    switch (e.keysym.sym) {
+    switch (e.key) {
         case SDLK_RIGHT:
             if (index + 1 < static_cast<int> (criminals.size())) {
                 index++;

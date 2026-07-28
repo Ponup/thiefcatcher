@@ -47,7 +47,7 @@ bool SurfaceUtil::fadeIn(Surface * surface, Surface * parent, const Point & to) 
 		SDL_Delay(10);
 		
 		while(SDL_PollEvent(&e)) {
-			if(e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) {
+			if(e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_ESCAPE) {
 				quit = true;
 			}
 		}
@@ -84,7 +84,7 @@ bool SurfaceUtil::fadeOut(Surface * surface, Surface * parent, const Point & to)
 		SDL_Delay(10);
 		
 		while(SDL_PollEvent(&e)) {
-			if(e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) {
+			if(e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_ESCAPE) {
 				quit = true;
 			}
 		}

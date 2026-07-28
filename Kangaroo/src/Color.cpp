@@ -20,6 +20,6 @@ Color::Color( Uint8 r_, Uint8 g_, Uint8 b_, Uint8 a_ ) {
 }
 
 Uint32 Color::toSDL( SDL_Surface* surface ) const {
-	return SDL_MapRGB( surface->format, r, g, b );
+	return SDL_MapRGB( SDL_GetPixelFormatDetails(surface->format), nullptr, r, g, b );
 }
 

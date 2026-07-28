@@ -58,7 +58,7 @@ int PlaceSelector::showAndReturn()
 
 void PlaceSelector::onKeyDown(SDL_KeyboardEvent event)
 {
-    switch (event.keysym.sym)
+    switch (event.key)
     {
     case SDLK_ESCAPE:
         returnCode = -1;

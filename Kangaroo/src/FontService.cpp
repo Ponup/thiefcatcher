@@ -1,12 +1,12 @@
 #include "FontService.h"
 
-#include <SDL_ttf.h>
+#include <SDL3_ttf/SDL_ttf.h>
 
 void FontService::init() {
-	initialized = TTF_Init() == 0;
+	initialized = TTF_Init();
 	if (!initialized)
 	{
-		throw runtime_error(TTF_GetError());
+		throw runtime_error(SDL_GetError());
 	}
 }
 

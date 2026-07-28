@@ -20,7 +20,7 @@ void Font::load(const char *fontPath, unsigned int size) {
     });
 
     if (!internal) {
-        throw std::runtime_error(TTF_GetError());
+        throw std::runtime_error(SDL_GetError());
     }
     style = FontStyle::BLENDED;
 }
@@ -61,7 +61,7 @@ Color Font::getColor() const {
 
 unsigned int Font::getLineSkip() const {
     TTF_Font* font = internal.get();
-    return TTF_FontLineSkip(font);
+    return TTF_GetFontLineSkip(font);
 }
 
 TTF_Font *Font::toSDL() {

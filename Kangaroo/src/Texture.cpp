@@ -1,6 +1,6 @@
 #include "Texture.h"
 
-#include <SDL_image.h>
+#include <SDL3_image/SDL_image.h>
 
 Kangaroo::Texture::Texture(SDL_Renderer* renderer, int width, int height) :
 width(width),
@@ -23,8 +23,12 @@ Kangaroo::Texture::~Texture() {
 }
 
 void Kangaroo::Texture::init() {
-    if (SDL_QueryTexture(internal, nullptr, nullptr, &width, &height) != 0) {
-        // Log warning
+    if (internal) {
+        float w = 0, h = 0;
+        if (SDL_GetTextureSize(internal, &w, &h)) {
+            width = static_cast<int>(w);
+            height = static_cast<int>(h);
+        }
     }
 }
 

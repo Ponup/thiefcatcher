@@ -24,11 +24,11 @@ void Sprite::setPosition(const Point &position_) {
 
 void Sprite::clipRenderer(Renderer *renderer) {
     SDL_Rect rect = {position.x, position.y, frameDim.w, frameDim.h};
-    SDL_RenderSetClipRect(renderer->internal, &rect);
+    SDL_SetRenderClipRect(renderer->internal, &rect);
 }
 
 void Sprite::unclipRenderer(Renderer *renderer) {
-    SDL_RenderSetClipRect(renderer->internal, nullptr);
+    SDL_SetRenderClipRect(renderer->internal, nullptr);
 }
 
 void Sprite::draw(Renderer *screen) {

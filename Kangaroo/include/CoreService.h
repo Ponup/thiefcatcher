@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL.h>
+#include <SDL3/SDL.h>
 
 #include <stdexcept>
 using std::runtime_error;
@@ -19,7 +19,7 @@ private:
 	Uint32 flags;
 
 public:
-	CoreService( Uint32 flags = SDL_INIT_EVERYTHING );
+	CoreService( Uint32 flags = SDL_INIT_VIDEO | SDL_INIT_AUDIO );
 	void init();
 	void destroy();
 };

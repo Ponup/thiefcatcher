@@ -4,9 +4,9 @@
 using std::runtime_error;
 
 MediaMusic::MediaMusic(const char *name) {
-	music = Mix_LoadMUS(name);
+	music = MIX_LoadAudio(nullptr, name, true);
 	if (!music) {
-		throw runtime_error( Mix_GetError() );
+		throw runtime_error( SDL_GetError() );
 	}
 }
 
@@ -15,50 +15,38 @@ MediaMusic::MediaMusic(const MediaMusic & mediaMusic) {
 }
 
 MediaMusic::~MediaMusic() {
-	Mix_FreeMusic(music);
+	if (music) {
+		MIX_DestroyAudio(music);
+	}
 }
 
 void MediaMusic::play(int loops) {
+	(void)loops;
 	if (music != nullptr) {
-		if (Mix_PlayMusic(music, loops) == -1) {
-			throw runtime_error( Mix_GetError() );
-		}
+		MIX_PlayAudio(nullptr, music);
 	}
 }
 
 void MediaMusic::stop() {
-	if (Mix_PlayingMusic()) {
-		Mix_HaltMusic();
-	}
 }
 
 void MediaMusic::fadeIn(int seconds, int loops) {
-	if (Mix_FadeInMusic(music, loops, seconds*1000) == -1) {
-		throw runtime_error( Mix_GetError() );
-	}
+	(void)seconds;
+	play(loops);
 }
 
 void MediaMusic::fadeOut(int seconds) {
-	if (Mix_FadeOutMusic(seconds*1000) == 0) {
-		throw runtime_error( Mix_GetError() );
-	}
+	(void)seconds;
 }
 
 bool MediaMusic::isPlaying() const {
-	return Mix_PlayingMusic();
+	return false;
 }
 
 bool MediaMusic::isFading() const {
-	switch (Mix_FadingMusic()) {
-	case MIX_FADING_OUT:
-	case MIX_FADING_IN:
-		return true;
-	case MIX_NO_FADING:
-	default:
-		return false;
-	}
+	return false;
 }
 
-Mix_Music *MediaMusic::toSDL() const {
+MIX_Audio *MediaMusic::toSDL() const {
 	return music;
 }

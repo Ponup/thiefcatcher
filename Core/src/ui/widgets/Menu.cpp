@@ -17,8 +17,8 @@ Menu::Menu(Window * window_) :
 	window(window_),
 	backgroundTexture(window_->renderer, "resources/images/menu/background.png"),
 	smokingPipeTexture(window_->renderer, "resources/images/menu/pipe.png"),
-	normalCursor(SDL_SYSTEM_CURSOR_ARROW),
-	handCursor(SDL_SYSTEM_CURSOR_HAND)
+	normalCursor(SDL_SYSTEM_CURSOR_DEFAULT),
+	handCursor(SDL_SYSTEM_CURSOR_POINTER)
 {
 	lastY = 150;
 	currentItem = -2;
@@ -112,7 +112,7 @@ void Menu::onQuit(SDL_QuitEvent e) {
 }
 
 void Menu::onKeyDown(SDL_KeyboardEvent key) {
-	switch (key.keysym.sym) {
+	switch (key.key) {
 	case SDLK_UP:
 		if (selectedItem > 0) {
 			selectedItem--;

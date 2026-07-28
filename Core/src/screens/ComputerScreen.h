@@ -6,7 +6,7 @@ using std::string;
 #include <vector>
 using std::vector;
 
-#include <SDL.h>
+#include <SDL3/SDL.h>
 
 #include <Font.h>
 #include <Surface.h>

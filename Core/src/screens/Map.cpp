@@ -12,8 +12,8 @@ Map::Map(Renderer *renderer, Country *sourceCountry_, Country *targetCountry_) :
 																				 backgroundTexture(renderer->internal, "resources/images/empty_background.jpg"),
 																				 bulletSurface(renderer->internal, "resources/images/map/flight_target.gif"),
 																				 bulletOverSurface(renderer->internal, "resources/images/map/flight_target_over.gif"),
-																				 normalCursor(SDL_SYSTEM_CURSOR_ARROW),
-																				 handCursor(SDL_SYSTEM_CURSOR_HAND)
+																				 normalCursor(SDL_SYSTEM_CURSOR_DEFAULT),
+																				 handCursor(SDL_SYSTEM_CURSOR_POINTER)
 {
 	mapOffset = Point(50, 80);
 	// This point fixes the position of the bullets on the map.
@@ -180,7 +180,7 @@ void Map::gotoTarget()
 	{
 		while (SDL_PollEvent(&ev))
 		{
-			if (ev.type == SDL_QUIT || ev.type == SDL_KEYDOWN || ev.type == SDL_MOUSEBUTTONDOWN)
+			if (ev.type == SDL_EVENT_QUIT || ev.type == SDL_EVENT_KEY_DOWN || ev.type == SDL_EVENT_MOUSE_BUTTON_DOWN)
 			{
 				stopAnimation = true;
 			}
@@ -217,10 +217,8 @@ char Map::getSelection()
 	return selected;
 }
 
-void Map::onKeyDown(SDL_KeyboardEvent key)
-{
-	updatePending = true;
-	switch (key.keysym.sym)
+void Map::onKeyDown(SDL_KeyboardEvent key) {
+	switch (key.key)
 	{
 	case SDLK_ESCAPE:
 		cancelScene();

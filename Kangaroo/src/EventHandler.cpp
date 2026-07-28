@@ -3,22 +3,22 @@
 void EventHandler::captureEvents() {
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
-            case SDL_QUIT:
+            case SDL_EVENT_QUIT:
                 onQuit(event.quit);
                 break;
-            case SDL_MOUSEMOTION:
+            case SDL_EVENT_MOUSE_MOTION:
                 onMouseMotion(event.motion);
                 break;
-            case SDL_MOUSEBUTTONDOWN:
+            case SDL_EVENT_MOUSE_BUTTON_DOWN:
                 onMouseButtonDown(event.button);
                 break;
-            case SDL_MOUSEBUTTONUP:
+            case SDL_EVENT_MOUSE_BUTTON_UP:
                 onMouseButtonUp(event.button);
                 break;
-            case SDL_KEYDOWN:
+            case SDL_EVENT_KEY_DOWN:
                 onKeyDown(event.key);
                 break;
-            case SDL_KEYUP:
+            case SDL_EVENT_KEY_UP:
                 onKeyUp(event.key);
                 break;
             default:

@@ -5,7 +5,7 @@ Kangaroo::MouseCursor::MouseCursor(SDL_SystemCursor cursorId) {
 }
 
 Kangaroo::MouseCursor::~MouseCursor() {
-	SDL_FreeCursor(internal);
+	SDL_DestroyCursor(internal);
 }
 
 void Kangaroo::MouseCursor::applyToWindow() const {

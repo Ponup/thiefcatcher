@@ -26,8 +26,8 @@ Game::Game(Window *window, PlayerCase *playerCase) : window(window),
                                                      backgroundTexture(window->renderer, "resources/images/mainwindow_bg.png"),
                                                      playerCase(playerCase),
                                                      activeClue(nullptr),
-                                                     normalCursor(SDL_SYSTEM_CURSOR_ARROW),
-                                                     handCursor(SDL_SYSTEM_CURSOR_HAND)
+                                                     normalCursor(SDL_SYSTEM_CURSOR_DEFAULT),
+                                                     handCursor(SDL_SYSTEM_CURSOR_POINTER)
 {
 
     clock = new Clock(&renderer, Point(20, 7));

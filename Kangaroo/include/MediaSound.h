@@ -1,11 +1,11 @@
 #pragma once
 
-#include <SDL_mixer.h>
+#include <SDL3_mixer/SDL_mixer.h>
 
 class MediaSound {
 	
 private:
-	Mix_Chunk *sound;
+	MIX_Audio *sound;
 	
 public:
 	MediaSound();
@@ -15,6 +15,6 @@ public:
 	void load( const char *name );
 	void play();
 	void setVolume( int volume );
-	Mix_Chunk* toSDL();
+	MIX_Audio* toSDL();
 };
 

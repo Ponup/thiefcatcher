@@ -1,11 +1,11 @@
 #pragma once
 
-#include <SDL_mixer.h>
+#include <SDL3_mixer/SDL_mixer.h>
 
 class MediaMusic {
 	
 private:
-	Mix_Music *music;
+	MIX_Audio *music;
 
 public:
 	const static int ONE_TIME = 1;
@@ -22,6 +22,6 @@ public:
 	bool isPlaying() const;
 	bool isFading() const;
 
-	Mix_Music *toSDL() const;
+	MIX_Audio *toSDL() const;
 };
 

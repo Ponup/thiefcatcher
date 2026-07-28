@@ -4,7 +4,7 @@
 using std::shared_ptr;
 using std::make_shared;
 
-#include <SDL_ttf.h>
+#include <SDL3_ttf/SDL_ttf.h>
 
 #include "Color.h"
 

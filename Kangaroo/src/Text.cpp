@@ -1,6 +1,6 @@
 #include "Text.h"
 
-#include <SDL.h>
+#include <SDL3/SDL.h>
 
 #include "StringUtil.h"
 
@@ -37,8 +37,8 @@ Font *Text::getFont() const {
 
 Dimension Text::getDimension() const {
     int width, height;
-    if (TTF_SizeText(font->toSDL(), text.c_str(), &width, &height)) {
-        throw runtime_error(TTF_GetError());
+    if (!TTF_GetStringSize(font->toSDL(), text.c_str(), text.length(), &width, &height)) {
+        throw runtime_error(SDL_GetError());
     }
 
     return Dimension(width, height);
@@ -54,21 +54,23 @@ SDL_Surface* Text::toSDL() {
     switch (font->getStyle()) {
         case FontStyle::BLENDED:
             fontSurface
-                    = TTF_RenderUTF8_Blended(font->toSDL(), text.c_str(), color);
+                    = TTF_RenderText_Blended(font->toSDL(), text.c_str(), text.length(), color);
             break;
         case FontStyle::SOLID:
-            fontSurface = TTF_RenderUTF8_Solid(font->toSDL(), text.c_str(), color);
+            fontSurface = TTF_RenderText_Solid(font->toSDL(), text.c_str(), text.length(), color);
             break;
         case FontStyle::SHADED:
         default:
         {
-            SDL_Color bgColor = {0, 0, 0};
-            fontSurface = TTF_RenderUTF8_Shaded(font->toSDL(), text.c_str(), color,
+            SDL_Color bgColor = {0, 0, 0, 255};
+            fontSurface = TTF_RenderText_Shaded(font->toSDL(), text.c_str(), text.length(), color,
                     bgColor);
         }
             break;
     }
-    SDL_SetSurfaceAlphaMod(fontSurface, alpha);
+    if (fontSurface) {
+        SDL_SetSurfaceAlphaMod(fontSurface, alpha);
+    }
 
     return fontSurface;
 }

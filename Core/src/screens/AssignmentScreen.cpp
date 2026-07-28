@@ -48,7 +48,7 @@ PlayerCase *AssignmentScreen::show() {
 
         // readKey() locks the user input
         int key = readKey();
-        if (key == SDLK_y || key == SDLK_s) {
+        if (key == SDLK_Y || key == SDLK_S) {
             if ((player = PlayersManager::create(name))) {
                 break;
             }
@@ -127,7 +127,7 @@ PlayerCase *AssignmentScreen::show() {
     bool quit = false;
     while (!quit) {
         while (SDL_PollEvent(&event)) {
-            quit = (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_KEYDOWN || event.type == SDL_QUIT);
+            quit = (event.type == SDL_EVENT_MOUSE_BUTTON_DOWN || event.type == SDL_EVENT_KEY_DOWN || event.type == SDL_EVENT_QUIT);
         }
         SDL_Delay(10);
     }
@@ -144,10 +144,10 @@ string AssignmentScreen::askName(bool &quitted) {
 
     while (!keepLooping) {
         if (SDL_PollEvent(&ev)) {
-            if (ev.type == SDL_QUIT) {
+            if (ev.type == SDL_EVENT_QUIT) {
                 keepLooping = quitted = true;
-            } else if (ev.type == SDL_KEYDOWN) {
-                SDL_Keycode keyCode = ev.key.keysym.sym;
+            } else if (ev.type == SDL_EVENT_KEY_DOWN) {
+                SDL_Keycode keyCode = ev.key.key;
                 if (keyCode == SDLK_ESCAPE) {
                     keepLooping = quitted = true;
                 } else if (keyCode == SDLK_RETURN) {

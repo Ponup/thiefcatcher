@@ -41,8 +41,8 @@ string InputBox::getText() {
 }
 
 void InputBox::handleEvent(SDL_Event & e) {
-	if (e.type == SDL_KEYDOWN) {
-		SDL_Keycode key = e.key.keysym.sym;
+	if (e.type == SDL_EVENT_KEY_DOWN) {
+		SDL_Keycode key = e.key.key;
 		putChar(key);
 	}
 }
@@ -64,8 +64,8 @@ string InputBox::get() {
 	while (!quit) {
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
-			case SDL_KEYDOWN:
-				if (event.key.keysym.sym == SDLK_RETURN) {
+			case SDL_EVENT_KEY_DOWN:
+				if (event.key.key == SDLK_RETURN) {
 					quit = true;
 				}
 				break;
@@ -85,7 +85,7 @@ void InputBox::clear() {
 }
 
 void InputBox::putChar(SDL_Keycode key) {
-	if (text.size() < maxChars && ((key >= SDLK_a && key <= SDLK_z) || (key
+	if (text.size() < maxChars && ((key >= SDLK_A && key <= SDLK_Z) || (key
 		>= SDLK_0 && key <= SDLK_9) || key == SDLK_SPACE)) {
 		text += key;
 	}

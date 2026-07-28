@@ -4,7 +4,7 @@ CoreService::CoreService( Uint32 flags_ ) : flags( flags_ ) {
 }
 
 void CoreService::init() {
-	if( SDL_Init( flags ) == -1 ) {
+	if( !SDL_Init( flags ) ) {
 		throw runtime_error( SDL_GetError() );
 	}
 }
