@@ -37,3 +37,4 @@ Testing
 build.ninja
 .ninja*
 .venv/
+Core/generated/

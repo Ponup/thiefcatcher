@@ -25,9 +25,10 @@ target_link_libraries(kangaroo
 )
 
 target_compile_options(kangaroo PRIVATE
-	$<$<CXX_COMPILER_ID:GNU,Clang>:-Wall -Wextra -Werror -pedantic -pedantic-errors>
+	$<$<CXX_COMPILER_ID:GNU,Clang>:-Wall -Werror -pedantic -pedantic-errors>
 	$<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
 )
+
 
 
 

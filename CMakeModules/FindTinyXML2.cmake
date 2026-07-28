@@ -1,52 +1,88 @@
-#.rst:
-# FindTinyXML2
-# ------------
-#
-# Locate tinyxml2 library
-#
-# This module defines
-#
-# ::
-#
-#   TINYXML2_LIBRARIES, the library to link against
-#   TINYXML2_FOUND, if false, do not try to link to tinyxml2
-#   TINYXML2_INCLUDE_DIRS, where to find headers.
-#
+# TinyXML2_FOUND
+# TinyXML2_INCLUDE_DIRS
+# TinyXML2_LIBRARIES
 
-find_path(TinyXML2_INCLUDE_DIR tinyxml2.h
-  HINTS ENV TinyXML2_DIR
-  PATH_SUFFIXES include/tinyxml2 include
-  PATHS
-  ~/Library/Frameworks
-  /Library/Frameworks
-  /usr/local
-  /usr
-  /sw # Fink
-  /opt/local # DarwinPorts
-  /opt/csw # Blastwave
-  /opt
-)
+# try to find the CMake config file for TinyXML2 first
+if(NOT TinyXML2_FOUND)
+  find_package(TinyXML2 CONFIG QUIET)
+endif()
+if(TinyXML2_FOUND)
+  message(STATUS "Found TinyXML2 via Config file: ${TinyXML2_DIR}")
+  if(NOT TINYXML2_LIBRARY)
+    # in this case, we're probably using TinyXML2 version 5.0.0 or greater
+    # in which case tinyxml2 is an exported target and we should use that
+    if(TARGET tinyxml2)
+      set(TINYXML2_LIBRARY tinyxml2)
+    elseif(TARGET tinyxml2::tinyxml2)
+      set(TINYXML2_LIBRARY tinyxml2::tinyxml2)
+    elseif(TinyXML2_FIND_REQUIRED)
+      message(FATAL_ERROR "Unable to determine target for TinyXML2")
+    endif()
+    list(APPEND TinyXML2_TARGETS ${TINYXML2_LIBRARY})
+  else()
+    # Only perform that logic once
+    if(NOT TARGET tinyxml2::tinyxml2)
+      # TINYXML2_LIBRARY is composed of debug;<path\to\debug.lib>;optimized;<path\to\release.lib>
+      # we have to extract the appropriate component based on the current configuration.
+      list(LENGTH TINYXML2_LIBRARY TINYXML_LIBRARY_LIST_LENGTH)
+      if(NOT ${TINYXML_LIBRARY_LIST_LENGTH} EQUAL 4)
+        message(FATAL_ERROR "Unable to extract the library file path from ${TINYXML2_LIBRARY}")
+      endif()
+      if(CMAKE_BUILD_TYPE MATCHES DEBUG)
+        list(GET TINYXML2_LIBRARY 0 ASSERT_DEBUG)
+        if(NOT ${ASSERT_DEBUG} STREQUAL "debug")
+          message(FATAL_ERROR "could not parse debug library path from ${TINYXML2_LIBRARY}")
+        endif()
+        list(GET TINYXML2_LIBRARY 1 TINYXML2_LIBRARY_PATH)
+      else()
+        list(GET TINYXML2_LIBRARY 2 ASSERT_OPTIMIZED)
+        if(NOT ${ASSERT_OPTIMIZED} STREQUAL "optimized")
+          message(FATAL_ERROR "could not parse library path from ${TINYXML2_LIBRARY}")
+        endif()
+        list(GET TINYXML2_LIBRARY 3 TINYXML2_LIBRARY_PATH)
+      endif()
+      if(NOT EXISTS ${TINYXML2_LIBRARY_PATH})
+        message(FATAL_ERROR "library file path ${TINYXML2_LIBRARY_PATH} does not exist")
+      endif()
+      
+      add_library(tinyxml2::tinyxml2 UNKNOWN IMPORTED)
+      set_property(TARGET tinyxml2::tinyxml2 PROPERTY IMPORTED_LOCATION ${TINYXML2_LIBRARY_PATH})
+      set_property(TARGET tinyxml2::tinyxml2 PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${TINYXML2_INCLUDE_DIR})
+      list(APPEND TinyXML2_TARGETS tinyxml2::tinyxml2)
+    endif()
+  endif()
+else()
+  find_path(TINYXML2_INCLUDE_DIR NAMES tinyxml2.h)
 
-find_library(TinyXML2_LIBRARY 
-  NAMES tinyxml2 libtinyxml2
-  HINTS ENV TinyXML2_DIR
-  PATH_SUFFIXES lib
-  PATHS
-  ~/Library/Frameworks
-  /Library/Frameworks
-  /usr/local
-  /usr
-  /sw
-  /opt/local
-  /opt/csw
-  /opt
-)
+  find_library(TINYXML2_LIBRARY tinyxml2)
 
-set(TinyXML2_INCLUDE_DIRS "${TinyXML2_INCLUDE_DIR}")
-set(TinyXML2_LIBRARIES "${TinyXML2_LIBRARY}")
+  include(FindPackageHandleStandardArgs)
+  find_package_handle_standard_args(TinyXML2 DEFAULT_MSG TINYXML2_LIBRARY TINYXML2_INCLUDE_DIR)
 
-#include(${CMAKE_CURRENT_LIST_DIR}/FindPackageHandleStandardArgs.cmake)
-find_package_handle_standard_args(TinyXML2 DEFAULT_MSG TinyXML2_LIBRARIES TinyXML2_INCLUDE_DIRS)
+  mark_as_advanced(TINYXML2_INCLUDE_DIR TINYXML2_LIBRARY)
 
-mark_as_advanced(TinyXML2_INCLUDE_DIRS TinyXML2_LIBRARIES TinyXML2_LIBRARY)
+  if(NOT TARGET tinyxml2::tinyxml2)
+    add_library(tinyxml2::tinyxml2 UNKNOWN IMPORTED)
+    set_property(TARGET tinyxml2::tinyxml2 PROPERTY IMPORTED_LOCATION ${TINYXML2_LIBRARY})
+    set_property(TARGET tinyxml2::tinyxml2 PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${TINYXML2_INCLUDE_DIR})
+    list(APPEND TinyXML2_TARGETS tinyxml2::tinyxml2)
+  endif()
+endif()
 
+# Set mixed case INCLUDE_DIRS and LIBRARY variables from upper case ones.
+if(NOT TinyXML2_INCLUDE_DIRS)
+  set(TinyXML2_INCLUDE_DIRS ${TINYXML2_INCLUDE_DIR})
+endif()
+if(NOT TinyXML2_LIBRARIES)
+  set(TinyXML2_LIBRARIES ${TINYXML2_LIBRARY})
+endif()
+
+# On case-insensitive filesystem, it is possible that FindTinyXML2.cmake is used if the caller
+# invoked find_package(TINYXML2), that is the signature used by gz-cmake, see
+# https://github.com/gazebosim/gz-cmake/blob/gz-cmake4_4.1.0/cmake/FindTINYXML2.cmake
+# If that is the case (and we detect it by checking the value of CMAKE_FIND_PACKAGE_NAME)
+# we also define a TINYXML2::TINYXML2 target for gz-cmake compatibility
+if(TARGET tinyxml2::tinyxml2 AND CMAKE_FIND_PACKAGE_NAME STREQUAL "TINYXML2" AND NOT TARGET TINYXML2::TINYXML2)
+  add_library(TINYXML2::TINYXML2 INTERFACE IMPORTED)
+  set_property(TARGET tinyxml2::tinyxml2 PROPERTY INTERFACE_LINK_LIBRARIES tinyxml2::tinyxml2)
+endif()

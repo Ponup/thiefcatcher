@@ -4,7 +4,7 @@ message(STATUS "Compiling under ${CMAKE_SYSTEM_NAME}")
 
 find_package(CURL REQUIRED)
 find_package(TinyXML2 REQUIRED)
-find_package(SQLITE3 REQUIRED)
+find_package(SQLite3 REQUIRED)
 find_package(SDL3 REQUIRED)
 find_package(SDL3_mixer REQUIRED)
 find_package(SDL3_image REQUIRED)
@@ -12,7 +12,9 @@ find_package(SDL3_ttf REQUIRED)
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/conan_toolchain.cmake")
 	include("${CMAKE_CURRENT_SOURCE_DIR}/conan_toolchain.cmake")
+	set(CMAKE_CXX_STANDARD 23)
 endif()
+
 
 file(GLOB_RECURSE GAME_SOURCES CONFIGURE_DEPENDS "src/*.cpp" "vendor/*.cpp" "vendor/*.cc")
 
@@ -29,7 +31,9 @@ target_include_directories(ThiefCatcher PRIVATE
 	"${CMAKE_CURRENT_SOURCE_DIR}/src"
 	"${CMAKE_CURRENT_SOURCE_DIR}/vendor"
 	"${CMAKE_CURRENT_BINARY_DIR}/generated"
+	${CMAKE_INCLUDE_PATH}
 )
+
 
 target_compile_options(ThiefCatcher PRIVATE
 	$<$<CXX_COMPILER_ID:GNU,Clang>:-Wall -Wextra -Werror -pedantic -pedantic-errors>
@@ -45,8 +49,8 @@ target_link_libraries(ThiefCatcher
 		SDL3_mixer::SDL3_mixer
 		SDL3_ttf::SDL3_ttf
 		CURL::libcurl
-		SQLite::SQLite3
-		TinyXML2::TinyXML2
+		SQLite3::SQLite3
+		tinyxml2::tinyxml2
 		$<$<PLATFORM_ID:Windows>:libintl>
 		$<$<PLATFORM_ID:Darwin>:intl>
 )
